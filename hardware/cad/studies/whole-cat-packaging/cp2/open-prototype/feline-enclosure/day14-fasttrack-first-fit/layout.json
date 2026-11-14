@@ -1,0 +1,3413 @@
+{
+  "status": "ONE_UNRELEASED_WHOLE_FIRST_FIT_FOR_REVIEW_NOT_PRINT_OR_PHYSICAL_PASS",
+  "created_utc": "2026-11-14T21:25:10.714800+00:00",
+  "coordinate_frame": "Unscaled WAVEGO source world; front-X, up+Z; source aggregateworld once126solids. Prior localleaf bound table is NOT global.",
+  "document": "DAY14_WAVEGO_FIRST_FIT_UNRELEASED",
+  "native_file": "first-fit.FCStd",
+  "base": {
+    "solids": 126,
+    "volume_mm3": 698536.7373306147,
+    "bounds_mm": [
+      [
+        -141.4884609497277,
+        -95.35466094067525,
+        -168.24665327561837
+      ],
+      [
+        209.5173210636086,
+        95.35466094065528,
+        39.52000000000197
+      ]
+    ],
+    "source_retained_without_scaling": true
+  },
+  "new_deck_mm": {
+    "x": [
+      -105,
+      160
+    ],
+    "y": [
+      -82,
+      82
+    ],
+    "z": [
+      45.52,
+      48.52
+    ],
+    "split_x": 30
+  },
+  "body_envelope_mm": {
+    "x": [
+      -115,
+      170
+    ],
+    "y": [
+      -90,
+      90
+    ],
+    "z": [
+      48,
+      158
+    ]
+  },
+  "rows": [
+    {
+      "id": "WAVEGO_complete_126_source_solids",
+      "object": "WAVEGO_complete_126_source_solids",
+      "evidence": "selected_source",
+      "source": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat\\hardware\\wavego\\WAVEGO_PRO_BETA_v3.FCStd",
+      "bounds_mm": [
+        [
+          -141.4884609497277,
+          -95.35466094067525,
+          -168.24665327561837
+        ],
+        [
+          209.5173210636086,
+          95.35466094065528,
+          39.52000000000197
+        ]
+      ],
+      "volume_mm3": 698536.7373306147,
+      "notes": ""
+    },
+    {
+      "id": "Load_rail_minus22.5",
+      "object": "Load_rail_minus22_5",
+      "evidence": "PROPOSED_source8hole_rail",
+      "source": "",
+      "bounds_mm": [
+        [
+          -86.0,
+          -27.5,
+          38.52
+        ],
+        [
+          128.0,
+          -17.5,
+          45.52
+        ]
+      ],
+      "volume_mm3": 14819.68452688731,
+      "notes": "Source frame through 8 existing vertical holes; M2.5 actual grip/thread/revision fit required. Not only thin cover bearing."
+    },
+    {
+      "id": "Load_rail_22.5",
+      "object": "Load_rail_22_5",
+      "evidence": "PROPOSED_source8hole_rail",
+      "source": "",
+      "bounds_mm": [
+        [
+          -86.0,
+          17.5,
+          38.52
+        ],
+        [
+          128.0,
+          27.5,
+          45.52
+        ]
+      ],
+      "volume_mm3": 14819.68452688731,
+      "notes": "Source frame through 8 existing vertical holes; M2.5 actual grip/thread/revision fit required. Not only thin cover bearing."
+    },
+    {
+      "id": "Deck_front_blank",
+      "object": "Deck_front_blank",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -105.0,
+          -82.0,
+          45.52
+        ],
+        [
+          30.0,
+          82.0,
+          48.52
+        ]
+      ],
+      "volume_mm3": 66420.0,
+      "notes": "Split plate at X30, supported on both rails. Lap/4 joining screws to detail after whole review."
+    },
+    {
+      "id": "Deck_rear_blank",
+      "object": "Deck_rear_blank",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          30.0,
+          -82.0,
+          45.52
+        ],
+        [
+          160.0,
+          82.0,
+          48.52
+        ]
+      ],
+      "volume_mm3": 63960.0,
+      "notes": "164x130 fits 256 bed. Same operating plane; no unsupported loose halves at assembly."
+    },
+    {
+      "id": "WAGO415_data_-1_0",
+      "object": "WAGO415_data__1_0",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          -47.0,
+          -39.0,
+          50.52
+        ],
+        [
+          -28.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_1_0",
+      "object": "WAGO415_data_1_0",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          -47.0,
+          9.0,
+          50.52
+        ],
+        [
+          -28.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_-1_1",
+      "object": "WAGO415_data__1_1",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          -25.0,
+          -39.0,
+          50.52
+        ],
+        [
+          -6.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_1_1",
+      "object": "WAGO415_data_1_1",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          -25.0,
+          9.0,
+          50.52
+        ],
+        [
+          -6.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_-1_2",
+      "object": "WAGO415_data__1_2",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          -3.0,
+          -39.0,
+          50.52
+        ],
+        [
+          16.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_1_2",
+      "object": "WAGO415_data_1_2",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          -3.0,
+          9.0,
+          50.52
+        ],
+        [
+          16.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_-1_3",
+      "object": "WAGO415_data__1_3",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          19.0,
+          -39.0,
+          50.52
+        ],
+        [
+          38.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_1_3",
+      "object": "WAGO415_data_1_3",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          19.0,
+          9.0,
+          50.52
+        ],
+        [
+          38.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_-1_4",
+      "object": "WAGO415_data__1_4",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          41.0,
+          -39.0,
+          50.52
+        ],
+        [
+          60.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_1_4",
+      "object": "WAGO415_data_1_4",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          41.0,
+          9.0,
+          50.52
+        ],
+        [
+          60.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_-1_5",
+      "object": "WAGO415_data__1_5",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          63.0,
+          -39.0,
+          50.52
+        ],
+        [
+          82.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_1_5",
+      "object": "WAGO415_data_1_5",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          63.0,
+          9.0,
+          50.52
+        ],
+        [
+          82.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_-1_6",
+      "object": "WAGO415_data__1_6",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          85.0,
+          -39.0,
+          50.52
+        ],
+        [
+          104.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_1_6",
+      "object": "WAGO415_data_1_6",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          85.0,
+          9.0,
+          50.52
+        ],
+        [
+          104.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO415_data_-1_7",
+      "object": "WAGO415_data__1_7",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          129.0,
+          20.0,
+          50.52
+        ],
+        [
+          148.0,
+          50.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray. Rear positive-side pair keeps whole S0 body/metal bay clear."
+    },
+    {
+      "id": "WAGO415_data_1_7",
+      "object": "WAGO415_data_1_7",
+      "evidence": "selected_source",
+      "source": "Station:D_FL:case",
+      "bounds_mm": [
+        [
+          107.0,
+          20.0,
+          50.52
+        ],
+        [
+          126.0,
+          50.0,
+          59.52
+        ]
+      ],
+      "volume_mm3": 5130.0,
+      "notes": "One of sixteen selected 221-415; lever/port access before battery tray."
+    },
+    {
+      "id": "WAGO615_power_0_0",
+      "object": "WAGO615_power_0_0",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected WAGO221-615 x4; current nominal case dimensions",
+      "bounds_mm": [
+        [
+          -100.0,
+          -39.0,
+          50.52
+        ],
+        [
+          -78.0,
+          -2.0,
+          61.52
+        ]
+      ],
+      "volume_mm3": 8954.0,
+      "notes": ""
+    },
+    {
+      "id": "WAGO615_power_0_1",
+      "object": "WAGO615_power_0_1",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected WAGO221-615 x4; current nominal case dimensions",
+      "bounds_mm": [
+        [
+          -100.0,
+          2.0,
+          50.52
+        ],
+        [
+          -78.0,
+          39.0,
+          61.52
+        ]
+      ],
+      "volume_mm3": 8954.0,
+      "notes": ""
+    },
+    {
+      "id": "WAGO615_power_1_0",
+      "object": "WAGO615_power_1_0",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected WAGO221-615 x4; current nominal case dimensions",
+      "bounds_mm": [
+        [
+          -73.0,
+          -39.0,
+          50.52
+        ],
+        [
+          -51.0,
+          -2.0,
+          61.52
+        ]
+      ],
+      "volume_mm3": 8954.0,
+      "notes": ""
+    },
+    {
+      "id": "WAGO615_power_1_1",
+      "object": "WAGO615_power_1_1",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected WAGO221-615 x4; current nominal case dimensions",
+      "bounds_mm": [
+        [
+          -73.0,
+          2.0,
+          50.52
+        ],
+        [
+          -51.0,
+          39.0,
+          61.52
+        ]
+      ],
+      "volume_mm3": 8954.0,
+      "notes": ""
+    },
+    {
+      "id": "POST_F0_WAGO412",
+      "object": "POST_F0_WAGO412",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "Selected221-412, nominal fit envelope; verify lever and ports",
+      "bounds_mm": [
+        [
+          -130.0,
+          -59.0,
+          50.0
+        ],
+        [
+          -117.0,
+          -39.0,
+          60.0
+        ]
+      ],
+      "volume_mm3": 2599.999999999999,
+      "notes": ""
+    },
+    {
+      "id": "Motor_ATO4A_-1_0",
+      "object": "Motor_ATO4A__1_0",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          -94.0,
+          -78.00000000000001,
+          51.99999999999999
+        ],
+        [
+          -72.15140000000002,
+          -50.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402394,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_-1_1",
+      "object": "Motor_ATO4A__1_1",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          -70.0,
+          -78.00000000000001,
+          51.99999999999999
+        ],
+        [
+          -48.15140000000002,
+          -50.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402394,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_-1_2",
+      "object": "Motor_ATO4A__1_2",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          -46.0,
+          -78.00000000000001,
+          51.99999999999999
+        ],
+        [
+          -24.151400000000017,
+          -50.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402394,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_-1_3",
+      "object": "Motor_ATO4A__1_3",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          -22.0,
+          -78.00000000000001,
+          51.99999999999999
+        ],
+        [
+          -0.15140000000001663,
+          -50.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402398,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_-1_4",
+      "object": "Motor_ATO4A__1_4",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          2.0,
+          -78.00000000000001,
+          51.99999999999999
+        ],
+        [
+          23.848599999999983,
+          -50.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402398,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_-1_5",
+      "object": "Motor_ATO4A__1_5",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          26.0,
+          -78.00000000000001,
+          51.99999999999999
+        ],
+        [
+          47.84859999999998,
+          -50.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402394,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_1_0",
+      "object": "Motor_ATO4A_1_0",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          -94.0,
+          49.999999999999986,
+          51.99999999999999
+        ],
+        [
+          -72.15140000000002,
+          78.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402394,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_1_1",
+      "object": "Motor_ATO4A_1_1",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          -70.0,
+          49.999999999999986,
+          51.99999999999999
+        ],
+        [
+          -48.15140000000002,
+          78.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402394,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_1_2",
+      "object": "Motor_ATO4A_1_2",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          -46.0,
+          49.999999999999986,
+          51.99999999999999
+        ],
+        [
+          -24.151400000000017,
+          78.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402394,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_1_3",
+      "object": "Motor_ATO4A_1_3",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          -22.0,
+          49.999999999999986,
+          51.99999999999999
+        ],
+        [
+          -0.15140000000001663,
+          78.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402398,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_1_4",
+      "object": "Motor_ATO4A_1_4",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          2.0,
+          49.999999999999986,
+          51.99999999999999
+        ],
+        [
+          23.848599999999983,
+          78.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402398,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Motor_ATO4A_1_5",
+      "object": "Motor_ATO4A_1_5",
+      "evidence": "selected_source",
+      "source": "Ref_Material_F_L1_CP2_Housing_0_0 + Ref_Material_F_L1_CP2_ATO_0_0 + Ref_Material_F_L1_CP2_IN_0_0 + Ref_Material_F_L1_CP2_OUT_0_0",
+      "bounds_mm": [
+        [
+          26.0,
+          49.999999999999986,
+          51.99999999999999
+        ],
+        [
+          47.84859999999998,
+          78.0,
+          123.42999999999992
+        ]
+      ],
+      "volume_mm3": 17620.953999402394,
+      "notes": "Complete selected MTA0300330 + two different TE ends + ATO4A. Vertical open bank, six per side; full factory jackets/end access required."
+    },
+    {
+      "id": "Leg_protected_MTA0100335_0",
+      "object": "Leg_protected_MTA0100335_0",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected MTA0100335 x4 actual nominal case; complete independent220mm leads/both ends retained",
+      "bounds_mm": [
+        [
+          -96.0,
+          -48.5,
+          67.0
+        ],
+        [
+          -60.5,
+          -40.4,
+          75.9
+        ]
+      ],
+      "volume_mm3": 2559.195000000002,
+      "notes": "Body shown. 220mm leads adaptive in open per-leg group; actual reach/motion not yet checked."
+    },
+    {
+      "id": "Leg_protected_MTA0100335_1",
+      "object": "Leg_protected_MTA0100335_1",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected MTA0100335 x4 actual nominal case; complete independent220mm leads/both ends retained",
+      "bounds_mm": [
+        [
+          -51.0,
+          -48.5,
+          67.0
+        ],
+        [
+          -15.5,
+          -40.4,
+          75.9
+        ]
+      ],
+      "volume_mm3": 2559.195000000002,
+      "notes": "Body shown. 220mm leads adaptive in open per-leg group; actual reach/motion not yet checked."
+    },
+    {
+      "id": "Leg_protected_MTA0100335_2",
+      "object": "Leg_protected_MTA0100335_2",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected MTA0100335 x4 actual nominal case; complete independent220mm leads/both ends retained",
+      "bounds_mm": [
+        [
+          -6.0,
+          -48.5,
+          67.0
+        ],
+        [
+          29.5,
+          -40.4,
+          75.9
+        ]
+      ],
+      "volume_mm3": 2559.195000000002,
+      "notes": "Body shown. 220mm leads adaptive in open per-leg group; actual reach/motion not yet checked."
+    },
+    {
+      "id": "Leg_protected_MTA0100335_3",
+      "object": "Leg_protected_MTA0100335_3",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected MTA0100335 x4 actual nominal case; complete independent220mm leads/both ends retained",
+      "bounds_mm": [
+        [
+          39.0,
+          -48.5,
+          67.0
+        ],
+        [
+          74.5,
+          -40.4,
+          75.9
+        ]
+      ],
+      "volume_mm3": 2559.195000000002,
+      "notes": "Body shown. 220mm leads adaptive in open per-leg group; actual reach/motion not yet checked."
+    },
+    {
+      "id": "FHAC0001_Pi3A",
+      "object": "FHAC0001_Pi3A",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected FHAC0001ZXJ full51x22x20.25 rotated vertical",
+      "bounds_mm": [
+        [
+          55.0,
+          56.0,
+          50.0
+        ],
+        [
+          75.25,
+          78.0,
+          101.0
+        ]
+      ],
+      "volume_mm3": 22720.5,
+      "notes": "Open right-rear service panel. Full two factory leads each >=84.5; final installed reach unqualified."
+    },
+    {
+      "id": "FHAC0001_AUX4A",
+      "object": "FHAC0001_AUX4A",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected FHAC0001ZXJ full51x22x20.25 rotated vertical",
+      "bounds_mm": [
+        [
+          78.0,
+          56.0,
+          50.0
+        ],
+        [
+          98.25,
+          78.0,
+          101.0
+        ]
+      ],
+      "volume_mm3": 22720.5,
+      "notes": "Open right-rear service panel. Full two factory leads each >=84.5; final installed reach unqualified."
+    },
+    {
+      "id": "FHAC0001_Yaw1A",
+      "object": "FHAC0001_Yaw1A",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected FHAC0001ZXJ full51x22x20.25 rotated vertical",
+      "bounds_mm": [
+        [
+          101.0,
+          56.0,
+          50.0
+        ],
+        [
+          121.25,
+          78.0,
+          101.0
+        ]
+      ],
+      "volume_mm3": 22720.5,
+      "notes": "Open right-rear service panel. Full two factory leads each >=84.5; final installed reach unqualified."
+    },
+    {
+      "id": "FHAC0001_Pitch1A",
+      "object": "FHAC0001_Pitch1A",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected FHAC0001ZXJ full51x22x20.25 rotated vertical",
+      "bounds_mm": [
+        [
+          124.0,
+          56.0,
+          50.0
+        ],
+        [
+          144.25,
+          78.0,
+          101.0
+        ]
+      ],
+      "volume_mm3": 22720.5,
+      "notes": "Open right-rear service panel. Full two factory leads each >=84.5; final installed reach unqualified."
+    },
+    {
+      "id": "FHAC0001_Tail1A",
+      "object": "FHAC0001_Tail1A",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected FHAC0001ZXJ full51x22x20.25 rotated vertical",
+      "bounds_mm": [
+        [
+          147.0,
+          56.0,
+          50.0
+        ],
+        [
+          167.25,
+          78.0,
+          101.0
+        ]
+      ],
+      "volume_mm3": 22720.5,
+      "notes": "Open right-rear service panel. Full two factory leads each >=84.5; final installed reach unqualified."
+    },
+    {
+      "id": "F0_FHAC0002_30A",
+      "object": "F0_FHAC0002_30A",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected FHAC0002ZXJ+30A; conservative installation assumption, not exact bought material",
+      "bounds_mm": [
+        [
+          -132.0,
+          32.0,
+          49.0
+        ],
+        [
+          -106.0,
+          67.0,
+          119.0
+        ]
+      ],
+      "volume_mm3": 63700.0,
+      "notes": ""
+    },
+    {
+      "id": "Battery_GEA223S30X6GT",
+      "object": "Battery_GEA223S30X6GT",
+      "evidence": "selected_source",
+      "source": "BatterySelectedNominal",
+      "bounds_mm": [
+        [
+          -2.0,
+          -17.5,
+          65.0
+        ],
+        [
+          104.5,
+          17.5,
+          86.5
+        ]
+      ],
+      "volume_mm3": 80141.25,
+      "notes": "106.5x35x21.5 selected nominal. 2 selected straps, unplug XT60/balance before vertical lift; skin/mic panel removes first."
+    },
+    {
+      "id": "Battery_tray_shared",
+      "object": "Battery_tray_shared",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -5.0,
+          -21.0,
+          62.0
+        ],
+        [
+          108.0,
+          21.0,
+          65.0
+        ]
+      ],
+      "volume_mm3": 14238.0,
+      "notes": "Supported off deck on two side standoffs, removable to expose WAGO. Two strap slots and corner stops to detail."
+    },
+    {
+      "id": "XT60H_mated_with_boots",
+      "object": "XT60H_mated_with_boots",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected XT60H pair mating/wire allowance",
+      "bounds_mm": [
+        [
+          5.0,
+          -47.0,
+          79.0
+        ],
+        [
+          55.0,
+          -23.0,
+          97.0
+        ]
+      ],
+      "volume_mm3": 21600.0,
+      "notes": "Battery-side plug/lead flexible, no rigid support over battery extraction."
+    },
+    {
+      "id": "Pi4B_actual_PCB",
+      "object": "Pi4B_actual_PCB",
+      "evidence": "selected_source",
+      "source": "Ref_Material_Pi4NominalPCB_0_0",
+      "bounds_mm": [
+        [
+          -97.99999999999999,
+          -38.00000000000006,
+          98.51999999999997
+        ],
+        [
+          -12.999999999999812,
+          18.000000000000046,
+          100.12000000000002
+        ]
+      ],
+      "volume_mm3": 7577.986728891558,
+      "notes": "Actual PCB only. Four standoffs from deck; USB/data/mates separately allocated."
+    },
+    {
+      "id": "Pi_components_and_cooling",
+      "object": "Pi_components_and_cooling",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "Pi selected physical PCB + conservative populated cooling envelope",
+      "bounds_mm": [
+        [
+          -98.0,
+          -38.0,
+          100.12
+        ],
+        [
+          -13.0,
+          18.0,
+          126.12
+        ]
+      ],
+      "volume_mm3": 123760.0,
+      "notes": ""
+    },
+    {
+      "id": "Pi_USB_DATA_Delock_mating",
+      "object": "Pi_USB_DATA_Delock_mating",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "Lanberg500 + selected current Delock60047; installation datum pending",
+      "bounds_mm": [
+        [
+          -124.0,
+          -44.0,
+          98.52
+        ],
+        [
+          -98.0,
+          -18.0,
+          122.52
+        ]
+      ],
+      "volume_mm3": 16224.0,
+      "notes": ""
+    },
+    {
+      "id": "Pi_GPIO1992_factory_female",
+      "object": "Pi_GPIO1992_factory_female",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "Selected1992+factory female ends, installed assembly envelope",
+      "bounds_mm": [
+        [
+          -88.0,
+          -47.0,
+          107.0
+        ],
+        [
+          -36.0,
+          -31.0,
+          130.0
+        ]
+      ],
+      "volume_mm3": 19135.999999999996,
+      "notes": ""
+    },
+    {
+      "id": "PCA9685_Adafruit815_PCB",
+      "object": "PCA9685_Adafruit815_PCB",
+      "evidence": "selected_source",
+      "source": "Ref_Material_PWM9685NominalPCB_0_0",
+      "bounds_mm": [
+        [
+          -95.0,
+          37.999999999999986,
+          94.0
+        ],
+        [
+          -32.77,
+          39.599999999999994,
+          119.4
+        ]
+      ],
+      "volume_mm3": 2466.479165948339,
+      "notes": "62.23x25.4 source board vertical on common shelf, header/mating verification required."
+    },
+    {
+      "id": "BUS25514_installed",
+      "object": "BUS25514_installed",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "Current selected25514 PCB33.024x42.024 plus provisional component/mating height; source actual board available",
+      "bounds_mm": [
+        [
+          -80.0,
+          -4.0,
+          126.0
+        ],
+        [
+          -38.0,
+          29.0,
+          150.0
+        ]
+      ],
+      "volume_mm3": 33263.99999999999,
+      "notes": ""
+    },
+    {
+      "id": "E1_populated_prototype_board",
+      "object": "E1_populated_prototype_board",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected Adafruit1608/1208, translator, 78L05, caps, Harwin headers/resistors; coarse populated-board fit",
+      "bounds_mm": [
+        [
+          -25.0,
+          38.0,
+          94.0
+        ],
+        [
+          25.0,
+          48.0,
+          124.0
+        ]
+      ],
+      "volume_mm3": 15000.0,
+      "notes": "Not old GrovePWM module. Electrical source wiring unchanged."
+    },
+    {
+      "id": "MAIN_Pololu4853",
+      "object": "MAIN_Pololu4853",
+      "evidence": "selected_source",
+      "source": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+      "bounds_mm": [
+        [
+          61.0,
+          22.000000000000014,
+          94.0
+        ],
+        [
+          91.48,
+          44.860000000000014,
+          101.6748
+        ]
+      ],
+      "volume_mm3": 5347.591885440004,
+      "notes": "Source selected PCB/component reference, not historical 46.52 support."
+    },
+    {
+      "id": "AUX_Pololu4092",
+      "object": "AUX_Pololu4092",
+      "evidence": "selected_source",
+      "source": "Ref_Material_AUX4092NominalPCB_0_0",
+      "bounds_mm": [
+        [
+          99.0,
+          22.0,
+          94.0
+        ],
+        [
+          124.4,
+          47.400000000000006,
+          95.6
+        ]
+      ],
+      "volume_mm3": 1014.3398740876921,
+      "notes": ""
+    },
+    {
+      "id": "S1_NKK_S821_installed",
+      "object": "S1_NKK_S821_installed",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected S821 including lever/tool nominal reserve",
+      "bounds_mm": [
+        [
+          71.0,
+          47.0,
+          116.0
+        ],
+        [
+          93.0,
+          69.0,
+          156.0
+        ]
+      ],
+      "volume_mm3": 19360.0,
+      "notes": ""
+    },
+    {
+      "id": "Monitor_MOD05015",
+      "object": "Monitor_MOD05015",
+      "evidence": "selected_source",
+      "source": "Station:Monitor:case",
+      "bounds_mm": [
+        [
+          115.0,
+          19.999999999999986,
+          125.0
+        ],
+        [
+          156.0,
+          45.00000000000001,
+          137.0
+        ]
+      ],
+      "volume_mm3": 12299.999999999998,
+      "notes": "Nominal41x25x12; visible rear top window. Balance connector/factory reach remain physical fit."
+    },
+    {
+      "id": "S0_body",
+      "object": "S0_body",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_body_CP2_0_0",
+      "bounds_mm": [
+        [
+          107.1215759755915,
+          -57.82891663819855,
+          48.520000000000294
+        ],
+        [
+          163.8784240244085,
+          -0.8289166381985353,
+          88.52000000000034
+        ]
+      ],
+      "volume_mm3": 102070.34531513254,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "S0_key",
+      "object": "S0_key",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_key_CP2_0_0",
+      "bounds_mm": [
+        [
+          120.52537762593094,
+          -44.2274920043277,
+          91.51999999999987
+        ],
+        [
+          150.47462237406899,
+          -14.328916638198548,
+          155.01999999999992
+        ]
+      ],
+      "volume_mm3": 44885.50503816422,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "S0_neck",
+      "object": "S0_neck",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_neck_CP2_0_0",
+      "bounds_mm": [
+        [
+          124.53757057692651,
+          -40.32891663819855,
+          88.51999999999991
+        ],
+        [
+          146.46242942307325,
+          -18.32891663819855,
+          91.51999999999992
+        ]
+      ],
+      "volume_mm3": 1140.3981332530966,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "S0_nut_IN_0_0",
+      "object": "S0_nut_IN_0_0",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_nut_IN_0_0",
+      "bounds_mm": [
+        [
+          126.99999999999991,
+          -51.14387121442258,
+          52.469999999999985
+        ],
+        [
+          143.99999999999991,
+          -31.51396206197456,
+          60.47000000000003
+        ]
+      ],
+      "volume_mm3": 1373.9322028316647,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "S0_nut_OUT_0_0",
+      "object": "S0_nut_OUT_0_0",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_nut_OUT_0_0",
+      "bounds_mm": [
+        [
+          126.99999999999991,
+          -27.143871214422553,
+          52.469999999999985
+        ],
+        [
+          143.99999999999994,
+          -7.513962061974951,
+          60.47000000000003
+        ]
+      ],
+      "volume_mm3": 1373.9322028316647,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "S0_ring_IN_0_0",
+      "object": "S0_ring_IN_0_0",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_ring_IN_0_0",
+      "bounds_mm": [
+        [
+          116.20432852445525,
+          -67.99999999999983,
+          60.31999999999945
+        ],
+        [
+          144.7956714755452,
+          -31.978341352085707,
+          66.69666839711323
+        ]
+      ],
+      "volume_mm3": 779.5749572738999,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "S0_ring_OUT_0_0",
+      "object": "S0_ring_OUT_0_0",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_ring_OUT_0_0",
+      "bounds_mm": [
+        [
+          116.20432852445492,
+          -26.679491924311158,
+          60.31999999999999
+        ],
+        [
+          144.79567147554494,
+          9.342166723602865,
+          66.69666839711377
+        ]
+      ],
+      "volume_mm3": 779.5749572739014,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "S0_stud_IN_0_0",
+      "object": "S0_stud_IN_0_0",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_stud_IN_0_0",
+      "bounds_mm": [
+        [
+          130.52739052315854,
+          -46.32891663819854,
+          48.519999999999996
+        ],
+        [
+          140.47260947684128,
+          -36.32891663819856,
+          63.520000000000024
+        ]
+      ],
+      "volume_mm3": 1178.0972450961742,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "S0_stud_OUT_0_0",
+      "object": "S0_stud_OUT_0_0",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_stud_OUT_0_0",
+      "bounds_mm": [
+        [
+          130.52739052315857,
+          -22.328916638198542,
+          48.519999999999996
+        ],
+        [
+          140.4726094768413,
+          -12.32891663819855,
+          63.520000000000024
+        ]
+      ],
+      "volume_mm3": 1178.0972450961738,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "S0_washer_IN_0_0",
+      "object": "S0_washer_IN_0_0",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_washer_IN_0_0",
+      "bounds_mm": [
+        [
+          125.53415506993323,
+          -51.32891663819856,
+          60.47
+        ],
+        [
+          145.46584493006662,
+          -31.328916638198557,
+          62.47000000000001
+        ]
+      ],
+      "volume_mm3": 455.13823568882185,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "S0_washer_OUT_0_0",
+      "object": "S0_washer_OUT_0_0",
+      "evidence": "selected_source",
+      "source": "Ref_Material_S0_washer_OUT_0_0",
+      "bounds_mm": [
+        [
+          125.53415506993323,
+          -27.328916638198542,
+          60.47
+        ],
+        [
+          145.46584493006662,
+          -7.3289166381985495,
+          62.47000000000001
+        ]
+      ],
+      "volume_mm3": 455.1382356888217,
+      "notes": "Full11 bought body/key/neck/8metal, one actual-neck rigid rotation to +Z. No sourceXML applied twice."
+    },
+    {
+      "id": "Rear_S0_shared_panel_BLANK",
+      "object": "Rear_S0_shared_panel_BLANK",
+      "evidence": "PROPOSED_rear_frame_rooted_panel",
+      "source": "",
+      "bounds_mm": [
+        [
+          107.0,
+          -76.0,
+          85.52
+        ],
+        [
+          177.0,
+          18.0,
+          88.52
+        ]
+      ],
+      "volume_mm3": 18337.216048319086,
+      "notes": "Neck aperture from actual upright source, source nominal M6pair laterfit. Rear crossbeam rooted at sourceX112/122; whole plate not cosmetic skin."
+    },
+    {
+      "id": "Rear_crossbeam",
+      "object": "Rear_crossbeam",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          112.0,
+          -79.0,
+          43.52
+        ],
+        [
+          177.0,
+          82.0,
+          45.52
+        ]
+      ],
+      "volume_mm3": 20929.999999999996,
+      "notes": "Rear service panel + light tail load to rear source-hole rails; geometry/load/actualfastener checks pending."
+    },
+    {
+      "id": "Speaker",
+      "object": "Speaker",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "Required appearance extension; oldlayout nominal100x45x21, exact selected revision to fit",
+      "bounds_mm": [
+        [
+          -105.0,
+          -22.5,
+          51.0
+        ],
+        [
+          -5.0,
+          22.5,
+          72.0
+        ]
+      ],
+      "volume_mm3": 94500.0,
+      "notes": ""
+    },
+    {
+      "id": "BNO085",
+      "object": "BNO085",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "required BNO085 oldlayout nominal; ports fit pending",
+      "bounds_mm": [
+        [
+          -100.0,
+          -48.0,
+          80.0
+        ],
+        [
+          -74.4,
+          -25.3,
+          84.6
+        ]
+      ],
+      "volume_mm3": 2673.1519999999987,
+      "notes": ""
+    },
+    {
+      "id": "MAX98357A_amp",
+      "object": "MAX98357A_amp",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "required amp installation envelope",
+      "bounds_mm": [
+        [
+          -60.0,
+          -39.0,
+          75.0
+        ],
+        [
+          -33.0,
+          -15.0,
+          88.0
+        ]
+      ],
+      "volume_mm3": 8424.0,
+      "notes": ""
+    },
+    {
+      "id": "ReSpeakerLite_on_REMOVABLE_back",
+      "object": "ReSpeakerLite_on_REMOVABLE_back",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "required ReSpeakerLite nominal86x35; thickness10 provision",
+      "bounds_mm": [
+        [
+          -5.0,
+          -17.5,
+          140.0
+        ],
+        [
+          81.0,
+          17.5,
+          150.0
+        ]
+      ],
+      "volume_mm3": 30100.0,
+      "notes": "Skin/mic module removes as one before battery lift; factory lead disconnect accessible, no automatic soldered module unplug."
+    },
+    {
+      "id": "TTP223_touch",
+      "object": "TTP223_touch",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "required touch board, nominal envelope under thin isolated touch window",
+      "bounds_mm": [
+        [
+          5.0,
+          45.0,
+          141.0
+        ],
+        [
+          30.0,
+          65.0,
+          149.0
+        ]
+      ],
+      "volume_mm3": 3999.9999999999995,
+      "notes": ""
+    },
+    {
+      "id": "Camera3_NoIR_Wide",
+      "object": "Camera3_NoIR_Wide",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "required module3wide nominal, lens forward -X; CSI flexible loop through yaw/pitch required",
+      "bounds_mm": [
+        [
+          -232.0,
+          -37.5,
+          130.6
+        ],
+        [
+          -219.6,
+          -12.5,
+          154.6
+        ]
+      ],
+      "volume_mm3": 7440.000000000004,
+      "notes": ""
+    },
+    {
+      "id": "VL53L5CX",
+      "object": "VL53L5CX",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "required ToF module nominal reserved, optical window forward",
+      "bounds_mm": [
+        [
+          -238.0,
+          -13.0,
+          110.0
+        ],
+        [
+          -224.0,
+          13.0,
+          136.0
+        ]
+      ],
+      "volume_mm3": 9464.0,
+      "notes": ""
+    },
+    {
+      "id": "MG92B_Head_yaw",
+      "object": "MG92B_Head_yaw",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected MG92B positional, nominal body23x12.2x28; tabs/shaft interface prototype fit",
+      "bounds_mm": [
+        [
+          -137.0,
+          -6.1,
+          89.0
+        ],
+        [
+          -114.0,
+          6.1,
+          117.0
+        ]
+      ],
+      "volume_mm3": 7856.799999999999,
+      "notes": ""
+    },
+    {
+      "id": "MG92B_Head_yaw_bracket_space",
+      "object": "MG92B_Head_yaw_bracket_space",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "proposed support/tab/cable envelope",
+      "bounds_mm": [
+        [
+          -142.0,
+          -11.1,
+          87.0
+        ],
+        [
+          -109.0,
+          11.1,
+          119.0
+        ]
+      ],
+      "volume_mm3": 23443.199999999997,
+      "notes": ""
+    },
+    {
+      "id": "MG92B_Head_pitch",
+      "object": "MG92B_Head_pitch",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected MG92B positional, nominal body23x12.2x28; tabs/shaft interface prototype fit",
+      "bounds_mm": [
+        [
+          -166.0,
+          -23.0,
+          130.0
+        ],
+        [
+          -143.0,
+          -10.8,
+          158.0
+        ]
+      ],
+      "volume_mm3": 7856.799999999999,
+      "notes": ""
+    },
+    {
+      "id": "MG92B_Head_pitch_bracket_space",
+      "object": "MG92B_Head_pitch_bracket_space",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "proposed support/tab/cable envelope",
+      "bounds_mm": [
+        [
+          -171.0,
+          -28.0,
+          128.0
+        ],
+        [
+          -138.0,
+          -5.800000000000001,
+          160.0
+        ]
+      ],
+      "volume_mm3": 23443.2,
+      "notes": ""
+    },
+    {
+      "id": "MG92B_Tail",
+      "object": "MG92B_Tail",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "selected MG92B positional, nominal body23x12.2x28; tabs/shaft interface prototype fit",
+      "bounds_mm": [
+        [
+          173.0,
+          -6.1,
+          109.0
+        ],
+        [
+          196.0,
+          6.1,
+          137.0
+        ]
+      ],
+      "volume_mm3": 7856.799999999999,
+      "notes": ""
+    },
+    {
+      "id": "MG92B_Tail_bracket_space",
+      "object": "MG92B_Tail_bracket_space",
+      "evidence": "nominal_selected_or_extension_installation_envelope",
+      "source": "proposed support/tab/cable envelope",
+      "bounds_mm": [
+        [
+          168.0,
+          -11.1,
+          107.0
+        ],
+        [
+          201.0,
+          11.1,
+          139.0
+        ]
+      ],
+      "volume_mm3": 23443.199999999997,
+      "notes": ""
+    },
+    {
+      "id": "Yaw608_120",
+      "object": "Yaw608_120",
+      "evidence": "selected_source",
+      "source": "selected608-2Z x3; two yaw, one tail",
+      "bounds_mm": [
+        [
+          -137.0,
+          -11.0,
+          120.0
+        ],
+        [
+          -115.0,
+          11.0,
+          127.0
+        ]
+      ],
+      "volume_mm3": 2309.070600388498,
+      "notes": ""
+    },
+    {
+      "id": "Yaw608_134",
+      "object": "Yaw608_134",
+      "evidence": "selected_source",
+      "source": "selected608-2Z x3; two yaw, one tail",
+      "bounds_mm": [
+        [
+          -137.0,
+          -11.0,
+          134.0
+        ],
+        [
+          -115.0,
+          11.0,
+          141.0
+        ]
+      ],
+      "volume_mm3": 2309.070600388498,
+      "notes": ""
+    },
+    {
+      "id": "Tail608",
+      "object": "Tail608",
+      "evidence": "selected_source",
+      "source": "selected608-2Z third",
+      "bounds_mm": [
+        [
+          174.0,
+          -11.0,
+          137.0
+        ],
+        [
+          196.0,
+          11.0,
+          144.0
+        ]
+      ],
+      "volume_mm3": 2309.070600388498,
+      "notes": ""
+    },
+    {
+      "id": "Pitch688",
+      "object": "Pitch688",
+      "evidence": "selected_source",
+      "source": "selected688-2RS8x16x5",
+      "bounds_mm": [
+        [
+          -163.0,
+          14.0,
+          133.0
+        ],
+        [
+          -147.0,
+          19.0,
+          149.0
+        ]
+      ],
+      "volume_mm3": 753.9822368615505,
+      "notes": ""
+    },
+    {
+      "id": "Neck_shared_root",
+      "object": "Neck_shared_root",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -137.0,
+          -11.0,
+          48.52
+        ],
+        [
+          -115.0,
+          11.0,
+          87.52000000000001
+        ]
+      ],
+      "volume_mm3": 18876.0,
+      "notes": "Coarse shared two-bearing neck/load bracket on front rail crosspiece. Yaw axis(-126,0), pitch(-155,Y,141). Bearing/servo coupling geometry next after whole review."
+    },
+    {
+      "id": "Tail_shared_root",
+      "object": "Tail_shared_root",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          171.0,
+          -15.0,
+          52.52
+        ],
+        [
+          198.0,
+          15.0,
+          107.0
+        ]
+      ],
+      "volume_mm3": 44128.799999999996,
+      "notes": "Simple removable rear bracket tied to rear crossbeam, not skin bearing."
+    },
+    {
+      "id": "Lower_data_open",
+      "object": "Lower_data_open",
+      "evidence": "GROUP_FLEXIBLE_INSTALLATION_SPACE_NOT_CLEARANCE_PASS",
+      "source": "selected wiring graph / planning region",
+      "bounds_mm": [
+        [
+          -48.0,
+          -8.0,
+          50.52
+        ],
+        [
+          129.0,
+          8.0,
+          61.52
+        ]
+      ],
+      "volume_mm3": 31151.999999999996,
+      "notes": "16WAGO leads branched by motor/BUS; hands lay before tray"
+    },
+    {
+      "id": "Right_logic_open",
+      "object": "Right_logic_open",
+      "evidence": "GROUP_FLEXIBLE_INSTALLATION_SPACE_NOT_CLEARANCE_PASS",
+      "source": "selected wiring graph / planning region",
+      "bounds_mm": [
+        [
+          -100.0,
+          29.0,
+          124.0
+        ],
+        [
+          155.0,
+          47.0,
+          137.0
+        ]
+      ],
+      "volume_mm3": 59670.0,
+      "notes": "GPIO/PWM/E1/MAIN/AUX; not high-current packing"
+    },
+    {
+      "id": "Left_power_open",
+      "object": "Left_power_open",
+      "evidence": "GROUP_FLEXIBLE_INSTALLATION_SPACE_NOT_CLEARANCE_PASS",
+      "source": "selected wiring graph / planning region",
+      "bounds_mm": [
+        [
+          -100.0,
+          -49.0,
+          74.0
+        ],
+        [
+          155.0,
+          -34.0,
+          86.0
+        ]
+      ],
+      "volume_mm3": 45900.0,
+      "notes": "4protectedleg220+power branches; full ends adaptive, explicit side access"
+    },
+    {
+      "id": "Rear_aux_open",
+      "object": "Rear_aux_open",
+      "evidence": "GROUP_FLEXIBLE_INSTALLATION_SPACE_NOT_CLEARANCE_PASS",
+      "source": "selected wiring graph / planning region",
+      "bounds_mm": [
+        [
+          130.0,
+          -5.0,
+          55.0
+        ],
+        [
+          155.0,
+          40.0,
+          115.0
+        ]
+      ],
+      "volume_mm3": 67500.0,
+      "notes": "S0/S1/monitor/fuse factory ends, independent strains"
+    },
+    {
+      "id": "USB500_loose_loop",
+      "object": "USB500_loose_loop",
+      "evidence": "GROUP_FLEXIBLE_INSTALLATION_SPACE_NOT_CLEARANCE_PASS",
+      "source": "selected wiring graph / planning region",
+      "bounds_mm": [
+        [
+          -100.0,
+          -30.0,
+          128.0
+        ],
+        [
+          70.0,
+          25.0,
+          138.0
+        ]
+      ],
+      "volume_mm3": 93500.0,
+      "notes": "Separate full500USB retained, R30 project planning basis; actual mouth-to-mouth fit pending"
+    },
+    {
+      "id": "Four_220_joint_exits",
+      "object": "Four_220_joint_exits",
+      "evidence": "GROUP_FLEXIBLE_INSTALLATION_SPACE_NOT_CLEARANCE_PASS",
+      "source": "selected wiring graph / planning region",
+      "bounds_mm": [
+        [
+          -100.0,
+          -78.0,
+          48.52
+        ],
+        [
+          148.0,
+          -60.0,
+          74.52000000000001
+        ]
+      ],
+      "volume_mm3": 116064.00000000003,
+      "notes": "Four INDEPENDENT full220 units; each leg joint slack to test; no cut/pool"
+    },
+    {
+      "id": "E2_Molex_and_inline_WAGO",
+      "object": "E2_Molex_and_inline_WAGO",
+      "evidence": "GROUP_FLEXIBLE_INSTALLATION_SPACE_NOT_CLEARANCE_PASS",
+      "source": "selected wiring graph / planning region",
+      "bounds_mm": [
+        [
+          120.0,
+          1.0,
+          92.0
+        ],
+        [
+          155.0,
+          19.0,
+          117.0
+        ]
+      ],
+      "volume_mm3": 15750.0,
+      "notes": "Molex43025/43020 full nominal26x12x12 plus8inline221-2411 distributed at head/tail; exact local connector fit pending"
+    },
+    {
+      "id": "Ola_body_ENVELOPE",
+      "object": "Ola_body_ENVELOPE",
+      "evidence": "COSMETIC_ENVELOPE_NOT_PRINT_READY",
+      "source": "",
+      "bounds_mm": [
+        [
+          -115.00000000000003,
+          -92.21156632036006,
+          48.01371748634644
+        ],
+        [
+          170.00000000000003,
+          92.20444280106604,
+          159.08096523641953
+        ]
+      ],
+      "volume_mm3": 3927429.6463071397,
+      "notes": "Open underside above49, removableback; no assumed structural skin. Rounded arched back from Ola reference."
+    },
+    {
+      "id": "Ola_head_ENVELOPE",
+      "object": "Ola_head_ENVELOPE",
+      "evidence": "COSMETIC_ENVELOPE_NOT_PRINT_READY",
+      "source": "",
+      "bounds_mm": [
+        [
+          -228.90000000000003,
+          -65.00000000000001,
+          90.99999999999997
+        ],
+        [
+          -119.09999999999995,
+          64.77163934436383,
+          191.00000000000003
+        ]
+      ],
+      "volume_mm3": 748389.6642471746,
+      "notes": ""
+    },
+    {
+      "id": "Ola_ear_-1",
+      "object": "Ola_ear__1",
+      "evidence": "COSMETIC_ENVELOPE",
+      "source": "",
+      "bounds_mm": [
+        [
+          -183.00000000000006,
+          -61.98106615024653,
+          167.03014717618427
+        ],
+        [
+          -171.99999999999994,
+          -22.0,
+          223.83387197669708
+        ]
+      ],
+      "volume_mm3": 5070.830044824444,
+      "notes": ""
+    },
+    {
+      "id": "Ola_eye_gold_-1",
+      "object": "Ola_eye_gold__1",
+      "evidence": "COSMETIC_REFERENCE",
+      "source": "",
+      "bounds_mm": [
+        [
+          -232.0,
+          -40.955598409086704,
+          133.0
+        ],
+        [
+          -230.0,
+          -15.04440159091329,
+          159.0
+        ]
+      ],
+      "volume_mm3": 433.5397861953911,
+      "notes": ""
+    },
+    {
+      "id": "Ola_ear_1",
+      "object": "Ola_ear_1",
+      "evidence": "COSMETIC_ENVELOPE",
+      "source": "",
+      "bounds_mm": [
+        [
+          -183.00000000000006,
+          22.018907451894826,
+          167.03011235113
+        ],
+        [
+          -171.99999999999994,
+          62.0,
+          223.8345073361934
+        ]
+      ],
+      "volume_mm3": 5086.235927800029,
+      "notes": ""
+    },
+    {
+      "id": "Ola_eye_gold_1",
+      "object": "Ola_eye_gold_1",
+      "evidence": "COSMETIC_REFERENCE",
+      "source": "",
+      "bounds_mm": [
+        [
+          -232.0,
+          15.044401590913292,
+          133.0
+        ],
+        [
+          -230.0,
+          40.95559840908671,
+          159.0
+        ]
+      ],
+      "volume_mm3": 433.5397861953911,
+      "notes": ""
+    },
+    {
+      "id": "Ola_muzzle",
+      "object": "Ola_muzzle",
+      "evidence": "COSMETIC_ENVELOPE",
+      "source": "",
+      "bounds_mm": [
+        [
+          -247.0,
+          -18.0,
+          104.0
+        ],
+        [
+          -211.0,
+          18.0,
+          140.0
+        ]
+      ],
+      "volume_mm3": 24429.024474314232,
+      "notes": ""
+    },
+    {
+      "id": "Ola_nose",
+      "object": "Ola_nose",
+      "evidence": "COSMETIC_REFERENCE",
+      "source": "",
+      "bounds_mm": [
+        [
+          -251.0,
+          -6.0,
+          120.0
+        ],
+        [
+          -239.0,
+          6.0,
+          132.0
+        ]
+      ],
+      "volume_mm3": 904.7786842338604,
+      "notes": ""
+    },
+    {
+      "id": "Ola_tail_ENVELOPE",
+      "object": "Ola_tail_ENVELOPE",
+      "evidence": "COSMETIC_ENVELOPE",
+      "source": "",
+      "bounds_mm": [
+        [
+          179.34423350437055,
+          -7.967145758489701,
+          136.34314575050763
+        ],
+        [
+          235.12132034355963,
+          7.9514107291782725,
+          216.12128915669456
+        ]
+      ],
+      "volume_mm3": 11258.79153030774,
+      "notes": ""
+    },
+    {
+      "id": "Battery_edgepost_0_-45",
+      "object": "Battery_edgepost_0__45",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          5.0,
+          -45.0,
+          48.52
+        ],
+        [
+          10.0,
+          -41.0,
+          62.0
+        ]
+      ],
+      "volume_mm3": 269.5999999999999,
+      "notes": "Outside lower WAGO rows; whole tray/crossarm removable after unplugging battery."
+    },
+    {
+      "id": "Battery_edgepost_0_41",
+      "object": "Battery_edgepost_0_41",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          5.0,
+          41.0,
+          48.52
+        ],
+        [
+          10.0,
+          45.0,
+          62.0
+        ]
+      ],
+      "volume_mm3": 269.5999999999999,
+      "notes": "Outside lower WAGO rows; whole tray/crossarm removable after unplugging battery."
+    },
+    {
+      "id": "Battery_crossarm_0",
+      "object": "Battery_crossarm_0",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          5.0,
+          -45.0,
+          62.0
+        ],
+        [
+          10.0,
+          45.0,
+          65.0
+        ]
+      ],
+      "volume_mm3": 1350.0,
+      "notes": "Two simple crossarms carry central removable tray; leg-fuse bodies start67 above arm65."
+    },
+    {
+      "id": "Battery_edgepost_1_-45",
+      "object": "Battery_edgepost_1__45",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          95.0,
+          -45.0,
+          48.52
+        ],
+        [
+          100.0,
+          -41.0,
+          62.0
+        ]
+      ],
+      "volume_mm3": 269.5999999999999,
+      "notes": "Outside lower WAGO rows; whole tray/crossarm removable after unplugging battery."
+    },
+    {
+      "id": "Battery_edgepost_1_41",
+      "object": "Battery_edgepost_1_41",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          95.0,
+          41.0,
+          48.52
+        ],
+        [
+          100.0,
+          45.0,
+          62.0
+        ]
+      ],
+      "volume_mm3": 269.5999999999999,
+      "notes": "Outside lower WAGO rows; whole tray/crossarm removable after unplugging battery."
+    },
+    {
+      "id": "Battery_crossarm_1",
+      "object": "Battery_crossarm_1",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          95.0,
+          -45.0,
+          62.0
+        ],
+        [
+          100.0,
+          45.0,
+          65.0
+        ]
+      ],
+      "volume_mm3": 1350.0,
+      "notes": "Two simple crossarms carry central removable tray; leg-fuse bodies start67 above arm65."
+    },
+    {
+      "id": "Upper_frame_post_-104_-49",
+      "object": "Upper_frame_post__104__49",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -104.0,
+          -49.0,
+          48.52
+        ],
+        [
+          -101.0,
+          -46.0,
+          90.0
+        ]
+      ],
+      "volume_mm3": 373.31999999999994,
+      "notes": "Source deck-rooted perimeter frame; avoids lower WAGO fields; complete fastening/stiffness to fit coupon."
+    },
+    {
+      "id": "Upper_frame_post_-104_44",
+      "object": "Upper_frame_post__104_44",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -104.0,
+          44.0,
+          48.52
+        ],
+        [
+          -101.0,
+          47.0,
+          90.0
+        ]
+      ],
+      "volume_mm3": 373.31999999999994,
+      "notes": "Source deck-rooted perimeter frame; avoids lower WAGO fields; complete fastening/stiffness to fit coupon."
+    },
+    {
+      "id": "Upper_frame_post_101_-49",
+      "object": "Upper_frame_post_101__49",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          101.0,
+          -49.0,
+          48.52
+        ],
+        [
+          104.0,
+          -46.0,
+          90.0
+        ]
+      ],
+      "volume_mm3": 373.31999999999994,
+      "notes": "Source deck-rooted perimeter frame; avoids lower WAGO fields; complete fastening/stiffness to fit coupon."
+    },
+    {
+      "id": "Upper_frame_post_101_44",
+      "object": "Upper_frame_post_101_44",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          101.0,
+          44.0,
+          48.52
+        ],
+        [
+          104.0,
+          47.0,
+          90.0
+        ]
+      ],
+      "volume_mm3": 373.31999999999994,
+      "notes": "Source deck-rooted perimeter frame; avoids lower WAGO fields; complete fastening/stiffness to fit coupon."
+    },
+    {
+      "id": "Upper_frame_rail_-49",
+      "object": "Upper_frame_rail__49",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -104.0,
+          -49.0,
+          90.0
+        ],
+        [
+          111.0,
+          -46.0,
+          93.0
+        ]
+      ],
+      "volume_mm3": 1935.0,
+      "notes": "Two shared side beams, not one local grip per module."
+    },
+    {
+      "id": "Upper_frame_rail_44",
+      "object": "Upper_frame_rail_44",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -104.0,
+          44.0,
+          90.0
+        ],
+        [
+          111.0,
+          47.0,
+          93.0
+        ]
+      ],
+      "volume_mm3": 1935.0,
+      "notes": "Two shared side beams, not one local grip per module."
+    },
+    {
+      "id": "Upper_frame_end_-104",
+      "object": "Upper_frame_end__104",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -104.0,
+          -49.0,
+          90.0
+        ],
+        [
+          -101.0,
+          47.0,
+          93.0
+        ]
+      ],
+      "volume_mm3": 864.0,
+      "notes": "Ties shared sideframes. S0 body ends88.52 below rail90; actual local fit is a named check."
+    },
+    {
+      "id": "Upper_frame_end_105",
+      "object": "Upper_frame_end_105",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          108.0,
+          -49.0,
+          90.0
+        ],
+        [
+          111.0,
+          47.0,
+          93.0
+        ]
+      ],
+      "volume_mm3": 864.0,
+      "notes": "Ties shared sideframes. S0 body ends88.52 below rail90; actual local fit is a named check."
+    },
+    {
+      "id": "Pi_bridge_-102",
+      "object": "Pi_bridge__102",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -102.0,
+          -49.0,
+          93.0
+        ],
+        [
+          -97.0,
+          47.0,
+          96.0
+        ]
+      ],
+      "volume_mm3": 1439.9999999999998,
+      "notes": "Bridges between common side rails before boards/fuses. X-31 fits between PCA and E1, nominal interfaces to verify."
+    },
+    {
+      "id": "Pi_bridge_-31",
+      "object": "Pi_bridge__31",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -31.0,
+          -49.0,
+          93.0
+        ],
+        [
+          -26.0,
+          47.0,
+          96.0
+        ]
+      ],
+      "volume_mm3": 1439.9999999999998,
+      "notes": "Bridges between common side rails before boards/fuses. X-31 fits between PCA and E1, nominal interfaces to verify."
+    },
+    {
+      "id": "Pi_removable_common_tray",
+      "object": "Pi_removable_common_tray",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -101.0,
+          -41.0,
+          95.52
+        ],
+        [
+          -10.0,
+          21.0,
+          98.52
+        ]
+      ],
+      "volume_mm3": 16926.0,
+      "notes": "Common Pi plate on two bridges; board mounts insulated; USB front and GPIO negativeY kept accessible."
+    },
+    {
+      "id": "BUS_upper_simple_shelf",
+      "object": "BUS_upper_simple_shelf",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          -83.0,
+          -7.0,
+          123.0
+        ],
+        [
+          -35.0,
+          32.0,
+          126.0
+        ]
+      ],
+      "volume_mm3": 5616.0,
+      "notes": "Above populated Pi nominal envelope; actual connector/cooling fit in FIT2. Four standoffs/support interfaces to detail, not print ready."
+    },
+    {
+      "id": "S0_panel_sharedpost_107_-76",
+      "object": "S0_panel_sharedpost_107__76",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          107.0,
+          -76.0,
+          48.52
+        ],
+        [
+          113.0,
+          -70.0,
+          85.52000000000001
+        ]
+      ],
+      "volume_mm3": 1332.0000000000005,
+      "notes": "Four simple posts outside actual S0 body and ring bounds, from rear deck extension to shared neck panel; no wire load."
+    },
+    {
+      "id": "S0_panel_sharedpost_107_12",
+      "object": "S0_panel_sharedpost_107_12",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          107.0,
+          12.0,
+          48.52
+        ],
+        [
+          113.0,
+          18.0,
+          85.52000000000001
+        ]
+      ],
+      "volume_mm3": 1332.0000000000005,
+      "notes": "Four simple posts outside actual S0 body and ring bounds, from rear deck extension to shared neck panel; no wire load."
+    },
+    {
+      "id": "S0_panel_sharedpost_169_-76",
+      "object": "S0_panel_sharedpost_169__76",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          169.0,
+          -76.0,
+          48.52
+        ],
+        [
+          175.0,
+          -70.0,
+          85.52000000000001
+        ]
+      ],
+      "volume_mm3": 1332.0000000000005,
+      "notes": "Four simple posts outside actual S0 body and ring bounds, from rear deck extension to shared neck panel; no wire load."
+    },
+    {
+      "id": "S0_panel_sharedpost_169_12",
+      "object": "S0_panel_sharedpost_169_12",
+      "evidence": "PROPOSED_shared_support_blank_not_print_ready",
+      "source": "",
+      "bounds_mm": [
+        [
+          169.0,
+          12.0,
+          48.52
+        ],
+        [
+          175.0,
+          18.0,
+          85.52000000000001
+        ]
+      ],
+      "volume_mm3": 1332.0000000000005,
+      "notes": "Four simple posts outside actual S0 body and ring bounds, from rear deck extension to shared neck panel; no wire load."
+    }
+  ],
+  "checks": [
+    {
+      "hazard": "BASE_NEUTRAL_VS_NEW_DECK",
+      "base_zmax": 39.52000000000197,
+      "deck_zmin": 45.52,
+      "neutral_vertical_separation_mm": 5.999999999998032,
+      "status": "NEUTRAL_HEIGHT_BOUND_ONLY_motion_and_anchor_contact_not_pass"
+    },
+    {
+      "hazard": "S0_WHOLE11_VS_BATTERY",
+      "s0_bounds": [
+        [
+          107.1215759755915,
+          -67.99999999999983,
+          48.519999999999996
+        ],
+        [
+          163.8784240244085,
+          9.342166723602865,
+          155.01999999999992
+        ]
+      ],
+      "case_axis_original": [
+        0.984807753012208,
+        1.9939242794170085e-16,
+        0.17364817766693091
+      ],
+      "neck_panel_z": 88.51999999999991,
+      "gap_mm": 4.680163785512718,
+      "common_mm3": 0.0,
+      "status": "ACTUAL_SOURCE_GEOMETRY_NEUTRAL_PAIR_ONLY"
+    },
+    {
+      "hazard": "S0_body VS WAGO415_data_1_7",
+      "gap_mm": 21.73536619452814,
+      "status": "NAMED_NEUTRAL_GEOMETRY_PAIR_ONLY_NOT_WHOLE_MOTION_OR_PHYSICAL_PASS"
+    },
+    {
+      "hazard": "S0_body VS WAGO415_data_-1_7",
+      "gap_mm": 20.828916638198542,
+      "status": "NAMED_NEUTRAL_GEOMETRY_PAIR_ONLY_NOT_WHOLE_MOTION_OR_PHYSICAL_PASS"
+    },
+    {
+      "hazard": "S0_body VS Upper_frame_end_105",
+      "gap_mm": 1.4799999999996913,
+      "status": "NAMED_NEUTRAL_GEOMETRY_PAIR_ONLY_NOT_WHOLE_MOTION_OR_PHYSICAL_PASS"
+    },
+    {
+      "hazard": "Battery_GEA223S30X6GT VS Speaker",
+      "gap_mm": 3.0,
+      "status": "NAMED_NEUTRAL_GEOMETRY_PAIR_ONLY_NOT_WHOLE_MOTION_OR_PHYSICAL_PASS"
+    },
+    {
+      "hazard": "Battery_GEA223S30X6GT VS MAIN_Pololu4853",
+      "gap_mm": 8.746427842267957,
+      "status": "NAMED_NEUTRAL_GEOMETRY_PAIR_ONLY_NOT_WHOLE_MOTION_OR_PHYSICAL_PASS"
+    },
+    {
+      "hazard": "Pi_removable_common_tray VS PCA9685_Adafruit815_PCB",
+      "gap_mm": 16.999999999999986,
+      "status": "NAMED_NEUTRAL_GEOMETRY_PAIR_ONLY_NOT_WHOLE_MOTION_OR_PHYSICAL_PASS"
+    },
+    {
+      "hazard": "BATTERY_VERTICAL_EXTRACTION_AFTER_MIC_BACK_REMOVAL_UNPLUG",
+      "method": "One vertical occupied prism from selectednominal battery65..180 vs six named actual or proposed fixed bottlenecks; no wholemotion scan",
+      "pairs": [
+        {
+          "fixed": "Rear_S0_shared_panel_BLANK",
+          "distance_mm": 2.5
+        },
+        {
+          "fixed": "Upper_frame_end_105",
+          "distance_mm": 3.5
+        },
+        {
+          "fixed": "MAIN_Pololu4853",
+          "distance_mm": 4.500000000000014
+        },
+        {
+          "fixed": "AUX_Pololu4092",
+          "distance_mm": 4.5
+        },
+        {
+          "fixed": "Monitor_MOD05015",
+          "distance_mm": 10.793516572461487
+        },
+        {
+          "fixed": "S0_complete11",
+          "distance_mm": 4.680163785512733
+        }
+      ],
+      "min_gap_mm": 2.5,
+      "status": "NAMED_NOMINAL_SWEEP_BOUND_ONLY_FACTORYLEAD_UNPLUG_AND_STRAPS_FIT2"
+    }
+  ],
+  "sources": [
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat\\hardware\\wavego\\WAVEGO_PRO_BETA_v3.FCStd",
+      "sha256": "435f88638ea5246bedb167ca7c9a37c2d0f6d3d5c4c2c65e656bf89e9c372264",
+      "bytes": 18707722
+    },
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat\\hardware\\wavego\\WAVEGO_PRO_BETA_v3_motion.FCStd",
+      "sha256": "814a93f34aba06273e421febfe7c6b322ee4a9eebf86d59ffbd72e66e344cf22",
+      "bytes": 18744979
+    },
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\electronics\\kicad-current\\selected-components.csv",
+      "sha256": "4ac53a1dba32ec771038cf30deada706657ca1b66f3c741c54dc249de11eabce",
+      "bytes": 4172
+    },
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\electronics\\kicad-current\\design.json",
+      "sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
+      "bytes": 220440
+    },
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\reference\\appearance\\ola-cat-reference.jpg",
+      "sha256": "b113caadd9079a4dc4bd60dfa4bbec3af0490dffa867d006d9e730ffe7d5c941",
+      "bytes": 55967
+    },
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat\\hardware\\wavego\\layout\\components.json",
+      "sha256": "b16263e7cfff31a27e8098e21d33edaa927265ba9b3cd3d526cf0d2459e59708",
+      "bytes": 13464
+    },
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\day11-GUI-working-snapshot-source-index.json",
+      "sha256": "20661ced323365e6edfa67d2a2b5272d77cbaa8c5abc21986160c1855bd77806",
+      "bytes": 125006
+    }
+  ],
+  "selected_rows": [
+    {
+      "id": "Drive ST3215",
+      "installed": "12",
+      "manufacturer": "Waveshare",
+      "part": "22414",
+      "supplier": "Kamami",
+      "supplier_sku": "1181056",
+      "catalog_role": "p0:DRIVE-12"
+    },
+    {
+      "id": "Drive MG92B",
+      "installed": "3",
+      "manufacturer": "TowerPro",
+      "part": "MG92B positional",
+      "supplier": "Botland",
+      "supplier_sku": "24409",
+      "catalog_role": "additional:AUX-SERVO-MG92B"
+    },
+    {
+      "id": "BUS",
+      "installed": "1",
+      "manufacturer": "Waveshare",
+      "part": "25514",
+      "supplier": "Kamami",
+      "supplier_sku": "1187948",
+      "catalog_role": "p0:BUS"
+    },
+    {
+      "id": "MAIN",
+      "installed": "1",
+      "manufacturer": "Pololu",
+      "part": "4853",
+      "supplier": "Kamami",
+      "supplier_sku": "1196574",
+      "catalog_role": "p0:REG-MAIN"
+    },
+    {
+      "id": "AUX",
+      "installed": "1",
+      "manufacturer": "Pololu",
+      "part": "4092",
+      "supplier": "Kamami",
+      "supplier_sku": "586583",
+      "catalog_role": "additional:AUX6-REGULATOR"
+    },
+    {
+      "id": "PCA9685",
+      "installed": "1",
+      "manufacturer": "Adafruit",
+      "part": "815 revC",
+      "supplier": "Kamami",
+      "supplier_sku": "199856",
+      "catalog_role": "additional:PWM-CONTROLLER"
+    },
+    {
+      "id": "Battery",
+      "installed": "1",
+      "manufacturer": "Gens Ace",
+      "part": "GEA223S30X6GT",
+      "supplier": "RC Planeta",
+      "supplier_sku": "1570",
+      "catalog_role": "p0:BATTERY"
+    },
+    {
+      "id": "Battery monitor",
+      "installed": "1",
+      "manufacturer": "",
+      "part": "5015",
+      "supplier": "Botland",
+      "supplier_sku": "5015",
+      "catalog_role": "p0:BATTERY-MONITOR"
+    },
+    {
+      "id": "Battery straps",
+      "installed": "2",
+      "manufacturer": "",
+      "part": "4982",
+      "supplier": "RCManiak",
+      "supplier_sku": "4982",
+      "catalog_role": "p0:BATTERY-STRAPS-P0"
+    },
+    {
+      "id": "Source S0",
+      "installed": "1",
+      "manufacturer": "HELLA",
+      "part": "6EK002843-002",
+      "supplier": "Inter Cars",
+      "supplier_sku": "256550",
+      "catalog_role": "p0:MAIN-SWITCH"
+    },
+    {
+      "id": "Source S1",
+      "installed": "1",
+      "manufacturer": "NKK",
+      "part": "S821",
+      "supplier": "RS Polska",
+      "supplier_sku": "354-3235",
+      "catalog_role": "p0:MOTOR-STOP-MANUAL-P0"
+    },
+    {
+      "id": "Source XT60 pair",
+      "installed": "1",
+      "manufacturer": "AMASS",
+      "part": "XT60H-M/F with covers",
+      "supplier": "Kamami",
+      "supplier_sku": "581961",
+      "catalog_role": "p0:XT60"
+    },
+    {
+      "id": "WAGO power221615",
+      "installed": "4",
+      "manufacturer": "WAGO",
+      "part": "221-615",
+      "supplier": "Kamami",
+      "supplier_sku": "1180756",
+      "catalog_role": "p0:DISTRIBUTION"
+    },
+    {
+      "id": "WAGO 221415",
+      "installed": "16",
+      "manufacturer": "WAGO",
+      "part": "221-415",
+      "supplier": "Kamami",
+      "supplier_sku": "1188363",
+      "catalog_role": "p0:DATA-JUNCTIONS-P0"
+    },
+    {
+      "id": "MTA four legs",
+      "installed": "4",
+      "manufacturer": "MTA",
+      "part": "0100335",
+      "supplier": "TME",
+      "supplier_sku": "MTA-MINI-HOLDER",
+      "catalog_role": "p0:FUSE-HOLDERS"
+    },
+    {
+      "id": "POST_F0 protected junction",
+      "installed": "1",
+      "manufacturer": "WAGO",
+      "part": "221-412",
+      "supplier": "Kamami",
+      "supplier_sku": "1188364",
+      "catalog_role": "splice:WAGO221-412"
+    },
+    {
+      "id": "Pi GPIO housing",
+      "installed": "1",
+      "manufacturer": "Pololu",
+      "part": "1992",
+      "supplier": "Pololu",
+      "supplier_sku": "Pololu1992",
+      "catalog_role": "Pi:J8_housing_1992"
+    },
+    {
+      "id": "Pi microSD",
+      "installed": "1",
+      "manufacturer": "",
+      "part": "1188166",
+      "supplier": "Kamami",
+      "supplier_sku": "1188166",
+      "catalog_role": "p0:SD"
+    },
+    {
+      "id": "MTA servo bank",
+      "installed": "12",
+      "manufacturer": "MTA",
+      "part": "0300330",
+      "supplier": "TME",
+      "supplier_sku": "0300330",
+      "catalog_role": "p0:SERVO-HOLDERS-P0"
+    },
+    {
+      "id": "Bank TE input",
+      "installed": "12",
+      "manufacturer": "TE Connectivity",
+      "part": "4-520448-2",
+      "supplier": "TME",
+      "supplier_sku": "4-520448-2",
+      "catalog_role": "p0:TERMINAL-SERVO-IN-P0"
+    },
+    {
+      "id": "Bank TE output",
+      "installed": "12",
+      "manufacturer": "TE Connectivity",
+      "part": "2-520184-2",
+      "supplier": "Farnell Polska",
+      "supplier_sku": "488306",
+      "catalog_role": "p0:TERMINAL-SERVO-OUT-P0"
+    },
+    {
+      "id": "S0 ring M10",
+      "installed": "2",
+      "manufacturer": "TE Connectivity",
+      "part": "130207",
+      "supplier": "TME",
+      "supplier_sku": "130207",
+      "catalog_role": "p0:TERMINAL-S0-P0"
+    },
+    {
+      "id": "S1 rings",
+      "installed": "4",
+      "manufacturer": "TE Connectivity",
+      "part": "130171",
+      "supplier": "TME",
+      "supplier_sku": "130171",
+      "catalog_role": "p0:TERMINAL-S1-P0"
+    },
+    {
+      "id": "F0 holder",
+      "installed": "1",
+      "manufacturer": "Littelfuse",
+      "part": "FHAC0002ZXJ",
+      "supplier": "TME",
+      "supplier_sku": "FHAC0002ZXJ",
+      "catalog_role": "p0:MAIN-FUSE-HOLDER"
+    },
+    {
+      "id": "Small FHAC holders",
+      "installed": "5",
+      "manufacturer": "Littelfuse",
+      "part": "FHAC0001ZXJ",
+      "supplier": "TME",
+      "supplier_sku": "FHAC0001ZXJ",
+      "catalog_role": "fuse:FHAC0001ZXJ"
+    },
+    {
+      "id": "JR extension",
+      "installed": "3",
+      "manufacturer": "",
+      "part": "586761",
+      "supplier": "Kamami",
+      "supplier_sku": "586761",
+      "catalog_role": "additional:MG92B-JR-EXTENSION"
+    },
+    {
+      "id": "E2 source housing",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "430250200",
+      "supplier": "DigiKey",
+      "supplier_sku": "WM1783-ND",
+      "catalog_role": "connector:430250200"
+    },
+    {
+      "id": "E2 module housing",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "430200201",
+      "supplier": "Micros",
+      "supplier_sku": "Z MX-0430200201",
+      "catalog_role": "connector:430200201"
+    },
+    {
+      "id": "E2 source V contact",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "2147612113",
+      "supplier": "Farnell",
+      "supplier_sku": "3526339",
+      "catalog_role": "connector:2147612113"
+    },
+    {
+      "id": "E2 source G contact",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "2147611113",
+      "supplier": "Farnell",
+      "supplier_sku": "3526316",
+      "catalog_role": "connector:2147611113"
+    },
+    {
+      "id": "E2 module V contact",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "2147632113",
+      "supplier": "Farnell",
+      "supplier_sku": "3526384",
+      "catalog_role": "connector:2147632113"
+    },
+    {
+      "id": "E2 module G contact",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "2147631113",
+      "supplier": "",
+      "supplier_sku": "2147631113",
+      "catalog_role": ""
+    },
+    {
+      "id": "Fuse 0287030.PXCN",
+      "installed": "1",
+      "manufacturer": "Littelfuse",
+      "part": "0287030.PXCN",
+      "supplier": "TME",
+      "supplier_sku": "0287030.PXCN",
+      "catalog_role": "p0:MAIN-FUSE"
+    },
+    {
+      "id": "Fuse MTA MINIVAL10A / supplier AMFM-10A",
+      "installed": "4",
+      "manufacturer": "MTA",
+      "part": "MINIVAL10A",
+      "supplier": "TME",
+      "supplier_sku": "AMFM-10A",
+      "catalog_role": "p0:FUSES"
+    },
+    {
+      "id": "Fuse 0287004.PXCN",
+      "installed": "13",
+      "manufacturer": "Littelfuse",
+      "part": "0287004.PXCN",
+      "supplier": "TME",
+      "supplier_sku": "0287004.PXCN",
+      "catalog_role": "fuse:0287004.PXCN"
+    },
+    {
+      "id": "Fuse 0287003.PXCN",
+      "installed": "1",
+      "manufacturer": "Littelfuse",
+      "part": "0287003.PXCN",
+      "supplier": "TME",
+      "supplier_sku": "0287003.PXCN",
+      "catalog_role": "fuse:0287003.PXCN"
+    },
+    {
+      "id": "Fuse 0287001.PXCN",
+      "installed": "3",
+      "manufacturer": "Littelfuse",
+      "part": "0287001.PXCN",
+      "supplier": "TME",
+      "supplier_sku": "0287001.PXCN",
+      "catalog_role": "fuse:0287001.PXCN"
+    },
+    {
+      "id": "Fuse 0242.100UAT1",
+      "installed": "1",
+      "manufacturer": "Littelfuse",
+      "part": "0242.100UAT1",
+      "supplier": "TME",
+      "supplier_sku": "0242.100UAT1",
+      "catalog_role": "fuse:0242.100UAT1"
+    },
+    {
+      "id": "E1 MRS16000C2200FCT00",
+      "installed": "3",
+      "manufacturer": "Vishay",
+      "part": "MRS16000C2200FCT00",
+      "supplier": "DigiKey Poland",
+      "supplier_sku": "product page 7350454",
+      "catalog_role": "passive:Vishay MRS16000C2200FCT00"
+    },
+    {
+      "id": "E1 MRS16000C1002FCT00",
+      "installed": "10",
+      "manufacturer": "Vishay",
+      "part": "MRS16000C1002FCT00",
+      "supplier": "DigiKey",
+      "supplier_sku": "product page 5063734",
+      "catalog_role": "passive:Vishay MRS16000C1002FCT00"
+    },
+    {
+      "id": "E1 L78L05ACZ",
+      "installed": "1",
+      "manufacturer": "STMicroelectronics",
+      "part": "L78L05ACZ",
+      "supplier": "TME",
+      "supplier_sku": "L78L05ACZ",
+      "catalog_role": "additional:PWM5-REGULATOR"
+    },
+    {
+      "id": "E1 C320C334K5R5TA",
+      "installed": "1",
+      "manufacturer": "KEMET",
+      "part": "C320C334K5R5TA",
+      "supplier": "DigiKey",
+      "supplier_sku": "product page 14681348",
+      "catalog_role": "passive:KEMET C320C334K5R5TA"
+    },
+    {
+      "id": "E1 C315C104K5R5TA",
+      "installed": "3",
+      "manufacturer": "KEMET",
+      "part": "C315C104K5R5TA",
+      "supplier": "DigiKey Poland",
+      "supplier_sku": "product page 12701330",
+      "catalog_role": "passive:KEMET C315C104K5R5TA"
+    },
+    {
+      "id": "E1 MRS16000C2201FCT00",
+      "installed": "1",
+      "manufacturer": "Vishay",
+      "part": "MRS16000C2201FCT00",
+      "supplier": "DigiKey",
+      "supplier_sku": "product page 7351361",
+      "catalog_role": "passive:Vishay MRS16000C2201FCT00"
+    },
+    {
+      "id": "E1 M20-7821242",
+      "installed": "2",
+      "manufacturer": "Harwin",
+      "part": "M20-7821242",
+      "supplier": "",
+      "supplier_sku": "M20-7821242",
+      "catalog_role": ""
+    },
+    {
+      "id": "E1 M20-9991245",
+      "installed": "2",
+      "manufacturer": "Harwin",
+      "part": "M20-9991245",
+      "supplier": "",
+      "supplier_sku": "M20-9991245",
+      "catalog_role": ""
+    },
+    {
+      "id": "E1 Adafruit1608",
+      "installed": "1",
+      "manufacturer": "Adafruit",
+      "part": "1608",
+      "supplier": "Conrad",
+      "supplier_sku": "1516556",
+      "catalog_role": "additional:PWM-PROTOTYPE-BOARD"
+    },
+    {
+      "id": "E1 Adafruit1208",
+      "installed": "1",
+      "manufacturer": "Adafruit",
+      "part": "Adafruit1208",
+      "supplier": "",
+      "supplier_sku": "1208",
+      "catalog_role": ""
+    },
+    {
+      "id": "E1 SN74LVC8T245PW",
+      "installed": "1",
+      "manufacturer": "Texas Instruments",
+      "part": "SN74LVC8T245PW",
+      "supplier": "TME",
+      "supplier_sku": "SN74LVC8T245PW",
+      "catalog_role": "additional:PWM-LEVEL-TRANSLATOR"
+    },
+    {
+      "id": "Remote R7 R8 R9",
+      "installed": "3",
+      "manufacturer": "Vishay",
+      "part": "MRS16000C1002FCT00",
+      "supplier": "DigiKey",
+      "supplier_sku": "product page 5063734",
+      "catalog_role": "passive:Vishay MRS16000C1002FCT00"
+    },
+    {
+      "id": "Pi power K1474",
+      "installed": "1",
+      "manufacturer": "Joy-IT",
+      "part": "K-1474",
+      "supplier": "Conrad",
+      "supplier_sku": "3304684",
+      "catalog_role": "p0:PI-POWER-CABLE"
+    },
+    {
+      "id": "Pi BUS USB cable",
+      "installed": "1",
+      "manufacturer": "Lanberg",
+      "part": "CA-USBO-10CU-0005-BK",
+      "supplier": "Botland",
+      "supplier_sku": "14824",
+      "catalog_role": "p0:BUS-USB-CABLE-P0"
+    },
+    {
+      "id": "Pi passive angle adapter",
+      "installed": "1",
+      "manufacturer": "",
+      "part": "Delock60047",
+      "supplier": "",
+      "supplier_sku": "",
+      "catalog_role": ""
+    },
+    {
+      "id": "Owned Pi4B",
+      "installed": "1",
+      "manufacturer": "",
+      "part": "Raspberry Pi4B",
+      "supplier": "",
+      "supplier_sku": "",
+      "catalog_role": ""
+    },
+    {
+      "id": "WAGO opposed inline",
+      "installed": "8",
+      "manufacturer": "WAGO",
+      "part": "221-2411",
+      "supplier": "",
+      "supplier_sku": "221-2411",
+      "catalog_role": ""
+    },
+    {
+      "id": "Head pitch bearing",
+      "installed": "1",
+      "manufacturer": "SMB Bearings",
+      "part": "688-2RS 8x16x5",
+      "supplier": "SMB Bearings",
+      "supplier_sku": "688-2RS",
+      "catalog_role": ""
+    },
+    {
+      "id": "Head yaw and tail bearings",
+      "installed": "3",
+      "manufacturer": "",
+      "part": "SKF608-2Z",
+      "supplier": "",
+      "supplier_sku": "",
+      "catalog_role": ""
+    }
+  ],
+  "selected_rows_count": 57,
+  "source_shape_reuse": "Only selected bought shapes from old1311 reference, no old printed mounts or world poses. Transform once then relocate as WHOLE components.",
+  "appearance_extension": "Userrequired camera/ToF/BNO/audio/touch added using oldnominal envelopes; not in current electricalCSV, revision/electricalintegration unqualified.",
+  "assembly_order": [
+    "A+B: verify source8hole revision, clamp/load path; fit 2rails and splitdeck on open base",
+    "A: mount lower WAGO/power and open12motorfuse banks; B: preterminate/sourcegraph benchkit, retain4independent220/bothends",
+    "Mount speaker/BNO/amp and shared logic shelf, then Pi/PCA/E1/BUS/MAIN/AUX; driverbeforewires, insulatedstand-offs",
+    "Install S0 rear structuralpanel/terminalguard, five auxiliaryfuses/S1/monitor, fixedlead strains; no load carried by wires",
+    "Fit removablebatterytray and2straps, battery unplugged; XT60/balance access; lowerWAGO maintenance by tray removal",
+    "Fit 3MG/bearings/head/tail, camera/ToF and CSI/servo adaptive loops; route selected500USB whole, head/tailproof test pending",
+    "Lay grouped harness openly, perleg movement/slack checks and sourcebudget audit only changed actualpaths; add terminalguards",
+    "Last: removable back/microphone skin and head/tail cosmetics; battery lifts vertically after removableback, occasionalrepair partial disassembly"
+  ],
+  "uncertainties": [
+    {
+      "id": "FIT1",
+      "question": "Owned WAVEGO revision, 8hole engagement, added payload and hip clearance",
+      "check": "8hole 1:1 template / small root coupon, weigh whole kit, hand-cycle all 12 joints with platform before any powered trial",
+      "no_claim": "No new kinematic/fullpayload approval"
+    },
+    {
+      "id": "FIT2",
+      "question": "Fullselected connector/factorylead reach and protection assembly",
+      "check": "Openbench dryfit sourcegraph: four separate220 bothends,12motorfuses TE+ATO, all WAGO, fiveFHAC leads>=84.5, K1474 allocations210 input vs350Pi, fullUSB500+Delock, PiGPIO30reserve, balance/mating and actualR/OD; adjust shared layers rather than cut/extend",
+      "no_claim": "Installed cut/route/stock/slack NULL; all source factoryends and budgets retained"
+    },
+    {
+      "id": "FIT3",
+      "question": "Head/tail bearing linkage, optical/CSI and Ola mass/proportion",
+      "check": "One open head/tail mockup with 3MG/3x608/688, weigh lever and hand-turn head then skin cardtemplate; verify all sensor revisionports",
+      "no_claim": "No production strength/complete skin/print readiness"
+    }
+  ],
+  "mass_note": "No actual payload weigh-in. Expect roughly0.9..1.4kg added including protection/cables/prints; this is a risk estimate, not calculated mass or servo capability.",
+  "old_history": "Old N01rev1 remains0/10 archived; no priorscore or geometryPASS transferred by name. Old55/R35.1/framehomes not automatic new constraints. Existing electricalgraph and proper physical stock accounting preserved.",
+  "wall_seconds": 46.49753090000013,
+  "first_fit_layer_completion": "Before first freeze, lower rear WAGO pair on positive side; battery crossarms above open WAGO; upper common perimeter frame outside lower cases; front mainfuse upright beside neck. No old local detail/variant series.",
+  "decision": "WHOLE_FIRST_FIT_CANDIDATE_READY_FOR_ONE_REVIEW; no physical/print/wholeassembly acceptance. Shared support blanks still need root fasteners, electrical shielding and three named fitting checks.",
+  "support_scope": "Concept has actual source-hole roots, shared rails/deck/crossarms/perimeter frame and individual board/support blanks; mating/hole details unbuilt. UpperBUS shelf support, terminal guards, batterystrap slots, S0 M6 and MGshaft coupling remain in the three prototype fit groups.",
+  "grouped_selected_functions": {
+    "E1": [
+      "Adafruit1608/1208",
+      "SN74LVC8T245",
+      "L78L05",
+      "all selected resistors/caps/Harwin headers",
+      "0.1A0242logic"
+    ],
+    "MG_harness": [
+      "three selected JR300",
+      "three remoteR7R8R9",
+      "three1Afuses",
+      "selectedE2Molex pair/fourcontacts"
+    ],
+    "battery_and_power": [
+      "two selectedstraps",
+      "XT60Hpair",
+      "selectedM10/M3rings",
+      "WAGO2212411 x8 distributed inline",
+      "main30A+4leg10A+12motor4A+AUX4A+Pi3A+3MG1A+logic0.1A"
+    ],
+    "factory_lengths": [
+      "4separate MTA0100335 units: full220 each and bothends",
+      "5FHAC0001 twofactory leads>=84.5 each",
+      "K1474one1m2colourunit proper210MAINinput/350Piallocations from source, no pooling",
+      "LanbergUSB500 + currentlyselectedDelock60047",
+      "MAX3/850project/900physicalceil5(M+20) preserved as source accounting until actualchosenroute; no fabricated fit/shortage"
+    ]
+  },
+  "first_fit_wall_start_utc": "2026-11-14T20:55:50Z",
+  "final_geometry_utc": "2026-11-14T21:34:08.121921+00:00",
+  "native_object_count": 138
+}
