@@ -1,0 +1,329 @@
+[
+  {
+    "name": "P01_load_rail",
+    "quantity": 2,
+    "assembly_object": "P01_load_rail",
+    "bounds_mm": [
+      [
+        -86.0,
+        -27.5,
+        38.52
+      ],
+      [
+        128.0,
+        -17.5,
+        45.52
+      ]
+    ],
+    "volume_mm3": 13896.849567979278,
+    "print_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        214.0,
+        10.0,
+        7.0
+      ]
+    ],
+    "stl": "stl/P01_load_rail.stl",
+    "triangles": 2052,
+    "mesh_closed": true,
+    "print_orientation": "flat bottom Z0",
+    "member_coverage": {
+      "member_count": 1,
+      "missing_mm3": [
+        0.0
+      ]
+    },
+    "notes": "214x10;7high, rear24mm steps down to3high. One geometry printed2x; eight source-axis clearanceholes2.8mm. Frame thread not asserted.",
+    "changed": false
+  },
+  {
+    "name": "P02_front_deck",
+    "quantity": 1,
+    "assembly_object": "P02_front_deck",
+    "bounds_mm": [
+      [
+        -105.0,
+        -82.0,
+        42.52
+      ],
+      [
+        30.0,
+        82.0,
+        48.52
+      ]
+    ],
+    "volume_mm3": 67670.07735950233,
+    "print_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        135.0,
+        164.0,
+        6.0
+      ]
+    ],
+    "stl": "stl/P02_front_deck.stl",
+    "triangles": 7692,
+    "mesh_closed": true,
+    "print_orientation": "flat bottom Z0",
+    "member_coverage": {
+      "member_count": 3,
+      "missing_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "notes": "135x164,3mm deck plus3mm edge ribs. Open adjustable slots, not16dedicated WAGO holders.",
+    "changed": false
+  },
+  {
+    "name": "P03_rear_deck_integrated_load_yoke",
+    "quantity": 1,
+    "assembly_object": "P03_rear_deck_integrated_load_yoke",
+    "bounds_mm": [
+      [
+        30.0,
+        -82.0,
+        41.52
+      ],
+      [
+        198.0,
+        82.0,
+        52.52
+      ]
+    ],
+    "volume_mm3": 127104.70907432075,
+    "print_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        168.0,
+        164.0,
+        11.0
+      ]
+    ],
+    "stl": "stl/P03_rear_deck_integrated_load_yoke.stl",
+    "triangles": 16410,
+    "mesh_closed": true,
+    "print_orientation": "flat bottom Z0",
+    "member_coverage": {
+      "member_count": 6,
+      "missing_mm3": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "notes": "Rear fullwidth endsX177, narrow tail tongueX198; no floating outside-deck posts. 4mm yoke under deck to stepped rail shoulders; tailseat top52.52. Fits168x164 print footprint.",
+    "changed": true
+  },
+  {
+    "name": "P04_deck_splice",
+    "quantity": 2,
+    "assembly_object": "P04_deck_splice",
+    "bounds_mm": [
+      [
+        20.0,
+        -50.0,
+        42.52
+      ],
+      [
+        40.0,
+        -38.0,
+        45.52
+      ]
+    ],
+    "volume_mm3": 668.6820840036105,
+    "print_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        20.0,
+        12.0,
+        3.0
+      ]
+    ],
+    "stl": "stl/P04_deck_splice.stl",
+    "triangles": 1028,
+    "mesh_closed": true,
+    "print_orientation": "flat bottom Z0",
+    "member_coverage": {
+      "member_count": 1,
+      "missing_mm3": [
+        0.0
+      ]
+    },
+    "notes": "Two underside straps bridge actual deck seam; two M3x10 per strap, nuts/washers below.",
+    "changed": false
+  },
+  {
+    "name": "P05_S0_panel_spacer40",
+    "quantity": 4,
+    "assembly_object": "P05_S0_panel_spacer40",
+    "bounds_mm": [
+      [
+        107.0,
+        -76.0,
+        48.52
+      ],
+      [
+        113.0,
+        -70.0,
+        88.52000000000001
+      ]
+    ],
+    "volume_mm3": 1097.8805600240717,
+    "print_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        40.00000000000001,
+        6.0,
+        6.000000000000028
+      ]
+    ],
+    "stl": "stl/P05_S0_panel_spacer40.stl",
+    "triangles": 520,
+    "mesh_closed": true,
+    "print_orientation": "long column on its side; Zheight6",
+    "member_coverage": {
+      "member_count": 1,
+      "missing_mm3": [
+        0.0
+      ]
+    },
+    "notes": "6x6x40, bore3.3; top/bottom matched seating, separate disjoint print. Side-print to avoid tiny40mm tower.",
+    "changed": false
+  },
+  {
+    "name": "P06_S0_shared_panel",
+    "quantity": 1,
+    "assembly_object": "P06_S0_shared_panel",
+    "bounds_mm": [
+      [
+        101.0,
+        -76.0,
+        88.52
+      ],
+      [
+        177.0,
+        50.650000000000006,
+        92.52
+      ]
+    ],
+    "volume_mm3": 19399.60060834315,
+    "print_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        76.0,
+        126.65,
+        4.0
+      ]
+    ],
+    "stl": "stl/P06_S0_shared_panel.stl",
+    "triangles": 3736,
+    "mesh_closed": true,
+    "print_orientation": "flat bottom Z0",
+    "member_coverage": {
+      "member_count": 5,
+      "missing_mm3": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "notes": "Actual body seatingZ88.52, neck22 within24.4aperture.2M6clearance at38pitch are PROJECTfamily nominal, not actual delivered thread proof; dryfit only before S0 fastening. Four2mm bosses yield completeM3x55 stack.",
+    "changed": true
+  },
+  {
+    "name": "P07_open_tail_root_U",
+    "quantity": 1,
+    "assembly_object": "P07_open_tail_root_U",
+    "bounds_mm": [
+      [
+        171.0,
+        -15.0,
+        52.52
+      ],
+      [
+        198.0,
+        15.0,
+        107.0
+      ]
+    ],
+    "volume_mm3": 12189.552224009629,
+    "print_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        27.0,
+        30.0,
+        54.48
+      ]
+    ],
+    "stl": "stl/P07_open_tail_root_U.stl",
+    "triangles": 2088,
+    "mesh_closed": true,
+    "print_orientation": "flat bottom Z0",
+    "member_coverage": {
+      "member_count": 3,
+      "missing_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "notes": "Open sides and top for four base screws/driver; useful two cheeks to sourcefuture MG interface. No production tailshaft/servo tabs released.",
+    "changed": false
+  },
+  {
+    "name": "P00_eight_hole_template",
+    "quantity": 1,
+    "stl": "stl/P00_eight_hole_template.stl",
+    "print_bounds_mm": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        214,
+        55,
+        1.2
+      ]
+    ],
+    "mesh_closed": true,
+    "notes": "First small cheaptemplate. No screws forced if physical8axes/thread do not match. NOT assembled structuralpart.",
+    "changed": false
+  }
+]
