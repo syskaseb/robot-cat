@@ -1,0 +1,2565 @@
+{
+  "fasteners": [
+    {
+      "role": "8source anchors",
+      "count": 8,
+      "nominal": "M2.5x16 countersunk overalllength, sourcehole2.6/frame2.05; deck90deg5.0countersink leaves1.9mmfloor",
+      "source": "Nominal size inferred from actual hole axes ONLY; factorythread/actualgrip/stockUNKNOWN, firsttemplate and handfit before load. NO frame drill/tap"
+    },
+    {
+      "role": "2decksplices",
+      "count": 4,
+      "nominal": "M3x10 +M3nut2.4 +onebottomwasher0.5",
+      "stack_mm": 8.9,
+      "source": "New standard fit-kit hardware demand; availability UNKNOWN"
+    },
+    {
+      "role": "4S0panel spacers",
+      "count": 4,
+      "nominal": "M3x55 +M3nut2.4 +onebottomwasher0.5",
+      "stack_mm": 54.9,
+      "source": "New nominal hardware demand UNKNOWN; integrated2mmheadboss. Fullnut engagement~0.1tip projection by nominal stack"
+    },
+    {
+      "role": "tailroot base",
+      "count": 4,
+      "nominal": "M3x20 +M3nut2.4 +onebottomwasher0.5",
+      "stack_mm": 17.9,
+      "source": "New nominal hardware demand UNKNOWN"
+    },
+    {
+      "role": "S0case family mount",
+      "count": 2,
+      "nominal": "M6x12 PROJECTpattern38mm, delivered engagementUNKNOWN",
+      "source": "NOT installed/claimed hardware in kit; two panel test holes only; physicalcase attachment fit prerequisite before loading S0"
+    }
+  ],
+  "same_print_geometry_all8_SHA_identical": true,
+  "contacts": [
+    {
+      "a": "P01_load_rail",
+      "b": "P02_front_deck",
+      "gap_mm": 0.0,
+      "positive_overlap_mm3": 0.0,
+      "contact_area_mm2": 0.0,
+      "connection": "matched seat + explicitly modeled complete fastener stack, no boughtfusion"
+    },
+    {
+      "a": "P01_load_rail",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "gap_mm": 0.0,
+      "positive_overlap_mm3": 0.0,
+      "contact_area_mm2": 0.0,
+      "connection": "matched seat + explicitly modeled complete fastener stack, no boughtfusion"
+    },
+    {
+      "a": "P01_load_rail_instance2",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "gap_mm": 0.0,
+      "positive_overlap_mm3": 0.0,
+      "contact_area_mm2": 0.0,
+      "connection": "matched seat + explicitly modeled complete fastener stack, no boughtfusion"
+    },
+    {
+      "a": "P05_S0_panel_spacer40",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "gap_mm": 0.0,
+      "positive_overlap_mm3": 0.0,
+      "contact_area_mm2": 0.0,
+      "connection": "matched seat + explicitly modeled complete fastener stack, no boughtfusion"
+    },
+    {
+      "a": "P05_S0_panel_spacer40",
+      "b": "P06_S0_shared_panel",
+      "gap_mm": 1.4210854715202004e-14,
+      "positive_overlap_mm3": 0.0,
+      "contact_area_mm2": 0.0,
+      "connection": "matched seat + explicitly modeled complete fastener stack, no boughtfusion"
+    },
+    {
+      "a": "P07_open_tail_root_U",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "gap_mm": 0.0,
+      "positive_overlap_mm3": 0.0,
+      "contact_area_mm2": 0.0,
+      "connection": "matched seat + explicitly modeled complete fastener stack, no boughtfusion"
+    }
+  ],
+  "separate_print_material": [
+    {
+      "a": "P01_load_rail",
+      "b": "P02_front_deck",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P01_load_rail",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P01_load_rail_instance2",
+      "b": "P02_front_deck",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P01_load_rail_instance2",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P02_front_deck",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P02_front_deck",
+      "b": "P04_deck_splice",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P02_front_deck",
+      "b": "P04_deck_splice_instance2",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P03_rear_deck_integrated_load_yoke",
+      "b": "P04_deck_splice",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P03_rear_deck_integrated_load_yoke",
+      "b": "P04_deck_splice_instance2",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P03_rear_deck_integrated_load_yoke",
+      "b": "P05_S0_panel_spacer40",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P03_rear_deck_integrated_load_yoke",
+      "b": "P05_spacer_instance2",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P03_rear_deck_integrated_load_yoke",
+      "b": "P05_spacer_instance3",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P03_rear_deck_integrated_load_yoke",
+      "b": "P05_spacer_instance4",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P03_rear_deck_integrated_load_yoke",
+      "b": "P07_open_tail_root_U",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P05_S0_panel_spacer40",
+      "b": "P06_S0_shared_panel",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P05_spacer_instance2",
+      "b": "P06_S0_shared_panel",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P05_spacer_instance3",
+      "b": "P06_S0_shared_panel",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P05_spacer_instance4",
+      "b": "P06_S0_shared_panel",
+      "common_mm3": 0.0
+    },
+    {
+      "a": "P06_S0_shared_panel",
+      "b": "P07_open_tail_root_U",
+      "common_mm3": 0.0
+    }
+  ],
+  "changed_named_hazards": [
+    {
+      "name": "P03_rear_deck_integrated_load_yoke",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 1.9999999999980318,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "P06_S0_shared_panel",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 48.999999999998025,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "P07_open_tail_root_U",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 21.610036061370483,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H02_splice_M3x10_0",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [
+        3
+      ],
+      "gap_mm": 0.0,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_BOUNDED_LOCAL_OPERANDS",
+      "exact": [
+        {
+          "source_solid": 3,
+          "gap_mm": 4.526016763362719,
+          "common_mm3": 0.0,
+          "faces": 50,
+          "source_bounds_mm": [
+            [
+              -85.00000000001313,
+              -49.339613845843495,
+              -1.2116612305741299
+            ],
+            [
+              126.9999999999925,
+              -26.999999999995417,
+              38.520000000002725
+            ]
+          ],
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "H02_splice_M3x10_0_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [
+        3
+      ],
+      "gap_mm": 1.0999999999972658,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_BOUNDED_LOCAL_OPERANDS",
+      "exact": [
+        {
+          "source_solid": 3,
+          "gap_mm": 4.420211911113399,
+          "common_mm3": 0.0,
+          "faces": 50,
+          "source_bounds_mm": [
+            [
+              -85.00000000001313,
+              -49.339613845843495,
+              -1.2116612305741299
+            ],
+            [
+              126.9999999999925,
+              -26.999999999995417,
+              38.520000000002725
+            ]
+          ],
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "H02_splice_M3x10_0_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 3.4999999999972715,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H02_splice_M3x10_1",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [
+        112
+      ],
+      "gap_mm": 0.0,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_BOUNDED_LOCAL_OPERANDS",
+      "exact": [
+        {
+          "source_solid": 112,
+          "gap_mm": 4.526016763381479,
+          "common_mm3": 0.0,
+          "faces": 50,
+          "source_bounds_mm": [
+            [
+              -84.99999999999721,
+              26.99999999996981,
+              -1.2116612305743288
+            ],
+            [
+              127.00000000000847,
+              49.339613845818,
+              38.520000000002526
+            ]
+          ],
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "H02_splice_M3x10_1_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [
+        112
+      ],
+      "gap_mm": 1.0999999999974648,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_BOUNDED_LOCAL_OPERANDS",
+      "exact": [
+        {
+          "source_solid": 112,
+          "gap_mm": 4.42021191113219,
+          "common_mm3": 0.0,
+          "faces": 50,
+          "source_bounds_mm": [
+            [
+              -84.99999999999721,
+              26.99999999996981,
+              -1.2116612305743288
+            ],
+            [
+              127.00000000000847,
+              49.339613845818,
+              38.520000000002526
+            ]
+          ],
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "H02_splice_M3x10_1_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 3.4999999999974705,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H02_splice_M3x10_2",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [
+        3
+      ],
+      "gap_mm": 0.0,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_BOUNDED_LOCAL_OPERANDS",
+      "exact": [
+        {
+          "source_solid": 3,
+          "gap_mm": 4.526016763361282,
+          "common_mm3": 0.0,
+          "faces": 50,
+          "source_bounds_mm": [
+            [
+              -85.00000000001313,
+              -49.339613845843495,
+              -1.2116612305741299
+            ],
+            [
+              126.9999999999925,
+              -26.999999999995417,
+              38.520000000002725
+            ]
+          ],
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "H02_splice_M3x10_2_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [
+        3
+      ],
+      "gap_mm": 1.099999999997273,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_BOUNDED_LOCAL_OPERANDS",
+      "exact": [
+        {
+          "source_solid": 3,
+          "gap_mm": 4.420211911111973,
+          "common_mm3": 0.0,
+          "faces": 50,
+          "source_bounds_mm": [
+            [
+              -85.00000000001313,
+              -49.339613845843495,
+              -1.2116612305741299
+            ],
+            [
+              126.9999999999925,
+              -26.999999999995417,
+              38.520000000002725
+            ]
+          ],
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "H02_splice_M3x10_2_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 3.4999999999972715,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H02_splice_M3x10_3",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [
+        112
+      ],
+      "gap_mm": 0.0,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_BOUNDED_LOCAL_OPERANDS",
+      "exact": [
+        {
+          "source_solid": 112,
+          "gap_mm": 4.526016763382751,
+          "common_mm3": 0.0,
+          "faces": 50,
+          "source_bounds_mm": [
+            [
+              -84.99999999999721,
+              26.99999999996981,
+              -1.2116612305743288
+            ],
+            [
+              127.00000000000847,
+              49.339613845818,
+              38.520000000002526
+            ]
+          ],
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "H02_splice_M3x10_3_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [
+        112
+      ],
+      "gap_mm": 1.0999999999974719,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_BOUNDED_LOCAL_OPERANDS",
+      "exact": [
+        {
+          "source_solid": 112,
+          "gap_mm": 4.420211911133461,
+          "common_mm3": 0.0,
+          "faces": 50,
+          "source_bounds_mm": [
+            [
+              -84.99999999999721,
+              26.99999999996981,
+              -1.2116612305743288
+            ],
+            [
+              127.00000000000847,
+              49.339613845818,
+              38.520000000002526
+            ]
+          ],
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "H02_splice_M3x10_3_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 3.4999999999974705,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_0",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 20.09818191297541,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_0_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 20.086273799393886,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_0_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 19.6945144239543,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_1",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [
+        38
+      ],
+      "gap_mm": 1.7834622667578515e-12,
+      "distance_type": "ACTUAL_LOCAL_FULL_OPERANDS",
+      "status": "HOLD_NOMINAL_HARDWARE_OR_MATERIAL_CLEARANCE",
+      "exact": [
+        {
+          "source_solid": 38,
+          "gap_mm": 1.7834622667578515e-12,
+          "common_mm3": 0.0,
+          "faces": 36,
+          "source_bounds_mm": [
+            [
+              -88.50000000000114,
+              -27.000000000040416,
+              37.01999999999939
+            ],
+            [
+              130.49999999999824,
+              27.000000000000625,
+              38.52000000000222
+            ]
+          ],
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "H03_panel_M3x55_1_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [
+        38
+      ],
+      "gap_mm": 0.09999999999777032,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "UNRECEIVED_EXACT_AFTER_FIRST_HOLD",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_1_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 2.499999999997776,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_2",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 12.908939326904914,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_2_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 13.008939326904915,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_2_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 15.408939326904914,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_3",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 6.833101440362299,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_3_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 6.9331014403623,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H03_panel_M3x55_3_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 9.333101440362299,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_0",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 16.59390539872993,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_0_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 17.045238170839657,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_0_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 17.996633391182655,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_1",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 16.59390539872993,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_1_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 17.045238170839657,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_1_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 17.996633391182655,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_2",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 22.326372272482942,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_2_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 22.551038707078348,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_2_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 23.194568672086298,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_3",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 22.326372272482942,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_3_nut",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 22.551038707078348,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    },
+    {
+      "name": "H04_tailbase_M3x20_3_washer",
+      "vs": "retainedbase source Solids by actualworldBBox",
+      "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+      "source_solids_total": 126,
+      "candidate_indices": [],
+      "gap_mm": 23.194568672086298,
+      "distance_type": "CERTIFIED_AABB_LOWER_BOUND",
+      "status": "CLEAR_LOWER_BOUND",
+      "exact": []
+    }
+  ],
+  "scope_of_cull": "Only NEW parts/steel vs realnearby retainedbase, numericalworld126index. No exact compound126, oldmatrix or implicit waiver. Complex source candidates remain OPEN, no GUI blocking worker.",
+  "retained_reference_interface_notes": [
+    {
+      "new_part": "P06_S0_shared_panel",
+      "old_unbuilt": "Upper_frame_end_105 / rear logic rails",
+      "status": "OPEN_NOT_MOUNT_RELEASE",
+      "reason": "Raised actual S0 seatingpanel88.52..91.52 versus old unbuiltlogicbrace90..93 has overlapping necessarybounds; retain as dependency, no automaticown or hiddenretirement. Printed8STLs unchanged by recovery."
+    }
+  ],
+  "source_root_hardware_caveat": "H01 nominalM2.5 shaft intentionally passes source2.05 unspecificthread feature; no digitalOWN/threadfit claim, physicaltemplate/handthread first. No boughtmaterial modified.",
+  "S0_panel_actual_source": {
+    "body_panel_common_mm3": 0.0,
+    "neck_panel_common_mm3": 0.0,
+    "seat_z": 88.52,
+    "neck_clearance_nominal_mm": 1.2,
+    "source11preserved": true,
+    "M6": "PROJECTpattern not delivered supplierdatums; two holes are test only"
+  },
+  "review_dispositions": [
+    {
+      "id": 1,
+      "status": "PRINT_LOAD_SEATS_POSITIVE_BUT_REAR_FIXING_HOLD",
+      "evidence": "All19real bearingfaces positive, zero separate-print overlap; samegeometry8STLSHA preserved. ActualH03M3x55 tip touches retainedTopCover, gap~0<1.25; no waiver. Oldunbuiltlogicbrace also intersects newS0panel, sourceparts retained."
+    },
+    {
+      "id": 2,
+      "status": "CORRECTED_16_STATIONS_4DATA_5POSITIVE_7GROUND",
+      "evidence": "One-to-one exactnet/pin sourcegraph mapping. All casepositions adjustable trial; no 3mmgap portproof"
+    },
+    {
+      "id": 3,
+      "status": "OPEN_BENCH_ENDS_FIT_BEFORE_DEDICATED_HOLDERS",
+      "evidence": "4independent220/factoryendpairs, 5FHAC>=84.5leads, fullUSB500+Delock retained; template/foundation does not freeze terminals"
+    },
+    {
+      "id": 4,
+      "status": "BUS_ADJUSTABLE_TRIAL_ONLY",
+      "evidence": "3.12nominalreserveoverlap retained; shelfnotfixedproductionfixture"
+    },
+    {
+      "id": 5,
+      "status": "CARDBOARD_WHOLE_OUTLINE_NEXT",
+      "evidence": "Rearfullwidth177 vsoldcosmetic170; narrowtailtongue198. Currentfullparts/ports shown, no finalskinrelease"
+    }
+  ],
+  "status": "FOUNDATION_FIT_GEOMETRY_EXPORTED_HOLD_IF_LOCAL_HARDWARE_UNRESOLVED",
+  "started_utc": "2026-11-14T21:50:58.0999965Z",
+  "saved_utc": "2026-11-14T22:38:04.869183+00:00",
+  "wall_seconds": 50.635690499970224,
+  "document": "DAY14_FOUNDATION_FIT_KIT",
+  "object_count": 182,
+  "parts": [
+    {
+      "name": "P01_load_rail",
+      "quantity": 2,
+      "assembly_object": "P01_load_rail",
+      "bounds_mm": [
+        [
+          -86.0,
+          -27.5,
+          38.52
+        ],
+        [
+          128.0,
+          -17.5,
+          45.52
+        ]
+      ],
+      "volume_mm3": 13896.849567979278,
+      "print_bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          214.0,
+          10.0,
+          7.0
+        ]
+      ],
+      "stl": "stl/P01_load_rail.stl",
+      "triangles": 2052,
+      "mesh_closed": true,
+      "print_orientation": "flat bottom Z0",
+      "member_coverage": {
+        "member_count": 1,
+        "missing_mm3": [
+          0.0
+        ]
+      },
+      "notes": "214x10;7high, rear24mm steps down to3high. One geometry printed2x; eight source-axis clearanceholes2.8mm. Frame thread not asserted."
+    },
+    {
+      "name": "P02_front_deck",
+      "quantity": 1,
+      "assembly_object": "P02_front_deck",
+      "bounds_mm": [
+        [
+          -105.0,
+          -82.0,
+          42.52
+        ],
+        [
+          30.0,
+          82.0,
+          48.52
+        ]
+      ],
+      "volume_mm3": 67670.07735950233,
+      "print_bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          135.0,
+          164.0,
+          6.0
+        ]
+      ],
+      "stl": "stl/P02_front_deck.stl",
+      "triangles": 7692,
+      "mesh_closed": true,
+      "print_orientation": "flat bottom Z0",
+      "member_coverage": {
+        "member_count": 3,
+        "missing_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "notes": "135x164,3mm deck plus3mm edge ribs. Open adjustable slots, not16dedicated WAGO holders."
+    },
+    {
+      "name": "P03_rear_deck_integrated_load_yoke",
+      "quantity": 1,
+      "assembly_object": "P03_rear_deck_integrated_load_yoke",
+      "bounds_mm": [
+        [
+          30.0,
+          -82.0,
+          41.52
+        ],
+        [
+          198.0,
+          82.0,
+          52.52
+        ]
+      ],
+      "volume_mm3": 128160.68881192149,
+      "print_bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          168.0,
+          164.0,
+          11.0
+        ]
+      ],
+      "stl": "stl/P03_rear_deck_integrated_load_yoke.stl",
+      "triangles": 11840,
+      "mesh_closed": true,
+      "print_orientation": "flat bottom Z0",
+      "member_coverage": {
+        "member_count": 6,
+        "missing_mm3": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "notes": "Rear fullwidth endsX177, narrow tail tongueX198; no floating outside-deck posts. 4mm yoke under deck to stepped rail shoulders; tailseat top52.52. Fits168x164 print footprint."
+    },
+    {
+      "name": "P04_deck_splice",
+      "quantity": 2,
+      "assembly_object": "P04_deck_splice",
+      "bounds_mm": [
+        [
+          20.0,
+          -50.0,
+          42.52
+        ],
+        [
+          40.0,
+          -38.0,
+          45.52
+        ]
+      ],
+      "volume_mm3": 668.6820840036105,
+      "print_bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          20.0,
+          12.0,
+          3.0
+        ]
+      ],
+      "stl": "stl/P04_deck_splice.stl",
+      "triangles": 1028,
+      "mesh_closed": true,
+      "print_orientation": "flat bottom Z0",
+      "member_coverage": {
+        "member_count": 1,
+        "missing_mm3": [
+          0.0
+        ]
+      },
+      "notes": "Two underside straps bridge actual deck seam; two M3x10 per strap, nuts/washers below."
+    },
+    {
+      "name": "P05_S0_panel_spacer40",
+      "quantity": 4,
+      "assembly_object": "P05_S0_panel_spacer40",
+      "bounds_mm": [
+        [
+          107.0,
+          -76.0,
+          48.52
+        ],
+        [
+          113.0,
+          -70.0,
+          88.52000000000001
+        ]
+      ],
+      "volume_mm3": 1097.8805600240717,
+      "print_bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          40.00000000000001,
+          6.0,
+          6.000000000000028
+        ]
+      ],
+      "stl": "stl/P05_S0_panel_spacer40.stl",
+      "triangles": 520,
+      "mesh_closed": true,
+      "print_orientation": "long column on its side; Zheight6",
+      "member_coverage": {
+        "member_count": 1,
+        "missing_mm3": [
+          0.0
+        ]
+      },
+      "notes": "6x6x40, bore3.3; top/bottom matched seating, separate disjoint print. Side-print to avoid tiny40mm tower."
+    },
+    {
+      "name": "P06_S0_shared_panel",
+      "quantity": 1,
+      "assembly_object": "P06_S0_shared_panel",
+      "bounds_mm": [
+        [
+          107.0,
+          -76.0,
+          88.52
+        ],
+        [
+          177.0,
+          18.0,
+          93.52
+        ]
+      ],
+      "volume_mm3": 18248.884664345576,
+      "print_bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          70.0,
+          94.0,
+          5.0
+        ]
+      ],
+      "stl": "stl/P06_S0_shared_panel.stl",
+      "triangles": 3628,
+      "mesh_closed": true,
+      "print_orientation": "flat bottom Z0",
+      "member_coverage": {
+        "member_count": 5,
+        "missing_mm3": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "notes": "Actual body seatingZ88.52, neck22 within24.4aperture.2M6clearance at38pitch are PROJECTfamily nominal, not actual delivered thread proof; dryfit only before S0 fastening. Four2mm bosses yield completeM3x55 stack."
+    },
+    {
+      "name": "P07_open_tail_root_U",
+      "quantity": 1,
+      "assembly_object": "P07_open_tail_root_U",
+      "bounds_mm": [
+        [
+          171.0,
+          -15.0,
+          52.52
+        ],
+        [
+          198.0,
+          15.0,
+          107.0
+        ]
+      ],
+      "volume_mm3": 12189.552224009629,
+      "print_bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          27.0,
+          30.0,
+          54.48
+        ]
+      ],
+      "stl": "stl/P07_open_tail_root_U.stl",
+      "triangles": 2088,
+      "mesh_closed": true,
+      "print_orientation": "flat bottom Z0",
+      "member_coverage": {
+        "member_count": 3,
+        "missing_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "notes": "Open sides and top for four base screws/driver; useful two cheeks to sourcefuture MG interface. No production tailshaft/servo tabs released."
+    },
+    {
+      "name": "P00_eight_hole_template",
+      "quantity": 1,
+      "stl": "stl/P00_eight_hole_template.stl",
+      "print_bounds_mm": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          214,
+          55,
+          1.2
+        ]
+      ],
+      "mesh_closed": true,
+      "notes": "First small cheaptemplate. No screws forced if physical8axes/thread do not match. NOT assembled structuralpart."
+    }
+  ],
+  "station_mapping": [
+    {
+      "object": "WAGO415_data__1_0",
+      "old_geometry_id": "WAGO415_data_-1_0",
+      "station": "D_FL",
+      "role": "DATA",
+      "nets": [
+        "BUS_DATA"
+      ],
+      "pins": [
+        {
+          "number": "1",
+          "endpoint": "D_FL.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "2",
+          "endpoint": "D_FL.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "3",
+          "endpoint": "D_FL.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "4",
+          "endpoint": "D_FL.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "5",
+          "endpoint": "D_FL.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        }
+      ],
+      "bounds_mm": [
+        [
+          -47.0,
+          -39.0,
+          50.52
+        ],
+        [
+          -28.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data__1_1",
+      "old_geometry_id": "WAGO415_data_-1_1",
+      "station": "D_FR",
+      "role": "DATA",
+      "nets": [
+        "BUS_DATA"
+      ],
+      "pins": [
+        {
+          "number": "1",
+          "endpoint": "D_FR.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "2",
+          "endpoint": "D_FR.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "3",
+          "endpoint": "D_FR.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "4",
+          "endpoint": "D_FR.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "5",
+          "endpoint": "D_FR.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        }
+      ],
+      "bounds_mm": [
+        [
+          -25.0,
+          -39.0,
+          50.52
+        ],
+        [
+          -6.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data__1_2",
+      "old_geometry_id": "WAGO415_data_-1_2",
+      "station": "D_RL",
+      "role": "DATA",
+      "nets": [
+        "BUS_DATA"
+      ],
+      "pins": [
+        {
+          "number": "5",
+          "endpoint": "D_RL.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "2",
+          "endpoint": "D_RL.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "3",
+          "endpoint": "D_RL.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "4",
+          "endpoint": "D_RL.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "1",
+          "endpoint": "D_RL.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        }
+      ],
+      "bounds_mm": [
+        [
+          -3.0,
+          -39.0,
+          50.52
+        ],
+        [
+          16.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data__1_3",
+      "old_geometry_id": "WAGO415_data_-1_3",
+      "station": "D_RR",
+      "role": "DATA",
+      "nets": [
+        "BUS_DATA"
+      ],
+      "pins": [
+        {
+          "number": "1",
+          "endpoint": "D_RR.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "5",
+          "endpoint": "D_RR.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "2",
+          "endpoint": "D_RR.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "3",
+          "endpoint": "D_RR.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        },
+        {
+          "number": "4",
+          "endpoint": "D_RR.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "BUS_DATA"
+        }
+      ],
+      "bounds_mm": [
+        [
+          19.0,
+          -39.0,
+          50.52
+        ],
+        [
+          38.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data__1_4",
+      "old_geometry_id": "WAGO415_data_-1_4",
+      "station": "FL_P",
+      "role": "POSITIVE",
+      "nets": [
+        "N_FL_P_1"
+      ],
+      "pins": [
+        {
+          "number": "2",
+          "endpoint": "FL_P.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "N_FL_P_1"
+        },
+        {
+          "number": "3",
+          "endpoint": "FL_P.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "N_FL_P_1"
+        },
+        {
+          "number": "4",
+          "endpoint": "FL_P.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "N_FL_P_1"
+        },
+        {
+          "number": "1",
+          "endpoint": "FL_P.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "N_FL_P_1"
+        },
+        {
+          "number": "5",
+          "endpoint": "FL_P.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "N_FL_P_1"
+        }
+      ],
+      "bounds_mm": [
+        [
+          41.0,
+          -39.0,
+          50.52
+        ],
+        [
+          60.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data__1_5",
+      "old_geometry_id": "WAGO415_data_-1_5",
+      "station": "FR_P",
+      "role": "POSITIVE",
+      "nets": [
+        "N_FR_P_1"
+      ],
+      "pins": [
+        {
+          "number": "2",
+          "endpoint": "FR_P.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "N_FR_P_1"
+        },
+        {
+          "number": "3",
+          "endpoint": "FR_P.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "N_FR_P_1"
+        },
+        {
+          "number": "4",
+          "endpoint": "FR_P.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "N_FR_P_1"
+        },
+        {
+          "number": "1",
+          "endpoint": "FR_P.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "N_FR_P_1"
+        },
+        {
+          "number": "5",
+          "endpoint": "FR_P.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "N_FR_P_1"
+        }
+      ],
+      "bounds_mm": [
+        [
+          63.0,
+          -39.0,
+          50.52
+        ],
+        [
+          82.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data__1_6",
+      "old_geometry_id": "WAGO415_data_-1_6",
+      "station": "RL_P",
+      "role": "POSITIVE",
+      "nets": [
+        "N_F_RL_out"
+      ],
+      "pins": [
+        {
+          "number": "2",
+          "endpoint": "RL_P.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "N_F_RL_out"
+        },
+        {
+          "number": "3",
+          "endpoint": "RL_P.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "N_F_RL_out"
+        },
+        {
+          "number": "4",
+          "endpoint": "RL_P.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "N_F_RL_out"
+        },
+        {
+          "number": "1",
+          "endpoint": "RL_P.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "N_F_RL_out"
+        },
+        {
+          "number": "5",
+          "endpoint": "RL_P.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "N_F_RL_out"
+        }
+      ],
+      "bounds_mm": [
+        [
+          85.0,
+          -39.0,
+          50.52
+        ],
+        [
+          104.0,
+          -9.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data__1_7",
+      "old_geometry_id": "WAGO415_data_-1_7",
+      "station": "RR_P",
+      "role": "POSITIVE",
+      "nets": [
+        "N_F_RR_out"
+      ],
+      "pins": [
+        {
+          "number": "2",
+          "endpoint": "RR_P.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "N_F_RR_out"
+        },
+        {
+          "number": "3",
+          "endpoint": "RR_P.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "N_F_RR_out"
+        },
+        {
+          "number": "4",
+          "endpoint": "RR_P.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "N_F_RR_out"
+        },
+        {
+          "number": "1",
+          "endpoint": "RR_P.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "N_F_RR_out"
+        },
+        {
+          "number": "5",
+          "endpoint": "RR_P.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "N_F_RR_out"
+        }
+      ],
+      "bounds_mm": [
+        [
+          155.0,
+          20.0,
+          50.52
+        ],
+        [
+          174.0,
+          50.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data_1_0",
+      "old_geometry_id": "WAGO415_data_1_0",
+      "station": "P_AUX",
+      "role": "POSITIVE",
+      "nets": [
+        "AUX_6V"
+      ],
+      "pins": [
+        {
+          "number": "2",
+          "endpoint": "P_AUX.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "AUX_6V"
+        },
+        {
+          "number": "1",
+          "endpoint": "P_AUX.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "AUX_6V"
+        },
+        {
+          "number": "3",
+          "endpoint": "P_AUX.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "AUX_6V"
+        },
+        {
+          "number": "4",
+          "endpoint": "P_AUX.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "AUX_6V"
+        },
+        {
+          "number": "5",
+          "endpoint": "P_AUX.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "AUX_6V"
+        }
+      ],
+      "bounds_mm": [
+        [
+          -47.0,
+          9.0,
+          50.52
+        ],
+        [
+          -28.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data_1_1",
+      "old_geometry_id": "WAGO415_data_1_1",
+      "station": "FL_G",
+      "role": "GROUND",
+      "nets": [
+        "G_SYS"
+      ],
+      "pins": [
+        {
+          "number": "2",
+          "endpoint": "FL_G.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "3",
+          "endpoint": "FL_G.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "4",
+          "endpoint": "FL_G.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "1",
+          "endpoint": "FL_G.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "5",
+          "endpoint": "FL_G.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        }
+      ],
+      "bounds_mm": [
+        [
+          -25.0,
+          9.0,
+          50.52
+        ],
+        [
+          -6.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data_1_2",
+      "old_geometry_id": "WAGO415_data_1_2",
+      "station": "FR_G",
+      "role": "GROUND",
+      "nets": [
+        "G_SYS"
+      ],
+      "pins": [
+        {
+          "number": "2",
+          "endpoint": "FR_G.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "3",
+          "endpoint": "FR_G.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "4",
+          "endpoint": "FR_G.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "5",
+          "endpoint": "FR_G.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "1",
+          "endpoint": "FR_G.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        }
+      ],
+      "bounds_mm": [
+        [
+          -3.0,
+          9.0,
+          50.52
+        ],
+        [
+          16.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data_1_3",
+      "old_geometry_id": "WAGO415_data_1_3",
+      "station": "RL_G",
+      "role": "GROUND",
+      "nets": [
+        "G_SYS"
+      ],
+      "pins": [
+        {
+          "number": "4",
+          "endpoint": "RL_G.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "1",
+          "endpoint": "RL_G.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "2",
+          "endpoint": "RL_G.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "3",
+          "endpoint": "RL_G.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "5",
+          "endpoint": "RL_G.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        }
+      ],
+      "bounds_mm": [
+        [
+          19.0,
+          9.0,
+          50.52
+        ],
+        [
+          38.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data_1_4",
+      "old_geometry_id": "WAGO415_data_1_4",
+      "station": "RR_G",
+      "role": "GROUND",
+      "nets": [
+        "G_SYS"
+      ],
+      "pins": [
+        {
+          "number": "4",
+          "endpoint": "RR_G.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "1",
+          "endpoint": "RR_G.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "2",
+          "endpoint": "RR_G.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "3",
+          "endpoint": "RR_G.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "5",
+          "endpoint": "RR_G.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        }
+      ],
+      "bounds_mm": [
+        [
+          41.0,
+          9.0,
+          50.52
+        ],
+        [
+          60.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data_1_5",
+      "old_geometry_id": "WAGO415_data_1_5",
+      "station": "G2",
+      "role": "GROUND",
+      "nets": [
+        "G_SYS"
+      ],
+      "pins": [
+        {
+          "number": "4",
+          "endpoint": "G2.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "1",
+          "endpoint": "G2.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "2",
+          "endpoint": "G2.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "3",
+          "endpoint": "G2.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "5",
+          "endpoint": "G2.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        }
+      ],
+      "bounds_mm": [
+        [
+          63.0,
+          9.0,
+          50.52
+        ],
+        [
+          82.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data_1_6",
+      "old_geometry_id": "WAGO415_data_1_6",
+      "station": "G_AUX",
+      "role": "GROUND",
+      "nets": [
+        "G_SYS"
+      ],
+      "pins": [
+        {
+          "number": "2",
+          "endpoint": "G_AUX.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "1",
+          "endpoint": "G_AUX.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "5",
+          "endpoint": "G_AUX.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "4",
+          "endpoint": "G_AUX.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "3",
+          "endpoint": "G_AUX.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        }
+      ],
+      "bounds_mm": [
+        [
+          85.0,
+          9.0,
+          50.52
+        ],
+        [
+          104.0,
+          39.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    },
+    {
+      "object": "WAGO415_data_1_7",
+      "old_geometry_id": "WAGO415_data_1_7",
+      "station": "G_TAIL",
+      "role": "GROUND",
+      "nets": [
+        "G_SYS"
+      ],
+      "pins": [
+        {
+          "number": "1",
+          "endpoint": "G_TAIL.1",
+          "name": "1",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "5",
+          "endpoint": "G_TAIL.5",
+          "name": "5",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "4",
+          "endpoint": "G_TAIL.4",
+          "name": "4",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "3",
+          "endpoint": "G_TAIL.3",
+          "name": "3",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        },
+        {
+          "number": "2",
+          "endpoint": "G_TAIL.2",
+          "name": "2",
+          "type": "passive",
+          "basis": {},
+          "net": "G_SYS"
+        }
+      ],
+      "bounds_mm": [
+        [
+          133.0,
+          20.0,
+          50.52
+        ],
+        [
+          152.0,
+          50.0,
+          59.52
+        ]
+      ],
+      "mount": "shared open deck / slots; no dedicated holder frozen"
+    }
+  ],
+  "retained_reference_ids": [
+    "WAVEGO_complete_126_source_solids",
+    "WAGO415_data_-1_0",
+    "WAGO415_data_1_0",
+    "WAGO415_data_-1_1",
+    "WAGO415_data_1_1",
+    "WAGO415_data_-1_2",
+    "WAGO415_data_1_2",
+    "WAGO415_data_-1_3",
+    "WAGO415_data_1_3",
+    "WAGO415_data_-1_4",
+    "WAGO415_data_1_4",
+    "WAGO415_data_-1_5",
+    "WAGO415_data_1_5",
+    "WAGO415_data_-1_6",
+    "WAGO415_data_1_6",
+    "WAGO415_data_-1_7",
+    "WAGO415_data_1_7",
+    "WAGO615_power_0_0",
+    "WAGO615_power_0_1",
+    "WAGO615_power_1_0",
+    "WAGO615_power_1_1",
+    "POST_F0_WAGO412",
+    "Motor_ATO4A_-1_0",
+    "Motor_ATO4A_-1_1",
+    "Motor_ATO4A_-1_2",
+    "Motor_ATO4A_-1_3",
+    "Motor_ATO4A_-1_4",
+    "Motor_ATO4A_-1_5",
+    "Motor_ATO4A_1_0",
+    "Motor_ATO4A_1_1",
+    "Motor_ATO4A_1_2",
+    "Motor_ATO4A_1_3",
+    "Motor_ATO4A_1_4",
+    "Motor_ATO4A_1_5",
+    "Leg_protected_MTA0100335_0",
+    "Leg_protected_MTA0100335_1",
+    "Leg_protected_MTA0100335_2",
+    "Leg_protected_MTA0100335_3",
+    "FHAC0001_Pi3A",
+    "FHAC0001_AUX4A",
+    "FHAC0001_Yaw1A",
+    "FHAC0001_Pitch1A",
+    "FHAC0001_Tail1A",
+    "F0_FHAC0002_30A",
+    "Battery_GEA223S30X6GT",
+    "Battery_tray_shared",
+    "XT60H_mated_with_boots",
+    "Pi4B_actual_PCB",
+    "Pi_components_and_cooling",
+    "Pi_USB_DATA_Delock_mating",
+    "Pi_GPIO1992_factory_female",
+    "PCA9685_Adafruit815_PCB",
+    "BUS25514_installed",
+    "E1_populated_prototype_board",
+    "MAIN_Pololu4853",
+    "AUX_Pololu4092",
+    "S1_NKK_S821_installed",
+    "Monitor_MOD05015",
+    "S0_body",
+    "S0_key",
+    "S0_neck",
+    "S0_nut_IN_0_0",
+    "S0_nut_OUT_0_0",
+    "S0_ring_IN_0_0",
+    "S0_ring_OUT_0_0",
+    "S0_stud_IN_0_0",
+    "S0_stud_OUT_0_0",
+    "S0_washer_IN_0_0",
+    "S0_washer_OUT_0_0",
+    "Speaker",
+    "BNO085",
+    "MAX98357A_amp",
+    "ReSpeakerLite_on_REMOVABLE_back",
+    "TTP223_touch",
+    "Camera3_NoIR_Wide",
+    "VL53L5CX",
+    "MG92B_Head_yaw",
+    "MG92B_Head_yaw_bracket_space",
+    "MG92B_Head_pitch",
+    "MG92B_Head_pitch_bracket_space",
+    "MG92B_Tail",
+    "MG92B_Tail_bracket_space",
+    "Yaw608_120",
+    "Yaw608_134",
+    "Tail608",
+    "Pitch688",
+    "Neck_shared_root",
+    "Right_logic_open",
+    "Left_power_open",
+    "Rear_aux_open",
+    "USB500_loose_loop",
+    "Four_220_joint_exits",
+    "E2_Molex_and_inline_WAGO",
+    "Ola_body_ENVELOPE",
+    "Ola_head_ENVELOPE",
+    "Ola_ear_-1",
+    "Ola_eye_gold_-1",
+    "Ola_ear_1",
+    "Ola_eye_gold_1",
+    "Ola_muzzle",
+    "Ola_nose",
+    "Ola_tail_ENVELOPE",
+    "Battery_edgepost_0_-45",
+    "Battery_edgepost_0_41",
+    "Battery_crossarm_0",
+    "Battery_edgepost_1_-45",
+    "Battery_edgepost_1_41",
+    "Battery_crossarm_1",
+    "Upper_frame_post_-104_-49",
+    "Upper_frame_post_-104_44",
+    "Upper_frame_post_101_-49",
+    "Upper_frame_post_101_44",
+    "Upper_frame_rail_-49",
+    "Upper_frame_rail_44",
+    "Upper_frame_end_-104",
+    "Upper_frame_end_105",
+    "Pi_bridge_-102",
+    "Pi_bridge_-31",
+    "Pi_removable_common_tray",
+    "BUS_upper_simple_shelf"
+  ],
+  "source_baseline_manifest_sha256": "c6afc5645690a1a5aad5666456cc31e851e9a523b0499fe362e11d9bda21bbe6",
+  "source_electrical_sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
+  "print_plan": "PETG0.2layer/4walls/5top-bottom/35percentinfill proposal; no slicing/physicalprint; source8holetemplate FIRST, no force/no realframecut. Parts normalised topositiveXYZ;2rails/2splices/4posts quantitiesexplicit.",
+  "assembly_order": [
+    "First print1.2mm8holetemplate and handcheck actualframeaxes/thread/8screwgrip; stopif mismatch",
+    "Fit2steppedrails sourceframe ontopcover, slide front/rear deck halves overrails, insert8source bolts finger-tight only after correctthread confirmed",
+    "Fit2underside M3splices, rearrootuses4rear sourcebolts throughactualyoke shoulders; nuts/tools before electronics/battery",
+    "Seat4panelspacers oncontinuousreardeck; alignpaneloveractualS0neck/bodyseat, install4M3x55+bottomnuts/washers throughbosses",
+    "S0 twoM6 nominaltestholes needactualcasefit before fastening/load; do not drill boughtcase. Terminalshield remains necessary",
+    "InstallopentailU with4M3x20 intointegrated52.52pad; top/side access remainsopen beforefutureMG tabs",
+    "Openbenchstation/end trials before clamps: electricalgraphrolesnotgeometryIDs; batterytray, upperboards and skin late"
+  ],
+  "unknowns": [
+    "ActualWAVEGOthread/revision/8screwgrip and prototypepayload/legmotion",
+    "Fullselectedends/ports/shortleads, S0familycasefasteners/terminalguard and openbenchstockfit",
+    "ActualPiBUSstack and fullcardboardOlaoutline/headtail interfaces; no fixedBUSspacers or productionmechanism"
+  ],
+  "actual_bearing_faces": [
+    {
+      "a": "P01_load_rail",
+      "b": "P02_front_deck",
+      "seat_z_mm": 45.52,
+      "actual_coplanar_face_intersection_mm2": 1147.684956797928,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P01_load_rail_instance2",
+      "b": "P02_front_deck",
+      "seat_z_mm": 45.52,
+      "actual_coplanar_face_intersection_mm2": 1147.684956797928,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P01_load_rail",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "seat_z_mm": 41.52,
+      "actual_coplanar_face_intersection_mm2": 227.684956797928,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P01_load_rail_instance2",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "seat_z_mm": 41.52,
+      "actual_coplanar_face_intersection_mm2": 227.684956797928,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P04_deck_splice",
+      "b": "P02_front_deck",
+      "seat_z_mm": 45.52,
+      "actual_coplanar_face_intersection_mm2": 111.44701400060177,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P04_deck_splice",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "seat_z_mm": 45.52,
+      "actual_coplanar_face_intersection_mm2": 111.44701400060175,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P04_deck_splice_instance2",
+      "b": "P02_front_deck",
+      "seat_z_mm": 45.52,
+      "actual_coplanar_face_intersection_mm2": 111.44701400060177,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P04_deck_splice_instance2",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "seat_z_mm": 45.52,
+      "actual_coplanar_face_intersection_mm2": 111.44701400060175,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P07_open_tail_root_U",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "seat_z_mm": 52.52,
+      "actual_coplanar_face_intersection_mm2": 775.7880560024073,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P05_S0_panel_spacer40",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "seat_z_mm": 48.52,
+      "actual_coplanar_face_intersection_mm2": 27.44701400060179,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P05_S0_panel_spacer40",
+      "b": "P06_S0_shared_panel",
+      "seat_z_mm": 88.52,
+      "actual_coplanar_face_intersection_mm2": 27.44701400060179,
+      "max_numerical_plane_normalisation_mm": 1.4210854715202004e-14,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P05_spacer_instance2",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "seat_z_mm": 48.52,
+      "actual_coplanar_face_intersection_mm2": 27.44701400060179,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P05_spacer_instance2",
+      "b": "P06_S0_shared_panel",
+      "seat_z_mm": 88.52,
+      "actual_coplanar_face_intersection_mm2": 27.44701400060179,
+      "max_numerical_plane_normalisation_mm": 1.4210854715202004e-14,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P05_spacer_instance3",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "seat_z_mm": 48.52,
+      "actual_coplanar_face_intersection_mm2": 27.44701400060179,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P05_spacer_instance3",
+      "b": "P06_S0_shared_panel",
+      "seat_z_mm": 88.52,
+      "actual_coplanar_face_intersection_mm2": 27.44701400060179,
+      "max_numerical_plane_normalisation_mm": 1.4210854715202004e-14,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P05_spacer_instance4",
+      "b": "P03_rear_deck_integrated_load_yoke",
+      "seat_z_mm": 48.52,
+      "actual_coplanar_face_intersection_mm2": 27.44701400060179,
+      "max_numerical_plane_normalisation_mm": 0.0,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "P05_spacer_instance4",
+      "b": "P06_S0_shared_panel",
+      "seat_z_mm": 88.52,
+      "actual_coplanar_face_intersection_mm2": 27.44701400060179,
+      "max_numerical_plane_normalisation_mm": 1.4210854715202004e-14,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "sourceTopCoverSolid38",
+      "b": "P01_load_rail",
+      "seat_z_mm": 38.52,
+      "actual_coplanar_face_intersection_mm2": 2008.3416534287169,
+      "max_numerical_plane_normalisation_mm": 6.110667527536862e-13,
+      "model_geometry_changed": false
+    },
+    {
+      "a": "sourceTopCoverSolid38",
+      "b": "P01_load_rail_instance2",
+      "seat_z_mm": 38.52,
+      "actual_coplanar_face_intersection_mm2": 2008.3416534198457,
+      "max_numerical_plane_normalisation_mm": 6.110667527536862e-13,
+      "model_geometry_changed": false
+    }
+  ],
+  "contact_method_note": "Solid.common returned zero area for disjointtangent solids, which is NOTmissing bearingproof. Actual planar face-face intersections measured separately at equalZ (normalisation<1e-10mm only on analysis copies); positive areas not strengthcertification.",
+  "unbuilt_logic_reference_interface": {
+    "new": "P06_S0_shared_panel",
+    "reference": "Upper_frame_end_105",
+    "common_mm3": 310.07535188362857,
+    "common_valid": true,
+    "classification": "UNBUILT_PROJECT_REFERENCE_MATERIAL_INTERFACE_HOLD_NOT_BOUGHT_COLLISION",
+    "required": "Integrate or replace this unbuilt logicframe branch by actual functional load connection before fabricating upper electronics mount. No reference deletion/ownwaiver done by recovery."
+  },
+  "decision": "SAME_PRINT_GEOMETRY_RECOVERED_TEMPLATE_AND_PRIMARY_FOUNDATION_FIT_ONLY_REAR_S0_FIXING_HOLD",
+  "first_falsifier": {
+    "name": "H03_panel_M3x55_1",
+    "vs": "retainedbase source Solids by actualworldBBox",
+    "full_neighbor_criterion": "All126source solids included in numeric distance bound; exact ONLYbboxlower<1.25 and simpleplane/cylinder<=100faces; stop exactafterfirstHOLD",
+    "source_solids_total": 126,
+    "candidate_indices": [
+      38
+    ],
+    "gap_mm": 1.7834622667578515e-12,
+    "distance_type": "ACTUAL_LOCAL_FULL_OPERANDS",
+    "status": "HOLD_NOMINAL_HARDWARE_OR_MATERIAL_CLEARANCE",
+    "exact": [
+      {
+        "source_solid": 38,
+        "gap_mm": 1.7834622667578515e-12,
+        "common_mm3": 0.0,
+        "faces": 36,
+        "source_bounds_mm": [
+          [
+            -88.50000000000114,
+            -27.000000000040416,
+            37.01999999999939
+          ],
+          [
+            130.49999999999824,
+            27.000000000000625,
+            38.52000000000222
+          ]
+        ],
+        "valid": true
+      }
+    ]
+  },
+  "release_scope": {
+    "P00": "READY_FOR_UNPOWERED_8AXIS_TEMPLATE_TRIAL",
+    "P01_P04": "FOUNDATION_FIT_EXPORTS_CONDITIONAL_SOURCETHREAD_8HOLE_MOTION_PAYLOAD",
+    "P05_P07": "FIT_GEOMETRY_ONLY_NOT_LOADED_ASSEMBLY_RELEASE_untilS0boltstack_and_logic_reference_resolved",
+    "whole_cat": "NOT_RELEASED"
+  },
+  "native_pid": 8920,
+  "first_falsifier_operand_integrity": {
+    "new_fastener_valid": true,
+    "new_fastener_solids": 1,
+    "new_fastener_faces": 5,
+    "source_cover_valid": true,
+    "source_cover_solids": 1,
+    "same_pose_not_retested": true
+  }
+}
