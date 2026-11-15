@@ -1,0 +1,11 @@
+from pathlib import Path
+import urllib.request,hashlib,json
+TMP=Path('C:/Users/Sysq/AppData/Local/Temp');P=Path('C:/Users/Sysq/PycharmProjects/robot-cat-mechanical/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day15-frame-fastening')
+u='https://www.tme.eu/Document/8ccf0396b9d8180afe969e47af892318/BN_2104_1_Bossard_1.pdf'
+# Primary Bossard PDF was actually read by web.open (4pages/p1rows). Direct binary GET403.
+note='Bossard BN2104 primary PDF, page1, read via web tool on2026-11-15. M3: maximumhead6.72mm/height1.86mm/90deg/HEX2mm/depth1.1mm; lengths10and12 includehead in drawing. No stock or strength qualification. URL '+u+'\n'
+b=note.encode();(P/'Bossard-BN2104-primary-read.txt').write_bytes(b);(P/'fastener-source-pin.json').write_bytes((json.dumps(dict(url=u,manufacturer='Bossard',read_evidence_sha256=hashlib.sha256(b).hexdigest(),binary_download='HTTP403/not claimed saved',page=1,M3_head_d_max=6.72,head_k_max=1.86,angle_deg=90,socket_AF=2,socket_depth=1.1,lengths=[10,12],L_includes_head=True,inventory=None),indent=2)+'\n').encode())
+s=(TMP/'day15-essential-frame-build.py').read_text().split('def cylinder')[0]
+for a,b in [("D=A.getDocument('DAY15_ESSENTIAL_SHARED_FRAME')","D=A.getDocument('DAY15_FRAME_FASTENING')"),('day15-essential-shared-frame','day15-frame-fastening'),('[(-20,3),(16,2)]','[(-20,4),(14,2)]'),("[('P10_front_gate',-104,16),('P11_rear_gate',85,22)]","[('P10_front_gate',-107,19),('P11_rear_gate',85,22)]"),("[('P14_fixed_touch_rail',16),('P15_removable_mic_rail',-26)]","[('P14_fixed_touch_rail',15),('P15_removable_mic_rail',-27)]"),('tab=box(x0,y,135.5,dx,10,2.5);lip=box(x0,y,132.5,dx,10,3)','tab=box(x0,y,134,dx,12,4);lip=box(x0,y,132,dx,12,2);uppertabs.append(tab)'),('# Two separate upper rails:','uppertabs=[]\n# Two separate upper rails:'),('ear=box(x,-20,94,4,6,10)','ear=box(x,-23,94,4,12,12)')]:s=s.replace(a,b)
+s=s.replace('intended={n:s for n,s in parts.items()}',"for gn in ['P10_front_gate','P11_rear_gate']:\n for tab in uppertabs:parts[gn]=parts[gn].cut(tab)\nfor x in [12,62]:parts['P13_BUS_bridge']=parts['P13_BUS_bridge'].fuse(box(x,-23,96,4,3,8))\nintended={n:s for n,s in parts.items()}")
+(TMP/'day15-fastening-material-build.py').write_bytes((s+'\n'+(TMP/'day15-fastening-material-tail.py').read_text()).encode());print('prepared one complete material implementation')
