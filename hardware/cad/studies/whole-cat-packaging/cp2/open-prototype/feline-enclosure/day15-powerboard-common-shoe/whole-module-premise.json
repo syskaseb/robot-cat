@@ -1,0 +1,69 @@
+{
+  "utc": "2026-11-15T20:28:30.211241+00:00",
+  "source_native": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\day15-carrier-capture-first-fit\\carrier-capture.FCStd",
+  "source_commit": "4f9ce00a634651811c109ed245f917846b59c957",
+  "hypothesis": "ONE removable open common M2 powerboard shoe, on actual P12 and P11 ledges; full module population + ports + two complete frame joints",
+  "PCB_bottom": 103.52,
+  "old_bottom": 94,
+  "own_project_pose_change": 9.52,
+  "base": [
+    55,
+    20,
+    92.52,
+    126,
+    49,
+    97.52
+  ],
+  "post_height": 6,
+  "source_MAIN_frame": "STEP local x->world -Y, y->world +X, z->world +Z; origin(61,44.86,103.52), project in-plane orientation explicit; old source was bounding-box allocation not actual STEP",
+  "source_AUX_frame": "Existing 180deg XY PCB orientation retained; holes DXF inches exact 2.159/21.082 within drawing rounding/tolerance",
+  "admissible_conservative_PCB_interval": [
+    100.57,
+    107.0752
+  ],
+  "interval_basis": "After shoe top97.52, underside1.8+foreign1.25 gives100.57; conservative S1 bottom116 minus MAIN7.6748 minus1.25 gives107.0752 when XY-adjacent. Selected103.52 inside; actual finite geometry still required.",
+  "MAIN_localPCB": [
+    0,
+    0,
+    0,
+    22.86,
+    30.48,
+    1.5748
+  ],
+  "AUX_PCB_thickness": 1.57,
+  "AUX_below": 1.8,
+  "AUX_above": 6.1,
+  "AUX_full_occupied_height": 9.47,
+  "source_rounded_height": 9.5,
+  "AUX_components_envelope_not_solid_case": true,
+  "frame_axes": [
+    [
+      57,
+      34
+    ],
+    [
+      118,
+      35
+    ]
+  ],
+  "frame_joint": "2 full ISO10642 M3x14 incl head + lower washerOD7x0.5 + fullnutAF5.5x2.4, demandUNCONFIRMED; two printed bores only, no bought drill",
+  "board_joint": "5 full M2x12 socket headsD3.8h2 + upper washerOD5x0.3 + nutAF4h1.6 in actual sidefeed; source mount\u00d82.18, notM2.5",
+  "safe_hole_annulus_components_FIT3": true,
+  "changed_interfaces": [
+    "MAIN9.52Z+realSTEPframe replacing old allocatedbox",
+    "AUX9.52Z+primary full population; PCBdatum not bbox resize",
+    "P11/P12 two print bores at actual frame contact",
+    "two frame screws before boards, M2 sidefeeds before mountedshoe",
+    "all MAIN/AUX solder/wire end heights and reach FIT2, no cut or old slack credit"
+  ],
+  "retained": "All other boards, battery, carrier/root/stock/audio/Pi/57+extras/sourceframe unchanged",
+  "assembly": [
+    "Insert full M2 nuts from actual nearest open Yedge into shoe on bench",
+    "Fasten common shoe to actual P12/P11 using fullM3 lower nut/washer before boards/banks/MAIN",
+    "Preterminate actual MAIN/AUX outsidePETG; lower boards onto five hole-zone posts, fasten M2 through actual mounting holes",
+    "Lay actual solder/ports in open ends; adjust only after unpowered fit; install latepanels after driver/trimmer access"
+  ],
+  "scope": "CONDITIONAL_UNPOWERED_BOARD_MOUNT_TRIAL not complete module kit",
+  "physical_pass": false,
+  "actual_fit_cut_slack": null
+}

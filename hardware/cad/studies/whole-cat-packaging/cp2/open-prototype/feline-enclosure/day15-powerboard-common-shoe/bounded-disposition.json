@@ -1,0 +1,201 @@
+{
+  "status": "ONE_WHOLE_COMMON_SHOE_REJECTED_FOR_CURRENT_REAR_SHARED_LAYER_COUPON_ONLY",
+  "geometry_family_count": 1,
+  "no_second_height_or_axis_or_print_family": true,
+  "whole_architecture_change_implemented": false,
+  "source_closed": {
+    "MAIN_supplier_STEP_frame_and_two_holes": true,
+    "AUX_onlyPCB_scope_corrected_to_full9p5": true,
+    "all5_M2_fullsteel_modelled": true,
+    "continuous_actual_hexnutfeed5_clear": true,
+    "prior_rectcover_common2p669667_is_NOT_physical_nut_contact": true
+  },
+  "finite_gate": {
+    "bounds": 6334,
+    "exact": 24,
+    "raw_gate": "finite-layer-and-joint-gate.json",
+    "material_interfaces": [
+      {
+        "a": "SHOE",
+        "b": "E2_Molex_and_inline_WAGO",
+        "gap": 1.0,
+        "required": 1.25,
+        "common": null,
+        "valid": true,
+        "phase": null,
+        "clear": false
+      },
+      {
+        "a": "SHOE",
+        "b": "CS_P11_rear_gate_positive_ISO10642_M3x10",
+        "gap": 0.0,
+        "required": 1.25,
+        "common": 0.0,
+        "valid": true,
+        "phase": null,
+        "clear": false
+      },
+      {
+        "a": "SHOE",
+        "b": "P06_S0_shared_panel",
+        "gap": 0.01999999999999602,
+        "required": 1.25,
+        "common": null,
+        "valid": true,
+        "phase": null,
+        "clear": false
+      },
+      {
+        "a": "PB3_M2x12_full",
+        "b": "P06_S0_shared_panel",
+        "gap": 0.8899999999999864,
+        "required": 1.25,
+        "common": null,
+        "valid": true,
+        "phase": null,
+        "clear": false
+      }
+    ],
+    "missing_named_current_print_bounds": 206,
+    "missing_named_current_print_checks": 34,
+    "missing_current_print_interfaces": [
+      {
+        "a": "P20_COMMON_MAIN_AUX_M2_SHOE",
+        "b": "P11_rear_gate",
+        "gap": 0.0,
+        "required": 0,
+        "common": 3.5449731503106934,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "P20_COMMON_MAIN_AUX_M2_SHOE",
+        "b": "P13_BUS_bridge",
+        "gap": 0.0,
+        "required": 1.25,
+        "common": 0.0,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "MAIN_FULL_FAMILY_UNSHRUNK_CONSERVATIVE_SCOPE",
+        "b": "P13_BUS_bridge",
+        "gap": 0.0,
+        "required": 1.25,
+        "common": 15.0,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "AUX_FULL_POPULATED_OCCUPIED_NOT_PLASTICCASE",
+        "b": "P11_rear_gate",
+        "gap": 0.0,
+        "required": 1.25,
+        "common": 812.8,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "PB0_M2x12_full",
+        "b": "P12_common_deck_speaker",
+        "gap": 0.8747999999999934,
+        "required": 1.25,
+        "common": null,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "PB0_M2x12_full",
+        "b": "P13_BUS_bridge",
+        "gap": 0.0,
+        "required": 1.25,
+        "common": 2.499695860416047,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "PB0_upperwasher",
+        "b": "P13_BUS_bridge",
+        "gap": 0.0,
+        "required": 1.25,
+        "common": 1.2711977764956242,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "PB1_M2x12_full",
+        "b": "P12_common_deck_speaker",
+        "gap": 0.8747999999999934,
+        "required": 1.25,
+        "common": null,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "PB2_M2x12_full",
+        "b": "P11_rear_gate",
+        "gap": 0.8699999999999903,
+        "required": 1.25,
+        "common": null,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "PB3_M2x12_full",
+        "b": "P11_rear_gate",
+        "gap": 7.105427357601002e-15,
+        "required": 1.25,
+        "common": 25.767657104008954,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "PB4_M2x12_full",
+        "b": "P11_rear_gate",
+        "gap": 0.8699999999999903,
+        "required": 1.25,
+        "common": null,
+        "valid": true,
+        "clear": false
+      }
+    ],
+    "current_owner_proof": "current-owner-missing-link.json",
+    "source_scope_correction": "scope-correction-and-actual-roots.json"
+  },
+  "grouped_causes": [
+    "Current printed network P11/P13 and existing frame steel: P20/P11 actualcommon3.544973; AUXfullM2/P11actual25.767657; MAINfullM2/P13actual2.499696 andwasher1.271198. AUXpopulation812.8 andMAINfamily15 are conservative cover overlaps, not deliveredcomponentcontact. FullM2tips gap0.87..0.8748 tocurrentprints alsoheld.",
+    "S0panel boundary: P20gap0.02 andfullM2gap0.89, sourcecaseunchanged",
+    "E2 retained connector allocation gap1.0 below1.25, not deliveredwirecontact"
+  ],
+  "one_whole_consequence": "A common support must coallocate actual P11/P13 load network, existing frame heads, S0 panel and E2 interfaces BEFORE a new shoe. Do not keep old printed layer shapes immutable, but preserve their support/cooling/access functions in one explicit replacement. No individual height/bolt nudge or second family performed.",
+  "exports": {
+    "coupon_only": "COUPON_M2_fullnut_and_post.stl",
+    "coupon_size": [
+      12,
+      10.5,
+      11
+    ],
+    "closed_positive_Z0": true,
+    "full_P20_STL": false,
+    "P11_P12_changed_STL": false,
+    "current_print_index_remains": "day15-carrier-capture-first-fit/current-print-index.json"
+  },
+  "initial_order": {
+    "bench_M2_nutfeed": true,
+    "full_frame_M3_nutwasher_frombelow_before_banks": true,
+    "driver_before_both_boards_and_monitor": true,
+    "MAIN_trimmer_access_beforelatecover": true,
+    "no_soldered_E1_unplug": true,
+    "physical_factory_end_reach_FIT2": true,
+    "operating_permanent_conflicts_NOT_fixed_by_assembly_order": true
+  },
+  "physical_FIT3": [
+    "actual PCBrevision mountingaxes/2.18holes",
+    "safe underside annulus/headwasher/componentcontact",
+    "actual M2 stock nut dimensions/feed/fit"
+  ],
+  "actual_fit_cut_slack": null,
+  "physical_pass": false,
+  "whole_kit_ready": false,
+  "all57_plus_extras_factoryends_protection_preserved": true
+}
