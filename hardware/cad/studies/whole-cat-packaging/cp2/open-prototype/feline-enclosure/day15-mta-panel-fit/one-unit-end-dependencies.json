@@ -1,0 +1,46 @@
+{
+  "scope": "Design one-unit example F_FL1, not measured physicalunit. No new wire/electrical graph selection.",
+  "source": "hardware/electronics/power-platform/servo-terminations-p0.json",
+  "ends": [
+    {
+      "id": "F_FL1.in",
+      "source": "FL_P.2",
+      "destination": "F_FL1.in",
+      "terminal_role": "in",
+      "wire_project_mm2": 3.31,
+      "wire_awg": 12,
+      "wire_sku": "LAPP 0107001",
+      "positive_red_marking_both_ends_required": true,
+      "length_max_m": 0.1,
+      "length_actual_m": null,
+      "wire_verified": false
+    },
+    {
+      "id": "F_FL1.out",
+      "source": "F_FL1.out",
+      "destination": "FL1.V",
+      "terminal_role": "out",
+      "wire_project_mm2": 0.326,
+      "wire_verified": false
+    }
+  ],
+  "input": {
+    "sku": "LAPP0107001",
+    "awg12": true,
+    "source_nominal_OD": 3.1,
+    "source_fixed_Rmin": 12.4,
+    "maximum100mm_not_factory_length_or_cut": true,
+    "actual_length": null
+  },
+  "output": {
+    "servo_factory_positive_wire_preserved": true,
+    "source_project0p326_NOTmeasured": true,
+    "actual_length": null
+  },
+  "initial_lay": "Whole alreadycrimped TE wire ends held free on underside bench, mate after housing clipped. Preserve opposite factoryends/servo plug. No actual cutting/extension/recrimp, no solderedMODULE unplug. If a delivered fullyprewired unit prevents this, measure actualconstraint and STOP; do not force rigid complete unit through referencewindow.",
+  "all_four_independent_MTA0100335_220_and_bothends_unchanged": true,
+  "freeleads_are_flexible_not_rigid_obstacles": true,
+  "installed_reach_R_slack_not_qualified": true,
+  "physical_pass": false,
+  "actual_fit_cut_slack": null
+}
