@@ -1,0 +1,98 @@
+{
+  "status": "ONE_CORNER_COUPON_SAVED_BEFORE_OWNFIT",
+  "operating_P12_cut": false,
+  "source_corner": [
+    -74.5,
+    -34.5
+  ],
+  "quantity": 1,
+  "washerfeed_nominal_OD6": true,
+  "pocket_AF5p2_vs_actualAF5": true,
+  "sidefeed_actual_open_Y": -45.5,
+  "floor_mm": 2,
+  "roof_mm": 3,
+  "lower_washer_contact_plane92p52": true,
+  "technical_contact_realization": "Final pocket ceiling exactly92.52 matches lowerwasher top; no .1air under bearing. Same intended coupon/joint, not operatinggeometryvariant.",
+  "posts_height3_unchanged": true,
+  "intended_members": [
+    {
+      "name": "tray",
+      "missing_volume": 0.0,
+      "extent": "BoundBox (-80.5, -41.5, 92.52, -68.5, -27.5, 95.52)"
+    },
+    {
+      "name": "post",
+      "missing_volume": 0.0,
+      "extent": "BoundBox (-77, -37, 95.52, -72, -32, 98.52)"
+    },
+    {
+      "name": "cage",
+      "missing_volume": 0.0,
+      "extent": "BoundBox (-78.5, -41.5, 87.92, -70.5, -30.5, 93.02)"
+    }
+  ],
+  "positive_raw_connections": [
+    {
+      "a": "tray",
+      "b": "post",
+      "functional_face_contact_gap": 0.0,
+      "common_mm3": 0.0
+    },
+    {
+      "a": "tray",
+      "b": "cage",
+      "common_mm3": 43.99999999999999
+    }
+  ],
+  "own_hardware_checks": [
+    {
+      "name": "PI0_ISO4762_M2p5x12",
+      "valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "name": "PI0_upper_ISO7089_washer",
+      "valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "name": "PI0_lower_ISO7089_washer",
+      "valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "name": "PI0_full_AF5_nut",
+      "valid": true,
+      "common_mm3": 0.0
+    }
+  ],
+  "continuous_full_stock_feed": {
+    "valid": true,
+    "common_mm3": 0.0,
+    "washer_OD": 6,
+    "nutAF5_height2": true
+  },
+  "driver_before_PCB_GPIO_mating": {
+    "hexAF": 2,
+    "common_mm3": 0.0,
+    "assembly": "loadwasherthenfullnutthroughopennegativeYfeed; insertPi+topwasher+bolt; hex2driver fromabove BEFOREGPIO1992/BUS/mic. Fullpad/component actualtrial remainsFIT."
+  },
+  "print_size": [
+    12.0,
+    14.0,
+    10.599999999999994
+  ],
+  "mesh_closed": true,
+  "orientation": "flatfloorZ0, postup; floor2/roof2.9; horizontalnutfeed bridge~6.2mm needsphysicalPETGcoupon, no slicer/print run",
+  "installed_Pi": "OPEN_BNO_INSTALLATION_ALLOCATION; do not cut/export wholeP12 until deliveredBNOheader/componentbudget measured",
+  "anti_rotation": {
+    "actual_AF": 5,
+    "cavity_AF": 5.2,
+    "corner_diameter": 5.773502691896257,
+    "nominal_play_each_deg": 4.245803894404297,
+    "flat_height": 1.9,
+    "full_spin_blocked": true
+  },
+  "post_tray_annular_join_mm2": 13.695380474243004,
+  "strength_pass": false
+}
