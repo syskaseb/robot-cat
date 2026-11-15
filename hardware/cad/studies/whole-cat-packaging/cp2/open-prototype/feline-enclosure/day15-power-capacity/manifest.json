@@ -1,0 +1,248 @@
+{
+  "utc": "2026-11-15T16:21:52.322021+00:00",
+  "status": "P12_CAPACITY_CLOSED_AND_MISSING_FRAME_AUDIO_CLOSED_SCOPED_F0_REGION_OPEN",
+  "local_result": {
+    "status": "P12_TWO_FULL_PROFILES_CONTINUOUS_NORMAL_COVER_CLEAR_SCOPED",
+    "bounds": 470,
+    "checks": [
+      {
+        "profile": "P12_FULL_OD6_MARGIN04_LEFT",
+        "neighbor": "P12_common_deck_speaker",
+        "gap": 1.259124004721578,
+        "limit": 1.25
+      },
+      {
+        "profile": "P12_FULL_OD6_MARGIN04_RIGHT",
+        "neighbor": "P12_common_deck_speaker",
+        "gap": 7.940389479722567,
+        "limit": 1.25
+      }
+    ],
+    "first_falsifier": null,
+    "seconds": 19.09293240000261
+  },
+  "missing_power": {
+    "status": "ONE_NEW_ALLOCATION_OR_MATERIAL_HOLD",
+    "power_bounds": 1802,
+    "power_checks": [
+      {
+        "a": "P12_UNCHANGED_R24_UPPER_ARC_REGION",
+        "b": "P12_common_deck_speaker",
+        "gap": 8.20792300158816,
+        "limit": 1.25
+      },
+      {
+        "a": "P12_UNCHANGED_R24_UPPER_ARC_REGION",
+        "b": "P14_fixed_touch_rail",
+        "gap": 2.102379604162858,
+        "limit": 1.25
+      },
+      {
+        "a": "P12_UNCHANGED_R24_UPPER_ARC_REGION",
+        "b": "P15_removable_mic_rail",
+        "gap": 2.369951293208379,
+        "limit": 1.25
+      },
+      {
+        "a": "POWER_BAT2_FORE_TURN",
+        "b": "P14_fixed_touch_rail",
+        "gap": 2.102379604162858,
+        "limit": 1.25
+      },
+      {
+        "a": "POWER_THREE_CORE_LOOSE_TOP_RETURN",
+        "b": "P10_front_gate",
+        "gap": 2.0,
+        "limit": 1.25
+      },
+      {
+        "a": "POWER_THREE_CORE_LOOSE_TOP_RETURN",
+        "b": "P14_fixed_touch_rail",
+        "gap": 2.0999999999999943,
+        "limit": 1.25
+      },
+      {
+        "a": "POWER_GROUP_BRANCH_AND_LAY_NODE",
+        "b": "P14_fixed_touch_rail",
+        "gap": 17.0,
+        "limit": 1.25
+      },
+      {
+        "a": "POWER_ROBOT_G1_RISER",
+        "b": "E1_populated_prototype_board",
+        "gap": 2.7856776554368174,
+        "limit": 1.25
+      },
+      {
+        "a": "POWER_ROBOT_G1_RISER",
+        "b": "P12_common_deck_speaker",
+        "gap": 1.6000000000000014,
+        "limit": 1.25
+      },
+      {
+        "a": "POWER_ROBOT_G1_RISER",
+        "b": "P14_fixed_touch_rail",
+        "gap": 2.0999999999999943,
+        "limit": 1.25
+      },
+      {
+        "a": "POWER_G1_OPEN_LOWER_AISLE",
+        "b": "P10_front_gate",
+        "gap": 13.964598096615596,
+        "limit": 1.25
+      },
+      {
+        "a": "POWER_G1_OPEN_LOWER_AISLE",
+        "b": "P12_common_deck_speaker",
+        "gap": 4.0,
+        "limit": 1.25
+      },
+      {
+        "a": "POWER_F0_SHORT_INPUT_APPROACH",
+        "b": "P10_front_gate",
+        "gap": 0.0,
+        "limit": 1.25,
+        "common_mm3": 179.99999999999997,
+        "valid": true
+      }
+    ],
+    "added_bounds": 0,
+    "added_checks": [],
+    "reused_old_positive_pairs": 0,
+    "first_falsifier": {
+      "a": "POWER_F0_SHORT_INPUT_APPROACH",
+      "b": "P10_front_gate",
+      "gap": 0.0,
+      "limit": 1.25,
+      "common_mm3": 179.99999999999997,
+      "valid": true
+    },
+    "seconds": 2.091360199963674
+  },
+  "missing_frame": {
+    "status": "MISSING_ADDED_MATERIAL_AUDIO_CLEAR_SCOPED_POWER_F0_OPEN",
+    "power_bounds": 0,
+    "power_checks": [],
+    "added_bounds": 2050,
+    "added_checks": [],
+    "reused_old_positive_pairs": 2168,
+    "first_falsifier": null,
+    "power_complete": false,
+    "independent_frame_check": true,
+    "power_open": "F0_short_input vs P10 common180; frozen, not resumed",
+    "seconds": 2.030664399964735
+  },
+  "frame_material_changed": false,
+  "bought_pose_changed": false,
+  "physical_pass": false,
+  "whole_layout_release": false,
+  "actual_fit_cut_slack": null,
+  "native_zip_members": 1984,
+  "files": [
+    {
+      "path": "capacity-plan.json",
+      "bytes": 3423,
+      "sha256": "50d0b3912092389285704084d13f852a9f29f5cbfcd8d9f4b3012e43e298c3a0"
+    },
+    {
+      "path": "capacity-result.json",
+      "bytes": 486,
+      "sha256": "ee7054b61c57a9df76e901b3d5f4c6bf423523dafbc8600676d40381a1c3cd69"
+    },
+    {
+      "path": "day15-capacity-build.py",
+      "bytes": 6269,
+      "sha256": "0d393304c3efc01477193a3de3024f856ae36c2eb021bf9ca7ef169bbad586e6"
+    },
+    {
+      "path": "day15-capacity-frame-only.py",
+      "bytes": 728,
+      "sha256": "d36d9f8161f6811c7e0d253ddc6b130133da7793cf14617a42993223b3013e14"
+    },
+    {
+      "path": "day15-capacity-missing.py",
+      "bytes": 4028,
+      "sha256": "b9bedb7618ea177aaedb8ce0ba4de077a59c3629ede1bb132c57573debe6255f"
+    },
+    {
+      "path": "day15-capacity-refine-and-gate.py",
+      "bytes": 3828,
+      "sha256": "839b4077018f38bf54b1eb81abb8dea71827c92012f9163670940e19cdc0f3d9"
+    },
+    {
+      "path": "day15-capacity-views.py",
+      "bytes": 2441,
+      "sha256": "9f0b22a416f56a48d267fcb2c1d4d86e1a509cb823d912fd6a7f01f7212e3d41"
+    },
+    {
+      "path": "local-continuous-cover.png",
+      "bytes": 72776,
+      "sha256": "8211265dd4c227bc634bb8b005105d06d68da22f12683e79213d0a27f0d3fb10"
+    },
+    {
+      "path": "local-section-data.json",
+      "bytes": 6215,
+      "sha256": "a80a6cad61eda1a1851cf91627045c5af00f1b617d5a1bfdf6e2274477d5d21e"
+    },
+    {
+      "path": "local-steel-bounds.json",
+      "bytes": 9175,
+      "sha256": "7c06d4d9dd584ab51a97268bc70b2fbb059e6a857c2f1fd6011e6d95d9d407a3"
+    },
+    {
+      "path": "missing-frame-result.json",
+      "bytes": 393,
+      "sha256": "942b67ded5b2880b1eee8164e50c7c5a6663d9f8bf3f62c54573a267e0c32aae"
+    },
+    {
+      "path": "missing-result.json",
+      "bytes": 2263,
+      "sha256": "70761904069f315e13e47f733eba960e6f4f704b4135a9b90ce6b805e51e90c4"
+    },
+    {
+      "path": "missing-witness-a.brep",
+      "bytes": 2886,
+      "sha256": "902faa6e70a73d451c4aeda668393f42851a1b9009aec5bf8e6340e3debfc758"
+    },
+    {
+      "path": "missing-witness-b.brep",
+      "bytes": 158418,
+      "sha256": "31bba64d06caf5008c2408ed446984414b293e64fe3d99c69436aa9511349dec"
+    },
+    {
+      "path": "native-save-received.json",
+      "bytes": 351,
+      "sha256": "3924b4a48a2dfe3638ddfe5c19a405be0102bfa0db770fa90126a2d8865a897a"
+    },
+    {
+      "path": "P12-local-capacity-section.png",
+      "bytes": 149325,
+      "sha256": "f7957cbcbc728068e5dff835fb4df0d88c114e787aa5f9e017a2b27cbb54d919"
+    },
+    {
+      "path": "power-capacity.FCStd",
+      "bytes": 21573883,
+      "sha256": "7c6d3ca6f4ce90d9296022124cb7c0a1cd6782a230f7438cf7cfcdc136b60758"
+    },
+    {
+      "path": "retained-steel-missing-bounds.json",
+      "bytes": 66042,
+      "sha256": "419bb32c748c2cafbb6c24037b2f2b02f55e5e0b2859b95ed0f3770b170f14bb"
+    },
+    {
+      "path": "source-pins.json",
+      "bytes": 4307,
+      "sha256": "9a0affcc1ab48933d73b1166b8f23fc4c27b517634b89b72ba170b2fe86a2a7b"
+    },
+    {
+      "path": "START_HERE.md",
+      "bytes": 4197,
+      "sha256": "161ce1747b534b537010a9d9be63e8a06e5e7ed02ffee39ca8b1db230ce922a9"
+    },
+    {
+      "path": "whole-current.png",
+      "bytes": 101255,
+      "sha256": "b9d7fece46710c783fac2a634ac92dc3f69d3592e8790cd4539a82f3237436c7"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "status": "SAVED_BEFORE_LOCAL_TEST",
+  "utc": "2026-11-15T16:12:59.679683+00:00",
+  "source_manifest_sha256": "69b2f869872904100602f18e7ddd6701c3095710a2fd837735518ad96dceb0ef",
+  "source_commit": "e475013adb5639c482fb333b7348aa59ade0e21a",
+  "physical_decision": "Whether actual two full profiles plus gap/margin can be handlaid through P12 constriction without print change; old outer rectangle overstates corner occupancy.",
+  "why_local_exact": "Plane alone cannot qualify actual P12 edge or normal-profile cover during local roll; only this 18mm approach is represented individually, not whole harness.",
+  "unchanged": {
+    "printed_material": true,
+    "metal": true,
+    "module_poses": true,
+    "original_R24_arc": true,
+    "XT60_full_capacity": true,
+    "audio_R12": true
+  },
+  "open_region": {
+    "actual_P12_edge_X": -10,
+    "required_clearance": 1.25,
+    "left_limit": -8.75,
+    "upper_P12_Z": 95.52,
+    "straight_to_arc_Z": 106
+  },
+  "packing": {
+    "two_OD": 6,
+    "centre_spacing": 7,
+    "nominal_gap": 1,
+    "outer_margin": 0.4,
+    "allocated_gap": 0.2,
+    "entry_roll_degrees": 17.35671513657248,
+    "theta_interval_deg": [
+      16.83498067322209,
+      17.87844959992287
+    ],
+    "method": "constant roll to top of actual P12; C1 piecewise quadratic angle returns to original X-packed R24 arc. Continuous normal circular profiles bounded by capsules, not rectangle subtraction.",
+    "minimum_R_analytic": 24.78474797939055,
+    "curvature_upper": 0.04034739432620165,
+    "centre_speed_z_lower": 1,
+    "normal_nonlocal_separation": "dist^2>=49+(1-r^2*theta_prime_max^2)*dz^2>=49 because r*theta_prime_max<1; nominalgap1 and allocatedgap.2 retained",
+    "r_theta_prime_max": 0.20233996042437866
+  },
+  "profiles": [
+    {
+      "name": "P12_FULL_OD6_MARGIN04_LEFT",
+      "nominal_OD": 6,
+      "margin": 0.4,
+      "continuous_capsule_cells": 97,
+      "sag_upper": 0.00024041723403887117,
+      "valid": true,
+      "lower_entry": [
+        -5.340630896956606,
+        -1.0441193467697572,
+        88
+      ],
+      "upper_exit": [
+        -5.5,
+        -0.0,
+        106
+      ],
+      "normalZ_cell_bound": "rho*r*maxabs(theta_prime)/sqrt(1+(r*theta_prime)^2)+sag; clips only irrelevant spherical-cap overcoverage, preserves every continuous normal disc"
+    },
+    {
+      "name": "P12_FULL_OD6_MARGIN04_RIGHT",
+      "nominal_OD": 6,
+      "margin": 0.4,
+      "continuous_capsule_cells": 97,
+      "sag_upper": 0.00024041723403887117,
+      "valid": true,
+      "lower_entry": [
+        1.3406308969566054,
+        1.0441193467697572,
+        88
+      ],
+      "upper_exit": [
+        1.5,
+        0.0,
+        106
+      ],
+      "normalZ_cell_bound": "rho*r*maxabs(theta_prime)/sqrt(1+(r*theta_prime)^2)+sag; clips only irrelevant spherical-cap overcoverage, preserves every continuous normal disc"
+    }
+  ],
+  "sections": [
+    "P12_actual_section",
+    "P12_FULL_OD6_MARGIN04_LEFT_section",
+    "P12_FULL_OD6_MARGIN04_RIGHT_section"
+  ],
+  "physical_unknowns": "True battery exits/length/balance/F0/G1/unmatingtravel remain FIT2, no physical cut/extension/slack or manufacturer datum",
+  "actual_fit_cut_slack": null,
+  "coverage": "Analytic C1 centrepaths; full normal discs radius3.4 are contained in each polyline capsule radius3.4+|c_second|max*dz^2/8, clipped ONLY by analytic normal-disc Z reach. WholeP12/currentneighbors gate; no sampled-only path claim."
+}
