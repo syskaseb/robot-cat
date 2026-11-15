@@ -1,0 +1,105 @@
+{
+  "utc": "2026-11-15T18:50:00.998888+00:00",
+  "status": "ONE_WHOLE_DIRECT_POSITIVEY_LOAD_HYPOTHESIS_SAVED_BEFORE_GATE",
+  "source_document": "DAY15_STRAPPED_CARRIER",
+  "source_native": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\day15-strapped-carrier-first-fit\\strapped-carrier.FCStd",
+  "source_receiver": {
+    "owner": "P12",
+    "ROI": [
+      68,
+      18,
+      88.52,
+      84,
+      26,
+      92.52
+    ],
+    "actual_common": 512,
+    "P11_common": 0
+  },
+  "axis": [
+    76,
+    30
+  ],
+  "members": [
+    {
+      "name": "DIRECT_P12_receiver_tab",
+      "role": "P12 integralreceiver, sourcecommon512 atX68..84/Y18..26. NotP11material",
+      "bounds": "BoundBox (68, 18, 88.52, 84, 41.5, 92.52)"
+    },
+    {
+      "name": "DIRECT_P12_key_cheek_left",
+      "role": "P12 integralXlocatingcheek/antiZrotation atseparatedYpoints",
+      "bounds": "BoundBox (68, 24, 84.52, 70, 41.5, 90.52)"
+    },
+    {
+      "name": "DIRECT_P12_key_cheek_right",
+      "role": "P12 integralXlocatingcheek",
+      "bounds": "BoundBox (82, 24, 84.52, 84, 41.5, 90.52)"
+    },
+    {
+      "name": "DIRECT_P19_loadbeam",
+      "role": "P19 integratedbeam joiningactualrear crossarm95..100 beforebatteryregion",
+      "bounds": "BoundBox (74, 35.5, 62, 100, 41.5, 66)"
+    },
+    {
+      "name": "DIRECT_P19_upriser",
+      "role": "P19 upriser onpositiveY outsidebattery, useful7.6x6section",
+      "bounds": "BoundBox (74, 35.5, 64, 81.6, 41.5, 86.52)"
+    },
+    {
+      "name": "DIRECT_P19_flange",
+      "role": "P19 keyedunderflange, .4Xclear eachside, matchedtopbearing88.52",
+      "bounds": "BoundBox (70.4, 24, 84.52, 81.6, 41.5, 88.52)"
+    },
+    {
+      "name": "DIRECT_ISO10642_M3x12_full",
+      "role": "FullstandardUNCONFIRMEDdemand, M3x12includeshead, noactualinventory/threadclaim",
+      "bounds": "BoundBox (72.64, 26.64, 80.52, 79.36, 33.36, 92.52)"
+    },
+    {
+      "name": "DIRECT_full_OD7_washer",
+      "role": "FullstandardUNCONFIRMEDdemand, M3x12includeshead, noactualinventory/threadclaim",
+      "bounds": "BoundBox (72.5, 26.512, 84.02, 79.5, 33.488, 84.52)"
+    },
+    {
+      "name": "DIRECT_full_AF5p5_nut",
+      "role": "FullstandardUNCONFIRMEDdemand, M3x12includeshead, noactualinventory/threadclaim",
+      "bounds": "BoundBox (72.8246, 27.25, 81.62, 79.1754, 32.75, 84.02)"
+    }
+  ],
+  "stack": {
+    "type": "ISO10642 M3x12 countersunk standarddemandUNCONFIRMED",
+    "length_includes_head": true,
+    "headD6p72": true,
+    "headheight1p86": true,
+    "headtop92p52": true,
+    "P12_thickness4": true,
+    "P19_flange4": true,
+    "washer0p5": true,
+    "nut2p4": true,
+    "nutbottom81p62": true,
+    "tip80p52": true,
+    "tip_beyondnut1p1": true,
+    "upperwasher": false,
+    "upperbearing": "nominalactualconicalseat replacesheadwasherfunction, fullheadretained"
+  },
+  "loadpath": [
+    "P19floor ->existingrearcrossarm95..100 ->newpositivebeam ->upriser7.6x6 ->underflange",
+    "completeverticalbolt capturesunderflange toactualP12receiver",
+    "two integralP12cheeks .4nominalsidegap plusfullshaft/bore constrainX/Y/Zrotation, notfrictionalone",
+    "P12existingwholeframejoints/fourdeckclamps ->foundation; fourP19feet receivedcompressionretained"
+  ],
+  "initial_order": [
+    "P19emptyonfourdeckfeet, allunpowered, oldfrontjointretainedinitialreference",
+    "InstallnewP12 byitsrealparting/openframe BEFOREPCB/banks; keyedflange entersopenbottomcheeks, fullnut+washerheldfrompositiveY",
+    "FullHEX2/R4.25driverfromabove BEFOREMAIN/P14/touchkit finalattachment. Solderedbenchkitkeptwhole/handlaid, novirtualunplug",
+    "Thenfullbanks/4independentMTA220/factoryends; prethreadsame2whole200straps forbatteryONLY, thenPCB/MIC/BUS/XT60balance/cell order"
+  ],
+  "fulltool": "R4.25cylinder92.52..162.52, expectedMAIN/P14phaseoverlap mustbeactualrecorded; no permanentmetaloverlapallowed",
+  "source_roles_not_silently_deleted": true,
+  "old_rear_actualS0_negative_preserved": true,
+  "oldfront_entirejoint_initially_retained": true,
+  "no_retirement_before_newproof": true,
+  "physical_pass": false,
+  "actual_fit_cut_slack": null
+}

@@ -1,0 +1,143 @@
+{
+  "status": "COMPLETE_DIRECT_PRINT_LOAD_MATERIAL_AND_FULL_STEEL_SCOPED_CLEAR",
+  "members": [
+    {
+      "member": "DIRECT_P12_receiver_tab",
+      "valid": true,
+      "missing": 0.0,
+      "intended_extent": "BoundBox (68, 18, 88.52, 84, 41.5, 92.52)"
+    },
+    {
+      "member": "DIRECT_P12_key_cheek_left",
+      "valid": true,
+      "missing": 0.0,
+      "intended_extent": "BoundBox (68, 24, 84.52, 70, 41.5, 90.52)"
+    },
+    {
+      "member": "DIRECT_P12_key_cheek_right",
+      "valid": true,
+      "missing": 0.0,
+      "intended_extent": "BoundBox (82, 24, 84.52, 84, 41.5, 90.52)"
+    },
+    {
+      "member": "DIRECT_P19_loadbeam",
+      "valid": true,
+      "missing": 0.0,
+      "intended_extent": "BoundBox (74, 35.5, 62, 100, 41.5, 66)"
+    },
+    {
+      "member": "DIRECT_P19_upriser",
+      "valid": true,
+      "missing": 0.0,
+      "intended_extent": "BoundBox (74, 35.5, 64, 81.6, 41.5, 86.52)"
+    },
+    {
+      "member": "DIRECT_P19_flange",
+      "valid": true,
+      "missing": 0.0,
+      "intended_extent": "BoundBox (70.4, 24, 84.52, 81.6, 41.5, 88.52)"
+    }
+  ],
+  "junctions": [
+    {
+      "name": "receiver_to_ACTUAL_P12",
+      "positive_common": 1504.0,
+      "valid": true
+    },
+    {
+      "name": "leftcheek_receiver",
+      "positive_common": 70.0,
+      "valid": true
+    },
+    {
+      "name": "rightcheek_receiver",
+      "positive_common": 70.0,
+      "valid": true
+    },
+    {
+      "name": "beam_ACTUAL_P19",
+      "positive_common": 90.0,
+      "valid": true
+    },
+    {
+      "name": "riser_beam",
+      "positive_common": 91.19999999999993,
+      "valid": true
+    },
+    {
+      "name": "flange_riser",
+      "positive_common": 91.20000000000002,
+      "valid": true
+    }
+  ],
+  "own_stock": [
+    {
+      "steel": "DIRECT_ISO10642_M3x12_full",
+      "print": "P12",
+      "valid": true,
+      "common": 0.0
+    },
+    {
+      "steel": "DIRECT_ISO10642_M3x12_full",
+      "print": "P19",
+      "valid": true,
+      "common": 0.0
+    },
+    {
+      "steel": "DIRECT_full_OD7_washer",
+      "print": "P12",
+      "valid": true,
+      "common": 0.0
+    },
+    {
+      "steel": "DIRECT_full_OD7_washer",
+      "print": "P19",
+      "valid": true,
+      "common": 0.0
+    },
+    {
+      "steel": "DIRECT_full_AF5p5_nut",
+      "print": "P12",
+      "valid": true,
+      "common": 0.0
+    },
+    {
+      "steel": "DIRECT_full_AF5p5_nut",
+      "print": "P19",
+      "valid": true,
+      "common": 0.0
+    }
+  ],
+  "first_falsifier": null,
+  "source_protected": [
+    {
+      "part": "P12",
+      "missing": 0.0,
+      "valid": true,
+      "solids": 1,
+      "bounds": "BoundBox (-98, -41, 63, 95, 50, 106)"
+    },
+    {
+      "part": "P19",
+      "missing": 0.0,
+      "valid": true,
+      "solids": 1,
+      "bounds": "BoundBox (-98, -48.5, 48.52, 108, 45, 88.52)"
+    }
+  ],
+  "disjoint_parts": {
+    "valid": true,
+    "common": 0.0
+  },
+  "bearing": {
+    "topgap": 0.0,
+    "plane_Z": 88.52,
+    "key_X_gap": 0.4,
+    "carrier_key_width": 11.2,
+    "slot_width": 12,
+    "positive_bearing_roi": 9.37235070002956,
+    "full_hole_bore3p3": true,
+    "all6DOF": "Fullshaft/boretranslationstop +tensionseat +twoXcheeksat separatedY resistrotation; fourfeetcompression. finiteplayphysicalFIT."
+  },
+  "seconds": 20.45529060001718
+}
