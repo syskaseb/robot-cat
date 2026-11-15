@@ -1,0 +1,75 @@
+{
+  "status": "OCCUPIED_REGION_ALLOCATION_HOLD",
+  "started_utc": "2026-11-15T14:09:49.144678+00:00",
+  "physical_material_changed": false,
+  "source_poses_changed": false,
+  "rows": [
+    {
+      "profile": "I2S_BCLK",
+      "target": "CF_COMMON_LOAD_ENVELOPE",
+      "operand": "full_nominal_plus_0p4_continuous_cover",
+      "valid": true,
+      "gap_mm": 10.738571711832527,
+      "required_mm": 1.25,
+      "pass_scoped": true
+    },
+    {
+      "profile": "I2S_BCLK",
+      "target": "AL_REMOVABLE_MIC_TOUCH_FRAME",
+      "operand": "full_nominal_plus_0p4_continuous_cover",
+      "valid": true,
+      "gap_mm": 5.600000000000023,
+      "required_mm": 1.25,
+      "pass_scoped": true
+    },
+    {
+      "profile": "I2S_BCLK",
+      "target": "CF_REMOVABLE_BUS_BRIDGE",
+      "operand": "full_nominal_plus_0p4_continuous_cover",
+      "valid": true,
+      "gap_mm": 80.69482182070351,
+      "required_mm": 1.25,
+      "pass_scoped": true
+    },
+    {
+      "profile": "I2S_BCLK",
+      "target": "Pi_components_and_cooling",
+      "operand": "full_nominal_plus_0p4_continuous_cover",
+      "valid": true,
+      "gap_mm": 1.1842644469722738,
+      "required_mm": 1.25,
+      "pass_scoped": false,
+      "common_mm3": 0.0,
+      "common_valid": true
+    }
+  ],
+  "packing_rows": [],
+  "first_falsifier": {
+    "profile": "I2S_BCLK",
+    "target": "Pi_components_and_cooling",
+    "operand": "full_nominal_plus_0p4_continuous_cover",
+    "valid": true,
+    "gap_mm": 1.1842644469722738,
+    "required_mm": 1.25,
+    "pass_scoped": false,
+    "common_mm3": 0.0,
+    "common_valid": true
+  },
+  "previous_outer_field_raw": "gap0/common0 preserved; emptycorner not occupiedwire",
+  "whole_harness_pass": false,
+  "actual_cut_slack_length": null,
+  "wall_seconds": 0.3132064000237733,
+  "cpu_seconds": 1.109375,
+  "received_foreign_pairs": 4,
+  "unreceived_foreign_pairs": 80,
+  "unreceived_profile_packing_pairs": 21,
+  "feed_capacity_unreceived": true,
+  "decision": "STOP this one continuous occupied allocation at required margin to nominal Pi cooling reserve. Not delivered wire/component contact. No second route, module pose, material or radius family. Need whole cooling/port/initiallay disposition before retention.",
+  "native_test_stop_mechanism": "SystemExit escaped MCP wrapper after result was already saved. Technical service interruption; factual valid gap/common retained. Future reproduction uses normal return.",
+  "end_interfaces_unqualified": {
+    "Pi_approach": "x0+u/Y-27/Z130+v, -Yapproach stops4mm beforefull1992envelopeY-31; actualexit/pinout/30reserveunchangedFIT2",
+    "AMP_approach": "Two35deg analyticbranches terminateleft offullAMPbody; actualheader/padlocations/normalsUNKNOWN. ProvisionalAMPleftfaceaccessibleassumption, notmanufacturerdatum.",
+    "speaker_approach": "Two verticalapproachendframesZ75/Y30.95 nearfullspeaker+Yside; actualterminal/leadlengthunqualifiedFIT2."
+  },
+  "minimum_fit_cut_slack": null
+}
