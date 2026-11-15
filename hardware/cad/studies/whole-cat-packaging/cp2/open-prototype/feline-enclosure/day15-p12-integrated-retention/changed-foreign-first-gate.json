@@ -1,0 +1,96 @@
+{
+  "status": "FIRST_CHANGED_FOREIGN_HOLD_ONE_HYPOTHESIS_STOP",
+  "bounds": 894,
+  "checks": [
+    {
+      "a": "P10_front_gate_positive_delta",
+      "b": "Pi4B_actual_PCB",
+      "gap": 1.4210854715202004e-14,
+      "limit": 0,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "a": "P12_common_deck_speaker_positive_delta",
+      "b": "Pi4B_actual_PCB",
+      "gap": 1.4210854715202004e-14,
+      "limit": 0,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "a": "P12_common_deck_speaker_positive_delta",
+      "b": "CS_P10_front_gate_negative_ISO10642_M3x10",
+      "gap": 21.2764267682681,
+      "limit": 1.25,
+      "common": null,
+      "valid": true
+    },
+    {
+      "a": "P12_common_deck_speaker_positive_delta",
+      "b": "CS_P10_front_gate_negative_nutwasher",
+      "gap": 24.13780253358327,
+      "limit": 1.25,
+      "common": null,
+      "valid": true
+    },
+    {
+      "a": "P12_common_deck_speaker_positive_delta",
+      "b": "CS_P10_front_gate_negative_fullnut",
+      "gap": 21.873716531383483,
+      "limit": 1.25,
+      "common": null,
+      "valid": true
+    },
+    {
+      "a": "CARRIER_front_bolt",
+      "b": "P10_front_gate",
+      "gap": 1.8200274723201295,
+      "limit": 0,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "a": "CARRIER_front_bolt",
+      "b": "P19_shared_lower_carrier",
+      "gap": 0.14999999999999414,
+      "limit": 0,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "a": "CARRIER_front_headwasher",
+      "b": "P10_front_gate",
+      "gap": 1.0,
+      "limit": 0,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "a": "CARRIER_front_nutwasher",
+      "b": "P10_front_gate",
+      "gap": 4.123105625617661,
+      "limit": 0,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "a": "CARRIER_front_nutwasher",
+      "b": "P19_shared_lower_carrier",
+      "gap": 0.0,
+      "limit": 0,
+      "common": 0.6100711398895337,
+      "valid": true
+    }
+  ],
+  "first_falsifier": {
+    "a": "CARRIER_front_nutwasher",
+    "b": "P19_shared_lower_carrier",
+    "gap": 0.0,
+    "limit": 0,
+    "common": 0.6100711398895337,
+    "valid": true
+  },
+  "Pi_new_positive_foreign_clear": true,
+  "seconds": 18.55246989999432
+}
