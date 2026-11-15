@@ -1,0 +1,135 @@
+{
+  "status": "STRUCTURAL_SPACE_PROPOSAL_WITH_INITIAL_ASSEMBLY_HOLD",
+  "one_whole_geometry_family": true,
+  "not_ce9_local_shoe_or_height_retry": true,
+  "plane": "P11 upper transversebeam107->5mm ordinaryframe spacers->openplane112..115->4mm PCBspacers->PCB119",
+  "root": [
+    {
+      "axis": [
+        103,
+        35
+      ],
+      "actual_volume": 153.93804002589985,
+      "required": 153.93804002589985,
+      "missing": 0.0,
+      "valid": true
+    },
+    {
+      "axis": [
+        103,
+        49
+      ],
+      "actual_volume": 153.93804002589985,
+      "required": 153.93804002589985,
+      "missing": 0.0,
+      "valid": true
+    }
+  ],
+  "root_antirotation_axes": [
+    [
+      103,
+      35
+    ],
+    [
+      103,
+      49
+    ]
+  ],
+  "MAIN": "Whole sourcePCB frame rotated180vsce9 clock; sameXY footprint, sourcefamily retained, allterminals toward+X",
+  "AUX": "Whole full9.5 module Y+25/Z+25 vs old current; northsourcebay47..72.4, ports67..75, not monitorunderlap",
+  "available_intervals": {
+    "PCB_Z": [
+      118.3752,
+      123.1752
+    ],
+    "AUX_Ymin": [
+      46.25,
+      53.35
+    ]
+  },
+  "foreign_space": {
+    "bounds": 8902,
+    "exact": 31,
+    "failures": []
+  },
+  "assembly_HOLD": {
+    "status": "SPACE_HARDWARE_CLEAR_SCOPED_ASSEMBLY_ORDER_HOLD",
+    "reason": "P11 uppercrossmember is integral in actualcurrentprint: chosen25mm M2/35mmroot axialdriver fields cannot be disposed by latebank/PCB order. This is TOOLCAPACITY allocation not deliveredtoolmaterial/alltoolsimpossible.",
+    "integral_P11_rows": [
+      {
+        "a": "M2_0_driver_phase",
+        "b": "P11_rear_gate",
+        "gap": 0.0,
+        "required": 1.25,
+        "common": 30.41061688674921,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "M2_3_driver_phase",
+        "b": "P11_rear_gate",
+        "gap": 1.4210854715202004e-14,
+        "required": 1.25,
+        "common": 83.62919643856027,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "ROOT_0_HEX2_beforeboards",
+        "b": "P11_rear_gate",
+        "gap": 0.0,
+        "required": 1.25,
+        "common": 309.44878190539845,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "ROOT_0_nuttool_beforebanks",
+        "b": "P11_rear_gate",
+        "gap": 0.5,
+        "required": 1.25,
+        "common": null,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "ROOT_1_HEX2_beforeboards",
+        "b": "P11_rear_gate",
+        "gap": 0.0,
+        "required": 1.25,
+        "common": 309.44878190539845,
+        "valid": true,
+        "clear": false
+      },
+      {
+        "a": "ROOT_1_nuttool_beforebanks",
+        "b": "P11_rear_gate",
+        "gap": 0.5,
+        "required": 1.25,
+        "common": null,
+        "valid": true,
+        "clear": false
+      }
+    ],
+    "removable_P14_can_be_late": true,
+    "actual_side_tool_OR_real_uppercrossmember_parting_NOTqualified": true,
+    "no_second_hardware_or_height_or_orientation": true,
+    "own_source_print_realization_open": true,
+    "whole_feasible_claim": false,
+    "physical_pass": false
+  },
+  "source_P11_P13_carrier_and_clamps_unchanged": true,
+  "print_interfaces_contract_only": [
+    "2 futureP11printedbores3.4",
+    "ordinary rootheadbearing seats in futureopenplane",
+    "5openM2throughclearances; no captivenuts"
+  ],
+  "whole_feasible": false,
+  "print_release": false,
+  "new_STLs": 0,
+  "new_coupons": 0,
+  "physical_pass": false,
+  "whole_kit_ready": false,
+  "actual_fit_cut_slack": null,
+  "next": "Parent consolidation only. Future whole decision is actual side-tool access OR real load-preserving P11 uppercrossmember parting; cannot virtualremove integralbeam or declare chosen longaxialfield an immutabletool/alltoolsimpossibility. No furthergeometrythischunk."
+}

@@ -1,0 +1,107 @@
+{
+  "utc": "2026-11-15T21:14:51.228095+00:00",
+  "status": "ONE_WHOLE_FUNCTIONAL_STRATEGIC_PROPOSAL_BEFORE_GEOMETRY_NO_PRINTS",
+  "not_ce9_shoe_correction": true,
+  "load_topology": "Existing P11 transverse top107 ->two ordinaryM3 spacers5 ->commonOPENmountplane112..115 ->ordinaryM2spacers4 ->manufacturer-hole PCBbottom119. Full accessible throughsets; no captive nut floor/pockets.",
+  "root_actual": [
+    {
+      "axis": [
+        103,
+        35
+      ],
+      "actual_volume": 153.93804002589985,
+      "required": 153.93804002589985,
+      "missing": 0.0,
+      "valid": true
+    },
+    {
+      "axis": [
+        103,
+        49
+      ],
+      "actual_volume": 153.93804002589985,
+      "required": 153.93804002589985,
+      "missing": 0.0,
+      "valid": true
+    }
+  ],
+  "root_zone_derivation": "P11 beamX95..107/Y-86..86/Z103..107. North banks startY56; fullnutwasherR3.5+1.25 restrict secondaxisY<=51.25. Choose35/49, not prior preliminary74.5 read which would put lowerhardware in FHACYaw. Beam contacts actually measured before this ONE proposal.",
+  "allowed_PCB_Z": [
+    118.3752,
+    123.1752
+  ],
+  "height_basis": [
+    "M2x12 underhead+upperwasher+PCB: tip=PCBbottom-10.1252; above P11/P13 max107 +1.25 needsPCB>=118.3752",
+    "P14 lower134 minus1.25 minus1.5748+8 terminationallowance givesPCB<=123.1752",
+    "AUX monitor ceiling125 applies only overlappingXY. Actual north bayYmin>=45+1.25; P11 outerupright atY80 ->Ymin<=80-1.25-25.4=53.35"
+  ],
+  "AUX_north_Ymin_interval": [
+    46.25,
+    53.35
+  ],
+  "chosen_AUX_Ymin": 47,
+  "PCB_bottom": 119,
+  "plane": [
+    112,
+    115
+  ],
+  "ordinary_frame_spacer5": true,
+  "ordinary_PCB_spacer4": true,
+  "MAIN": {
+    "boundsXY": [
+      61,
+      22,
+      91.48,
+      44.86
+    ],
+    "source_STEP_frame": "local x->+Y/y->-X/z->+Z, origin(91.48,22,119). Opposite toce9projectclock, not manufacturerworldpose.",
+    "ports": "toward+X side, deliberate wholeboardorientation"
+  },
+  "AUX": {
+    "boundsXY": [
+      99,
+      47,
+      124.4,
+      72.4
+    ],
+    "oldPCBdatum94": true,
+    "source_orientation180retained": true,
+    "fullfield": [
+      99,
+      47,
+      117.2,
+      124.4,
+      72.4,
+      126.7
+    ],
+    "ports": "north Y67..74, clear of MonitorY20..45"
+  },
+  "all_other_bought_poses_unchanged": true,
+  "P11_P13_functions_retained": "Actual wholeP11 gate/rootjaws/crossbeams/upperrail bearing +P13 BUS31cooling/removablebridge remain geometrically identical. TWO future print bores\u00d83.4 in existing P11 beam are proposed interface contract only; no boughtframe drilling/cut.",
+  "support_parting": "NEW open frame is one structural occupied-volume proposal, not a printable part. Separate from P11, real spacer contacts, two root axes antirotation. Manufacturing parting/seat tolerances intentionally not detailed.",
+  "complete_standard_sets": {
+    "boards": "5M2x12socketD3.8h2 +2washersOD5t.3 each +fullM2nutAF4h1.6 +ordinaryspacerOD4L4",
+    "root": "2ISO10642M3x16 LENGTHINCLUDESHEAD D6.72/h1.86 +lowerwasherOD7t.5 +fullnutAF5.5h2.4 +ordinaryspacerOD6L5"
+  },
+  "hardware_demand": "NEEDED_UNCONFIRMED, no purchase/inventory",
+  "print_contracts_NOT_acceptance": [
+    "Openplane3mm with5straightM2clearance passages; no captive pockets",
+    "2ordinary root CSheadbearing seat contracts in newplane and2P11printbores; wholehead envelopes modeled, no finished seat/part/STL",
+    "ActualsafePCBholeannulus/undersidecontact revision remains physicalcouponFIT3"
+  ],
+  "affected_interfaces": [
+    "MAIN all solder/voltagecontrol/powerends reoriented andZ+25",
+    "AUX all12solder/header positions movedY+25/Z+25 withfullunderside1.8; no freewire extension or old lengthcredit",
+    "New root wholetool before bank units/boards; P14/MIC/BUS latepanels retain assembly functions",
+    "Carrier/powerprotection/sourceclamps/57+extras/factoryplugs/four220/bothMTA unaffected; installedreach/slack/cutNULL"
+  ],
+  "assembly": [
+    "Loose currentframe/carrier assembly received4f9; P11 remains integral realprint, no virtualsplit",
+    "Fit newOPENplane ontwo5mmspacers; fullM3nut/washer fromunderside while all banks/boards absent, two people hold parts; no automatic nutcage",
+    "Preterminate wholeMAIN/AUX onbench; retain all oppositefactoryends/solderedE1kit; 4mmM2spacers+fullthroughsets, upper/lower washers andfullnuts accessible",
+    "Then latebank/monitor and P14/MIC/BUS closures; trimmer/tool slots accessible before closure. Service canpartialdemount, not rapidservice"
+  ],
+  "physical_pass": false,
+  "whole_kit_ready": false,
+  "actual_fit_cut_slack": null
+}
