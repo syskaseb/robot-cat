@@ -1,0 +1,1809 @@
+{
+  "status": "ONE_WHOLE_RETENTION_ARCHITECTURE_PROPOSAL_NOT_MOUNT_RELEASE",
+  "utc": "2026-11-15T16:38:22.520332+00:00",
+  "same_bought_and_module_poses": true,
+  "new_print_material": false,
+  "frame_qualified_scope": "P10..P18 actualframe10newfulljoints/4sourceclamps etc reuse1de3/ff08 withoutreplay; physicalfitunperformed",
+  "groups": [
+    {
+      "id": "R01_PI",
+      "modules": [
+        "Pi4B_actual_PCB"
+      ],
+      "actual_current_bounds": {
+        "Pi4B_actual_PCB": [
+          [
+            -97.99999999999999,
+            -38.00000000000006,
+            98.51999999999997
+          ],
+          [
+            -12.999999999999815,
+            18.00000000000005,
+            100.12000000000002
+          ]
+        ]
+      },
+      "root": "P12 four integral3mm posts on shared Pi tray Z95.52..98.52; tray Z92.52..95.52 -> two innerrails -> P10/P11 -> four qualified deckclamps",
+      "interface": "4 actual R1.375 hole axes: X−74.5/−16.5, Y−34.5/+14.5. Existing insulatingposts already set3mm standoff, no second physical spacer on top.",
+      "retention": "4 complete M2.5x12 throughsets: head/upperwasher/PCB1.6/post3/tray3/lowerwasher/fullnut. Standard demand UNCONFIRMED. Need four local lower nutfeed/counterbore interfaces before release; do not pretend captive nuts exist.",
+      "assembly_access": "Preload four nuts from open tray underside BEFORE mounting Pi/whole tray, then PCB+top bolts. USB/Delock at−X and GPIO−Y never clipped.",
+      "FIT": "Actualsafe holepads/underside/nutfeed to nearby rail and fullstack engagement; one 4hole/pad coupon before modifying P12. Pi cooling keepout retained.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R02_BUS",
+      "modules": [
+        "BUS25514_installed"
+      ],
+      "actual_current_bounds": {
+        "BUS25514_installed": [
+          [
+            18.0,
+            -16.5,
+            110.0
+          ],
+          [
+            60.0,
+            16.5,
+            134.0
+          ]
+        ]
+      },
+      "root": "P13 removable bridge top107, actual nominal fullBUS bottom110",
+      "interface": "3mm nominal insulating separation; bridge has two alreadyqualified CS end joints into P12, PiBUS horizontalcooling31mm unchanged",
+      "retention": "Two adjustable externaledgekeepers on P13, commonM3 fullsets, 3mm nominal insulatingfeet only at measuredsafeedge. Do not assume BUS mountingholes from nominalbox. Slot/set once fromphysicalcoupon; allthreads/lengths unconfirmed.",
+      "assembly_access": "BUS+realpower/USB are removed before P13; bridge tool/joints alreadyreceived. Fit full500USB and Delock without assuming500mm is required stored slack.",
+      "FIT": "Actual BUS holes/safeedges/component side and cable mouth are nominalenvelope FIT2, no fabricated mountingdatum.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R03_PCA_E1",
+      "modules": [
+        "PCA9685_Adafruit815_PCB",
+        "E1_populated_prototype_board"
+      ],
+      "actual_current_bounds": {
+        "PCA9685_Adafruit815_PCB": [
+          [
+            -95.0,
+            38.0,
+            94.0
+          ],
+          [
+            -32.77,
+            39.599999999999994,
+            119.4
+          ]
+        ],
+        "E1_populated_prototype_board": [
+          [
+            -25.0,
+            38.0,
+            94.0
+          ],
+          [
+            25.0,
+            48.0,
+            124.0
+          ]
+        ]
+      },
+      "root": "Existing P12 upright-strip X−96..26/Y18.5..42/Z90..94",
+      "interface": "PCA real mounting holes R1.25, X−91.825/−35.945, Z97.175/116.225, normalY; tinyR.508 electricalvias are NOTmountingholes. E1 lowerplane94 on commonstrip.",
+      "retention": "ONE shared slotted bottom shoe and two enduprights: use two lower PCA holes M2 fullsets, E1 endretainers only at inspected bareboardedge. Upper ends stop overturning without pressing components; component-side blind pressure forbidden.",
+      "assembly_access": "Lay/solder E1 offPETG, place connectedE1+PWM on openstrip, close only accessible endkeepers after portdrylay. Fixedtouch lead stays connected.",
+      "FIT": "E1 physical PCB orientation/safeedges and actualPWMheaders; shoe/retainer shape is future commonpart, not built into present P12 by name.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R04_MAIN_AUX",
+      "modules": [
+        "MAIN_Pololu4853",
+        "AUX_Pololu4092"
+      ],
+      "actual_current_bounds": {
+        "MAIN_Pololu4853": [
+          [
+            61.0,
+            22.000000000000014,
+            94.0
+          ],
+          [
+            91.48,
+            44.860000000000014,
+            101.6748
+          ]
+        ],
+        "AUX_Pololu4092": [
+          [
+            99.0,
+            22.0,
+            94.0
+          ],
+          [
+            124.4,
+            47.400000000000006,
+            95.6
+          ]
+        ]
+      },
+      "root": "P12/P11 continuous powerledge X55..126/Y18.5..50/top92.52",
+      "interface": "Current lower board reference94 => nominal1.48mm support plane difference. AUX has3 actual R1.09 throughholes, notM2.5. MAIN source hasno cylindricalhole proof.",
+      "retention": "ONE shared open powerboard carrier on ledge, local1.48mm nominal bearing pads only under qualified mountingpoints; AUX3xM2 throughsets; MAIN two adjustable externaledgekeepers after safeedge coupon. No support against underside components.",
+      "assembly_access": "Fix carrier to shared ledge from open side before bank leads/S1 make driveraccess narrow; leave MAIN input/output and AUX wiring sides open.",
+      "FIT": "Actualunderside/safeMAINedge, AUX3hole fit and carrierroot slot/bolt/tool delta. Do not reinterpret current1.48air as already bearing.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R05_BNO",
+      "modules": [
+        "BNO085"
+      ],
+      "actual_current_bounds": {
+        "BNO085": [
+          [
+            -100.0,
+            -48.0,
+            80.0
+          ],
+          [
+            -74.4,
+            -25.3,
+            84.6
+          ]
+        ]
+      },
+      "root": "P10 front gate, planned small shared front sensor ledge tied to its upright; source BNO installcover remains full",
+      "interface": "BNO bounds X−100..−74.4/Y−48..−25.3/Z80..84.6. No certified pad/PCB-hole data in nominalbox.",
+      "retention": "Small adjustable front ledge/2edge tabs shared with frontframe rather than independent case. Use bare mountingedge coupon, never press sensorpackage.",
+      "assembly_access": "Install from front/side before Pi GPIO female and late cosmeticneck. Whole mountingpad remains outside allreceived complete screwheads.",
+      "FIT": "Actual BNO revision/safebearing and feed to main I2C, not a fake supplierthread.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R06_AMP",
+      "modules": [
+        "MAX98357A_amp"
+      ],
+      "actual_current_bounds": {
+        "MAX98357A_amp": [
+          [
+            -62.0,
+            20.999999999999986,
+            96.00000000000001
+          ],
+          [
+            -35.0,
+            34.0,
+            120.00000000000001
+          ]
+        ]
+      },
+      "root": "Existing P12 two feet X−62..−59 and−38..−35/Y21..34/Z94..96, shared uprightstrip",
+      "interface": "WholeAMP bottom96/height24 is retained, audioR12/feed7 proof unchanged.",
+      "retention": "Two adjustable endtabs on existing feet using safe barePCBedge or actualhole only after coupon; one shared narrow retainingstrip, no custom wiregrips.",
+      "assembly_access": "SolderAMP offplastic; place AMP and lay actual fiveI2S+two speaker connections through receivedopenfeed BEFORE closing tabs.",
+      "FIT": "Unknown AMP headernormal/boardcomponents/stock, no acoustic/voice gate.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R07_SPEAKER",
+      "modules": [
+        "Speaker"
+      ],
+      "actual_current_bounds": {
+        "Speaker": [
+          [
+            -113.0,
+            -19.5,
+            65.5
+          ],
+          [
+            -13.0,
+            25.5,
+            86.5
+          ]
+        ]
+      },
+      "root": "P10/P12 existing continuous speakerfloor top65.5 and two end/hanger loadpaths",
+      "interface": "Source nominal100×45×21 unchanged; actual safe basketflange rather than cone/backmagnet required",
+      "retention": "Two endkeepers on existing speakerframe shared with floor; only contact measured basketflange, leave soundopening and cone travel open.",
+      "assembly_access": "Speaker plus twofullends first, under/side handlay before upper electronics; edgekeepers last.",
+      "FIT": "Basket mountingholes/flange and damping/contact coupon. No pressure guessed from nominal100mm box.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R08_TOUCH_MIC",
+      "modules": [
+        "TTP223_touch",
+        "ReSpeakerLite_on_REMOVABLE_back"
+      ],
+      "actual_current_bounds": {
+        "TTP223_touch": [
+          [
+            5.0,
+            45.0,
+            141.0
+          ],
+          [
+            30.0,
+            65.0,
+            149.0
+          ]
+        ],
+        "ReSpeakerLite_on_REMOVABLE_back": [
+          [
+            -5.0,
+            -17.5,
+            140.0
+          ],
+          [
+            81.0,
+            17.5,
+            150.0
+          ]
+        ]
+      },
+      "root": "P14 fixed touchseat141; P15 separate mic endseats140, both already bolted to P10/P11",
+      "interface": "Touch stays fixed under thin isolatedwindow; mic stays independently removable with actual USB_AUDIO",
+      "retention": "Two adjustable safeedge tabs per board on existing seats; no topplate over unseen mic apertures, no clamp on touch components.",
+      "assembly_access": "For battery: disconnect actual micUSB and lift P15; fixed P14/E1 solder never virtually unplugged. Then BUSends/P13, XT60+balance, battery.",
+      "FIT": "True boardedges/mic ports/USB connector and connected leadbudget; no new electricalconnector.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R09_MOTOR_BANKS",
+      "modules": [
+        "Motor_ATO4A__1_0",
+        "Motor_ATO4A__1_1",
+        "Motor_ATO4A__1_2",
+        "Motor_ATO4A__1_3",
+        "Motor_ATO4A__1_4",
+        "Motor_ATO4A__1_5",
+        "Motor_ATO4A_1_0",
+        "Motor_ATO4A_1_1",
+        "Motor_ATO4A_1_2",
+        "Motor_ATO4A_1_3",
+        "Motor_ATO4A_1_4",
+        "Motor_ATO4A_1_5"
+      ],
+      "actual_current_bounds": {
+        "Motor_ATO4A__1_0": [
+          [
+            -94.0,
+            -78.0,
+            52.000000000000014
+          ],
+          [
+            -72.15140000000002,
+            -49.99999999999998,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A__1_1": [
+          [
+            -70.0,
+            -78.0,
+            52.000000000000014
+          ],
+          [
+            -48.15140000000002,
+            -49.99999999999998,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A__1_2": [
+          [
+            -46.0,
+            -78.0,
+            52.000000000000014
+          ],
+          [
+            -24.151400000000017,
+            -49.99999999999998,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A__1_3": [
+          [
+            -22.0,
+            -78.0,
+            52.000000000000014
+          ],
+          [
+            -0.151400000000017,
+            -49.99999999999998,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A__1_4": [
+          [
+            2.0,
+            -78.0,
+            52.000000000000014
+          ],
+          [
+            23.848599999999983,
+            -49.99999999999998,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A__1_5": [
+          [
+            26.0,
+            -78.0,
+            52.000000000000014
+          ],
+          [
+            47.84859999999998,
+            -49.99999999999998,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A_1_0": [
+          [
+            -94.0,
+            50.000000000000014,
+            52.000000000000014
+          ],
+          [
+            -72.15140000000002,
+            78.00000000000003,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A_1_1": [
+          [
+            -70.0,
+            50.000000000000014,
+            52.000000000000014
+          ],
+          [
+            -48.15140000000002,
+            78.00000000000003,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A_1_2": [
+          [
+            -46.0,
+            50.000000000000014,
+            52.000000000000014
+          ],
+          [
+            -24.151400000000017,
+            78.00000000000003,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A_1_3": [
+          [
+            -22.0,
+            50.000000000000014,
+            52.000000000000014
+          ],
+          [
+            -0.151400000000017,
+            78.00000000000003,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A_1_4": [
+          [
+            2.0,
+            50.000000000000014,
+            52.000000000000014
+          ],
+          [
+            23.848599999999983,
+            78.00000000000003,
+            123.42999999999991
+          ]
+        ],
+        "Motor_ATO4A_1_5": [
+          [
+            26.0,
+            50.000000000000014,
+            52.000000000000014
+          ],
+          [
+            47.84859999999998,
+            78.00000000000003,
+            123.42999999999991
+          ]
+        ]
+      },
+      "root": "Two selected source6-case rows on P02/P03 deck; deck is actual root, not skin",
+      "interface": "Each complete MTA0300330+IN+OUT+ATO retained at X−94+24i/Y±50..78/Z52..123.43. Lower3.48mm area is NOT automatically plasticbearing.",
+      "retention": "TWO shared open row shoes and TWO outer sliding keeperrails, each six cases; root at printeddeck edges/front/rear, retain endcase against rotation. Contact sourceplastic seats/rims only, not TEends/fusecap. Standard4M3sets perrow nominalneeded/unconfirmed; realfullstack after shoe datum.",
+      "assembly_access": "Whole factory IN/OUT units placed on open row shoes; solder/splice only offPETG, handlay bothends; close outer keeper after leadstrain fit. Fuseextraction/terminalaccess staysopen.",
+      "FIT": "Actual caseplastic bearing contour vs metalbottom; one representative case/shoe coupon, full4independent220 legunits bothMTA ends retain individualstock. No actualtie unit claimed or renewed by name.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R10_WAGO",
+      "modules": [
+        "WAGO415_data__1_0",
+        "WAGO415_data_1_0",
+        "WAGO415_data__1_1",
+        "WAGO415_data_1_1",
+        "WAGO415_data__1_2",
+        "WAGO415_data_1_2",
+        "WAGO415_data__1_3",
+        "WAGO415_data_1_3",
+        "WAGO415_data__1_4",
+        "WAGO415_data_1_4",
+        "WAGO415_data__1_5",
+        "WAGO415_data_1_5",
+        "WAGO415_data__1_6",
+        "WAGO415_data_1_6",
+        "WAGO415_data__1_7",
+        "WAGO415_data_1_7",
+        "WAGO615_power_0_0",
+        "WAGO615_power_0_1",
+        "WAGO615_power_1_0",
+        "WAGO615_power_1_1",
+        "POST_F0_WAGO412"
+      ],
+      "actual_current_bounds": {
+        "WAGO415_data__1_0": [
+          [
+            -47.0,
+            -39.0,
+            50.52
+          ],
+          [
+            -28.0,
+            -9.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data_1_0": [
+          [
+            -47.0,
+            9.0,
+            50.52
+          ],
+          [
+            -28.0,
+            39.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data__1_1": [
+          [
+            -25.0,
+            -39.0,
+            50.52
+          ],
+          [
+            -6.0,
+            -9.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data_1_1": [
+          [
+            -25.0,
+            9.0,
+            50.52
+          ],
+          [
+            -6.0,
+            39.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data__1_2": [
+          [
+            -3.0,
+            -39.0,
+            50.52
+          ],
+          [
+            16.0,
+            -9.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data_1_2": [
+          [
+            -3.0,
+            9.0,
+            50.52
+          ],
+          [
+            16.0,
+            39.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data__1_3": [
+          [
+            19.0,
+            -39.0,
+            50.52
+          ],
+          [
+            38.0,
+            -9.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data_1_3": [
+          [
+            19.0,
+            9.0,
+            50.52
+          ],
+          [
+            38.0,
+            39.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data__1_4": [
+          [
+            41.0,
+            -39.0,
+            50.52
+          ],
+          [
+            60.0,
+            -9.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data_1_4": [
+          [
+            41.0,
+            9.0,
+            50.52
+          ],
+          [
+            60.0,
+            39.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data__1_5": [
+          [
+            63.0,
+            -39.0,
+            50.52
+          ],
+          [
+            82.0,
+            -9.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data_1_5": [
+          [
+            63.0,
+            9.0,
+            50.52
+          ],
+          [
+            82.0,
+            39.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data__1_6": [
+          [
+            85.0,
+            -39.0,
+            50.52
+          ],
+          [
+            104.0,
+            -9.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data_1_6": [
+          [
+            85.0,
+            9.0,
+            50.52
+          ],
+          [
+            104.0,
+            39.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data__1_7": [
+          [
+            155.0,
+            20.0,
+            50.52
+          ],
+          [
+            174.0,
+            50.0,
+            59.52
+          ]
+        ],
+        "WAGO415_data_1_7": [
+          [
+            133.0,
+            20.0,
+            50.52
+          ],
+          [
+            152.0,
+            50.0,
+            59.52
+          ]
+        ],
+        "WAGO615_power_0_0": [
+          [
+            -100.0,
+            -39.0,
+            50.52
+          ],
+          [
+            -78.0,
+            -2.0,
+            61.52
+          ]
+        ],
+        "WAGO615_power_0_1": [
+          [
+            -100.0,
+            2.0,
+            50.52
+          ],
+          [
+            -78.0,
+            39.0,
+            61.52
+          ]
+        ],
+        "WAGO615_power_1_0": [
+          [
+            -73.0,
+            -39.0,
+            50.52
+          ],
+          [
+            -51.0,
+            -2.0,
+            61.52
+          ]
+        ],
+        "WAGO615_power_1_1": [
+          [
+            -73.0,
+            2.0,
+            50.52
+          ],
+          [
+            -51.0,
+            39.0,
+            61.52
+          ]
+        ],
+        "POST_F0_WAGO412": [
+          [
+            -130.0,
+            -59.0,
+            50.0
+          ],
+          [
+            -117.0,
+            -39.0,
+            60.0
+          ]
+        ]
+      },
+      "root": "P02/P03 lowerdeck top48.52 and rearP06side for any elevated junction; POST_F0 specifically uses commonfrontservicecarrier on P10, NOT floating on an absentdeck atX−130",
+      "interface": "Current16x415=4DATA/5positive/7G,4x615 andPOST_F0 one412, current complete casebounds retained",
+      "retention": "Shared low side/floorrails plus endstops below leverhinges, grouped byrow. Sliding hold-down only contacts insulatingcaseheel; lever/pushwireentry and full9capacity remainopen. No electricalgraph or chamber remap.",
+      "assembly_access": "Wire all lowerWAGO before batterytray and upperframekeeper. Endstops mustnottrap 220/MTA factoryplugs; rear two cases retain their rearroot rather than assumeddeckbelowthem.",
+      "FIT": "Actualcasefeet/leveraccess and loweredretainerheight; physical wireend/OD/R on openbench. Existing3mm casegap is NOTreceived portbendroom.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R11_FHAC_F0",
+      "modules": [
+        "FHAC0001_Pi3A",
+        "FHAC0001_AUX4A",
+        "FHAC0001_Yaw1A",
+        "FHAC0001_Pitch1A",
+        "FHAC0001_Tail1A",
+        "F0_FHAC0002_30A"
+      ],
+      "actual_current_bounds": {
+        "FHAC0001_Pi3A": [
+          [
+            55.0,
+            56.0,
+            50.0
+          ],
+          [
+            75.25,
+            78.0,
+            101.0
+          ]
+        ],
+        "FHAC0001_AUX4A": [
+          [
+            78.0,
+            56.0,
+            50.0
+          ],
+          [
+            98.25,
+            78.0,
+            101.0
+          ]
+        ],
+        "FHAC0001_Yaw1A": [
+          [
+            101.0,
+            56.0,
+            50.0
+          ],
+          [
+            121.25,
+            78.0,
+            101.0
+          ]
+        ],
+        "FHAC0001_Pitch1A": [
+          [
+            124.0,
+            56.0,
+            50.0
+          ],
+          [
+            144.25,
+            78.0,
+            101.0
+          ]
+        ],
+        "FHAC0001_Tail1A": [
+          [
+            147.0,
+            56.0,
+            50.0
+          ],
+          [
+            167.25,
+            78.0,
+            101.0
+          ]
+        ],
+        "F0_FHAC0002_30A": [
+          [
+            -132.0,
+            32.0,
+            49.0
+          ],
+          [
+            -106.0,
+            67.0,
+            119.0
+          ]
+        ]
+      },
+      "root": "ONE commonfrontservicecarrier bolted to realP10side forF0 ANDPOST_F0; fiveFHAC usecommonP03/P06 rearservice strip",
+      "interface": "Fullcases and factorytails retained. FHAC0002 nominallead89.5/strip6.35 doesNOTwaive W075designmax50. Frontservicecarrier must bridge fullF0 X−132..−106 andPOST_F0 X−130..−117 toP10 X−104..−98 at their respectiveY/Z; no oldfreehome treatedasphysicalanchor.",
+      "retention": "Common open cradle strip with casebody endstops and removable keeper on caseflange, each independent input/output strain land after lead drylay; no housingwirepull. Caseband role only if actualselectedwhole stock is bound, none newlyclaimed here.",
+      "assembly_access": "Benchterminate offPETG, F0/shortunfusedspan measure BEFOREfinal caseclamp. FHACcasecover/ATO/factoryends stay accessible; rare fuseaccess partialdemount/cut+renewonlysourcedband.",
+      "FIT": "F0 actualmouth+bothleadlength/strip/currenttrim/W075 path remainsFIT2_UNQUALIFIED. LocalØ6+.4 straightspaceclear is not connectedbend/reach proof. FiveFHAC actualfullshortends similarly dryfit.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R12_BATTERY",
+      "modules": [
+        "Battery_GEA223S30X6GT"
+      ],
+      "actual_current_bounds": {
+        "Battery_GEA223S30X6GT": [
+          [
+            -2.0,
+            -17.5,
+            65.0
+          ],
+          [
+            104.5,
+            17.5,
+            86.5
+          ]
+        ]
+      },
+      "root": "Existing sharedtray X−5..108/Y±21/top65, two crossarms atX5..10 and95..100 todeckposts",
+      "interface": "Fullbattery106.5×35×21.5; selected2straps RCManiak4982. Proposedloopstations X15 and90, lateral trayedges±21.",
+      "retention": "Two transverse loops around battery+tray with4future slots atYnear±21, width/thickness chosen ONLY from deliveredstraps. Two endstops on tray preventlongitudinalslide; no loop around solderends/softcellpuncture.",
+      "assembly_access": "Lay two WHOLE straps before battery; accessible closures on side, neverbridge rigidpart over upward batteryremoval. Unplug XT60+existingbalance after MIC/BUS removal; then liftbattery.",
+      "FIT": "Strap actualunitlength/width/closure/fullremainingtail UNKNOWN. 2*(42+27)=138mm is geometriclooplevelreference only, NOTselectedstockfit/closure/tail proof. Currentcoarse tray/crossarms stillneed actualseparateprint+mechanicalroot realization; not among9sharedframeSTLs.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R13_S0_S1_MONITOR",
+      "modules": [
+        "S1_NKK_S821_installed",
+        "Monitor_MOD05015",
+        "S0_body",
+        "S0_key",
+        "S0_neck",
+        "S0_nut_IN_0_0",
+        "S0_nut_OUT_0_0",
+        "S0_ring_IN_0_0",
+        "S0_ring_OUT_0_0",
+        "S0_stud_IN_0_0",
+        "S0_stud_OUT_0_0",
+        "S0_washer_IN_0_0",
+        "S0_washer_OUT_0_0"
+      ],
+      "actual_current_bounds": {
+        "S1_NKK_S821_installed": [
+          [
+            71.0,
+            47.0,
+            116.0
+          ],
+          [
+            93.0,
+            69.0,
+            156.0
+          ]
+        ],
+        "Monitor_MOD05015": [
+          [
+            115.00000000000003,
+            20.00000000000003,
+            125.0
+          ],
+          [
+            156.00000000000003,
+            45.000000000000036,
+            137.0
+          ]
+        ],
+        "S0_body": [
+          [
+            107.12157597559151,
+            -57.82891663819854,
+            48.520000000000294
+          ],
+          [
+            163.8784240244085,
+            -0.8289166381985424,
+            88.52000000000032
+          ]
+        ],
+        "S0_key": [
+          [
+            120.52537762593094,
+            -44.2274920043277,
+            91.51999999999987
+          ],
+          [
+            150.47462237406899,
+            -14.328916638198553,
+            155.0199999999999
+          ]
+        ],
+        "S0_neck": [
+          [
+            124.53757057692651,
+            -40.32891663819855,
+            88.51999999999991
+          ],
+          [
+            146.46242942307325,
+            -18.328916638198553,
+            91.51999999999992
+          ]
+        ],
+        "S0_nut_IN_0_0": [
+          [
+            126.99999999999989,
+            -51.14387121442254,
+            52.46999999999997
+          ],
+          [
+            143.99999999999991,
+            -31.51396206197453,
+            60.47000000000001
+          ]
+        ],
+        "S0_nut_OUT_0_0": [
+          [
+            126.9999999999999,
+            -27.143871214422525,
+            52.46999999999997
+          ],
+          [
+            143.99999999999994,
+            -7.513962061974929,
+            60.47000000000001
+          ]
+        ],
+        "S0_ring_IN_0_0": [
+          [
+            116.20432852445522,
+            -67.99999999999979,
+            60.31999999999941
+          ],
+          [
+            144.79567147554522,
+            -31.978341352085693,
+            66.69666839711319
+          ]
+        ],
+        "S0_ring_OUT_0_0": [
+          [
+            116.20432852445492,
+            -26.67949192431113,
+            60.31999999999998
+          ],
+          [
+            144.7956714755449,
+            9.34216672360288,
+            66.69666839711375
+          ]
+        ],
+        "S0_stud_IN_0_0": [
+          [
+            130.5273905231585,
+            -46.32891663819853,
+            48.51999999999998
+          ],
+          [
+            140.47260947684123,
+            -36.32891663819853,
+            63.52000000000001
+          ]
+        ],
+        "S0_stud_OUT_0_0": [
+          [
+            130.52739052315854,
+            -22.32891663819853,
+            48.51999999999998
+          ],
+          [
+            140.47260947684128,
+            -12.328916638198528,
+            63.52000000000001
+          ]
+        ],
+        "S0_washer_IN_0_0": [
+          [
+            125.53415506993318,
+            -51.32891663819853,
+            60.469999999999985
+          ],
+          [
+            145.46584493006657,
+            -31.32891663819853,
+            62.47
+          ]
+        ],
+        "S0_washer_OUT_0_0": [
+          [
+            125.53415506993319,
+            -27.32891663819853,
+            60.469999999999985
+          ],
+          [
+            145.46584493006657,
+            -7.328916638198528,
+            62.47
+          ]
+        ]
+      },
+      "root": "Existing P03/P05/P06 realrearloadstructure; current sharedframe rearinterface retained",
+      "interface": "S0 source11/fullM6/terminal8 unchanged; S1 actualpanel-familydata not inferredfrombbox; monitorwindow remainsvisible",
+      "retention": "S0 receivedfixture staysreference, physicalM6fitstillunknown. One common removable control/monitor strip bolts toP06, S1usesactualselectedpanelnuts/washer only after physicalfamilyfit; monitor edgeframe opens its display/balanceport.",
+      "assembly_access": "S0fastenersbeforerings; rearstrip/monitorinput before finalbankclosures. Operator/stop reach and ringinsulation checked with actualends.",
+      "FIT": "ActualS1 hole/steelstack and monitorcase safeedge; no made-up source thread/dimensions or stockavailability.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R14_HEAD_INLINE",
+      "modules": [
+        "Camera3_NoIR_Wide",
+        "VL53L5CX",
+        "E2_Molex_and_inline_WAGO"
+      ],
+      "actual_current_bounds": {
+        "Camera3_NoIR_Wide": [
+          [
+            -232.0,
+            -37.5,
+            130.6
+          ],
+          [
+            -219.6,
+            -12.5,
+            154.6
+          ]
+        ],
+        "VL53L5CX": [
+          [
+            -238.0,
+            -13.0,
+            110.0
+          ],
+          [
+            -224.0,
+            13.0,
+            136.0
+          ]
+        ],
+        "E2_Molex_and_inline_WAGO": [
+          [
+            120.0,
+            1.0,
+            92.0
+          ],
+          [
+            155.0,
+            19.0,
+            117.0
+          ]
+        ]
+      },
+      "root": "Current selected pitchbearing/bracket interface is realdependency; cosmetichead is NOTstructuralloadroot",
+      "interface": "Camera/ToF forward windows and CSI/motion preserved; existingE2source/modulehousing/contactfunctions and8inline221-2411 retained",
+      "retention": "One shared sensor faceplate tied to selected pitch-frame, open opticalwindows, E2/inline connectors on accessible side. Bodyframe proposal doesNOTqualify missingpitch carrier or supplierholes.",
+      "assembly_access": "Benchmount sensorplate/CSI before latecheekmask; no newhead/tail electronicmodule/connector, no fake solderunplug.",
+      "FIT": "Headpitch/faceplate actualroot and camera/ToF safeedges remainsseparateessentialinterface, namednothidden as finishedskin. Zeno neckblend/cheekmask/lowerbody deferred; do not stretch tail.",
+      "status": "PLANNED_NOT_SECURED"
+    },
+    {
+      "id": "R15_LEG_PROTECTION",
+      "modules": [
+        "Leg_protected_MTA0100335_0",
+        "Leg_protected_MTA0100335_1",
+        "Leg_protected_MTA0100335_2",
+        "Leg_protected_MTA0100335_3"
+      ],
+      "actual_current_bounds": {
+        "Leg_protected_MTA0100335_0": [
+          [
+            -96.0,
+            -48.5,
+            67.0
+          ],
+          [
+            -60.5,
+            -40.4,
+            75.9
+          ]
+        ],
+        "Leg_protected_MTA0100335_1": [
+          [
+            -51.0,
+            -48.5,
+            67.0
+          ],
+          [
+            -15.5,
+            -40.4,
+            75.9
+          ]
+        ],
+        "Leg_protected_MTA0100335_2": [
+          [
+            -6.0,
+            -48.5,
+            67.0
+          ],
+          [
+            29.5,
+            -40.4,
+            75.9
+          ]
+        ],
+        "Leg_protected_MTA0100335_3": [
+          [
+            39.0,
+            -48.5,
+            67.0
+          ],
+          [
+            74.5,
+            -40.4,
+            75.9
+          ]
+        ]
+      },
+      "root": "One common lower protection/battery carrier: actual P10front face near X−98/Y−44/Z64 and existing traycrossarms X5..10/95..100 todeck",
+      "interface": "Four selected35.5x8.1x8.9 MTAcases at X−90/−35/20/75,Y−48.5..−40.4,Z64..72.9. The bottom64 is15.48above deck, notalreadybolted.",
+      "retention": "Commonopenleft rail withcaseplastic endcapture, connectedtoexistingbatterycarrierloadroute; keep allfour independent220/bothfactoryends free. No perwirecase, no metalterminalbearing.",
+      "assembly_access": "Place four complete factoryunits and linkedkit before closing commonendbar or batterytray; feed fullconnectors through openinterface, never pullthrougha closedslot.",
+      "FIT": "Actualcasefoot/safebearing + sharedlowercarrierprint/root/interfaces stillessentialCAD. Same unbuilt tray/crossarm geometry mustbe explicitly madeprinted/bolted, not declaredintegralbyname.",
+      "status": "PLANNED_NOT_SECURED"
+    }
+  ],
+  "selected_rows": 57,
+  "all_selected_coverage": [
+    {
+      "id": "Drive ST3215",
+      "installed": "12",
+      "manufacturer": "Waveshare",
+      "part": "22414",
+      "supplier": "Kamami",
+      "supplier_sku": "1181056",
+      "catalog_role": "p0:DRIVE-12",
+      "retention_group": "EXISTING_MOTION_BASE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Drive MG92B",
+      "installed": "3",
+      "manufacturer": "TowerPro",
+      "part": "MG92B positional",
+      "supplier": "Botland",
+      "supplier_sku": "24409",
+      "catalog_role": "additional:AUX-SERVO-MG92B",
+      "retention_group": "EXISTING_MOTION_BASE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "BUS",
+      "installed": "1",
+      "manufacturer": "Waveshare",
+      "part": "25514",
+      "supplier": "Kamami",
+      "supplier_sku": "1187948",
+      "catalog_role": "p0:BUS",
+      "retention_group": "R02_BUS",
+      "stock_confirmed": false
+    },
+    {
+      "id": "MAIN",
+      "installed": "1",
+      "manufacturer": "Pololu",
+      "part": "4853",
+      "supplier": "Kamami",
+      "supplier_sku": "1196574",
+      "catalog_role": "p0:REG-MAIN",
+      "retention_group": "R04_MAIN_AUX",
+      "stock_confirmed": false
+    },
+    {
+      "id": "AUX",
+      "installed": "1",
+      "manufacturer": "Pololu",
+      "part": "4092",
+      "supplier": "Kamami",
+      "supplier_sku": "586583",
+      "catalog_role": "additional:AUX6-REGULATOR",
+      "retention_group": "R04_MAIN_AUX",
+      "stock_confirmed": false
+    },
+    {
+      "id": "PCA9685",
+      "installed": "1",
+      "manufacturer": "Adafruit",
+      "part": "815 revC",
+      "supplier": "Kamami",
+      "supplier_sku": "199856",
+      "catalog_role": "additional:PWM-CONTROLLER",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Battery",
+      "installed": "1",
+      "manufacturer": "Gens Ace",
+      "part": "GEA223S30X6GT",
+      "supplier": "RC Planeta",
+      "supplier_sku": "1570",
+      "catalog_role": "p0:BATTERY",
+      "retention_group": "R12_BATTERY",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Battery monitor",
+      "installed": "1",
+      "manufacturer": "",
+      "part": "5015",
+      "supplier": "Botland",
+      "supplier_sku": "5015",
+      "catalog_role": "p0:BATTERY-MONITOR",
+      "retention_group": "R13_S0_S1_MONITOR",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Battery straps",
+      "installed": "2",
+      "manufacturer": "",
+      "part": "4982",
+      "supplier": "RCManiak",
+      "supplier_sku": "4982",
+      "catalog_role": "p0:BATTERY-STRAPS-P0",
+      "retention_group": "R12_BATTERY",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Source S0",
+      "installed": "1",
+      "manufacturer": "HELLA",
+      "part": "6EK002843-002",
+      "supplier": "Inter Cars",
+      "supplier_sku": "256550",
+      "catalog_role": "p0:MAIN-SWITCH",
+      "retention_group": "R13_S0_S1_MONITOR",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Source S1",
+      "installed": "1",
+      "manufacturer": "NKK",
+      "part": "S821",
+      "supplier": "RS Polska",
+      "supplier_sku": "354-3235",
+      "catalog_role": "p0:MOTOR-STOP-MANUAL-P0",
+      "retention_group": "R13_S0_S1_MONITOR",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Source XT60 pair",
+      "installed": "1",
+      "manufacturer": "AMASS",
+      "part": "XT60H-M/F with covers",
+      "supplier": "Kamami",
+      "supplier_sku": "581961",
+      "catalog_role": "p0:XT60",
+      "retention_group": "R11_FHAC_F0",
+      "stock_confirmed": false
+    },
+    {
+      "id": "WAGO power221615",
+      "installed": "4",
+      "manufacturer": "WAGO",
+      "part": "221-615",
+      "supplier": "Kamami",
+      "supplier_sku": "1180756",
+      "catalog_role": "p0:DISTRIBUTION",
+      "retention_group": "R10_WAGO",
+      "stock_confirmed": false
+    },
+    {
+      "id": "WAGO 221415",
+      "installed": "16",
+      "manufacturer": "WAGO",
+      "part": "221-415",
+      "supplier": "Kamami",
+      "supplier_sku": "1188363",
+      "catalog_role": "p0:DATA-JUNCTIONS-P0",
+      "retention_group": "R10_WAGO",
+      "stock_confirmed": false
+    },
+    {
+      "id": "MTA four legs",
+      "installed": "4",
+      "manufacturer": "MTA",
+      "part": "0100335",
+      "supplier": "TME",
+      "supplier_sku": "MTA-MINI-HOLDER",
+      "catalog_role": "p0:FUSE-HOLDERS",
+      "retention_group": "R15_LEG_PROTECTION",
+      "stock_confirmed": false
+    },
+    {
+      "id": "POST_F0 protected junction",
+      "installed": "1",
+      "manufacturer": "WAGO",
+      "part": "221-412",
+      "supplier": "Kamami",
+      "supplier_sku": "1188364",
+      "catalog_role": "splice:WAGO221-412",
+      "retention_group": "R11_FHAC_F0",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Pi GPIO housing",
+      "installed": "1",
+      "manufacturer": "Pololu",
+      "part": "1992",
+      "supplier": "Pololu",
+      "supplier_sku": "Pololu1992",
+      "catalog_role": "Pi:J8_housing_1992",
+      "retention_group": "R01_PI",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Pi microSD",
+      "installed": "1",
+      "manufacturer": "",
+      "part": "1188166",
+      "supplier": "Kamami",
+      "supplier_sku": "1188166",
+      "catalog_role": "p0:SD",
+      "retention_group": "R01_PI",
+      "stock_confirmed": false
+    },
+    {
+      "id": "MTA servo bank",
+      "installed": "12",
+      "manufacturer": "MTA",
+      "part": "0300330",
+      "supplier": "TME",
+      "supplier_sku": "0300330",
+      "catalog_role": "p0:SERVO-HOLDERS-P0",
+      "retention_group": "R09_MOTOR_BANKS",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Bank TE input",
+      "installed": "12",
+      "manufacturer": "TE Connectivity",
+      "part": "4-520448-2",
+      "supplier": "TME",
+      "supplier_sku": "4-520448-2",
+      "catalog_role": "p0:TERMINAL-SERVO-IN-P0",
+      "retention_group": "R09_MOTOR_BANKS",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Bank TE output",
+      "installed": "12",
+      "manufacturer": "TE Connectivity",
+      "part": "2-520184-2",
+      "supplier": "Farnell Polska",
+      "supplier_sku": "488306",
+      "catalog_role": "p0:TERMINAL-SERVO-OUT-P0",
+      "retention_group": "R09_MOTOR_BANKS",
+      "stock_confirmed": false
+    },
+    {
+      "id": "S0 ring M10",
+      "installed": "2",
+      "manufacturer": "TE Connectivity",
+      "part": "130207",
+      "supplier": "TME",
+      "supplier_sku": "130207",
+      "catalog_role": "p0:TERMINAL-S0-P0",
+      "retention_group": "R13_S0_S1_MONITOR",
+      "stock_confirmed": false
+    },
+    {
+      "id": "S1 rings",
+      "installed": "4",
+      "manufacturer": "TE Connectivity",
+      "part": "130171",
+      "supplier": "TME",
+      "supplier_sku": "130171",
+      "catalog_role": "p0:TERMINAL-S1-P0",
+      "retention_group": "R13_S0_S1_MONITOR",
+      "stock_confirmed": false
+    },
+    {
+      "id": "F0 holder",
+      "installed": "1",
+      "manufacturer": "Littelfuse",
+      "part": "FHAC0002ZXJ",
+      "supplier": "TME",
+      "supplier_sku": "FHAC0002ZXJ",
+      "catalog_role": "p0:MAIN-FUSE-HOLDER",
+      "retention_group": "R11_FHAC_F0",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Small FHAC holders",
+      "installed": "5",
+      "manufacturer": "Littelfuse",
+      "part": "FHAC0001ZXJ",
+      "supplier": "TME",
+      "supplier_sku": "FHAC0001ZXJ",
+      "catalog_role": "fuse:FHAC0001ZXJ",
+      "retention_group": "R11_FHAC_F0",
+      "stock_confirmed": false
+    },
+    {
+      "id": "JR extension",
+      "installed": "3",
+      "manufacturer": "",
+      "part": "586761",
+      "supplier": "Kamami",
+      "supplier_sku": "586761",
+      "catalog_role": "additional:MG92B-JR-EXTENSION",
+      "retention_group": "R14_HEAD_INLINE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E2 source housing",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "430250200",
+      "supplier": "DigiKey",
+      "supplier_sku": "WM1783-ND",
+      "catalog_role": "connector:430250200",
+      "retention_group": "R14_HEAD_INLINE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E2 module housing",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "430200201",
+      "supplier": "Micros",
+      "supplier_sku": "Z MX-0430200201",
+      "catalog_role": "connector:430200201",
+      "retention_group": "R14_HEAD_INLINE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E2 source V contact",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "2147612113",
+      "supplier": "Farnell",
+      "supplier_sku": "3526339",
+      "catalog_role": "connector:2147612113",
+      "retention_group": "R14_HEAD_INLINE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E2 source G contact",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "2147611113",
+      "supplier": "Farnell",
+      "supplier_sku": "3526316",
+      "catalog_role": "connector:2147611113",
+      "retention_group": "R14_HEAD_INLINE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E2 module V contact",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "2147632113",
+      "supplier": "Farnell",
+      "supplier_sku": "3526384",
+      "catalog_role": "connector:2147632113",
+      "retention_group": "R14_HEAD_INLINE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E2 module G contact",
+      "installed": "1",
+      "manufacturer": "Molex",
+      "part": "2147631113",
+      "supplier": "",
+      "supplier_sku": "2147631113",
+      "catalog_role": "",
+      "retention_group": "R14_HEAD_INLINE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Fuse 0287030.PXCN",
+      "installed": "1",
+      "manufacturer": "Littelfuse",
+      "part": "0287030.PXCN",
+      "supplier": "TME",
+      "supplier_sku": "0287030.PXCN",
+      "catalog_role": "p0:MAIN-FUSE",
+      "retention_group": "R11_FHAC_F0",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Fuse MTA MINIVAL10A / supplier AMFM-10A",
+      "installed": "4",
+      "manufacturer": "MTA",
+      "part": "MINIVAL10A",
+      "supplier": "TME",
+      "supplier_sku": "AMFM-10A",
+      "catalog_role": "p0:FUSES",
+      "retention_group": "R09_MOTOR_BANKS",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Fuse 0287004.PXCN",
+      "installed": "13",
+      "manufacturer": "Littelfuse",
+      "part": "0287004.PXCN",
+      "supplier": "TME",
+      "supplier_sku": "0287004.PXCN",
+      "catalog_role": "fuse:0287004.PXCN",
+      "retention_group": "R09_MOTOR_BANKS",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Fuse 0287003.PXCN",
+      "installed": "1",
+      "manufacturer": "Littelfuse",
+      "part": "0287003.PXCN",
+      "supplier": "TME",
+      "supplier_sku": "0287003.PXCN",
+      "catalog_role": "fuse:0287003.PXCN",
+      "retention_group": "R11_FHAC_F0",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Fuse 0287001.PXCN",
+      "installed": "3",
+      "manufacturer": "Littelfuse",
+      "part": "0287001.PXCN",
+      "supplier": "TME",
+      "supplier_sku": "0287001.PXCN",
+      "catalog_role": "fuse:0287001.PXCN",
+      "retention_group": "R11_FHAC_F0",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Fuse 0242.100UAT1",
+      "installed": "1",
+      "manufacturer": "Littelfuse",
+      "part": "0242.100UAT1",
+      "supplier": "TME",
+      "supplier_sku": "0242.100UAT1",
+      "catalog_role": "fuse:0242.100UAT1",
+      "retention_group": "R11_FHAC_F0",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 MRS16000C2200FCT00",
+      "installed": "3",
+      "manufacturer": "Vishay",
+      "part": "MRS16000C2200FCT00",
+      "supplier": "DigiKey Poland",
+      "supplier_sku": "product page 7350454",
+      "catalog_role": "passive:Vishay MRS16000C2200FCT00",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 MRS16000C1002FCT00",
+      "installed": "10",
+      "manufacturer": "Vishay",
+      "part": "MRS16000C1002FCT00",
+      "supplier": "DigiKey",
+      "supplier_sku": "product page 5063734",
+      "catalog_role": "passive:Vishay MRS16000C1002FCT00",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 L78L05ACZ",
+      "installed": "1",
+      "manufacturer": "STMicroelectronics",
+      "part": "L78L05ACZ",
+      "supplier": "TME",
+      "supplier_sku": "L78L05ACZ",
+      "catalog_role": "additional:PWM5-REGULATOR",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 C320C334K5R5TA",
+      "installed": "1",
+      "manufacturer": "KEMET",
+      "part": "C320C334K5R5TA",
+      "supplier": "DigiKey",
+      "supplier_sku": "product page 14681348",
+      "catalog_role": "passive:KEMET C320C334K5R5TA",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 C315C104K5R5TA",
+      "installed": "3",
+      "manufacturer": "KEMET",
+      "part": "C315C104K5R5TA",
+      "supplier": "DigiKey Poland",
+      "supplier_sku": "product page 12701330",
+      "catalog_role": "passive:KEMET C315C104K5R5TA",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 MRS16000C2201FCT00",
+      "installed": "1",
+      "manufacturer": "Vishay",
+      "part": "MRS16000C2201FCT00",
+      "supplier": "DigiKey",
+      "supplier_sku": "product page 7351361",
+      "catalog_role": "passive:Vishay MRS16000C2201FCT00",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 M20-7821242",
+      "installed": "2",
+      "manufacturer": "Harwin",
+      "part": "M20-7821242",
+      "supplier": "",
+      "supplier_sku": "M20-7821242",
+      "catalog_role": "",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 M20-9991245",
+      "installed": "2",
+      "manufacturer": "Harwin",
+      "part": "M20-9991245",
+      "supplier": "",
+      "supplier_sku": "M20-9991245",
+      "catalog_role": "",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 Adafruit1608",
+      "installed": "1",
+      "manufacturer": "Adafruit",
+      "part": "1608",
+      "supplier": "Conrad",
+      "supplier_sku": "1516556",
+      "catalog_role": "additional:PWM-PROTOTYPE-BOARD",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 Adafruit1208",
+      "installed": "1",
+      "manufacturer": "Adafruit",
+      "part": "Adafruit1208",
+      "supplier": "",
+      "supplier_sku": "1208",
+      "catalog_role": "",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "E1 SN74LVC8T245PW",
+      "installed": "1",
+      "manufacturer": "Texas Instruments",
+      "part": "SN74LVC8T245PW",
+      "supplier": "TME",
+      "supplier_sku": "SN74LVC8T245PW",
+      "catalog_role": "additional:PWM-LEVEL-TRANSLATOR",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Remote R7 R8 R9",
+      "installed": "3",
+      "manufacturer": "Vishay",
+      "part": "MRS16000C1002FCT00",
+      "supplier": "DigiKey",
+      "supplier_sku": "product page 5063734",
+      "catalog_role": "passive:Vishay MRS16000C1002FCT00",
+      "retention_group": "R03_PCA_E1",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Pi power K1474",
+      "installed": "1",
+      "manufacturer": "Joy-IT",
+      "part": "K-1474",
+      "supplier": "Conrad",
+      "supplier_sku": "3304684",
+      "catalog_role": "p0:PI-POWER-CABLE",
+      "retention_group": "R01_PI",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Pi BUS USB cable",
+      "installed": "1",
+      "manufacturer": "Lanberg",
+      "part": "CA-USBO-10CU-0005-BK",
+      "supplier": "Botland",
+      "supplier_sku": "14824",
+      "catalog_role": "p0:BUS-USB-CABLE-P0",
+      "retention_group": "R01_PI",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Pi passive angle adapter",
+      "installed": "1",
+      "manufacturer": "",
+      "part": "Delock60047",
+      "supplier": "",
+      "supplier_sku": "",
+      "catalog_role": "",
+      "retention_group": "R01_PI",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Owned Pi4B",
+      "installed": "1",
+      "manufacturer": "",
+      "part": "Raspberry Pi4B",
+      "supplier": "",
+      "supplier_sku": "",
+      "catalog_role": "",
+      "retention_group": "R01_PI",
+      "stock_confirmed": false
+    },
+    {
+      "id": "WAGO opposed inline",
+      "installed": "8",
+      "manufacturer": "WAGO",
+      "part": "221-2411",
+      "supplier": "",
+      "supplier_sku": "221-2411",
+      "catalog_role": "",
+      "retention_group": "R14_HEAD_INLINE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Head pitch bearing",
+      "installed": "1",
+      "manufacturer": "SMB Bearings",
+      "part": "688-2RS 8x16x5",
+      "supplier": "SMB Bearings",
+      "supplier_sku": "688-2RS",
+      "catalog_role": "",
+      "retention_group": "R14_HEAD_INLINE",
+      "stock_confirmed": false
+    },
+    {
+      "id": "Head yaw and tail bearings",
+      "installed": "3",
+      "manufacturer": "",
+      "part": "SKF608-2Z",
+      "supplier": "",
+      "supplier_sku": "",
+      "catalog_role": "",
+      "retention_group": "R14_HEAD_INLINE",
+      "stock_confirmed": false
+    }
+  ],
+  "extras_included": [
+    "MAX98357A",
+    "Speaker",
+    "BNO085",
+    "ReSpeakerLite",
+    "TTP223",
+    "Camera3NoIRWide",
+    "VL53L5CX"
+  ],
+  "bought_parts_removed": [],
+  "stock_or_cuts_asserted": false,
+  "actual_fit_cut_slack": null,
+  "whole_kit_ready": false,
+  "Pi_stack_choice": {
+    "type": "M2.5x12 through, current3mm printed insulatingpost alreadyactsstandoff",
+    "needed": 4,
+    "upperwasher": 0.5,
+    "PCB": 1.6,
+    "post": 3,
+    "tray": 3,
+    "lowerwasher": 0.5,
+    "nut": 2,
+    "underhead_stack": 10.6,
+    "nominal_tip_beyond_fullnut": 1.4,
+    "lower_nut_access": "NEEDED actualP12localpocket/coupon, notalreadyqualified",
+    "inventory": "UNKNOWN"
+  },
+  "minimal_shared_retention_families": [
+    "Use four existingPi posts, notfournewbespokecases",
+    "Commonlogicshoe PCA/E1/AMP pluspowerboardcarrier",
+    "Adjustableedgekeepers forBUS/BNO/mic/touch/speaker onexistingframes",
+    "Two sharedmotorbankrowshoes/keepers +groupedWAGOrails +FHACcasestrip",
+    "Batterytray/slots/endstops with selectedtwoWHOLEstraps"
+  ],
+  "assembly_partialorder": [
+    "BenchE1/AMP/suppliedends/sleevesoffPETG",
+    "Sourcefoundation/rootclamps/wholeframe/undertraynutpreload",
+    "LowerWAGO/bankshoes/FHACmainprotection/endfunctionsdrylay",
+    "Batterytray+twofullstrapsopen, Pi/PCA/E1/MAIN+AUX supportcouponsandportfit",
+    "AMP/speaker andreceivedaudiohandlay; safeedgekeeperslast",
+    "BUS/P13 installedwithactualconnectors, fixedP14/E1lead; micP15USBseparate",
+    "XT60/balance measured/unpoweredlink, latebody/skin; realbatteryremovalMIC->BUS->XT60+balance->battery"
+  ],
+  "first_essential_followup": "FourPiM2.5throughmount/nutfeed coupon PLUS shared openstraptray datum; qualify actualsafeedge before adding otherkeepers, not detailedholderperwire",
+  "open_blocking_mount_dependencies": [
+    "Actual Pi lower nut access into P12nearrail",
+    "Safeedge/stock physicalcoupons for nominalboards andspeaker/mic",
+    "Batterytray/crossarm actualprintparting/root and twoWHOLEstrapstockbinding",
+    "Bankcase plasticbearing vsmetal and currentrearWAGO support",
+    "Headpitch sensorplate actualroot remainsseparate; no cosmeticsloadclaim"
+  ],
+  "F0_input": "Carry FIT2_UNQUALIFIED realmouth/bend/length withW075<=50; localcapacityonly. No newcurvefamily orprintchange."
+}
