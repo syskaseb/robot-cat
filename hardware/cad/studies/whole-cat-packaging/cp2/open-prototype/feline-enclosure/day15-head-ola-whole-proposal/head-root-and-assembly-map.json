@@ -1,0 +1,252 @@
+{
+  "utc": "2026-11-15T18:15:00.497526+00:00",
+  "status": "WHOLE_HEAD_AND_OLA_VISUAL_PROPOSAL_ONLY_STRUCTURAL_ROOT_OPEN",
+  "source_document": "DAY15_P12_INTEGRATED",
+  "source_file": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\day15-p12-integrated-retention\\p12-integrated.FCStd",
+  "source_sha256": "a527a5d5e7ad24fb4d3c6ad29bae3497c5c726eb33a00e1daba467fad79a06d7",
+  "bearings": [
+    {
+      "name": "Yaw608_120",
+      "bounds": [
+        -137.0,
+        -11.0,
+        120.0,
+        -115.0,
+        11.0,
+        127.0
+      ],
+      "cylinders": [
+        {
+          "radius": 11.0,
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "center": [
+            -126.0,
+            0.0,
+            120.0
+          ]
+        },
+        {
+          "radius": 4.0,
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "center": [
+            -126.0,
+            0.0,
+            120.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yaw608_134",
+      "bounds": [
+        -137.0,
+        -11.0,
+        134.0,
+        -115.0,
+        11.0,
+        141.0
+      ],
+      "cylinders": [
+        {
+          "radius": 11.0,
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "center": [
+            -126.0,
+            0.0,
+            134.0
+          ]
+        },
+        {
+          "radius": 4.0,
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "center": [
+            -126.0,
+            0.0,
+            134.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pitch688",
+      "bounds": [
+        -163.0,
+        14.0,
+        133.0,
+        -147.0,
+        19.0,
+        149.0
+      ],
+      "cylinders": [
+        {
+          "radius": 8.0,
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "center": [
+            -155.0,
+            14.0,
+            141.0
+          ]
+        },
+        {
+          "radius": 4.0,
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "center": [
+            -155.0,
+            14.0,
+            141.0
+          ]
+        }
+      ]
+    }
+  ],
+  "root_discontinuity": {
+    "P10_to_coarse_root_gap": 2.0,
+    "coarse_root_to_lower608_gap": 32.47999999999999
+  },
+  "load_chain": [
+    "P10 actualfrontgate -> MISSING real fixedneck bridge/bearinghousing",
+    "fixed608outerracepair -> MISSING retained8mmshaft/yawcarrier + MG92Bhorncoupling",
+    "yawcarrier -> pitch688housing/Yaxis + MG92Bpitchhorninterface MISSING",
+    "pitchmovingplate -> Camera3/VL53fullnominalunits; commonplate hole/fastenerbinding MISSING",
+    "cosmeticmask -> separatelightremovablecover, NEVER structuralroot"
+  ],
+  "assembly_two_people": [
+    "A holdsopenP10/neckcoupon; B validates realbridge/fasteners BEFORE electronics and before choosing heavyface skin",
+    "Benchfit 2x608 and 688 with selectedMG92Bhorns: supplierhorn/shaft/tabpositions and retention physicalFIT3; do not pressunknownservooutput through8mmbearing",
+    "Supportopenyaw/pitchcarrier, mount commoncamera/ToFplate then actualCSI+sensorfactoryends beforemask; E1soldered notunplugged",
+    "Handlay CSI servicebow behindhead/alongopenleftneck, check fullfactorylength/minbend at actualtwojointlimits BEFORE closure; no claimedR/length/motionpass",
+    "Putcheekmask last with openopticalwindows; keep rearS0operatingbay open; micP15->BUSbridge->battery serviceorder unchanged"
+  ],
+  "CSI": {
+    "actual_factory_connector_binding": "UNKNOWN_CAMERA_REVISION_AND_SELECTED_RIBBON_ENDS",
+    "ribbon_width_length_minbend": null,
+    "region_only": [
+      [
+        -218,
+        -47,
+        134
+      ],
+      [
+        -132,
+        -30,
+        154
+      ],
+      [
+        -104,
+        -28,
+        128
+      ]
+    ],
+    "region_status": "DIAGRAM_ONLY_NOT_QUALIFIED_CONNECTED_OCCUPIED_PATH",
+    "next_physical_check": "Use actual Camera3 CSI connector normal and pinnedselectedfullribbon, measure usableloop vs real yaw/pitchlimits; no inventedextension/unplug/lengthcredit"
+  },
+  "optics": {
+    "camera_full_window": [
+      -261,
+      -40,
+      128.1,
+      -206,
+      -10,
+      157.1
+    ],
+    "ToF_full_window": [
+      -263,
+      -15.5,
+      107.5,
+      -208,
+      15.5,
+      138.5
+    ],
+    "nominal_profile_clear": true,
+    "full_optical_FOV": "UNKNOWN_requiresactualcameraandToFopticcones_andneutralmaskfit",
+    "camera_nominal_FOV_source": "Existingpinned components.json:102x67deg /120diagonal. Nottransformedopticdatum/coneproof; currentfullwindowbodyclear is notFOVPASS.",
+    "ToF_module_variant": "Existingprojectbreakoutvariantnotselected; full14x26x26reservationretained, actualwindowdatumFIT3."
+  },
+  "cosmetics": {
+    "status": "PROPOSED_NOT_PRINTSKIN",
+    "neck_frontX": -116,
+    "head_backX": -119.1,
+    "neutral_X_gap": 3.1,
+    "moving_clearance": "UNKNOWN_actualrangeNOTqualified",
+    "lowerbody": "Round lower half upwards atshoulders/hips; upperarchandtaillengthretained",
+    "S0_opening": [
+      103,
+      -85,
+      82,
+      181,
+      20,
+      152
+    ],
+    "skinwall_mount_mass": null,
+    "no_cosmetic_STL": true
+  },
+  "all_bought_poses_retained": true,
+  "old_negatives_preserved": true,
+  "physical_pass": false,
+  "head_root_STL": false,
+  "actual_fit_cut_slack": null,
+  "one_next_mount_principle": {
+    "status": "DIMENSIONED_FUNCTIONAL_PROPOSAL_NOT_BUILT",
+    "fixed_root": "Two separated bearing/antirotation seats on ACTUALP10 centralfront ledges, not floatingoldNeckbox",
+    "actual_P10_lowerledge": {
+      "X": [
+        -113,
+        -98
+      ],
+      "Y": [
+        -16,
+        16
+      ],
+      "Z": [
+        63,
+        65.5
+      ],
+      "frontface_X": -113,
+      "toparea_in_ROI": 480
+    },
+    "actual_P10_uppercrossmember": {
+      "X": [
+        -104,
+        -98
+      ],
+      "Y": [
+        -15,
+        15
+      ],
+      "Z": [
+        132.5,
+        138
+      ]
+    },
+    "load_route": "Commonopenfixedneckbridge alongfrontP10 -> twofixed608outerracecups at120/134 -> yawrotatingtrunnion and pitchcarrier ->688Yaxis -> commoncamera/ToFplate. Mask remainslightseparatecosmetic.",
+    "initial_order": "Bridge andbearingretention onopenP10 BEFORE Pi/AMP/speaker cableclosure; thenyaw/pitch carrier/horns, factoryends andcamera plate; masklast.",
+    "blocking_interface": "MG92B actualhorn/spline/taband8mmbearingtrunnion retention notbound. No selectedhardwaredelete, no fictitiousboughtfusion; onlyafterthisbinding choosecompleteboltedbridge.",
+    "actual_bridge_fasteners": null,
+    "bridge_member_coverage": null,
+    "mechanical_pass": false
+  }
+}
