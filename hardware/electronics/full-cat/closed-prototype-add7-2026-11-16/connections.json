@@ -392,7 +392,7 @@
   "retained": [
     "All134basewire connections/protection/U1/PCA unchanged",
     "MG92B factory250 plus selectedJR300 independent units",
-    "Four independent MTA220, both ends",
+    "Four independent E2/JPWM precrimped225mm conductor units (conservative available220mm EACH), all specified factory ends; four leg MTA0100335 holders are separate",
     "FHAC factory ends",
     "K1474 USB-C power pair",
     "BUS USB500/Delock"
@@ -418,5 +418,55 @@
     "Lorentz1b9"
   ],
   "physical_pass": false,
-  "installed_length_cut_slack": null
+  "installed_length_cut_slack": null,
+  "retained_factory_unit_binding": {
+    "scope": "Identity only, not current position/route/cut receipt",
+    "units": [
+      {
+        "wire": "XP02.source",
+        "sku": "2147612113",
+        "nominal_mm": 225,
+        "conservative_available_mm": 220,
+        "installed_length_cut_slack": null
+      },
+      {
+        "wire": "XP02.module",
+        "sku": "2147632113",
+        "nominal_mm": 225,
+        "conservative_available_mm": 220,
+        "installed_length_cut_slack": null
+      },
+      {
+        "wire": "XP03.source",
+        "sku": "2147611113",
+        "nominal_mm": 225,
+        "conservative_available_mm": 220,
+        "installed_length_cut_slack": null
+      },
+      {
+        "wire": "XP03.module",
+        "sku": "2147631113",
+        "nominal_mm": 225,
+        "conservative_available_mm": 220,
+        "installed_length_cut_slack": null
+      }
+    ],
+    "note": "These are four separate E2/JPWM contact-wire units, not four leg harnesses and not automatically two plastic plugs per conductor. No pooling/cuts/extra length credit.",
+    "source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json identity records only; current design JPWM_MODULE/SOURCE"
+  },
+  "other_retained_inline_couplers": {
+    "part": "WAGO221-2411",
+    "qty": 8,
+    "refs": [
+      "W026_Joint",
+      "W037_Joint",
+      "W041_Joint",
+      "W042_Joint",
+      "W044_Joint",
+      "W045_Joint",
+      "W052_Joint",
+      "W053_Joint"
+    ],
+    "scope": "Already selected and present in base graph; include in shared accessible bundle space/strain plan, not eight new custom cases."
+  }
 }
