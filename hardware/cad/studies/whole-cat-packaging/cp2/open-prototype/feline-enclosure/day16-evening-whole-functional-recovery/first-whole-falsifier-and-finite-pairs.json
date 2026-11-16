@@ -1,0 +1,39 @@
+{
+  "first_falsifier": {
+    "named_risk": "Y-axis root torque path must join actual retained curved tail",
+    "valid_operand": true,
+    "separate_solids": 2,
+    "pair_gap_mm": 2.6034260898423156,
+    "common_mm3": 0.0,
+    "consequence": "WHOLE RECOVERY HOLD: rotation about Y is represented, but no continuous tail torque path. No installed mechanism/motion/print release. No second family attempted."
+  },
+  "other_status": {
+    "P07_support": "two solids; same functional root redesign remains unqualified",
+    "P11": "source roots remain, old power retention no longer matches 3 whole-unit poses; explicit functional replacement required",
+    "power_regions": "occupied routing and mouth binding not closed; no W043 length acceptance",
+    "head": "unchanged source, all prior OPEN retained"
+  },
+  "finite_power_gate": [
+    {
+      "a": "PBAY_P_SYS",
+      "b": "PBAY_F_PI",
+      "distance_mm": 10.0,
+      "common_mm3": 0.0,
+      "scope": "whole nominal cover pairs only; no all-neighbor acceptance"
+    },
+    {
+      "a": "PBAY_P_SYS",
+      "b": "PBAY_F_AUX",
+      "distance_mm": 6.708203932499394,
+      "common_mm3": 0.0,
+      "scope": "whole nominal cover pairs only; no all-neighbor acceptance"
+    },
+    {
+      "a": "PBAY_P_REAR",
+      "b": "PBAY_F_AUX",
+      "distance_mm": 3.999999999999986,
+      "common_mm3": 0.0,
+      "scope": "whole nominal cover pairs only; no all-neighbor acceptance"
+    }
+  ]
+}

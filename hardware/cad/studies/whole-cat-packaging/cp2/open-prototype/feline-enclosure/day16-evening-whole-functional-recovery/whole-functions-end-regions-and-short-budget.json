@@ -1,0 +1,859 @@
+{
+  "one_configuration_only": true,
+  "moved_whole_units": [
+    {
+      "name": "PBAY_P_SYS",
+      "before": [
+        100.0,
+        82.0,
+        60.00000000000002,
+        122.0,
+        93.0,
+        97.00000000000001
+      ],
+      "after": [
+        116.0,
+        44.0,
+        56.0,
+        138.0,
+        81.0,
+        67.0
+      ],
+      "same_volume_rigid": true
+    },
+    {
+      "name": "PBAY_P_REAR",
+      "before": [
+        125.0,
+        81.99999999999999,
+        60.000000000000014,
+        147.0,
+        93.0,
+        97.0
+      ],
+      "after": [
+        142.00000000000003,
+        22.0,
+        75.99999999999999,
+        179.00000000000003,
+        44.000000000000014,
+        87.0
+      ],
+      "same_volume_rigid": true
+    },
+    {
+      "name": "PBAY_F_AUX",
+      "before": [
+        134.0,
+        56.0,
+        55.00000000000003,
+        185.00000000000003,
+        78.0,
+        75.25000000000004
+      ],
+      "after": [
+        144.0,
+        48.0,
+        70.0,
+        164.25,
+        70.0,
+        121.00000000000001
+      ],
+      "same_volume_rigid": true
+    }
+  ],
+  "nine_case_bounds": {
+    "PBAY_P_SYS": [
+      116.0,
+      44.0,
+      56.0,
+      138.0,
+      81.0,
+      67.0
+    ],
+    "PBAY_P_REAR": [
+      142.00000000000003,
+      22.0,
+      75.99999999999999,
+      179.00000000000003,
+      44.000000000000014,
+      87.0
+    ],
+    "PBAY_F_PI": [
+      55.00000000000001,
+      56.0,
+      55.000000000000014,
+      106.0,
+      78.0,
+      75.25000000000003
+    ],
+    "PBAY_F_AUX": [
+      144.0,
+      48.0,
+      70.0,
+      164.25,
+      70.0,
+      121.00000000000001
+    ],
+    "PBAY_F_HY": [
+      55.0,
+      -92.0,
+      64.0,
+      75.25,
+      -70.0,
+      115.0
+    ],
+    "PBAY_F_HP": [
+      78.0,
+      -92.0,
+      64.0,
+      98.25,
+      -70.0,
+      115.0
+    ],
+    "PBAY_F_TY": [
+      101.0,
+      -92.0,
+      64.0,
+      121.25,
+      -70.0,
+      115.0
+    ],
+    "PBAY_P_AUX": [
+      65.0,
+      -65.0,
+      79.0,
+      84.0,
+      -35.0,
+      88.0
+    ],
+    "PBAY_POST_F0": [
+      -132.0,
+      10.0,
+      64.0,
+      -119.0,
+      30.0,
+      74.0
+    ]
+  },
+  "primary_615_face_frames": {
+    "P_SYS": {
+      "plane": "X=116",
+      "normal_out": [
+        -1,
+        0,
+        0
+      ],
+      "width_axis": [
+        0,
+        1,
+        0
+      ],
+      "lever_access": [
+        0,
+        0,
+        1
+      ],
+      "bounds": [
+        116,
+        44,
+        56,
+        116,
+        81,
+        67
+      ]
+    },
+    "P_REAR": {
+      "plane": "Y=44",
+      "normal_out": [
+        0,
+        1,
+        0
+      ],
+      "width_axis": [
+        1,
+        0,
+        0
+      ],
+      "lever_access": [
+        0,
+        0,
+        1
+      ],
+      "bounds": [
+        142,
+        44,
+        76,
+        179,
+        44,
+        87
+      ]
+    }
+  },
+  "chambers": [
+    {
+      "logical": "G1.1",
+      "actual_instance": "WAGO615_power_0_0",
+      "project_cavity": 1,
+      "occupied_wire_ids": [
+        "W060"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "G1.2",
+      "actual_instance": "WAGO615_power_0_0",
+      "project_cavity": 2,
+      "occupied_wire_ids": [
+        "W001"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "G1.3",
+      "actual_instance": "WAGO615_power_0_0",
+      "project_cavity": 3,
+      "occupied_wire_ids": [
+        "W036"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "G1.4",
+      "actual_instance": "WAGO615_power_0_0",
+      "project_cavity": 4,
+      "occupied_wire_ids": [
+        "W061"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "G1.5",
+      "actual_instance": "WAGO615_power_0_0",
+      "project_cavity": 5,
+      "occupied_wire_ids": [
+        "W025"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_FRONT.1",
+      "actual_instance": "WAGO615_power_0_1",
+      "project_cavity": 1,
+      "occupied_wire_ids": [
+        "W064"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_FRONT.2",
+      "actual_instance": "WAGO615_power_0_1",
+      "project_cavity": 2,
+      "occupied_wire_ids": [
+        "W041/custom"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_FRONT.3",
+      "actual_instance": "WAGO615_power_0_1",
+      "project_cavity": 3,
+      "occupied_wire_ids": [
+        "W042/custom"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_FRONT.4",
+      "actual_instance": "WAGO615_power_0_1",
+      "project_cavity": 4,
+      "occupied_wire_ids": [],
+      "wire_count": 0,
+      "reserved_unused": true,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_FRONT.5",
+      "actual_instance": "WAGO615_power_0_1",
+      "project_cavity": 5,
+      "occupied_wire_ids": [],
+      "wire_count": 0,
+      "reserved_unused": true,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_SYS.1",
+      "actual_instance": "PBAY_P_SYS",
+      "project_cavity": 1,
+      "occupied_wire_ids": [
+        "W066"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "whole_entry_face_region": {
+        "plane": "X=116",
+        "normal_out": [
+          -1,
+          0,
+          0
+        ],
+        "width_axis": [
+          0,
+          1,
+          0
+        ],
+        "lever_access": [
+          0,
+          0,
+          1
+        ],
+        "bounds": [
+          116,
+          44,
+          56,
+          116,
+          81,
+          67
+        ]
+      },
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_SYS.2",
+      "actual_instance": "PBAY_P_SYS",
+      "project_cavity": 2,
+      "occupied_wire_ids": [
+        "W067"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "whole_entry_face_region": {
+        "plane": "X=116",
+        "normal_out": [
+          -1,
+          0,
+          0
+        ],
+        "width_axis": [
+          0,
+          1,
+          0
+        ],
+        "lever_access": [
+          0,
+          0,
+          1
+        ],
+        "bounds": [
+          116,
+          44,
+          56,
+          116,
+          81,
+          67
+        ]
+      },
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_SYS.5",
+      "actual_instance": "PBAY_P_SYS",
+      "project_cavity": 3,
+      "occupied_wire_ids": [
+        "W043"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "whole_entry_face_region": {
+        "plane": "X=116",
+        "normal_out": [
+          -1,
+          0,
+          0
+        ],
+        "width_axis": [
+          0,
+          1,
+          0
+        ],
+        "lever_access": [
+          0,
+          0,
+          1
+        ],
+        "bounds": [
+          116,
+          44,
+          56,
+          116,
+          81,
+          67
+        ]
+      },
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_SYS.3",
+      "actual_instance": "PBAY_P_SYS",
+      "project_cavity": 4,
+      "occupied_wire_ids": [
+        "W068"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "whole_entry_face_region": {
+        "plane": "X=116",
+        "normal_out": [
+          -1,
+          0,
+          0
+        ],
+        "width_axis": [
+          0,
+          1,
+          0
+        ],
+        "lever_access": [
+          0,
+          0,
+          1
+        ],
+        "bounds": [
+          116,
+          44,
+          56,
+          116,
+          81,
+          67
+        ]
+      },
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_SYS.4",
+      "actual_instance": "PBAY_P_SYS",
+      "project_cavity": 5,
+      "occupied_wire_ids": [],
+      "wire_count": 0,
+      "reserved_unused": true,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "whole_entry_face_region": {
+        "plane": "X=116",
+        "normal_out": [
+          -1,
+          0,
+          0
+        ],
+        "width_axis": [
+          0,
+          1,
+          0
+        ],
+        "lever_access": [
+          0,
+          0,
+          1
+        ],
+        "bounds": [
+          116,
+          44,
+          56,
+          116,
+          81,
+          67
+        ]
+      },
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_REAR.5",
+      "actual_instance": "PBAY_P_REAR",
+      "project_cavity": 1,
+      "occupied_wire_ids": [
+        "W065"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "whole_entry_face_region": {
+        "plane": "Y=44",
+        "normal_out": [
+          0,
+          1,
+          0
+        ],
+        "width_axis": [
+          1,
+          0,
+          0
+        ],
+        "lever_access": [
+          0,
+          0,
+          1
+        ],
+        "bounds": [
+          142,
+          44,
+          76,
+          179,
+          44,
+          87
+        ]
+      },
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_REAR.2",
+      "actual_instance": "PBAY_P_REAR",
+      "project_cavity": 2,
+      "occupied_wire_ids": [
+        "W052/custom"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "whole_entry_face_region": {
+        "plane": "Y=44",
+        "normal_out": [
+          0,
+          1,
+          0
+        ],
+        "width_axis": [
+          1,
+          0,
+          0
+        ],
+        "lever_access": [
+          0,
+          0,
+          1
+        ],
+        "bounds": [
+          142,
+          44,
+          76,
+          179,
+          44,
+          87
+        ]
+      },
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_REAR.1",
+      "actual_instance": "PBAY_P_REAR",
+      "project_cavity": 3,
+      "occupied_wire_ids": [
+        "XA01"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "whole_entry_face_region": {
+        "plane": "Y=44",
+        "normal_out": [
+          0,
+          1,
+          0
+        ],
+        "width_axis": [
+          1,
+          0,
+          0
+        ],
+        "lever_access": [
+          0,
+          0,
+          1
+        ],
+        "bounds": [
+          142,
+          44,
+          76,
+          179,
+          44,
+          87
+        ]
+      },
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_REAR.3",
+      "actual_instance": "PBAY_P_REAR",
+      "project_cavity": 4,
+      "occupied_wire_ids": [
+        "W044/custom"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "whole_entry_face_region": {
+        "plane": "Y=44",
+        "normal_out": [
+          0,
+          1,
+          0
+        ],
+        "width_axis": [
+          1,
+          0,
+          0
+        ],
+        "lever_access": [
+          0,
+          0,
+          1
+        ],
+        "bounds": [
+          142,
+          44,
+          76,
+          179,
+          44,
+          87
+        ]
+      },
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_REAR.4",
+      "actual_instance": "PBAY_P_REAR",
+      "project_cavity": 5,
+      "occupied_wire_ids": [
+        "XP01"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "whole_entry_face_region": {
+        "plane": "Y=44",
+        "normal_out": [
+          0,
+          1,
+          0
+        ],
+        "width_axis": [
+          1,
+          0,
+          0
+        ],
+        "lever_access": [
+          0,
+          0,
+          1
+        ],
+        "bounds": [
+          142,
+          44,
+          76,
+          179,
+          44,
+          87
+        ]
+      },
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_AUX.1",
+      "actual_instance": "PBAY_P_AUX",
+      "project_cavity": 1,
+      "occupied_wire_ids": [
+        "XB11"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_AUX.2",
+      "actual_instance": "PBAY_P_AUX",
+      "project_cavity": 2,
+      "occupied_wire_ids": [
+        "XA03"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_AUX.3",
+      "actual_instance": "PBAY_P_AUX",
+      "project_cavity": 3,
+      "occupied_wire_ids": [
+        "XB21"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_AUX.4",
+      "actual_instance": "PBAY_P_AUX",
+      "project_cavity": 4,
+      "occupied_wire_ids": [
+        "XB31"
+      ],
+      "wire_count": 1,
+      "reserved_unused": false,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    },
+    {
+      "logical": "P_AUX.5",
+      "actual_instance": "PBAY_P_AUX",
+      "project_cavity": 5,
+      "occupied_wire_ids": [],
+      "wire_count": 0,
+      "reserved_unused": true,
+      "manufacturer_mouth_verified": false,
+      "source_not_new_electrical_pinout": true,
+      "individual_mouth_axis_verified": false
+    }
+  ],
+  "qualified_wire_ROUTE_upper": null,
+  "W043_conditional_plan": {
+    "method": "straight common face-normal exterior band; no bend assumed between facing ports",
+    "exterior_box_bound_mm": 10,
+    "WAGO_consumption_planning_mm": 14,
+    "lay_slack_planning_mm": 5,
+    "conditional_total_mm": 29,
+    "guaranteed_raw_mm": 84.5,
+    "qualification": "ONLY if actual FHAC exit and assigned chamber lie in overlapping YZ band; chamber axes and FHAC mouths UNKNOWN. Not an actual routed upper.",
+    "strip_included_not_extra": true
+  },
+  "regions": [
+    {
+      "name": "EV_W043_SAME_FACE_HANDLAY",
+      "bounds": [
+        106,
+        56,
+        56,
+        116,
+        78,
+        75.25
+      ]
+    },
+    {
+      "name": "EV_AUX_REAR_BRANCH",
+      "bounds": [
+        138,
+        44,
+        43,
+        180,
+        78,
+        70
+      ]
+    },
+    {
+      "name": "EV_NEG_SERVO_BRANCH",
+      "bounds": [
+        53,
+        -70,
+        68,
+        124,
+        -64,
+        112
+      ]
+    },
+    {
+      "name": "EV_CENTRAL_POWER_TRANSFER",
+      "bounds": [
+        42,
+        19,
+        70,
+        110,
+        34,
+        89
+      ]
+    },
+    {
+      "name": "EV_HEAD_FLEX_GROUP",
+      "bounds": [
+        -157,
+        -31,
+        112,
+        -113,
+        -18,
+        151
+      ]
+    },
+    {
+      "name": "EV_TAIL_FIXED_TO_SERVO_FEED",
+      "bounds": [
+        158,
+        -55,
+        123,
+        178,
+        -34,
+        148
+      ]
+    }
+  ],
+  "affected_interfaces": [
+    "P11 old two615 rack and FHAC-AUX retention MUST be functionally replaced, NOT selected",
+    "P_SYS W043 W066 W067 W068",
+    "P_REAR W065 XA01 XP01 W044 W052",
+    "F_AUX XA01 XA02 composite ends and MAIN/AUX nearby ports",
+    "old PB stock fields retired as paths only; full units retained in BOM/assembly plan"
+  ],
+  "power_status": "PROPOSAL_NOT_PASS; nominal source end and support links OPEN"
+}
