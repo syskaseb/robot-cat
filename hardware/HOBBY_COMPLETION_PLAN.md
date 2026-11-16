@@ -10,14 +10,28 @@ Każdy druk z orientacją, brimem i podporami mieści się w **256 × 256 × 256
 | Wynik | Źródło i status |
 |---|---|
 | **Odebrany CONDITIONAL UNPOWERED fit** | [START_HERE](first-fit-2026-11-15/START_HERE.md), [manifest](first-fit-2026-11-15/PACKAGE_MANIFEST.json), [ZIP](WAVEGO_first_fit_2026-11-15.zip), commit `de8302f12b57347d53267ee3655c28caefff67d8`. 23 elementy konstrukcji + 5 próbek/narzędzi; nie komplet mocowań elektroniki. Wybór plików: PRINT_INDEX.csv w pakiecie. |
-| **Niezbudowana propozycja tylnej warstwy** | [START_HERE](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day15-whole-rear-layer-proposal/START_HERE.md), commit `46547bfb38299f7f256d1a0375904dfb24a6ddf7`. **SPACE scoped clear / ASSEMBLY HOLD**, bez nowych STL. Pełne MAIN/AUX i śruby mieszczą się lokalnie; nie odebrano wykonalnej kolejności montażu. |
+| **Bieżąca propozycja CAŁEGO zamkniętego kota** | [START_HERE](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-closed-whole-layout/START_HERE.md), commit `4e567a69bb81228a4c1fb15f7114396387def3b3`. Całe wnętrze, sześć osłon i rzeczywisty podział P11. Wybrana blokada montażu belki lokalnie zamknięta; retencja/napęd głowy/mocowania osłon/cały montaż nadal OPEN, brak STL. Poprzednia46547bfb to przypięte wejście historyczne. |
 
-Pakiet i propozycja pozostają zamrożone: nie mieszać ich pozycji ani nie dopisywać do pakietu nowych druków. [CURRENT_CONDITIONAL_CARRIER.FCStd](first-fit-2026-11-15/assembly/CURRENT_CONDITIONAL_CARRIER.FCStd) jest carrierem do warunkowej przymiarki; jego dawny AUX obejmuje tylko PCB, nie pełny moduł. Ostatni odebrany native propozycji to [whole-rear-layer.FCStd](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day15-whole-rear-layer-proposal/whole-rear-layer.FCStd), nie model gotowy do druku.
+Pakiet i propozycja pozostają zamrożone: nie mieszać ich pozycji ani nie dopisywać do pakietu nowych druków. [CURRENT_CONDITIONAL_CARRIER.FCStd](first-fit-2026-11-15/assembly/CURRENT_CONDITIONAL_CARRIER.FCStd) jest carrierem do warunkowej przymiarki; jego dawny AUX obejmuje tylko PCB, nie pełny moduł. Ostatni odebrany native propozycji to [closed-whole-layout.FCStd](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-closed-whole-layout/closed-whole-layout.FCStd), nie model gotowy do druku.
 **Cały robot nieukończony; wholekit_ready=false, physical_pass=false, actual_fit_cut_slack=null.** Widoki Oli pokazują propozycję i nadal widoczne wyposażenie; zamkniętych osłon z mocowaniami nie oddano. Historyczne 1/10 nie jest bieżącą miarą.
+
+<!-- BANACH_CURRENT_CLOSED_PROTOTYPE -->
+### Wynik właściciela CAD — 16.11, 2026-11-16T00:56:23.436167+00:00
+
+[Cały nowy model i montaż](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-closed-whole-layout/START_HERE.md): **PROPOZYCJA zamkniętego kota, nie kompletny kit do druku**. Widoki opaque przód/bok/3⁄4, wnętrze i rzeczywiste przekroje zapisane. Rzeczywisty podział P11 na dwa rozłączne użyteczne druki: 0 utraconego/dodanego materiału względem źródła z nowymi otworami, po 1 bryle; cztery dawne pola narzędzia wolne przy zdjętej belce, domknięcie belki nad pełnym MAIN/AUX lokalnie wykazane. Dwa źródłowe fragmenty interfejsu poprawnie przypisane do części górnej, bez nowej rodziny.
+
+Nowy most P10 ma rzeczywiste styki 198 mm³ na każdym ramieniu; zamocowanie rogu MG, zatrzymanie łożysk, widelec i ruch/CSI pozostają OPEN. Sześć rzeczywistych pustych osłon ma opisane orientacje/brim6/pole podpór poniżej256; mocowania pokryw, pełna retencja modułów, optyka/twarz, wiązki i całkowity montaż wymagają dalszego dowodu. Brak nowego STL; whole_feasible/wholekit_ready/physical_pass=false, actualfit/cut/slack=NULL. Nie awansowano pakietu de830/4f9.
+
+Własny commit `4e567a69bb81228a4c1fb15f7114396387def3b3`, 21 plików exactblob, manifest SHA `85913ac476231551402906a411c66e324c3fef2f47bbd81e85ccb178deb252d1`, native CRC 2609. Jedna GUI17796, DAY16_CLOSED_WHOLE_PROPOSAL, 466 obiektów, zapisany/IDLE/pendingnull/unsavedfalse. **Następne: odbiór CAŁEJ propozycji i wskazanie najważniejszego brakującego połączenia/montażu przed detalem**, nie kolejny lokalny offset. Okno parenta pozostaje aktywne do08UTC.
+<!-- /BANACH_CURRENT_CLOSED_PROTOTYPE -->
 
 ### Następny ograniczony wynik
 
-Zamknąć jedną zależność **root płaszczyzny ↔ pełny AUX ↔ integralne P11 ↔ dostęp M2**. Wybrane pionowe pola narzędzi przecinają belkę P11; drugie mocowanie root leży pod AUX. Potrzebny rzeczywisty boczny dostęp w wykonalnej kolejności ALBO prawdziwy podział nośny P11 z zachowaniem funkcji. Nie wolno wirtualnie odpiąć belki ani uznać bench-preassembly za rozwiązanie bez dowodu. Nie zaczynać kolejnej rodziny lokalnych stóp/offsetów. Przestrzeń to nie odbiór montażu/nośności.
+**Aktywna zgoda 16.11:** po odebranym cleanupie kontynuować do najbliższej 09:00 Warszawa, tj. 2026-11-16T08:00:00Z; pytanie o datę pozostaje opcjonalne, bez odpowiedzi obowiązuje wcześniejsza granica. Długie nowe operacje najwyżej do07:40UTC, zapis/koniec własnych obliczeń do07:50UTC. Zwykły limit odczytywany rzeczywiście, bez progu procentowego i resetów. Okno/runtime prowadzi parent.
+
+**Teraz odbiór całej propozycji4e567a69 przed detalami:** parent zweryfikował21plików/20hashes/CRC2609 i obejrzał opaque3widoki+wnętrze. Wybrane axialtoolHOLD zamknięto rzeczywistym podziałem drukowanego P11 i kolejnością root→AUX→cap. Nie oznacza to kompletu retencji ani skończonego napędu głowy. Jedna nowa ograniczona recenzja16Nov całości i jedna spójna korekta; Beauvoir max3praktyczne uwagi, Zeno max3widoczne różnice względem Oli. Potem realizować tylko konieczne wspólne mocowania/połączenia/osłony z tej całości, bez kolejnych małych stóp/offsetów, powtarzania starych skanów i osi każdej żyły. Niezmienione dowody reużywane, fizyczne niewiadome to nazwane próby.
+
+[Dodatek połączeń siedmiu rozszerzeń](electronics/full-cat/closed-prototype-add7-2026-11-16/README.md):26par w9grupach fizycznych, bazowe134połączenia i ochrona bez zmian. Nowy dotyk BCM27 zamiast zajętegoBCM17; osobnyUSB_AUDIO, całyCSI15↔15, BTL bez masy. Pin-plan PROPOSED, nie zgoda zasilania; faktyczne końce/fanout MAIN→AMP/prąd/długość/luz do związania z bieżącym układem.
 
 Przy stole po osobnym uruchomieniu prób: najpierw P00/osie/gwint oraz jeden pełny pasek z kotwą; jeden MTA z całymi TE/ATO, próbki PCB i jeden MG92B z fabrycznym rogiem według [FIT_CHECKS](first-fit-2026-11-15/FIT_CHECKS.md). Fizycznego fitu, druku, slicingu, cięcia przewodów i próby ruchu dotąd nie wykonano. To następny etap, nie polecenie rozpoczęcia go przez cleanup.
 
@@ -32,7 +46,7 @@ Przy stole po osobnym uruchomieniu prób: najpierw P00/osie/gwint oraz jeden pe�
 
 Banach jest jedynym autorem CAD; parent odbiera i integruje. Beauvoir pilnuje prostoty, Lorentz konkretnego ryzyka technicznego, Zeno wyglądu rzeczywistych PNG. Bohr wykonuje ograniczony cleanup i raportuje wyłącznie masterowi. Bez dodatkowego dziennika ani stałego monitoringu.
 Okno z 15.11 zostało zamknięte. Nowszą zgodę użytkownika, deadline i ewentualne wznowienie prowadzi parent w istniejącym runtime; ten cleanup nie zmienia hooka/okna ani nie uruchamia CAD. Odbiór cleanupu nie zmienia odbioru geometrii.
-Ostatnia partia cleanupu: uporządkowanie wejść, jawne rozdzielenie fit/HOLD i zachowanie dawnej treści poniżej bez zmiany jej bajtów. Szczegóły commitów i weryfikacji odbiera parent w istniejącym runtime.
+Cleanup ODEBRANY: robot-cat e61a6460, mechanika ddd1e399. Master potwierdził 6 chronionych wejść; prefiks i dokładny stary working historii 1352489 B/SHA25d18eef zachowane. Commity selektywne, wcześniejsze cudze modyfikacje nie zostały przejęte. Bohr IDLE, parent wznowił CAD w nowym oknie. Pakiety pozostają zamrożone.
 
 ## Historia — pełna treść sprzed cleanupu 16.11.2026
 
