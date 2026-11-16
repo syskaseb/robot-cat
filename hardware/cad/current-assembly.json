@@ -18,24 +18,57 @@
       "status": "CONDITIONAL_UNPOWERED_SUBASSEMBLY_FIT_NOT_WHOLECAT"
     },
     "unbuilt_proposal": {
-      "start_here": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-head-tail-mask/START_HERE.md",
-      "commit": "99007e13",
-      "manifest_sha256": "8f73baa8ddbda59fb6e53cefb845910469e347605c15e87007b645a967db4c2e",
-      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-head-tail-mask/head-tail-mask.FCStd",
-      "scope": "CURRENT_NOMINAL_HEAD_TAIL_TRANSMISSION_SENSORS_MASK_PARTIAL_NO_MOTION_OR_DECORATION_RELEASE",
+      "start_here": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-power-retention-realized/START_HERE.md",
+      "commit": "5e504127",
+      "manifest_sha256": "f614a3586d4a15bf159bf1f4b20c927ccfa38e786f8c70880cf3fb55d62ce840",
+      "native": "hardware/closed-prototype-2026-11-16/01_MODEL_PROPOZYCJA/power-retention-realized.FCStd",
+      "scope": "NOMINAL_CLOSED_CAT_MODEL_POWER_W043_HOLD_MTA_BODY_UNBOUND_UNBUILT_RETAINERS",
       "whole_feasible": false,
-      "assembly_status": "WHOLE_BODY_FUNCTIONAL_POWER_BAY_REQUIRED_W043_SELECTED_SPEC94P5_LT107P355_MODEL_GAP",
+      "assembly_status": "POWER_W043_SELECTED_CURVE_F_AUX_COMMON45P9625_NO_WHOLE_INSTALLATION_ACCEPTANCE",
       "stl_issued": false,
-      "previous_source_proposal_commit": "46547bfb38299f7f256d1a0375904dfb24a6ddf7"
+      "previous_source_proposal_commit": "99007e13"
     },
     "wholekit_ready": false,
     "physical_pass": false,
     "actual_fit_cut_slack": null,
-    "appearance_connection_addendum": "hardware/electronics/full-cat/closed-prototype-add7-2026-11-16/connections.json"
+    "appearance_connection_addendum": "hardware/electronics/full-cat/closed-prototype-add7-2026-11-16/connections.json",
+    "curated_package": {
+      "start_here": "hardware/closed-prototype-2026-11-16/START_HERE.md",
+      "print_index": "hardware/closed-prototype-2026-11-16/PRINT_INDEX.csv",
+      "zip": "hardware/closed-prototype-2026-11-16.zip",
+      "commit": "de4a49f4b4d2812c57a18320b4326f1f28e835f3",
+      "manifest_sha256": "5b5b43e727e370e13517dc955967ce582c9b6d8a6aa6f1d09a4070bc9075722d",
+      "zip_sha256": "161b1adb822bc020ee820691432df795472a95950d828c3d5c984ec4f4d5e52e",
+      "status": "PARTIAL_CONDITIONAL_FIRST_FIT_NOT_WHOLECAT",
+      "stl_scope": "MEASUREMENT_COUPONS_AND_OPTIONAL_EMPTY_FOUNDATION_AFTER_P00_ONLY",
+      "source_export_commits": [
+        "88297036483f254c9d2139740d301c19513ea8ba",
+        "1462284aa4747e595b182de71efdf2aba370a47d"
+      ],
+      "source_reference_fit_commit": "de8302f12b57347d53267ee3655c28caefff67d8",
+      "parent_verified_exact_files": 79,
+      "parent_verified_source_copies": 69,
+      "parent_verified_native_crc_entries": 4617
+    },
+    "source_corrections": {
+      "MTA0100335": "UNBOUND assumed35.5x8.1x8.9/noMINIVAL and220/84.5eachlead notsupported; oneactualsample +lid/tether/fuse/twoleads required. MTA0300330bankcoupondifferent. SeeSOURCE_ERRATA.",
+      "foundation_scope": "P02/P03 optionalemptystructuraldryfit afterP00, independent82e8proofnotuniversallyinvalidatedbyMTAunknown; P19/POWERdependentholdsremain."
+    },
+    "next_checkpoint": "One30-60minunpoweredphysicalsamplecheck P00/MGhorn/MTA0100335/FHAC-WAGOW043 thenONEwholefunctionalpower/end-order/occupiedbundleassemblybeforemorelocaldetail; noautomaticwindowresume",
+    "work_window": {
+      "id": "wavego-closed-prototype-20261116-to0900",
+      "enabled": false,
+      "deadline_utc": "2026-11-16T08:00:00Z",
+      "stopped_utc": "2026-11-16T07:40:55Z",
+      "reason": "SAVED_PARTIAL_FIRST_FIT_AFTER_NATIVE_CUTOFF_PHYSICAL_CHECKS_REQUIRED",
+      "whole_cat_complete": false,
+      "gui_preserved": true,
+      "next_checkpoint": "NamedunpoweredP00/MGhorn/MTA0100335/FHAC-WAGOW043checks; noautomaticresume"
+    }
   },
   "legacy_pointer_snapshot": {
     "path": "hardware/cad/legacy/current-assembly-e6-before-cleanup-2026-11-16.json",
     "sha256": "89711f3c99c4f6fe14e8fc214d756b4d45d2f87864b1abc988b7630f887409b4"
   },
-  "navigation_note": "Existing entry, readiness, manifest, evidence, predecessor and note describe the preserved historical E6/P0 model. Existing consumers keep that model contract. Use current_project.decision_card for current WAVEGO decisions; neither result is a completed closed robot."
+  "navigation_note": "Usecurrent_project.curated_package.start_here anditsONEprintindex. TopE6entryfields arelegacycompatibilityonly; no oldwholekit/1of10upgrade. Frozen15Novunchanged."
 }
