@@ -26,7 +26,8 @@
       "whole_feasible": false,
       "assembly_status": "POWER_W043_SELECTED_CURVE_F_AUX_COMMON45P9625_NO_WHOLE_INSTALLATION_ACCEPTANCE",
       "stl_issued": false,
-      "previous_source_proposal_commit": "99007e13"
+      "previous_source_proposal_commit": "99007e13",
+      "tail_motion_status": "WRONG_AXIS_Z_HORIZONTAL_VS_REQUIRED_VERTICAL_PITCH"
     },
     "wholekit_ready": false,
     "physical_pass": false,
@@ -52,7 +53,8 @@
     },
     "source_corrections": {
       "MTA0100335": "UNBOUND assumed35.5x8.1x8.9/noMINIVAL and220/84.5eachlead notsupported; oneactualsample +lid/tether/fuse/twoleads required. MTA0300330bankcoupondifferent. SeeSOURCE_ERRATA.",
-      "foundation_scope": "P02/P03 optionalemptystructuraldryfit afterP00, independent82e8proofnotuniversallyinvalidatedbyMTAunknown; P19/POWERdependentholdsremain."
+      "foundation_scope": "P02/P03 optionalemptystructuraldryfit afterP00, independent82e8proofnotuniversallyinvalidatedbyMTAunknown; P19/POWERdependentholdsremain.",
+      "tail_motion": "Userconfirmedup/down16Nov; simulationaxisYalreadycorrect; currentCADtailZwrong. Frozenmodelunchanged; oldZguardproofcannotqualifyverticaltail. Correctactualmechanisminnextauthorizedlayout."
     },
     "next_checkpoint": "One30-60minunpoweredphysicalsamplecheck P00/MGhorn/MTA0100335/FHAC-WAGOW043 thenONEwholefunctionalpower/end-order/occupiedbundleassemblybeforemorelocaldetail; noautomaticwindowresume",
     "work_window": {
@@ -64,6 +66,20 @@
       "whole_cat_complete": false,
       "gui_preserved": true,
       "next_checkpoint": "NamedunpoweredP00/MGhorn/MTA0100335/FHAC-WAGOW043checks; noautomaticresume"
+    },
+    "requirements": {
+      "tail_motion": {
+        "user_confirmed_utc": "2026-11-16T12:41:38Z",
+        "required": "UP_DOWN_VERTICAL_PITCH_ABOUT_BODY_TRANSVERSE_AXIS",
+        "body_axis_convention": "Xlongitudinal/Zup => Ypitch",
+        "simulation_reference": "src/robot_cat_description/urdf/cat.urdf.xacro:265 axis0_1_0 alreadycorrect",
+        "current_CAD": "WRONG_HORIZONTAL_YAW_TAIL_Z_NEEDS_MECHANICAL_REDESIGN",
+        "direction_dependent_old_Z_motion_proofs": "NOT_ACCEPTANCE_FOR_REQUIRED_VERTICAL_MOTION",
+        "angle_range": "NOT_SET_BY_THIS_CONFIRMATION_DO_NOT_INHERIT_Z20",
+        "scope": "Wholeservo-horn-bearing-root/skinpassage+movingwireinterface; onlyaffectedchecks; sameparts/drives; independentbaseproofsretained",
+        "geometry_changed": false,
+        "work_window_resumed": false
+      }
     }
   },
   "legacy_pointer_snapshot": {

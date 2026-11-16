@@ -1,5 +1,11 @@
 # robot cat — notes for Codex
 
+## Ogon — potwierdzone wymaganie użytkownika 16.11.2026
+
+Ogon ma poruszać się GÓRA–DÓŁ: obrót wokół osi poprzecznej korpusu (pitch; Y przy X wzdłuż korpusu i Z w pionie). Nie zastępować tego merdaniem na boki wokół Z. Model symulacyjny tail_joint już ma axis="0 1 0"; nie zmieniać go na błędną oś CAD.
+Zapisany CAD5e504/99007 ma niewłaściwy kierunek tail_Z. Dawne dowody ruchu/prześwitu ogona dla Z nie kwalifikują ruchu pionowego. Przy następnym wznowieniu poprawić cały interfejs serwo–róg–łożysko–korzeń/przejście osłony i tylko dotknięte sprawdzenia; sama zmiana metadanych osi nie naprawia mechanizmu. Zakres kąta pozostaje do dobrania, bez automatycznego przenoszenia dawnych±20Z. Zachować wybrane części/liczbę napędów i niezależne dowody podstawy.
+Potwierdzenie wymagania nie wznawia zamkniętego okna ani nie oznacza poprawionej geometrii.
+
 ## Prototype harness fidelity (26.10.2026)
 
 Read the current26.10 section at the top of `hardware/cad/DESIGN_LESSONS.md`

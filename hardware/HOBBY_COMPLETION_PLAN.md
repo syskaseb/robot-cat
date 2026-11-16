@@ -4,6 +4,10 @@
 
 **Cel:** robot do szybkiego złożenia przez dwie osoby na posiadanej WAVEGO, z wybraną elektroniką i zamkniętą obudową według Oli. Mała zmiana długości/szerokości bazy jest dopuszczona. Dawne 1/10/NEXT, pozy niezbudowanych druków i liczbowe rezerwy nie są wymaganiami tego etapu. **Cały kot nadal NIE jest ukończony.**
 
+**Ogon — potwierdzenie użytkownika16.11.2026:** wymagany ruch GÓRA–DÓŁ (pitch wokół poprzecznejY), zgodnie z tail_joint w modelu symulacyjnym. Aktualny mechaniczny model5e504/99007 ma błędny tail_Z/obrót na boki i pozostaje NIEPOPRAWIONY. Jego dawne wyniki ruchu/prześwitu ogona dlaZ nie są odbiorem wymaganego ruchu pionowego.
+
+Przy kolejnym wznowieniu uwzględnić rzeczywisty pionowy mechanizm ogona w CAŁYM układzie: serwo/róg/łożysko/korzeń, przejście przez osłonę i przewody. Sprawdzić wyłącznie zmieniony interfejs; nie przenosić automatycznie±20Z naY ani unieważniać niezależnej pustej podstawy. Wybrane części i liczba napędów pozostają. Zamrożony pakiet16Nov/native nie jest przez ten zapis naprawiony; brak wznowieniaCAD/hooka.
+
 **Status końcowy:** okno zamknięte 2026-11-16T07:40:55Z, enabled=false. Zapisano zweryfikowany częściowy pakiet; po progu nowych native07:40 brak dalszej niezależnej pracy możliwej do bezpiecznego domknięcia bez wskazanych rzeczywistych przymiarek. Nie ukończono całego kota. GUI/MCP zachowane; bez przedłużenia.
 
 **Okno użytkownika:** kontynuacja do najbliższej09:00Warszawa16Nov =2026-11-16T08:00:00Z; bez przedłużania. Ostatni CAD zakończony07:23UTC, jedna zapisana GUI17796/868, bez zmiany geometrii podczas eksportów. Stan końcowy okna/czas/świeży zwykły limit są w runtime; ten zapis nie wznawia pracy. Bez nowych długich native po07:40, zapis/koniec własnych obliczeń07:50. Bez progu procentowego/resetu.
