@@ -1,0 +1,202 @@
+{
+  "fixed_frame": {
+    "valid": true,
+    "solids": 1,
+    "bounds": [
+      161.5,
+      -50.6,
+      52.52,
+      213.0,
+      15.0,
+      177.3761735345375
+    ],
+    "members": [
+      {
+        "member": "retained_actual_base",
+        "intended_mm3": 8971.05222400963,
+        "missing_mm3": 0.0,
+        "bounds": [
+          171.0,
+          -15.0,
+          52.52,
+          198.0,
+          15.0,
+          89.2
+        ]
+      },
+      {
+        "member": "lower_common_beam",
+        "intended_mm3": 11757.6,
+        "missing_mm3": 0.0,
+        "bounds": [
+          167.0,
+          -50.6,
+          85.0,
+          213.0,
+          -8.0,
+          91.0
+        ]
+      },
+      {
+        "member": "bearing_spine",
+        "intended_mm3": 10584.0,
+        "missing_mm3": 0.0,
+        "bounds": [
+          171.0,
+          -16.0,
+          85.0,
+          198.0,
+          -8.0,
+          134.0
+        ]
+      },
+      {
+        "member": "MG_left_rear_web",
+        "intended_mm3": 1581.0000000000005,
+        "missing_mm3": 0.0,
+        "bounds": [
+          167.0,
+          -50.6,
+          85.0,
+          173.0,
+          -47.5,
+          170.0
+        ]
+      },
+      {
+        "member": "MG_right_rear_web",
+        "intended_mm3": 1581.0000000000005,
+        "missing_mm3": 0.0,
+        "bounds": [
+          207.0,
+          -50.6,
+          85.0,
+          213.0,
+          -47.5,
+          170.0
+        ]
+      },
+      {
+        "member": "MG_lower_saddle_seat",
+        "intended_mm3": 964.715885956385,
+        "missing_mm3": 0.0,
+        "bounds": [
+          172.0,
+          -50.6,
+          138.0,
+          208.0,
+          -47.5,
+          146.75
+        ]
+      },
+      {
+        "member": "MG_upper_saddle_seat",
+        "intended_mm3": 964.715885956385,
+        "missing_mm3": 0.0,
+        "bounds": [
+          172.0,
+          -50.6,
+          161.25,
+          208.0,
+          -47.5,
+          170.0
+        ]
+      },
+      {
+        "member": "integral_outer_race_cartridge",
+        "intended_mm3": 8435.20769081513,
+        "missing_mm3": 0.0,
+        "bounds": [
+          161.5,
+          -18.0,
+          130.5,
+          208.5,
+          -5.999999999999995,
+          177.5
+        ]
+      }
+    ],
+    "positive_connections": [
+      {
+        "a": "retained_actual_base",
+        "b": "lower_common_beam",
+        "positive_join_mm3": 176.40000000000018
+      },
+      {
+        "a": "retained_actual_base",
+        "b": "bearing_spine",
+        "positive_join_mm3": 176.40000000000018
+      },
+      {
+        "a": "lower_common_beam",
+        "b": "bearing_spine",
+        "positive_join_mm3": 1296.0
+      },
+      {
+        "a": "lower_common_beam",
+        "b": "MG_left_rear_web",
+        "positive_join_mm3": 111.60000000000005
+      },
+      {
+        "a": "lower_common_beam",
+        "b": "MG_right_rear_web",
+        "positive_join_mm3": 111.60000000000005
+      },
+      {
+        "a": "bearing_spine",
+        "b": "integral_outer_race_cartridge",
+        "positive_join_mm3": 113.19478277402865
+      },
+      {
+        "a": "MG_left_rear_web",
+        "b": "MG_lower_saddle_seat",
+        "positive_join_mm3": 27.12500000000001
+      },
+      {
+        "a": "MG_left_rear_web",
+        "b": "MG_upper_saddle_seat",
+        "positive_join_mm3": 27.12500000000001
+      },
+      {
+        "a": "MG_right_rear_web",
+        "b": "MG_lower_saddle_seat",
+        "positive_join_mm3": 27.12500000000001
+      },
+      {
+        "a": "MG_right_rear_web",
+        "b": "MG_upper_saddle_seat",
+        "positive_join_mm3": 27.12500000000001
+      }
+    ],
+    "base_missing_mm3": 0.0
+  },
+  "moving_root": {
+    "valid": true,
+    "solids": 1,
+    "bounds": [
+      178.0395798386188,
+      0.0,
+      147.00001504495808,
+      235.12132034355963,
+      17.14634361588198,
+      216.12128915669456
+    ],
+    "retained_curved_tube_transform": [
+      0,
+      10,
+      0
+    ],
+    "retained_tube_missing_mm3": 0.0,
+    "hub_neck_join_mm3": 78.22704299185895,
+    "neck_tube_join_mm3": 875.8229066572883,
+    "full_crosspin_source_unchanged": true
+  },
+  "effectivity": [
+    "P07 integrates fixed cartridge as ONE intended print; no fuse bought608 or removablecap",
+    "old separate cartridge and two unfinished links retained hidden as retired reference; no double material/BOM",
+    "original foundation seated base and all4 M3 roots preserved",
+    "same complete M2 saddle/cap/pin sets retained; no new actuator or hardware purchase"
+  ],
+  "prototype_range": "chosen after local clearance gate; not inherited \u00b112 requirement",
+  "physicalPASS": false
+}
