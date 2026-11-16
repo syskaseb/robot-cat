@@ -1,5 +1,16 @@
 # Modułowy CAD — AUX i podparcie ogona
 
+## Bieżące wejście WAVEGO — 16.11.2026
+
+Decyzje i następny ograniczony wynik są w [pierwszej karcie](../HOBBY_COMPLETION_PLAN.md). [Odebrany fit](../first-fit-2026-11-15/START_HERE.md) jest warunkowym podzespołem bez zasilania (`de8302f`), nie całym robotem.
+[Najnowsza propozycja tyłu](studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day15-whole-rear-layer-proposal/START_HERE.md) (`46547bfb`) ma **SPACE scoped clear / ASSEMBLY HOLD**, bez STL. Jej native nie jest zatwierdzonym montażem ani drukiem. Cel obejmuje zamknięte osłony Oli i pole 256 × 256 × 256 mm wraz z brimem/podporami.
+`current-assembly.json` pozostawia dotychczasowe `entry`/`manifest` dla konsumentów legacy; `current_project` wskazuje powyższe dwa rozłączne wyniki. Nie przepinać starych narzędzi do nowego native, który ma inną strukturę. Historyczne `tools/cad/`, `tools/electronics/` i receptury zachowano; nie stanowią zbiorczego pipeline aktualnego projektu.
+
+## Historia modularnego CAD E6/P0 i poprzedników
+
+Poniższe wyniki, nazwy „aktualny” i instrukcje migracji dotyczą swoich historycznych wejść. Ich ograniczenia i dowody pozostają zachowane; nie są zgodą na nowy eksport lub odbiorem zamkniętego WAVEGO-kota.
+
+
 **Aktualny cały kot: [RobotCatEars.FCStd](assembly/RobotCatEars.FCStd).**
 Uszy E1: obłe małżowiny, dopasowane nasady i modelowane mocowania M2;
 335 części, 65 odnośników, 11 dokumentów. [Zakres i dowody](validation/ears/README.md).

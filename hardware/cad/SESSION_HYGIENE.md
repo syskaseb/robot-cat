@@ -1,5 +1,15 @@
 # Sesja FreeCAD: dokumenty i pamięć
 
+## Bieżący zakres i bezpieczeństwo sesji — 16.11.2026
+
+Wejście organizacyjne: [pierwsza karta WAVEGO](../HOBBY_COMPLETION_PLAN.md). [Fit bez zasilania](../first-fit-2026-11-15/START_HERE.md) i [niezbudowana propozycja tyłu ASSEMBLY HOLD](studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day15-whole-rear-layer-proposal/START_HERE.md) są oddzielone; nie otwierać ich jako dwóch konkurencyjnych masterów.
+Ostatni odebrany zapis propozycji to `day15-whole-rear-layer-proposal/whole-rear-layer.FCStd` (commit `46547bfb`); zapis nie oznacza print-ready ani physical PASS. Liczba jedenastu dokumentów poniżej dotyczy dawnego E6, nie wymogu aktualnej sesji. `current-assembly.json` ma jawny zakres legacy i odsyłacze do bieżącej karty.
+Nie zamykać ani zapisywać dokumentów przy cleanupie. Właściciel CAD zabezpiecza swoje zmiany i zależności; jeden autor, jeden bieżący model. Nie zabijać cudzych procesów ani nie usuwać checkpointów/odzyskiwania. Kosztowna próba wymaga konkretnego zadania i uprawnienia do pracy, nie samego historycznego NEXT.
+Zasady ochrony dokumentów, odnośników i zasobów poniżej nadal mają zastosowanie w swoim zakresie; historyczne nazwy modeli nie nakazują ich ponownego otwierania.
+
+## Historia sesji E6/P0 i poprzedników
+
+
 Nie zostawiać poprzednich wersji otwartych po zakończeniu porównania. Kopia
 na dysku nie wymaga otwartego dokumentu. Nie uruchamiać drugiej instancji GUI
 tylko po to, żeby odzyskać połączenie MCP.

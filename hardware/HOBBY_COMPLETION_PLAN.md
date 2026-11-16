@@ -1,5 +1,45 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Bieżąca karta — zamknięty prototyp WAVEGO-kota
+
+**Cel:** prosty kot na posiadanym WAVEGO, do złożenia przez dwie osoby, z zamkniętymi osłonami korpusu i głowy według Oli. Wybrana elektronika i wiązki są schowane; zachowane chłodzenie, optyka, dźwięk, ruch i dostęp do baterii/wyłączników. Otwarty montaż jest etapem pośrednim.
+Każdy druk z orientacją, brimem i podporami mieści się w **256 × 256 × 256 mm**; sam BBox nie wystarcza. Dopuszczona niewielka korekta długości/szerokości bazy, gdy upraszcza wspólny montaż wnętrza i osłon.
+
+### Jedno wejście, dwa różne wyniki
+
+| Wynik | Źródło i status |
+|---|---|
+| **Odebrany CONDITIONAL UNPOWERED fit** | [START_HERE](first-fit-2026-11-15/START_HERE.md), [manifest](first-fit-2026-11-15/PACKAGE_MANIFEST.json), [ZIP](WAVEGO_first_fit_2026-11-15.zip), commit `de8302f12b57347d53267ee3655c28caefff67d8`. 23 elementy konstrukcji + 5 próbek/narzędzi; nie komplet mocowań elektroniki. Wybór plików: PRINT_INDEX.csv w pakiecie. |
+| **Niezbudowana propozycja tylnej warstwy** | [START_HERE](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day15-whole-rear-layer-proposal/START_HERE.md), commit `46547bfb38299f7f256d1a0375904dfb24a6ddf7`. **SPACE scoped clear / ASSEMBLY HOLD**, bez nowych STL. Pełne MAIN/AUX i śruby mieszczą się lokalnie; nie odebrano wykonalnej kolejności montażu. |
+
+Pakiet i propozycja pozostają zamrożone: nie mieszać ich pozycji ani nie dopisywać do pakietu nowych druków. [CURRENT_CONDITIONAL_CARRIER.FCStd](first-fit-2026-11-15/assembly/CURRENT_CONDITIONAL_CARRIER.FCStd) jest carrierem do warunkowej przymiarki; jego dawny AUX obejmuje tylko PCB, nie pełny moduł. Ostatni odebrany native propozycji to [whole-rear-layer.FCStd](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day15-whole-rear-layer-proposal/whole-rear-layer.FCStd), nie model gotowy do druku.
+**Cały robot nieukończony; wholekit_ready=false, physical_pass=false, actual_fit_cut_slack=null.** Widoki Oli pokazują propozycję i nadal widoczne wyposażenie; zamkniętych osłon z mocowaniami nie oddano. Historyczne 1/10 nie jest bieżącą miarą.
+
+### Następny ograniczony wynik
+
+Zamknąć jedną zależność **root płaszczyzny ↔ pełny AUX ↔ integralne P11 ↔ dostęp M2**. Wybrane pionowe pola narzędzi przecinają belkę P11; drugie mocowanie root leży pod AUX. Potrzebny rzeczywisty boczny dostęp w wykonalnej kolejności ALBO prawdziwy podział nośny P11 z zachowaniem funkcji. Nie wolno wirtualnie odpiąć belki ani uznać bench-preassembly za rozwiązanie bez dowodu. Nie zaczynać kolejnej rodziny lokalnych stóp/offsetów. Przestrzeń to nie odbiór montażu/nośności.
+
+Przy stole po osobnym uruchomieniu prób: najpierw P00/osie/gwint oraz jeden pełny pasek z kotwą; jeden MTA z całymi TE/ATO, próbki PCB i jeden MG92B z fabrycznym rogiem według [FIT_CHECKS](first-fit-2026-11-15/FIT_CHECKS.md). Fizycznego fitu, druku, slicingu, cięcia przewodów i próby ruchu dotąd nie wykonano. To następny etap, nie polecenie rozpoczęcia go przez cleanup.
+
+### Pozostałe braki i niezmienne wejścia
+
+- Retencja pozostałych banków MTA/WAGO/FHAC, części audio, S1/monitora oraz nośny headroot: [MODULES](first-fit-2026-11-15/MODULES.md). Pełna obudowa i jej montaż pozostają do domknięcia wspólnie z wnętrzem.
+- FIT1: rzeczywista rewizja WAVEGO, osie/gwint, masa i ruch. FIT2: fabryczne końce/długości/luz, ochrona F0, izolacja, bateria i chłodzenie. FIT3: paski, bezpieczne pola PCB, MTA, rogi/łożyska, CSI i makieta Oli. Standardowe łączniki to zapotrzebowanie, nie potwierdzony zapas.
+- [Wybrana elektronika](electronics/kicad-current/selected-components.csv), [projekt połączeń](electronics/kicad-current/design.json), [wzór Oli](reference/appearance/ola-cat-reference.jpg). Zachować kupne części, ochronę, końce fabryczne, źródłowe piny i negatywne wyniki. Lista wyboru nie potwierdza zakupów; napięcia/prądy/temperatury wymagają prób.
+- [current-assembly.json](cad/current-assembly.json) zachowuje pola legacy dla historycznych narzędzi E6/P0. Bieżącym źródłem decyzji jest **ta pierwsza karta**, nie stare generatory ani dawne NEXT. Aktywny kod sterowania jest w `src/` i `run/`; historycznych `tools/cad/`, `tools/electronics/` i `*.recipe.py` nie uruchamiać zbiorczo jako aktualnego pipeline.
+
+### Koordynacja i porządek
+
+Banach jest jedynym autorem CAD; parent odbiera i integruje. Beauvoir pilnuje prostoty, Lorentz konkretnego ryzyka technicznego, Zeno wyglądu rzeczywistych PNG. Bohr wykonuje ograniczony cleanup i raportuje wyłącznie masterowi. Bez dodatkowego dziennika ani stałego monitoringu.
+Okno z 15.11 zostało zamknięte. Nowszą zgodę użytkownika, deadline i ewentualne wznowienie prowadzi parent w istniejącym runtime; ten cleanup nie zmienia hooka/okna ani nie uruchamia CAD. Odbiór cleanupu nie zmienia odbioru geometrii.
+Ostatnia partia cleanupu: uporządkowanie wejść, jawne rozdzielenie fit/HOLD i zachowanie dawnej treści poniżej bez zmiany jej bajtów. Szczegóły commitów i weryfikacji odbiera parent w istniejącym runtime.
+
+## Historia — pełna treść sprzed cleanupu 16.11.2026
+
+Poniżej zachowano dokładną dotychczasową treść pliku w tej samej lokalizacji, aby nie zerwać ścieżek i dawnych odsyłaczy. Dawne nagłówki „bieżąca”, NEXT, ON i terminy opisują historię; nie zastępują pierwszej karty powyżej.
+
+# Domknięcie hobbystycznego robot-cat
+
 AKTUALIZACJA02.11 18:31:54UTC: zgoda na2h N01 do20:31:54UTC/21:31:54Warszawa. Użytkownik zniósł próg procentowy w ogóle. Freshused70remaining30ordinarytrue; bezresetu. To nadpisuje wcześniejsze30% i brakterminu.
 
 ## Bieżąca karta N01 — wznowienie31.10.2026, Astra medium

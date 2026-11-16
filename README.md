@@ -1,9 +1,14 @@
 # robot cat
 
+**Bieżący projekt fizyczny:** [pierwsza karta WAVEGO-kota](hardware/HOBBY_COMPLETION_PLAN.md). Zamknięty prototyp według Oli, do montażu przez dwie osoby; pole druku 256 × 256 × 256 mm obejmuje brim i podpory.
+[Odebrany CONDITIONAL UNPOWERED fit](hardware/first-fit-2026-11-15/START_HERE.md) (`de8302f`) oraz [niezbudowana propozycja tylnej warstwy](hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day15-whole-rear-layer-proposal/START_HERE.md) (`46547bfb`, SPACE scoped clear / ASSEMBLY HOLD, bez STL) to różne wyniki. Cały robot i zamknięte osłony pozostają nieukończone.
+Stare katalogi E6/P0/v35 i generatory są zachowane jako historia. `src/` i `run/` zawierają kod sterowania/symulacji, nie odbiór aktualnej mechaniki; poniższy runbook dotyczy symulacji.
+
+
 A 12-DOF quadruped cat simulated in Gazebo, walking with a trot gait, driven
 from the laptop's arrow keys.
 
-**Current physical CAD work:** see [mechanical status](hardware/skorupa/STATUS.md)
+**Historical CAD references:** see [mechanical status](hardware/skorupa/STATUS.md)
 and the separate [CAD-derived Gazebo experiment](hardware/simulation/README.md).
 The primitive ROS model described below is not dimensional or actuator
 validation of the current FreeCAD assembly.

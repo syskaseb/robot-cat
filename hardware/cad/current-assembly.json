@@ -1,9 +1,37 @@
 {
   "schema_version": 1,
-  "entry": "hardware/cad/assembly/RobotCatEars.FCStd",
+  "entry": "hardware/cad/assembly/RobotCatNarrowRimEars.FCStd",
   "readiness": "prototype",
-  "manifest": "hardware/releases/ears-e1.json",
-  "evidence": "hardware/cad/validation/ears",
-  "predecessor": "hardware/cad/assembly/RobotCatTailCartridge.FCStd",
-  "note": "One robot, eleven linked documents. E1 rounded ears with modeled nominal screw mounts; inherited head geometry/attachment and PETG gates remain open."
+  "manifest": "hardware/releases/walking-p0-print.json",
+  "evidence": "hardware/cad/validation/narrow-rim-ears",
+  "predecessor": "hardware/cad/assembly/RobotCatThinEars.FCStd",
+  "note": "E6 local visual revision: narrower front-projected ear rims; unchanged mounting axes and native joints. Walking-P0 manifest packages exact prototype STL exports plus separate R2/R3/R4/R5/R6 additions. Digital integration audit is closed offline; physical fit, PETG, load, calibration and motion gates remain open.",
+  "entry_scope": "LEGACY_E6_COMPATIBILITY_ONLY_NOT_CURRENT_WAVEGO",
+  "current_project": {
+    "decision_card": "hardware/HOBBY_COMPLETION_PLAN.md",
+    "goal": "CLOSED_WAVEGO_OLA_PROTOTYPE",
+    "received_conditional_fit": {
+      "start_here": "hardware/first-fit-2026-11-15/START_HERE.md",
+      "commit": "de8302f12b57347d53267ee3655c28caefff67d8",
+      "manifest": "hardware/first-fit-2026-11-15/PACKAGE_MANIFEST.json",
+      "native": "hardware/first-fit-2026-11-15/assembly/CURRENT_CONDITIONAL_CARRIER.FCStd",
+      "status": "CONDITIONAL_UNPOWERED_SUBASSEMBLY_FIT_NOT_WHOLECAT"
+    },
+    "unbuilt_proposal": {
+      "start_here": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day15-whole-rear-layer-proposal/START_HERE.md",
+      "commit": "46547bfb38299f7f256d1a0375904dfb24a6ddf7",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day15-whole-rear-layer-proposal/whole-rear-layer.FCStd",
+      "space_status": "SCOPED_CLEAR",
+      "assembly_status": "HOLD",
+      "stl_issued": false
+    },
+    "wholekit_ready": false,
+    "physical_pass": false,
+    "actual_fit_cut_slack": null
+  },
+  "legacy_pointer_snapshot": {
+    "path": "hardware/cad/legacy/current-assembly-e6-before-cleanup-2026-11-16.json",
+    "sha256": "89711f3c99c4f6fe14e8fc214d756b4d45d2f87864b1abc988b7630f887409b4"
+  },
+  "navigation_note": "Existing entry, readiness, manifest, evidence, predecessor and note describe the preserved historical E6/P0 model. Existing consumers keep that model contract. Use current_project.decision_card for current WAVEGO decisions; neither result is a completed closed robot."
 }
