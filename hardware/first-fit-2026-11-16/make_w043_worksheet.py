@@ -97,6 +97,8 @@ text(18, 283, 'Źródło: nominalna alokacja d0757ee5, zachowana w 5e504127. 16 
 text(18, 288, 'Rzeczywiste długości / cięcia / luz: nieustalone. Pełne instrukcje w pakiecie START_HERE.', 7.1, '#536273')
 
 fig.savefig(HERE / 'W043_LAYOUT_WORKSHEET.svg', format='svg')
+svg = HERE / 'W043_LAYOUT_WORKSHEET.svg'
+svg.write_bytes(svg.read_bytes().replace(b'\r\n', b'\n'))
 fig.savefig(HERE / 'W043_LAYOUT_WORKSHEET.png', dpi=140)
 plt.close(fig)
 (HERE / 'W043_LAYOUT_WORKSHEET.html').write_text('''<!doctype html>
