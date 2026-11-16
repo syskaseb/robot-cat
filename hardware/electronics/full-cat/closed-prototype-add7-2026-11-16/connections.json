@@ -264,7 +264,11 @@
       "installed_length_mm": null,
       "cut_mm": null,
       "slack_mm": null,
-      "delivered_ends_verified": false
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "pi_signals": "Pololu1871 female crimp in existing1992; conditional five-spare-unit split below",
+        "fixed_supply": "Donau118-0/118-1 0.14mm2; existing source-selected fixed wiring"
+      }
     },
     "EXT_IMU_MODE": {
       "cores": 2,
@@ -272,7 +276,10 @@
       "installed_length_mm": null,
       "cut_mm": null,
       "slack_mm": null,
-      "delivered_ends_verified": false
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "Donau118-0 0.14mm2 local soldered P0/P1-to-VIN; no new connector"
+      }
     },
     "EXT_TOF": {
       "cores": 4,
@@ -280,7 +287,12 @@
       "installed_length_mm": null,
       "cut_mm": null,
       "slack_mm": null,
-      "delivered_ends_verified": false
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "HELU23302/23301/23308 0.5mm2 OD2.1; label separate SDA/SCL",
+        "source_minimum_flexible_bend_radius_mm": 31.5,
+        "termination_fit": "actual3417 pad/header and strain relief FIT2; no generic smallerR"
+      }
     },
     "EXT_TOUCH": {
       "cores": 3,
@@ -289,15 +301,23 @@
       "installed_length_mm": null,
       "cut_mm": null,
       "slack_mm": null,
-      "delivered_ends_verified": false
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "wholeGrove factoryend/4conductors3used, fourthNC; onePololuPi contact",
+        "delivered_cable_binding": "UNKNOWN"
+      }
     },
     "EXT_AMP_PWR": {
       "cores": 2,
-      "movement": "stationary, actual MAIN branch UNKNOWN; no new splice selected",
+      "movement": "stationary; masterchosen named soldered MAIN5V1branch proposal, actual pad/strain/protection unverified",
       "installed_length_mm": null,
       "cut_mm": null,
       "slack_mm": null,
-      "delivered_ends_verified": false
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "separateHELU23302/23301 0.5mm2 pair fromMAIN5V1",
+        "actual_MAIN_solder_land_and_protection": "FIT2_UNKNOWN; preserveW079W080K1474"
+      }
     },
     "EXT_AMP_SIG": {
       "cores": 3,
@@ -305,7 +325,10 @@
       "installed_length_mm": null,
       "cut_mm": null,
       "slack_mm": null,
-      "delivered_ends_verified": false
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "threePololu1871 contacts atPi; stationary soldered ends atAMP"
+      }
     },
     "EXT_SPK": {
       "cores": 2,
@@ -313,7 +336,11 @@
       "installed_length_mm": null,
       "cut_mm": null,
       "slack_mm": null,
-      "delivered_ends_verified": false
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "HELU0.5 pair, markOUTplus/OUTminus; neitherGND",
+        "speaker_ends": "FIT2_UNKNOWN"
+      }
     },
     "USB_AUDIO": {
       "cores": null,
@@ -321,7 +348,11 @@
       "installed_length_mm": null,
       "cut_mm": null,
       "slack_mm": null,
-      "delivered_ends_verified": false
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "independent whole USB-A-to-C DATA cable",
+        "delivered_unit": "UNKNOWN_NOT_BUS_USB500"
+      }
     },
     "CSI_CAM": {
       "cores": 15,
@@ -329,7 +360,11 @@
       "installed_length_mm": null,
       "cut_mm": null,
       "slack_mm": null,
-      "delivered_ends_verified": false
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "whole15-to15CSI forPi4, no cut",
+        "delivered_length_and_contact_side": "UNKNOWN_NO200MMCREDIT"
+      }
     }
   },
   "pi_existing": {
@@ -356,8 +391,8 @@
     "with": "For this ADD7 proposal only, new H12/13/16/18/19/21/23/24/35/40 assigned; all other unused GPIO stay NC. H2/H4 remain unpowered NC. H11 /OE retained. Base file unmodified."
   },
   "shared_nodes": {
-    "LOCAL.LOGIC3V3": "Existing PI.H1 LOGIC_3V3 function; actual fanout termination UNKNOWN",
-    "LOCAL.GND": "Existing G_SYS function PI.H6/MAIN.GND; actual fanout termination UNKNOWN"
+    "LOCAL.LOGIC3V3": "ExistingPI.H1 function retained; named fixed soldered fanout proposal, actual land/insulation/strain FIT2",
+    "LOCAL.GND": "ExistingG_SYS function PI.H6/MAIN.GND retained; named fixed soldered fanout proposal, actual land/insulation/strain FIT2"
   },
   "unused_pins": [
     "EXT_IMU.3Vo",
@@ -399,9 +434,11 @@
   ],
   "unknowns": [
     "Delivered module revisions/headers and USB_AUDIO/CSI length/plug bounds/contact direction.",
-    "Actual shared3V3/GND fanout and MAIN-to-AMP branch execution/gauge/insulation; no new splice selected.",
+    "Masterchosen named fixed soldered fanout and MAIN-to-AMP branch still need actual available lands/insulation/strain/protection and currentlayout length budgets; no unassigned terminal credit.",
     "Current power budget/protection coordination before powered trials.",
-    "Current layout corridors/motion/perphysical length budgets; no oldguide length credits."
+    "Current layout corridors/motion/perphysical length budgets; no oldguide length credits.",
+    "Five spare600mm GPIO units proposed as ten Pi-ended portions; BOTH routes/termination/slack/cutloss must fit each parent before humanphase2division. No actual cuts or offcut credit.",
+    "WholeUSB_AUDIO/Grove/CSI cable identities and physicalstock unconfirmed, not automaticpurchase."
   ],
   "sources": {
     "IMU": "https://learn.adafruit.com/adafruit-9-dof-orientation-imu-fusion-breakout-bno085/pinouts",
@@ -415,7 +452,13 @@
   },
   "source_receipts": [
     "Lorentz1b4",
-    "Lorentz1b9"
+    "Lorentz1b9",
+    {
+      "agent": "Lorentz",
+      "input": "01a1e26b-d426-7103-8c74-0b35fc3d75c3",
+      "status": "RECEIVED_READONLY_MATERIAL_AND_AFFECTED_BRANCH_FACTS",
+      "master_decision": "namedfixedsolderedfanout + conditional5spare600unit2portionallocation; no electricalnet/pin change"
+    }
   ],
   "physical_pass": false,
   "installed_length_cut_slack": null,
@@ -468,5 +511,86 @@
       "W053_Joint"
     ],
     "scope": "Already selected and present in base graph; include in shared accessible bundle space/strain plan, not eight new custom cases."
+  },
+  "gpio_stock_allocation_proposal": {
+    "status": "PREFERRED_CONDITIONAL_PERPHYSICAL_PLAN_NOT_ACTUAL_CUT_OR_LENGTH_PASS",
+    "selected_source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+    "purchased_plan_units": 10,
+    "existing_base_units_preserved": 5,
+    "spare_units_proposed": 5,
+    "unit_type": "Pololu1871 brown26AWG600mm female-female factory-crimp lead",
+    "decision": "Use both original female ends of each of five spare units as two Pi-ended portions. One middle division only after actual paired routes measured; stripped new board ends. Preserve both factory contacts; no splice/extension/offcut pooling. Existing five base units unchanged.",
+    "pairs": [
+      {
+        "physical_unit": "GPIO_SPARE_1",
+        "pi_H_ends": [
+          "23",
+          "24"
+        ],
+        "nominal_parent_length_mm": 600,
+        "portion_route_lengths_mm": null,
+        "cut_loss_mm": null,
+        "acceptance": "sum of BOTH actual route+termination+necessary slack portions plus cut/strip loss <= verified delivered parent length; do not assume300 each",
+        "actual_cut_mm": null
+      },
+      {
+        "physical_unit": "GPIO_SPARE_2",
+        "pi_H_ends": [
+          "19",
+          "21"
+        ],
+        "nominal_parent_length_mm": 600,
+        "portion_route_lengths_mm": null,
+        "cut_loss_mm": null,
+        "acceptance": "sum of BOTH actual route+termination+necessary slack portions plus cut/strip loss <= verified delivered parent length; do not assume300 each",
+        "actual_cut_mm": null
+      },
+      {
+        "physical_unit": "GPIO_SPARE_3",
+        "pi_H_ends": [
+          "16",
+          "18"
+        ],
+        "nominal_parent_length_mm": 600,
+        "portion_route_lengths_mm": null,
+        "cut_loss_mm": null,
+        "acceptance": "sum of BOTH actual route+termination+necessary slack portions plus cut/strip loss <= verified delivered parent length; do not assume300 each",
+        "actual_cut_mm": null
+      },
+      {
+        "physical_unit": "GPIO_SPARE_4",
+        "pi_H_ends": [
+          "12",
+          "35"
+        ],
+        "nominal_parent_length_mm": 600,
+        "portion_route_lengths_mm": null,
+        "cut_loss_mm": null,
+        "acceptance": "sum of BOTH actual route+termination+necessary slack portions plus cut/strip loss <= verified delivered parent length; do not assume300 each",
+        "actual_cut_mm": null
+      },
+      {
+        "physical_unit": "GPIO_SPARE_5",
+        "pi_H_ends": [
+          "40",
+          "13"
+        ],
+        "nominal_parent_length_mm": 600,
+        "portion_route_lengths_mm": null,
+        "cut_loss_mm": null,
+        "acceptance": "sum of BOTH actual route+termination+necessary slack portions plus cut/strip loss <= verified delivered parent length; do not assume300 each",
+        "actual_cut_mm": null
+      }
+    ],
+    "if_not_fit": "KeepaffectedbindingOPEN, do not infer stockshortage or auto-buy; chooseonlyafteractualrouteandstockcheck"
+  },
+  "fanout_execution_proposal": {
+    "status": "MASTER_CHOSEN_FOR_PROTOTYPE_PLAN_UNBUILT_NEEDS_ACTUAL_LANDS_AND_INSULATION",
+    "logic": "Fixed soldered named branches fromexistingLOCAL.LOGIC3V3/GND. H1/H6 contacts retained; no inventedfreeWAGOterminal or doublewireinoccupiedchamber.",
+    "i2c": "Fixed named SDA/SCL branches fromexistingXL05/XL06 endpoints onPCA.JP3.3/.4, notNCJP4.",
+    "amp": "SeparateHELU0.5 pair fromactualMAIN.VOUT/GND, retainexistingW079W080K1474; verifyusableexistingland/clearance/strain/insulation/protection beforeassembly.",
+    "branch_location": "stationary accessible commonwiringregion beforecovers; nevermovinghinge",
+    "insulation_stock": "confirmalreadyselectedinsulation/heatshrinkavailable demand; do not debit allocatedFL3sleeves again",
+    "power_approval": false
   }
 }
