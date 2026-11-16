@@ -1,0 +1,481 @@
+{
+  "utc": "2026-11-16T01:59:19.559589+00:00",
+  "one_coherent_receiver_revision": true,
+  "tail_range_project": [
+    -20,
+    20
+  ],
+  "tail_continuous_cover": {
+    "xmax": 50.12132034355963,
+    "ymax": 7.98987146058544,
+    "negativeX": 5.621883216937903,
+    "range_degrees": [
+      -20,
+      20
+    ],
+    "margin": 1.25,
+    "proof": "For positiveX each original bbox point is within ymax of a radial segment; swept sector Minkowski radius ymax+margin covers EVERY angle. NegativeX corners covered by rotation-invariant disk hypot(xm,ymax)+margin. Z bands from actual tail slab, not sampled poses."
+  },
+  "tail_root_cover": {
+    "xmax": 50.121320343559574,
+    "ymax": 10.727180766717327,
+    "negativeX": 8.393802134286659,
+    "range_degrees": [
+      -20,
+      20
+    ],
+    "margin": 1.25,
+    "proof": "For positiveX each original bbox point is within ymax of a radial segment; swept sector Minkowski radius ymax+margin covers EVERY angle. NegativeX corners covered by rotation-invariant disk hypot(xm,ymax)+margin. Z bands from actual tail slab, not sampled poses."
+  },
+  "source_bought_and_P01_P05_H03_unchanged": true,
+  "checks": [
+    {
+      "kind": "material",
+      "part": "CLOSED_BODY_front_negative",
+      "valid": true,
+      "solids": 1,
+      "volume": 121661.59327394626
+    },
+    {
+      "kind": "material",
+      "part": "CLOSED_BODY_front_positive",
+      "valid": true,
+      "solids": 1,
+      "volume": 121662.00125925484
+    },
+    {
+      "kind": "material",
+      "part": "CLOSED_BODY_rear_negative",
+      "valid": true,
+      "solids": 1,
+      "volume": 142377.9177797449
+    },
+    {
+      "kind": "material",
+      "part": "CLOSED_BODY_rear_positive",
+      "valid": true,
+      "solids": 1,
+      "volume": 127815.78662120987
+    },
+    {
+      "kind": "material",
+      "part": "P02_front_deck",
+      "valid": true,
+      "solids": 1,
+      "volume": 67888.26687640294
+    },
+    {
+      "kind": "material",
+      "part": "P03_rear_deck_integrated_load_yoke",
+      "valid": true,
+      "solids": 1,
+      "volume": 126114.38609972429
+    },
+    {
+      "kind": "actual_face_bearing",
+      "axis": [
+        -70,
+        -72
+      ],
+      "area": 181.48914598017979
+    },
+    {
+      "kind": "actual_face_bearing",
+      "axis": [
+        -70,
+        72
+      ],
+      "area": 181.48914598017979
+    },
+    {
+      "kind": "actual_face_bearing",
+      "axis": [
+        70,
+        -72
+      ],
+      "area": 368.2415944622511
+    },
+    {
+      "kind": "actual_face_bearing",
+      "axis": [
+        70,
+        72
+      ],
+      "area": 368.2415944622511
+    },
+    {
+      "kind": "actual_face_bearing",
+      "axis": [
+        145,
+        -72
+      ],
+      "area": 368.2415944622511
+    },
+    {
+      "kind": "actual_face_bearing",
+      "axis": [
+        145,
+        72
+      ],
+      "area": 368.2415944622511
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_front_negative",
+      "other": "P01_load_rail",
+      "gap": 16.0,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_front_positive",
+      "other": "P01_load_rail_instance2",
+      "gap": 16.0,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "P01_load_rail",
+      "gap": 38.5,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "P05_S0_panel_spacer40",
+      "gap": 3.905124837953332,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "P05_spacer_instance3",
+      "gap": 2.8077770674945826,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H03_panel_M3x55_0",
+      "gap": 4.5,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H03_panel_M3x55_0_nut",
+      "gap": 2.82499999999996,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H03_panel_M3x55_0_washer",
+      "gap": 2.5,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H03_panel_M3x55_2",
+      "gap": 3.999999999999673,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H03_panel_M3x55_2_nut",
+      "gap": 2.357854854332933,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H03_panel_M3x55_2_washer",
+      "gap": 1.9999999999997884,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_0",
+      "gap": 7.5,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_0_nut",
+      "gap": 6.769572876018054,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_0_washer",
+      "gap": 5.88727441181401,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_1",
+      "gap": 11.5,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_1_nut",
+      "gap": 10.163199545418745,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_1_washer",
+      "gap": 9.729337079164234,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_2",
+      "gap": 5.5,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_2_nut",
+      "gap": 4.624999999999991,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_2_washer",
+      "gap": 4.081666326391711,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_3",
+      "gap": 5.5,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_3_nut",
+      "gap": 4.624999999999991,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_negative",
+      "other": "H04_tailbase_M3x20_3_washer",
+      "gap": 4.081666326391711,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "P01_load_rail_instance2",
+      "gap": 38.5,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "P05_spacer_instance2",
+      "gap": 54.646591842492796,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "P05_spacer_instance4",
+      "gap": 10.307764064044152,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H03_panel_M3x55_1",
+      "gap": 57.16856057549052,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H03_panel_M3x55_1_nut",
+      "gap": 55.4936329499557,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H03_panel_M3x55_1_washer",
+      "gap": 55.16856057549051,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H03_panel_M3x55_3",
+      "gap": 11.841664064126338,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H03_panel_M3x55_3_nut",
+      "gap": 10.34723286282831,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H03_panel_M3x55_3_washer",
+      "gap": 9.841664064126332,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H04_tailbase_M3x20_1",
+      "gap": 7.5,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H04_tailbase_M3x20_1_nut",
+      "gap": 6.769572876018052,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H04_tailbase_M3x20_1_washer",
+      "gap": 5.88727441181401,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H04_tailbase_M3x20_3",
+      "gap": 5.571067811865475,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H04_tailbase_M3x20_3_nut",
+      "gap": 4.731873307686917,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "new_skin_retained_foundation",
+      "part": "CLOSED_BODY_rear_positive",
+      "other": "H04_tailbase_M3x20_3_washer",
+      "gap": 4.142767832855421,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "tail_actual_local_witness_plus_continuous_cover",
+      "angle": -20,
+      "part": "CLOSED_BODY_rear_negative",
+      "gap": 1.5516323641686331,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "tail_actual_local_witness_plus_continuous_cover",
+      "angle": -20,
+      "part": "CLOSED_BODY_rear_positive",
+      "gap": 3.4887958025024464,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "tail_actual_local_witness_plus_continuous_cover",
+      "angle": 0,
+      "part": "CLOSED_BODY_rear_negative",
+      "gap": 2.9937458973582696,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "tail_actual_local_witness_plus_continuous_cover",
+      "angle": 0,
+      "part": "CLOSED_BODY_rear_positive",
+      "gap": 2.9937458973582785,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "tail_actual_local_witness_plus_continuous_cover",
+      "angle": 20,
+      "part": "CLOSED_BODY_rear_negative",
+      "gap": 3.488795802502433,
+      "common": 0.0,
+      "valid": true
+    },
+    {
+      "kind": "tail_actual_local_witness_plus_continuous_cover",
+      "angle": 20,
+      "part": "CLOSED_BODY_rear_positive",
+      "gap": 1.5516323641686434,
+      "common": 0.0,
+      "valid": true
+    }
+  ],
+  "failures": [],
+  "physical_pass": false,
+  "wholekit_ready": false,
+  "actual_fit_cut_slack": null,
+  "status": "LOCAL_RECEIVER_AND_TAIL20_SCOPED_REMAINING_JOINT_FUNCTION_DELTA_OPEN",
+  "seconds": 57.326704199949745
+}
