@@ -1,0 +1,472 @@
+{
+  "utc": "2026-11-16T05:38:20.717986+00:00",
+  "status": "NOMINAL_HEAD_TAIL_LOAD_COUPLERS_SENSOR_DATUMS_AND_HOLLOW_MASK_PARTIAL",
+  "local_actual_checks": {
+    "utc": "2026-11-16T05:27:16.800817+00:00",
+    "status": "NOMINAL_LOAD_AND_COUPLING_WITH_EXPLICIT_OPEN_CHECKS",
+    "checks": [
+      {
+        "name": "YAW_HORN_KEY_HALF_NEG",
+        "valid": true,
+        "solids": 1
+      },
+      {
+        "name": "YAW_HORN_KEY_HALF_POS",
+        "valid": true,
+        "solids": 1
+      },
+      {
+        "kind": "separate_coupler_parting",
+        "a": "YAW_HORN_KEY_HALF_POS",
+        "b": "YAW_HORN_KEY_HALF_NEG",
+        "common": 0.0,
+        "valid": true
+      },
+      {
+        "name": "YAW_HORN_ROOF_JOURNAL",
+        "valid": true,
+        "solids": 1
+      },
+      {
+        "kind": "separate_coupler_parting",
+        "a": "YAW_HORN_ROOF_JOURNAL",
+        "b": "YAW_HORN_KEY_HALF_NEG",
+        "common": 0.0,
+        "valid": true
+      },
+      {
+        "kind": "separate_coupler_parting",
+        "a": "YAW_HORN_ROOF_JOURNAL",
+        "b": "YAW_HORN_KEY_HALF_POS",
+        "common": 0.0,
+        "valid": true
+      },
+      {
+        "name": "PITCH_HORN_KEY_HALF_NEG",
+        "valid": true,
+        "solids": 1
+      },
+      {
+        "name": "PITCH_HORN_KEY_HALF_POS",
+        "valid": true,
+        "solids": 1
+      },
+      {
+        "kind": "separate_coupler_parting",
+        "a": "PITCH_HORN_KEY_HALF_POS",
+        "b": "PITCH_HORN_KEY_HALF_NEG",
+        "common": 0.0,
+        "valid": true
+      },
+      {
+        "name": "PITCH_HORN_ROOF_JOURNAL",
+        "valid": true,
+        "solids": 1
+      },
+      {
+        "kind": "separate_coupler_parting",
+        "a": "PITCH_HORN_ROOF_JOURNAL",
+        "b": "PITCH_HORN_KEY_HALF_NEG",
+        "common": 0.0,
+        "valid": true
+      },
+      {
+        "kind": "separate_coupler_parting",
+        "a": "PITCH_HORN_ROOF_JOURNAL",
+        "b": "PITCH_HORN_KEY_HALF_POS",
+        "common": 0.0,
+        "valid": true
+      },
+      {
+        "name": "TAIL_HORN_KEY_HALF_NEG",
+        "valid": true,
+        "solids": 1
+      },
+      {
+        "name": "TAIL_HORN_KEY_HALF_POS",
+        "valid": true,
+        "solids": 1
+      },
+      {
+        "kind": "separate_coupler_parting",
+        "a": "TAIL_HORN_KEY_HALF_POS",
+        "b": "TAIL_HORN_KEY_HALF_NEG",
+        "common": 0.0,
+        "valid": true
+      },
+      {
+        "name": "TAIL_HORN_ROOF_JOURNAL",
+        "valid": true,
+        "solids": 1
+      },
+      {
+        "kind": "separate_coupler_parting",
+        "a": "TAIL_HORN_ROOF_JOURNAL",
+        "b": "TAIL_HORN_KEY_HALF_NEG",
+        "common": 0.0,
+        "valid": true
+      },
+      {
+        "kind": "separate_coupler_parting",
+        "a": "TAIL_HORN_ROOF_JOURNAL",
+        "b": "TAIL_HORN_KEY_HALF_POS",
+        "common": 0.0,
+        "valid": true
+      },
+      {
+        "kind": "actual_part_material",
+        "name": "P10_front_gate",
+        "valid": true,
+        "solids": 1,
+        "volume": 47048.30530728296
+      },
+      {
+        "kind": "actual_part_material",
+        "name": "P07_open_tail_root_U",
+        "valid": true,
+        "solids": 1,
+        "volume": 26930.780296811743
+      },
+      {
+        "kind": "actual_part_material",
+        "name": "HEAD_YAW_FORK_FIXED_PITCH_HOUSING",
+        "valid": true,
+        "solids": 1,
+        "volume": 13982.52261975733
+      },
+      {
+        "kind": "actual_part_material",
+        "name": "HEAD_MOVING_SENSOR_FRAME_AND_COVER_SPINE",
+        "valid": true,
+        "solids": 1,
+        "volume": 23111.940664922015
+      },
+      {
+        "kind": "actual_part_material",
+        "name": "OLA_REAL_FRONT_MASK",
+        "valid": true,
+        "solids": 1,
+        "volume": 43848.387531037195
+      },
+      {
+        "kind": "actual_part_material",
+        "name": "OLA_REAL_BACK_COVER",
+        "valid": true,
+        "solids": 1,
+        "volume": 67524.35843502315
+      }
+    ],
+    "failures": [],
+    "technical_failure": "integralface BOP returned null; restored exact valid front BRep from same saved checkpoint, no material-loss acceptance",
+    "physical_pass": false,
+    "wholekit_ready": false,
+    "remaining": [
+      "factoryhorn/screw interface exactdelivery FIT3, no printed spline or extra factoryscrew stack",
+      "full newsteel/tool/initialinsertion and bearingrace widths not all checked",
+      "continuousyaw20/pitch10/tail20 newcase/coupler/skin delta OPEN",
+      "CSI15 and ToF4coreR31.5 actualconnected route/slack OPEN; no lengthcredit",
+      "decorativeeye/nose references currentlynotmechanicallysecured, ears/newcoverroots OPEN",
+      "rear-neckguard/bodyclosure OPEN",
+      "bodyBNO/inline8/speaker/S1monitor OPEN"
+    ],
+    "seconds": 2.819574199966155
+  },
+  "original_part_construction": [
+    {
+      "part": "YAW_HORN_KEY_HALF_NEG",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 1043.9319658499596
+    },
+    {
+      "part": "YAW_HORN_KEY_HALF_POS",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 1496.9319658499612
+    },
+    {
+      "part": "YAW_HORN_ROOF_JOURNAL",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "volume": 2531.678180272009
+    },
+    {
+      "part": "PITCH_HORN_KEY_HALF_NEG",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 1043.9319658499596
+    },
+    {
+      "part": "PITCH_HORN_KEY_HALF_POS",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 1496.9319658499612
+    },
+    {
+      "part": "PITCH_HORN_ROOF_JOURNAL",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "volume": 2381.0702284589124
+    },
+    {
+      "part": "TAIL_HORN_KEY_HALF_NEG",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 1043.9319658499596
+    },
+    {
+      "part": "TAIL_HORN_KEY_HALF_POS",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 1496.9319658499614
+    },
+    {
+      "part": "TAIL_HORN_ROOF_JOURNAL",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "volume": 2343.418240505641
+    },
+    {
+      "part": "YAW_FIXED_OUTER_RACE_CAP",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 1989.1467395396066
+    },
+    {
+      "part": "YAW_OUTER_RACE_SPACER",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 879.6459430051427
+    },
+    {
+      "part": "YAW_INNER_RACE_SPACER",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 189.06889987466764
+    },
+    {
+      "part": "YAW_TOP_THRUST",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 162.0590570354294
+    },
+    {
+      "part": "HEAD_YAW_FORK_FIXED_PITCH_HOUSING",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "volume": 13982.52261975733
+    },
+    {
+      "part": "PITCH_FIXED_OUTER_RACE_CAP",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "volume": 615.1135498978033
+    },
+    {
+      "part": "PITCH_INNER_THRUST_SPACER",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 81.0295285177147
+    },
+    {
+      "part": "HEAD_MOVING_SENSOR_FRAME_AND_COVER_SPINE",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "volume": 23882.324436498566
+    },
+    {
+      "part": "YAW_REAL_REMOVABLE_SERVO_SADDLE",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "volume": 1978.3129271799448
+    },
+    {
+      "part": "PITCH_REAL_REMOVABLE_SERVO_SADDLE",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "volume": 850.7699141987433
+    },
+    {
+      "part": "TAIL_REAL_REMOVABLE_SERVO_SADDLE",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "volume": 804.5199141987438
+    },
+    {
+      "part": "TAIL_FIXED_BEARING_CARTRIDGE",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0
+      ],
+      "volume": 8435.20769081513
+    },
+    {
+      "part": "TAIL_FIXED_OUTER_RACE_CAP",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 5804.312338992891
+    },
+    {
+      "part": "TAIL_OUTER_RACE_SPACER",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 502.6548245743668
+    },
+    {
+      "part": "TAIL_INNER_THRUST",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0
+      ],
+      "volume": 270.0984283923823
+    },
+    {
+      "part": "TAIL_ROTATING_HOLLOW_REAL_ROOT",
+      "valid": true,
+      "solids": 1,
+      "intended_missing": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "volume": 6726.199003442501
+    }
+  ],
+  "coverage": "initialmembers0missing; laterexplicitjournalcrosspinbores/frontwingparting areintendedrevisions, notclaimoldentirevolumeunchanged",
+  "frontmask": "validsourcecheckpointrestoredafterNULL BOP; separateeyes/nose referencesUNSECURED, notcompletefrontprint",
+  "technical_BOP_failure_not_design_or_contact_counter": true,
+  "FOV": "continuous nominal camera102x67/ToF45x45 cut intofullwall; primarydatums/delivery andallassembledheadnotfullyqualified",
+  "remaining": [
+    "factoryhorn/screw interface exactdelivery FIT3, no printed spline or extra factoryscrew stack",
+    "full newsteel/tool/initialinsertion and bearingrace widths not all checked",
+    "continuousyaw20/pitch10/tail20 newcase/coupler/skin delta OPEN",
+    "CSI15 and ToF4coreR31.5 actualconnected route/slack OPEN; no lengthcredit",
+    "decorativeeye/nose references currentlynotmechanicallysecured, ears/newcoverroots OPEN",
+    "rear-neckguard/bodyclosure OPEN",
+    "bodyBNO/inline8/speaker/S1monitor OPEN"
+  ],
+  "whole_wiring_new_short_FHAC_dependency": "ParentCURRENTFIRST records94.5maxlead<107.355necessarycasegapdirectW043; nextWHOLEpowerislandallocation needed, notextension/localfoot",
+  "new_STL": 0,
+  "physical_pass": false,
+  "wholekit_ready": false,
+  "actual_fit_cut_slack": null
+}
