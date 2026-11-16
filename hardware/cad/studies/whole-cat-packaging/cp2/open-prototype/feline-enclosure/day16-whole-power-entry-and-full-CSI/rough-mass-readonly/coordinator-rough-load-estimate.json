@@ -1,0 +1,129 @@
+{
+  "created_utc": "2026-11-16T15:32:06.255755+00:00",
+  "scope": "ROUGH_ORIENTATION_ONLY_NOT_MOTION_APPROVAL_OR_DESIGN_RESUME",
+  "measurement_commit": "92a798fc73bcecec4393b6071418e7242b41ddf7",
+  "measurement_json_sha256": "8c68dbf687e4b4be605b33f282654435f0d54189fd813b2b443add7ae8747c7a",
+  "current_print_measurement": {
+    "effective_objects": 70,
+    "modeled_volume_cm3": 1400.394674998118,
+    "new_print_full_solid_mass_kg": 1.7785012372476101,
+    "body_skin_full_solid_mass_kg": 0.7116950545640821,
+    "head_skin_full_solid_mass_kg": 0.15535971002153232
+  },
+  "component_mass_scenarios_NOT_statistical_confidence_interval": [
+    {
+      "group": "current_prints_and_leg_print_candidates",
+      "kg_range": [
+        1.3466601671342142,
+        1.8967109082349984
+      ],
+      "basis": "current cached measured modeled volumes; heuristic skins90..100%, other55..100%; PETG1.27; not slicer/measured manufactured mass"
+    },
+    {
+      "group": "12_selected_ST3215",
+      "kg_range": [
+        0.72,
+        0.9
+      ],
+      "basis": "planning assumption60..75g each; supplier item22414 identity confirmed, delivered mass not measured"
+    },
+    {
+      "group": "3_selected_MG92B",
+      "kg_range": [
+        0.0414,
+        0.0414
+      ],
+      "basis": "cached nominal13.8g each; not additional twelve drives"
+    },
+    {
+      "group": "battery_GEA223S30X6GT",
+      "kg_range": [
+        0.174,
+        0.174
+      ],
+      "basis": "cached supplier nominal174g; one battery"
+    },
+    {
+      "group": "uncertain_original_chassis_and_all_metal_bearings_fasteners",
+      "kg_range": [
+        0.18,
+        0.4
+      ],
+      "basis": "coarse engineering allowance, NOT measured; includes uncertain original chassis120g ifPETG or~255g ifaluminium, and selectedhardware; no extra bought parts"
+    },
+    {
+      "group": "Pi_boards_cooling_sensors_audio",
+      "kg_range": [
+        0.18,
+        0.35
+      ],
+      "basis": "coarse selectedequipment allowance inclPi46g; NOT verified complete inventory/supplier sum"
+    },
+    {
+      "group": "all_protection_junctions_terminals_switches_and_cables",
+      "kg_range": [
+        0.45,
+        0.8
+      ],
+      "basis": "coarse allowance incl4x615/16x415/8inline/selectedfusesholdersswitchesterminals + actualplannedwiring, not box-volume*density; NOT weighed/sourcecomplete"
+    }
+  ],
+  "rough_whole_mass_kg_range": [
+    3.092060167134214,
+    4.562110908234999
+  ],
+  "working_mass_for_sensitivity_kg": 4,
+  "actual_neutral_max_vertical_reaction_lever_cm": 7.51198937075137,
+  "force_model": "tau = whole_mass_kg/equal_supports * effective_lever_cm in kgf.cm; Nm = kgf.cm*9.80665/100. Ground reaction term only, leg gravitational contributions separately omitted, unequal COM/horizontal forces/dynamics not solved. Does not sum motor stall figures as payload.",
+  "motor_reference": {
+    "source": "https://docs.waveshare.com/ST3215_Servo",
+    "SKU": "22414",
+    "rated_load_kgf_cm_at12V": 10,
+    "stall_kgf_cm_at12V": 30,
+    "battery": "selected3S11.1V nominal; 12V numbers are reference, voltage drop not modeled; do not assume12V throughout discharge"
+  },
+  "working_4kg_scenarios": [
+    {
+      "whole_mass_kg": 4,
+      "equal_supports": 4,
+      "illustrative_load_factor": 1,
+      "ground_reaction_axis_torque_kgf_cm": 7.51198937075137,
+      "ground_reaction_axis_torque_Nm": 0.7366745056267893
+    },
+    {
+      "whole_mass_kg": 4,
+      "equal_supports": 2,
+      "illustrative_load_factor": 1,
+      "ground_reaction_axis_torque_kgf_cm": 15.02397874150274,
+      "ground_reaction_axis_torque_Nm": 1.4733490112535785
+    },
+    {
+      "whole_mass_kg": 4,
+      "equal_supports": 2,
+      "illustrative_load_factor": 1.5,
+      "ground_reaction_axis_torque_kgf_cm": 22.53596811225411,
+      "ground_reaction_axis_torque_Nm": 2.2100235168803675
+    }
+  ],
+  "mass_range_sensitivity": {
+    "4_equal_supports_kgf_cm": [
+      5.80688077730898,
+      8.567632162712547
+    ],
+    "2_equal_supports_kgf_cm": [
+      11.61376155461796,
+      17.135264325425094
+    ]
+  },
+  "equal_two_support_mass_at10kgf_cm_no_dynamic_reserve_kg": 2.6624105829904208,
+  "illustrative_1p5_factor_is_assumption_not_measured_gait": true,
+  "consequence": "Four-legged neutral standing plausibly within nominal rated reference, but unequal reactions/voltage not qualified. Two-leg support at rough3.1..4.6kg yields~11.6..17.1kgfcm groundreaction term, above10rated before dynamics; not automatically no motion, but inadequate demonstrated walking margin. Reduce carriedmass and/or actualforcelevers before lengtheninglegs. Head/tailMGtorque not qualified by this legs calculation.",
+  "limitations": [
+    "No measured complete mass/COM",
+    "No slicer manufacturing mass",
+    "No thermal/current/voltage derating curve",
+    "No dynamic gait/traction/tipping solve",
+    "Source127 dimensions not assumed identicalE6; current12hornaxes andfootrefs extracted",
+    "No geometry/native changes; project remains user-paused enabledfalse"
+  ]
+}
