@@ -1,0 +1,154 @@
+{
+  "status": "ONE_DISTRIBUTED_FUNCTIONAL_HYPOTHESIS_NOT_SELECTED",
+  "source": "99007e13",
+  "before_new_holder_detail": true,
+  "rejected_old_directW043": {
+    "relaxed_min_any615": 107.355,
+    "spec_max": 94.5,
+    "guaranteed_planning_budget": 84.5,
+    "not_inventory_shortage": true
+  },
+  "relocations": [
+    {
+      "name": "WAGO615_power_1_0",
+      "function": "P_SYS",
+      "rotate": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "min": [
+        100,
+        82,
+        60
+      ]
+    },
+    {
+      "name": "WAGO615_power_1_1",
+      "function": "P_REAR",
+      "rotate": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "min": [
+        125,
+        82,
+        60
+      ]
+    },
+    {
+      "name": "FHAC0001_Pi3A",
+      "function": "F_PI",
+      "rotate": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "min": [
+        55,
+        56,
+        55
+      ]
+    },
+    {
+      "name": "FHAC0001_AUX4A",
+      "function": "F_AUX",
+      "rotate": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "min": [
+        134,
+        56,
+        55
+      ]
+    },
+    {
+      "name": "FHAC0001_Yaw1A",
+      "function": "F_HY",
+      "min": [
+        55,
+        -92,
+        64
+      ]
+    },
+    {
+      "name": "FHAC0001_Pitch1A",
+      "function": "F_HP",
+      "min": [
+        78,
+        -92,
+        64
+      ]
+    },
+    {
+      "name": "FHAC0001_Tail1A",
+      "function": "F_TY",
+      "min": [
+        101,
+        -92,
+        64
+      ]
+    },
+    {
+      "name": "WAGO415_data_1_0",
+      "function": "P_AUX",
+      "min": [
+        65,
+        -65,
+        79
+      ]
+    },
+    {
+      "name": "POST_F0_WAGO412",
+      "function": "POST_F0",
+      "min": [
+        -132,
+        10,
+        64
+      ]
+    }
+  ],
+  "unchanged615": {
+    "WAGO615_power_0_0": "G1",
+    "WAGO615_power_0_1": "P_FRONT"
+  },
+  "whole_order": [
+    "bench wholeE1/MTA/straps/nuts beforemodules; retainallfullfactoryends",
+    "frame/bearing/headroots unchanged",
+    "candidatepowercases andcommonretention AFTERwholeavailableleadturn/read",
+    "factorypigtails/connectedendgroups beforePiMAIN-AUXcap/MIC/BUS/battery",
+    "electricaltestsnotauthorized; handlaythenlatebodycovers"
+  ],
+  "first_named_necessary_gate": {
+    "interface": "F_PI leftfactoryexit immediatelyafterlastpositiveMotorATO bank",
+    "FPI_left_x": 55,
+    "lastBank_maxX": 47.8486,
+    "case_to_bank_gap": 7.1514,
+    "foreign": 1.25,
+    "wire_radius": 1.55,
+    "project_factorywire_R_basis": 12.4,
+    "turn_center_required_x": 42.6,
+    "available_before_allocated_bank": 7.1514,
+    "classification": "necessaryR-turncapacity atcompletebank, notdeliveredwirecontact; actualTE/plasticbasis mustclassify",
+    "status": "NOT_EXECUTED_CONDITIONAL_PROJECTION_ONLY_NOT_ACTUALPLASTIC_OR_ROUTE_FAILURE"
+  },
+  "actual_fit_cut_slack": null,
+  "physical_pass": false,
+  "wholekit_ready": false,
+  "actual_first_gate": "finite-whole-power-first-gate.json: currentP11 material interferes withnewfull615casefields; horizontalFPI nominalgap0. STOP before newretention/secondfamily."
+}
