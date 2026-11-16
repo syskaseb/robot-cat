@@ -1,5 +1,15 @@
 # robot cat — notes for Codex
 
+## Noc16/17Nov do10Warszawa — CAŁY zwarty WAVEGO-kot
+
+Użytkownik jawnie wznowił: „Jeśli możesz to napierdzielaj do rana do godziny10.” Nowe okno do2026-11-17T09:00:00Z/10:00Warszawa; poprzednie2h pozostaje zamknięte/historia. Bieżące polecenie/piny/aktywnyinput: PIERWSZA kartaHOBBY_COMPLETION_PLAN.md i świeżyrobot-cat-work-window.json. To wznowienie ma pierwszeństwo nad poniższymi historycznymi zakazami wznowienia.
+Najpierw JEDEN zwarty podłużny rdzeń wszystkich wybranych modułów/ochrony/terminali zpełnymistockami, prawdziwymikońcami/chłodzeniem/portami/nośnością/montażem2osób RAZEM z sylwetką robotaOli, potem konieczne wspólne mounty/closedskins/fitcoupons/exports. Nie kolejna skorupa wokół starej rury ani lokalnyCSI/FPI/D5/pocketloop. Zachować12ST3215/3MG/leglength/head2axis/tailY/boughtparts/protection/factoryends; mała zmiana bazy/rozstawu CAŁYCH bioder dopuszczona po zysku, bez nowychserw/zakupów.
+6a1283gPETG/−495g to przydatny lżejszy źródłowy kandydat, ale wygląd i cały montaż NEGATYWNE/OPEN. Source847: własneruszty348 vsP01 214/WAGOrows247/MTAwidth194 — te pozy zmienne. Całe źródła/negatywy zachować. MTA0100335/8inline/fullFHAC/CSI luki wiązać wąsko lub nazwać minimalnąpróbkę, nie usuwaćczęści/nie stopować niezależnejpracy.
+SoleBanachCAD, masteronlyFIRST/runtime/currentassembly; Beauvoirmax3prostota/Zenoactualwholevisual/Lorentzsource+1boundedwhole-reviewmax5+1correction; oldcyclesclosed. Bohrprivateworktree/osobnyGitindex. ParentreceiveACTUALactive_worker.current_input+freshnativeBEFOREnextdispatch/nohistoricalIDs/queuedflood; parentnoMECHstagewhileBanachactive. Ownnarrowverifiedcommits/noforeignstage/cleanupreset/globalrenormalizacja.
+Wewnętrzne20–30minwynik lubfact+consequence/pins/owncommit/nativeIDLE→parentautomaticnext; niekoniecoknapopierwszymmountkit/HOLD/partialfinal. Wholeviews/function/load/assembly beforedetail, groupingwireoccupancy/length/slack bez123axes/productionrapidservice/FEM/oldglobalreplays; dokładnywiretesttylkonazwanezagrożenie iwhynotregion. Print256cube inclbrim/support.
+Aktualnyordinaryusage read/save target4min/max10/przedkosztownym; %guardNULL/bezresetu. No longnewnativeafter08:40UTC; save/endownedcompute08:50; HARD09UTC17Nov bezprzedłużenia. ZachowaćjednąGUI/MCP/savebeforecostly/normalreturnnotSystemExit. AtomicUTF8LF/freshcompare/preservemetadata. Stopwholepackageactualready/noindependentinscopeafteralternatives/ordinaryfalse/refusal/missingfreshusage→save/endownedcompute/enabledfalse. No physicalPASS/power/print/slicer/ROS/push/mail/alerts/schedule/newagentswithoutneed. Jeden uczciwy raport poranny; bez budzenia dlaopcjonalnychbraków.
+
+
 ## Nowe 2 godziny16Nov — lżejszy i niższy CAŁY robot; rzetelny wygląd
 
 **OKNO ZAMKNIĘTE16Nov po zapisaniu wyniku; enabled=false. Cel całego wyglądu/montażu NIEOSIĄGNIĘTY.** Ostatnia geometria6a4534fa, readonlydecyzja84715e26, modelowanyPETG−495g; sourceGUI1003saved/IDLE. WyglądNEGATYWNY, wholekitfalse/physicalPASSfalse. Bieżący wynik i następny CAŁY problem w pierwszej karcie. Nie wznawiać poprzedniegoNEXT/hooka automatycznie. Poniższy opis2h jest zakresem HISTORYCZNEGO zamkniętego okna.
