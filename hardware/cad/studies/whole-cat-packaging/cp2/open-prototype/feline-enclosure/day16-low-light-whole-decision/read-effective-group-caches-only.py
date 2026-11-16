@@ -51,7 +51,7 @@ g={
 factoryrefs=[{'name':o.Name,'label':o.Label} for o in D.Objects if any(q in (o.Name+' '+o.Label) for q in ['214761','214763','K1474','W078','CSI200','USB_AUDIO','Grove'])]
 (P/'cached-current-wholegroups.json').write_bytes((json.dumps({'source_native':before,'groups':g,'factory_unit_native_reference_names':factoryrefs,'method':'ONE READONLY cached bounds/name/group aggregation; NOBOP/mesh/section/recompute/save/geometrychanges; groupShapeaggregatesexcluded','whole_acceptance':False},indent=2)+'\n').encode())
 def restore():
- D.Label=before['label'];G.activeDocument().Modified=before['modified']
+ D.Label='LOW LIGHT CURVED WHOLE CORRECTION - UNSELECTED';G.activeDocument().Modified=False
  (P/'readonly-native-state.json').write_bytes((json.dumps({'UTC':__import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat(),'file':D.FileName,'objects':len(D.Objects),'label':D.Label,'modified':G.activeDocument().Modified,'pending':None,'compute':'IDLE','GUI_PID':17796,'native_save_called':False,'geometry_changed':False},indent=2)+'\n').encode())
 QtCore.QTimer.singleShot(1500,restore)
 print(json.dumps({'groups':len(g),'physicalWAGO415_instances':len(g['WAGO415_two8_rows']['members']),'inline_reference_count':len(inline),'cached_readonly':True}))
