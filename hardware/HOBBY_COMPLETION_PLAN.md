@@ -4,7 +4,7 @@
 
 **Cel:** robot do szybkiego złożenia przez dwie osoby na posiadanej WAVEGO, z wybraną elektroniką i zamkniętą obudową o wyglądzie robota z projektu Oli. Mała zmiana długości/szerokości bazy jest dopuszczona. Dawne 1/10/NEXT, pozy niezbudowanych druków i liczbowe rezerwy nie są wymaganiami tego etapu. **Cały kot nadal NIE jest ukończony.**
 
-**Ogon — potwierdzenie użytkownika16.11.2026:** wymagany ruch GÓRA–DÓŁ (pitch wokół poprzecznejY), zgodnie z tail_joint w modelu symulacyjnym. Aktualny mechaniczny model5e504/99007 ma błędny tail_Z/obrót na boki i pozostaje NIEPOPRAWIONY. Jego dawne wyniki ruchu/prześwitu ogona dlaZ nie są odbiorem wymaganego ruchu pionowego.
+**Ogon — potwierdzenie użytkownika16.11.2026:** wymagany ruch GÓRA–DÓŁ (pitch wokół poprzecznejY), zgodnie z tail_joint w modelu symulacyjnym. Zamrożony poranny5e504/99007 miał błędny tail_Z/obrót na boki. Nowa propozycja753ff25c maY, ale niedokończony korzeń/adapter nie przenosi momentu; ruch nadal NIEODEBRANY. Jego dawne wyniki ruchu/prześwitu ogona dlaZ nie są odbiorem wymaganego ruchu pionowego.
 
 Przy kolejnym wznowieniu uwzględnić rzeczywisty pionowy mechanizm ogona w CAŁYM układzie: serwo/róg/łożysko/korzeń, przejście przez osłonę i przewody. Sprawdzić wyłącznie zmieniony interfejs; nie przenosić automatycznie±20Z naY ani unieważniać niezależnej pustej podstawy. Wybrane części i liczba napędów pozostają. Zamrożony pakiet16Nov/native nie jest przez ten zapis naprawiony; nowe wznowienie wynika z jawnej zgody do22:10, a nie z samego zapisu kierunku.
 
@@ -12,12 +12,16 @@ Przy kolejnym wznowieniu uwzględnić rzeczywisty pionowy mechanizm ogona w CAŁ
 
 **Setup:** jeden autorCADBanach; master jako jedyny pisze tę kartę/runtime/current-assembly i integruje. Banach oddaje własne receipty/status w nowym katalogu i nie pisze wspólnych plików. Bohr osobny worktree z osobnym indeksemGit, pozostali readonly przypięte źródła. Niezależne zadania równolegle; bez czekania na wszystkich i bez wspólnego stagingu.
 
+**Aktualnie:** odebrano753ff25c/49c,24plikiexact/manifest29804cac…cfdbdf/CRC4657, świeża jednaGUI17796/876/zapisana/IDLE. Cała propozycja ma ośogonaY, ale adapter2,603426mm i stałeP07 są niedokończone; NIE odebrano drogi momentu. Nowe orientacjeP_SYS/F_PI/F_AUX to propozycja,29mmW043 tylko warunkowy rachunek. Dokończenie tego samego użytecznego połączenia nie jest drugą rodziną. Beauvoir4b6e0ea/Zeno4b6e048 czytają zamrożone nowe widoki; Lorentz4b22ada tylko brakujący stockCSI/USB/Grove. Bohr6wymagań odebrane i zintegrowanecca734ff.
+
+**Źródło WAGO odebrane13:50UTC — PRZED bramką zasilania:** [receipt221615](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-afternoon-context/source-WAGO221615-received.json). Pierwotna kartaWAGO fa0c8a23…e05b:36,7×21,1×10,1mm, WSZYSTKIE5wejść na jednej bocznej ścianie, dźwignie od góry. Układ projektu: Xwzdłuż5wejść/Yw głąb/Zwysokość; NIE układ CADproducenta. Indywidualny pitch/mouths/stop i otwarta dźwignia UNKNOWN. Odizolowanie12–14mm od końca miedzi do izolacji; nie dodatkowy odcinek poza A/BFHAC ani nowy kredyt C/D. Dodatkowe odizolowanie przy ludzkim montażu, jeśli potrzebne, mieści się w TEJ SAMEJ fabrycznej długości i musi mieć jawny plan. Wybrać wspólną ścianę/role/otwarte podejścia zanim utrwali się pozę receivera. To sourcefact, nie geometryGO.
+
 ### Jedno aktualne wejście
 
 | Wynik | Wersja i zakres |
 |---|---|
 | **Pakiet dla dwóch osób** | [START_HERE](closed-prototype-2026-11-16/START_HERE.md), [ZIP](closed-prototype-2026-11-16.zip), commit de4a49f4b4d2812c57a18320b4326f1f28e835f3. **Częściowa sucha przymiarka, nie cały kot.** Tylko główny [PRINT_INDEX.csv](closed-prototype-2026-11-16/PRINT_INDEX.csv) wybiera części, ilości, źródła i orientacje. |
-| **Aktualny pełny model-propozycja** | [Native](closed-prototype-2026-11-16/01_MODEL_PROPOZYCJA/power-retention-realized.FCStd), źródło5e504127, manifest f614a358…62ce840/CRC4617. POWER/W043 HOLD; nie eksportować wszystkich widocznych obiektów jako gotowego kompletu. |
+| **Aktualny pełny model-propozycja** | [Native](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-evening-whole-functional-recovery/whole-functional-recovery.FCStd),753ff25c/manifest29804cac…cfdbdf/CRC4657. OgonY z niedokończonym korzeniem, nowe orientacjezasilania nieodebrane. Poranny pakiet pozostaje zamrożony; nie eksportować wszystkiego jako gotowego kompletu. |
 | **Starszy fit15Nov** | [Zamrożony podzespół](first-fit-2026-11-15/START_HERE.md), de8302f1, zachowany. Dużych starych P02/P03/P10/P11/P12/P19 nie podmieniać za aktualne wersje. Bieżący indeks jawnie wybiera tylko niezmienione próbki/P04. |
 
 <!-- BANACH_CURRENT_RESULT -->
@@ -34,9 +38,12 @@ Przy kolejnym wznowieniu uwzględnić rzeczywisty pionowy mechanizm ogona w CAŁ
 
 ### Następny checkpoint — CAŁY wykonalny układ przed detalami
 
+**Rozróżnienie dla wykonawcy:** zwykłe dokończenie zamierzonego połączenia/gniazda w TEJ SAMEJ architekturze nie jest drugą rodziną ani osobnym20-minHOLD. Nie kończyć pracy tylko dlatego, że nowy adapter nie został jeszcze fizycznie połączony z własną niezbudowaną rurą. Najpierw odczytać rzeczywisty interfejs i domknąć użyteczną drogę obciążenia, zachowując potrzebny obrys/funkcje. Gdy brak wynika z niewykonalnej całej warstwy/układu, zapisać przyczynę i zmienić funkcjonalną organizację; nie ratować tego siatką offsetów.
+
+
 Teraz Banach: JEDNA wspólna propozycja z rzeczywistym pionowym ogonem (serwo/róg/łożysko/korzeń/przejście osłony), funkcjonalną orientacją prawdziwych końców F_PI/F_AUX/P_SYS i pozostałych krótkich jednostek oraz wszystkimi modułami/ochroną/stockiem. Actualopaquewholeview+przekroje, zajęte połączone regiony wiązek/liczby/profile, montaż, chłodzenie/porty i pierwsza tania bramka przestrzeń–promień–długość. NIE utrwalać dziewięciu starych pozycji ani starej P11; niezbudowane własne części są zmienne. Najpierw krótka źródłowa identyfikacja potrzebnego interfejsu, nie kolejna krzywa przy tej samej błędnej przesłance.
 
-Lorentz równolegle ustala brakujący datum wyłącznie WAGO221-615 (cały korpus/strona wlotów/dźwignie/odizolowanie), z istniejących źródeł i dokumentacji producenta, bez audytu katalogu. MTA0100335 ma już odebraną erratę — nie powtarzać starego lookupu; konkretna jedna przymiarka zostaje nazwana, bez zatrzymywania niezależnego ogona/układu. Beauvoir ocenia prostotę i nadrzędne funkcje, Zeno aktualne widoki względem ROBOTA z projektu Oli. Po całej propozycji ograniczony review, jedna korekta, potem tylko niezbędne wspólne mocowania/obudowa i eksport.
+ŹródłoWAGO221-615 odebrane i przezBanacha zużyte13:58. Lorentz wykonuje teraz wyłącznie wąski lookup rzeczywiście wybranych całych kabliCSI/USB_AUDIO/Grove; UNKNOWN pozostaje konkretną przymiarką, nie nowym globalnym audytem. MTA0100335 ma już odebraną erratę — nie powtarzać starego lookupu; konkretna jedna przymiarka zostaje nazwana, bez zatrzymywania niezależnego ogona/układu. Beauvoir ocenia prostotę i nadrzędne funkcje, Zeno aktualne widoki względem ROBOTA z projektu Oli. Po całej propozycji ograniczony review, jedna korekta, potem tylko niezbędne wspólne mocowania/obudowa i eksport.
 
 Fizyczne pomiary P00/MG+róg/MTA/FHAC–WAGO są nadal niewykonane (orientacyjnie30–60min pracy człowieka). Nie udawać fizycznegoPASS ani dobrych budżetów z nieznanego obrysu, ale kontynuować rzeczywiście niezależną pracę. P01/P02/P03/P04 mają odrębny warunkowy zakres pustej przymiarki poP00; brak MTA nie unieważnia automatycznie tej podstawy.
 
