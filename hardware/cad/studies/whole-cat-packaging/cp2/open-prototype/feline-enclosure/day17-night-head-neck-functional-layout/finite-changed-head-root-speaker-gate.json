@@ -1,0 +1,255 @@
+{
+  "rows": [
+    {
+      "name": "fixed_saddle_disjoint",
+      "a": "NIGHT_HEAD_FIXED_SADDLE_ROOT",
+      "b": "YAW_REAL_REMOVABLE_SERVO_SADDLE",
+      "threshold": 0,
+      "box_lower": 0.0,
+      "valid": true,
+      "common_mm3": 0.0,
+      "method": "actualmatchedpartcommon"
+    },
+    {
+      "name": "root_P_AUX",
+      "a": "NIGHT_HEAD_FIXED_SADDLE_ROOT",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "box_lower": 2.5,
+      "valid": true,
+      "gap_lower": 2.5,
+      "method": "actualworldshapeBBoxcertifiedlowerbound"
+    },
+    {
+      "name": "saddle_P_AUX",
+      "a": "YAW_REAL_REMOVABLE_SERVO_SADDLE",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "box_lower": 8.499999999999988,
+      "valid": true,
+      "gap_lower": 8.499999999999988,
+      "method": "actualworldshapeBBoxcertifiedlowerbound"
+    },
+    {
+      "name": "newyawMG_P_AUX",
+      "a": "MG92B_Head_yaw",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "box_lower": 7.499999999999986,
+      "valid": true,
+      "gap_lower": 7.499999999999986,
+      "method": "actualworldshapeBBoxcertifiedlowerbound"
+    },
+    {
+      "name": "fixedroot_PiCOOL",
+      "a": "NIGHT_HEAD_FIXED_SADDLE_ROOT",
+      "b": "Pi_components_and_cooling",
+      "threshold": 1.25,
+      "box_lower": 1.0,
+      "valid": true,
+      "gap": 1.0,
+      "method": "actualshapeexactdist"
+    },
+    {
+      "name": "speaker_MTAupper",
+      "a": "Speaker",
+      "b": "FORE_MTA_REMOVABLE_UPPER_RECEIVER",
+      "threshold": 1.25,
+      "box_lower": 1.5,
+      "valid": true,
+      "gap_lower": 1.5,
+      "method": "actualworldshapeBBoxcertifiedlowerbound"
+    },
+    {
+      "name": "speaker_MTAfixed",
+      "a": "Speaker",
+      "b": "FORE_MTA_FIXED_COMMON_POSTS_AND_LOWER",
+      "threshold": 1.25,
+      "box_lower": 1.5,
+      "valid": true,
+      "gap_lower": 1.5,
+      "method": "actualworldshapeBBoxcertifiedlowerbound"
+    },
+    {
+      "name": "headfork_speaker",
+      "a": "HEAD_YAW_FORK_FIXED_PITCH_HOUSING",
+      "b": "Speaker",
+      "threshold": 1.25,
+      "box_lower": 65.5,
+      "valid": true,
+      "gap_lower": 65.5,
+      "method": "actualworldshapeBBoxcertifiedlowerbound"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_M2x10_fullscrew",
+      "b": "MG92B_Head_yaw",
+      "threshold": 1.25,
+      "gap_lower": 3.6138531392136946,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_M2x10_fullscrew",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "gap_lower": 24.909128920428053,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_M2x10_fullscrew",
+      "b": "Pi_components_and_cooling",
+      "threshold": 1.25,
+      "gap_lower": 2.613853139213697,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_fullnut",
+      "b": "MG92B_Head_yaw",
+      "threshold": 1.25,
+      "gap_lower": 3.499481317257943,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_fullnut",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "gap_lower": 26.34333043617514,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_fullnut",
+      "b": "Pi_components_and_cooling",
+      "threshold": 1.25,
+      "gap_lower": 2.4994813172579473,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_upperwasher",
+      "b": "MG92B_Head_yaw",
+      "threshold": 1.25,
+      "gap_lower": 3.0085387674833237,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_upperwasher",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "gap_lower": 24.293603240361087,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_upperwasher",
+      "b": "Pi_components_and_cooling",
+      "threshold": 1.25,
+      "gap_lower": 2.0085387674833246,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_lowerwasher",
+      "b": "MG92B_Head_yaw",
+      "threshold": 1.25,
+      "gap_lower": 3.0085387674833237,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_lowerwasher",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "gap_lower": 25.821292732938115,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE__11_5_lowerwasher",
+      "b": "Pi_components_and_cooling",
+      "threshold": 1.25,
+      "gap_lower": 2.0085387674833246,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_M2x10_fullscrew",
+      "b": "MG92B_Head_yaw",
+      "threshold": 1.25,
+      "gap_lower": 3.6138530498067247,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_M2x10_fullscrew",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "gap_lower": 20.171762441591444,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_M2x10_fullscrew",
+      "b": "Pi_components_and_cooling",
+      "threshold": 1.25,
+      "gap_lower": 25.613853139213695,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_fullnut",
+      "b": "MG92B_Head_yaw",
+      "threshold": 1.25,
+      "gap_lower": 3.499481227850975,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_fullnut",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "gap_lower": 21.994001454942193,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_fullnut",
+      "b": "Pi_components_and_cooling",
+      "threshold": 1.25,
+      "gap_lower": 25.499481317257946,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_upperwasher",
+      "b": "MG92B_Head_yaw",
+      "threshold": 1.25,
+      "gap_lower": 3.008538678076352,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_upperwasher",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "gap_lower": 19.847921805569456,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_upperwasher",
+      "b": "Pi_components_and_cooling",
+      "threshold": 1.25,
+      "gap_lower": 25.008538767483323,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_lowerwasher",
+      "b": "MG92B_Head_yaw",
+      "threshold": 1.25,
+      "gap_lower": 3.008538678076352,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_lowerwasher",
+      "b": "PBAY_P_AUX",
+      "threshold": 1.25,
+      "gap_lower": 21.69101196348385,
+      "method": "actualsourcebounds"
+    },
+    {
+      "a": "HN_FIXED_SADDLE_11_5_lowerwasher",
+      "b": "Pi_components_and_cooling",
+      "threshold": 1.25,
+      "gap_lower": 25.008538767483323,
+      "method": "actualsourcebounds"
+    }
+  ],
+  "actual_fixed_saddle_contact_Z69p5_mm2": 272.852655728905,
+  "fullhardware_tips": "twoM2x10tip62.3/fullnut1.6/2washers/sourcefactoryearmetalsunchanged",
+  "remaining": "feed/tool motion and actualheadallmotion/skin/surplus not accepted; notwholePASS"
+}
