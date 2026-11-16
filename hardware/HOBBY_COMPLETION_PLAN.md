@@ -2,15 +2,15 @@
 
 ## Bieżąca karta — prosty zamknięty prototyp WAVEGO-kota
 
-**Cel:** robot do szybkiego złożenia przez dwie osoby na posiadanej WAVEGO, z wybraną elektroniką i zamkniętą obudową według Oli. Mała zmiana długości/szerokości bazy jest dopuszczona. Dawne 1/10/NEXT, pozy niezbudowanych druków i liczbowe rezerwy nie są wymaganiami tego etapu. **Cały kot nadal NIE jest ukończony.**
+**Cel:** robot do szybkiego złożenia przez dwie osoby na posiadanej WAVEGO, z wybraną elektroniką i zamkniętą obudową o wyglądzie robota z projektu Oli. Mała zmiana długości/szerokości bazy jest dopuszczona. Dawne 1/10/NEXT, pozy niezbudowanych druków i liczbowe rezerwy nie są wymaganiami tego etapu. **Cały kot nadal NIE jest ukończony.**
 
 **Ogon — potwierdzenie użytkownika16.11.2026:** wymagany ruch GÓRA–DÓŁ (pitch wokół poprzecznejY), zgodnie z tail_joint w modelu symulacyjnym. Aktualny mechaniczny model5e504/99007 ma błędny tail_Z/obrót na boki i pozostaje NIEPOPRAWIONY. Jego dawne wyniki ruchu/prześwitu ogona dlaZ nie są odbiorem wymaganego ruchu pionowego.
 
-Przy kolejnym wznowieniu uwzględnić rzeczywisty pionowy mechanizm ogona w CAŁYM układzie: serwo/róg/łożysko/korzeń, przejście przez osłonę i przewody. Sprawdzić wyłącznie zmieniony interfejs; nie przenosić automatycznie±20Z naY ani unieważniać niezależnej pustej podstawy. Wybrane części i liczba napędów pozostają. Zamrożony pakiet16Nov/native nie jest przez ten zapis naprawiony; brak wznowieniaCAD/hooka.
+Przy kolejnym wznowieniu uwzględnić rzeczywisty pionowy mechanizm ogona w CAŁYM układzie: serwo/róg/łożysko/korzeń, przejście przez osłonę i przewody. Sprawdzić wyłącznie zmieniony interfejs; nie przenosić automatycznie±20Z naY ani unieważniać niezależnej pustej podstawy. Wybrane części i liczba napędów pozostają. Zamrożony pakiet16Nov/native nie jest przez ten zapis naprawiony; nowe wznowienie wynika z jawnej zgody do22:10, a nie z samego zapisu kierunku.
 
-**Status końcowy:** okno zamknięte 2026-11-16T07:40:55Z, enabled=false. Zapisano zweryfikowany częściowy pakiet; po progu nowych native07:40 brak dalszej niezależnej pracy możliwej do bezpiecznego domknięcia bez wskazanych rzeczywistych przymiarek. Nie ukończono całego kota. GUI/MCP zachowane; bez przedłużenia.
+**Aktywne NOWE okno16Nov:** użytkownik wznowił pracę do22:10Warszawa, czyli2026-11-16T21:10:00Z. Poprzednie poranne okno zakończone07:40:55Z pozostaje historią. Odczytany zwykły limit dostępny; minimum_remaining_percent=NULL. Nowe długie native najwyżej20:50UTC, zapis/koniec własnych obliczeń21:00UTC, hardstop21:10UTC. Bez samodzielnego przedłużenia.
 
-**Okno użytkownika:** kontynuacja do najbliższej09:00Warszawa16Nov =2026-11-16T08:00:00Z; bez przedłużania. Ostatni CAD zakończony07:23UTC, jedna zapisana GUI17796/868, bez zmiany geometrii podczas eksportów. Stan końcowy okna/czas/świeży zwykły limit są w runtime; ten zapis nie wznawia pracy. Bez nowych długich native po07:40, zapis/koniec własnych obliczeń07:50. Bez progu procentowego/resetu.
+**Setup:** jeden autorCADBanach; master jako jedyny pisze tę kartę/runtime/current-assembly i integruje. Banach oddaje własne receipty/status w nowym katalogu i nie pisze wspólnych plików. Bohr osobny worktree z osobnym indeksemGit, pozostali readonly przypięte źródła. Niezależne zadania równolegle; bez czekania na wszystkich i bez wspólnego stagingu.
 
 ### Jedno aktualne wejście
 
@@ -32,11 +32,13 @@ Przy kolejnym wznowieniu uwzględnić rzeczywisty pionowy mechanizm ogona w CAŁ
 2. **Źródło oprawki nogi MTA0100335.** Dawny assumedBOX35,5×8,1×8,9 bez osobnej MINIVAL nie jest związanym modelem;220 i84,5mm każdego końca nie są jej danymi. [Aktualna errata](closed-prototype-2026-11-16/SOURCE_ERRATA.md) ma pierwszeństwo nad zachowanymi starymi kopiami. Jeden rzeczywisty0100335+MINIVAL10A: zamknięty korpus/pokrywka/więzidło, dwa wyjścia, długość obu odcinków i bezpieczne oparcie. MTA0300330+TE+ATO to INNA próbka banku. P19/legfit/inline8/P_AUX nie dziedziczą odbioru z błędnegoBOX.
 3. **Niewykonane mocowania i domknięcie:** P_AUX/POSTantislide, nowe podawanie stocku/narzędzia; BNO, inline przy nogach, kosz głośnika, S1/monitor; rzeczywiste zamocowanie dekoracji/szyi, ruch i wspólne budżety kabli. To braki realizacji, nie same tolerancjeFIT. Nie przyjmować ich z samego opaquePNG. Nowe P11/P10/keepery/POWER i całe osłony nie dostają wydania do druku z dodatku pustej podstawy.
 
-### Następny checkpoint — przed kolejnymi detalami CAD
+### Następny checkpoint — CAŁY wykonalny układ przed detalami
 
-**Jedna sesja suchej przymiarki, orientacyjnie30–60min:** P00/rewizja WAVEGO; jeden MG92B+fabryczny róg/śruba/608/688 z małymi próbkami; jedna oprawka0100335 z oboma przewodami; kompletne FHAC i615 na karcieW043. Zapisane różnice/wymiary i zdjęcie z linijką wystarczą — bez audytu całego katalogu. To estymacja czynności, nie termin ukończenia całego kota.
-Potem JEDEN wspólny wykonalny układ zasilania/końców/otwartych zajętych regionów wiązek i kolejności montażu, zachowujący realne części/ochronę. Dopiero po tym niezbędne brakujące proste mocowania i osłony. Nie zaczynać nowej architektury sprzęgieł/kosmetyki ani dawnychFPI-D5-V3pętli. Po dwóch tej samej przyczynie zmienić funkcjonalną topologię/kolejność/uzasadnione założenie, nie szukać scalargrid.
-Podstawa P01/P02/P03/P04 ma odrębny warunkowy zakres pustej przymiarki poP00; pomiar MTA warunkuje zależny uchwyt, nie automatycznie całą podstawę.
+Teraz Banach: JEDNA wspólna propozycja z rzeczywistym pionowym ogonem (serwo/róg/łożysko/korzeń/przejście osłony), funkcjonalną orientacją prawdziwych końców F_PI/F_AUX/P_SYS i pozostałych krótkich jednostek oraz wszystkimi modułami/ochroną/stockiem. Actualopaquewholeview+przekroje, zajęte połączone regiony wiązek/liczby/profile, montaż, chłodzenie/porty i pierwsza tania bramka przestrzeń–promień–długość. NIE utrwalać dziewięciu starych pozycji ani starej P11; niezbudowane własne części są zmienne. Najpierw krótka źródłowa identyfikacja potrzebnego interfejsu, nie kolejna krzywa przy tej samej błędnej przesłance.
+
+Lorentz równolegle ustala brakujący datum wyłącznie WAGO221-615 (cały korpus/strona wlotów/dźwignie/odizolowanie), z istniejących źródeł i dokumentacji producenta, bez audytu katalogu. MTA0100335 ma już odebraną erratę — nie powtarzać starego lookupu; konkretna jedna przymiarka zostaje nazwana, bez zatrzymywania niezależnego ogona/układu. Beauvoir ocenia prostotę i nadrzędne funkcje, Zeno aktualne widoki względem ROBOTA z projektu Oli. Po całej propozycji ograniczony review, jedna korekta, potem tylko niezbędne wspólne mocowania/obudowa i eksport.
+
+Fizyczne pomiary P00/MG+róg/MTA/FHAC–WAGO są nadal niewykonane (orientacyjnie30–60min pracy człowieka). Nie udawać fizycznegoPASS ani dobrych budżetów z nieznanego obrysu, ale kontynuować rzeczywiście niezależną pracę. P01/P02/P03/P04 mają odrębny warunkowy zakres pustej przymiarki poP00; brak MTA nie unieważnia automatycznie tej podstawy.
 
 ### Montaż, elektryka i druk
 

@@ -1,5 +1,18 @@
 # robot cat — notes for Codex
 
+## Praca 16.11.2026 do22:10Warszawa — aktualna zgoda i podział zapisów
+
+Najnowsze polecenie użytkownika: „Dobra pracuj do22:10 wg najlepszego setupu”. Nowe okno kończy się2026-11-16T21:10:00Z (22:10CET). Zastępuje zamknięte poranne okno; nie wznawia dawnego1/10. Cel: prosty ZAMKNIĘTY robot na WAVEGO do złożenia przez dwie osoby, o wyglądzie ROBOTA z projektu Oli, ze wszystkimi wybranymi częściami i funkcjami. Ogon rzeczywiście GÓRA–DÓŁ; model CAD z obrotemZ jest błędną propozycją do zastąpienia.
+
+Master jako JEDYNY aktualizuje HOBBY_COMPLETION_PLAN.md, runtime/hook i current-assembly.json oraz publikuje wspólny pakiet. Banach jest jedynym autorem CAD; zapisuje wynik/status/proof/sourcepins w swoim nowym katalogu porcji, NIE edytuje wspólnej karty/runtime, także jeśli starsze instrukcje to nakazują. Jego commity obejmują wyłącznie własne pliki CAD; master nie korzysta z indeksu Git tego checkoutu podczas aktywnej porcji Banacha. Bohr pisze dokumentację/pakowanie w OSOBNYM worktree C:/Users/Sysq/PycharmProjects/robot-cat-docs-20261116, z osobnym indeksem; master odbiera/cherry-pickuje jego własne commity przy wolnym CAD. Bez drugiego edytora CAD. Lorentz/Beauvoir/Zeno tylko odczyt przypiętych wersji. Nie czekać na cały zespół: blokować wyłącznie rzeczywiście zależną pracę.
+
+Przed odbiorem całości sprawdzić kilka nadrzędnych funkcji: realna WAVEGO i2-osobowy montaż; ogon góra–dół i2osie głowy na wybranych napędach; wygląd robota z projektu Oli; wszystkie kupne moduły/ochrona/końce i chłodzenie/porty; połączone dostępne regiony wiązek z wiarygodnymi budżetami; zamknięcie osłon i części pod256mm z brimem/podporami. Najpierw JEDEN wykonalny wspólny układ i kolejność, potem niezbędne detale. Dawne niezbudowane pozyP11/WAGO/FHAC są zmienne, nie utrwalać ich kolejnymi lokalnymi łukami.
+
+Beauvoir max3praktyczne uwagi do prostoty/zgodności także mastera. Lorentz dopiero po nowej całej propozycji max5konkretnych ryzyk i jedna spójna korekta; source-only brakującego datumu to odrębne ograniczone zadanie, nie nowe pętle review. Zeno porównuje actualopaquePNG z referencją robota Oli przy zmianie sylwetki, max3priorytety. Niezmienione dowody reużywać; brak MTA0100335 wiąże zależny uchwyt/P19, nie automatycznie niezależną pustą podstawę. Znanej kolizji/braku mocowania nie nazywać tolerancjąFIT. Nie wymagać osi każdego kabla, produkcyjnego serwisu/FEM/globalnych skanów.
+
+Porcja20–30min ma dać zamknięty problem albo fakt+konsekwencję. Po2tej samej przyczynie zmienić funkcjonalną organizację/kolejność/uzasadnione założenie, nie scalargrid. Rzeczywisty czas i świeży zwykły limit target4min/max10 oraz przed kosztowną operacją; zapis limitu/runtime tylko master. Bez progu procentowego/resetu. Nie zaczynać długich native po20:50UTC; zapisać i zakończyć własne obliczenia21:00UTC; hardstop21:10UTC. Zakończyć wcześniej tylko po rzeczywistym uzgodnionym wyniku albo wyczerpaniu niezależnej sensownej pracy po alternatywach/ordinaryfalse/refusal/braku świeżego limitu. Zachować jedną GUI i MCP. Bez zakupów/zasilania/druku/slicera/ROS/push/mail/alertów/nowychagentów. Niewiadome fizyczne nazwać konkretną próbką; nie czekać bezczynnie, gdy pozostała niezależna praca. Stan i następny krok wyłącznie w bieżącej karcie, bez nowego frameworka zarządzania.
+
+
 ## Ogon — potwierdzone wymaganie użytkownika 16.11.2026
 
 Ogon ma poruszać się GÓRA–DÓŁ: obrót wokół osi poprzecznej korpusu (pitch; Y przy X wzdłuż korpusu i Z w pionie). Nie zastępować tego merdaniem na boki wokół Z. Model symulacyjny tail_joint już ma axis="0 1 0"; nie zmieniać go na błędną oś CAD.
