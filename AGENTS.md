@@ -2,6 +2,8 @@
 
 ## Nowe 2 godziny16Nov — lżejszy i niższy CAŁY robot; rzetelny wygląd
 
+**OKNO ZAMKNIĘTE16Nov po zapisaniu wyniku; enabled=false. Cel całego wyglądu/montażu NIEOSIĄGNIĘTY.** Ostatnia geometria6a4534fa, readonlydecyzja84715e26, modelowanyPETG−495g; sourceGUI1003saved/IDLE. WyglądNEGATYWNY, wholekitfalse/physicalPASSfalse. Bieżący wynik i następny CAŁY problem w pierwszej karcie. Nie wznawiać poprzedniegoNEXT/hooka automatycznie. Poniższy opis2h jest zakresem HISTORYCZNEGO zamkniętego okna.
+
 Jawna nowa zgoda użytkownika: „Zostańmy na razie z tymi co miałem”, „Ok dawaj. Ale stan wizualny oceniaj rzetelnie”, „Do zobaczenia za2h”. Okno2026-11-16T18:21:26Z–20:21:26Z (19:21–21:21Warszawa); zastępuje pauzę i wcześniejsze22:10/NEXT. Celem jest JEDEN lżejszy, niższy wykonalny CAŁY wariant z prawdziwymi widokami i porównaniem masy/obciążeń. Nie obiecano pełnego zestawuSTL ani fizycznegoPASS.
 Zachować12ST3215,3MG, obecną długość nóg, wszystkie wybrane moduły/ochronę/fabryczne końce i funkcje, ogonGÓRA–DÓŁ oraz2osie głowy. MocniejszeSM80BL były tylko rozmową: NIE wybrane/nie kupować. Niewielka zmiana szerokości/długości ramy i rozstawu CAŁYCH bioder dopuszczona, gdy upraszcza całość. Dawne własneP10/P11/P12/pozybanków i druki są zmienne; nie utrwalać wysokiej pudełkowatej zabudowy lokalnymi wspornikami.
 Najpierw cały niski układ części, nośności, przestrzeni wspólnych wiązek, portów/chłodzenia i otwartego montażu, potem niezbędne modelowanie. Bez123osi/FEM/serwisu produkcyjnego/globalnychstarychscanów/katalogowegoaudytu. Zwykłe dokończenie własnegojointu w tej samej architekturze nie jest osobną rodziną/HOLD.
