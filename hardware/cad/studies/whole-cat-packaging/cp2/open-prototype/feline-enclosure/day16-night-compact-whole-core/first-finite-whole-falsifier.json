@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "a": "PBAY_P_SYS",
+      "b": "PCA9685_Adafruit815_PCB",
+      "named_risk": "fivechamber orientation gives37mm rather than22mm inY; wholePCA/E1layer, notcurve",
+      "bbox_lower_mm": 0.0,
+      "threshold": 1.25,
+      "gap_mm": 0.0,
+      "scoped_status": "NOMINAL_OCCUPANCY_HOLD"
+    },
+    {
+      "a": "S0_body",
+      "b": "S1_NKK_S821_installed",
+      "named_risk": "wholecontrols operatingbay",
+      "bbox_lower_mm": 0.0,
+      "threshold": 1.25,
+      "gap_mm": 0.0,
+      "scoped_status": "NOMINAL_OCCUPANCY_HOLD"
+    },
+    {
+      "a": "S0_key",
+      "b": "Monitor_MOD05015",
+      "named_risk": "actual keytravel/readout bay",
+      "bbox_lower_mm": 0.0,
+      "threshold": 1.25,
+      "gap_mm": 0.0,
+      "scoped_status": "NOMINAL_OCCUPANCY_HOLD"
+    },
+    {
+      "a": "Speaker",
+      "b": "Pi_GPIO1992_factory_female",
+      "named_risk": "wholefront audio/realGPIO",
+      "bbox_lower_mm": 3.0,
+      "threshold": 1.25,
+      "scoped_status": "SEPARATE_BY_LOWER_BOUND",
+      "actualdistance_not_needed": true
+    },
+    {
+      "a": "AUX_FULL9p5_POPULATED_SCOPE",
+      "b": "MAIN_UNSHRUNK_FAMILY_SCOPE",
+      "named_risk": "fullPCBfamily/undersides",
+      "bbox_lower_mm": 17.599999999999994,
+      "threshold": 1.25,
+      "scoped_status": "SEPARATE_BY_LOWER_BOUND",
+      "actualdistance_not_needed": true
+    },
+    {
+      "a": "PBAY_F_PI",
+      "b": "S0_body",
+      "named_risk": "entirefactoryfuse body notwireillustration",
+      "bbox_lower_mm": 12.500000000000021,
+      "threshold": 1.25,
+      "scoped_status": "SEPARATE_BY_LOWER_BOUND",
+      "actualdistance_not_needed": true
+    }
+  ],
+  "whole_acceptance": false,
+  "physical_collision_claim": false,
+  "cursor": 6
+}
