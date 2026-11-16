@@ -1,0 +1,387 @@
+{
+  "utc": "2026-11-16T06:40:13.276282+00:00",
+  "source_commit": "d0757ee5",
+  "same_nine_case_allocation": true,
+  "parts": [
+    {
+      "name": "P11_rear_gate",
+      "valid": true,
+      "solids": 5,
+      "bounds": [
+        53.0,
+        -99.0,
+        48.52,
+        187.0,
+        97.0,
+        133.0
+      ],
+      "volume": 61354.260059046865
+    },
+    {
+      "name": "BANK_PANEL_NEG",
+      "valid": true,
+      "solids": 1,
+      "bounds": [
+        -98.0,
+        -96.0,
+        52.0,
+        95.0,
+        -47.60000000000001,
+        108.63
+      ],
+      "volume": 20373.02238990761
+    },
+    {
+      "name": "P10_front_gate",
+      "valid": true,
+      "solids": 2,
+      "bounds": [
+        -141.5,
+        -97.0,
+        48.52,
+        -59.0,
+        97.0,
+        141.0
+      ],
+      "volume": 48400.30530728289
+    },
+    {
+      "name": "PB_TWO_615_REMOVABLE_KEEPER",
+      "valid": true,
+      "solids": 1,
+      "bounds": [
+        93.0,
+        88.0,
+        93.0,
+        154.0,
+        93.30000000000001,
+        99.7
+      ],
+      "volume": 789.8290064983688
+    }
+  ],
+  "joints": [
+    {
+      "role": "BANK_NEG_WHOLE_REAR_JOINT",
+      "same_full_M3x25_nut2washers": true,
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "new_y": -92,
+      "new_z": 58.5,
+      "old_z": 103.63,
+      "actual_lower_receiver_root": 432.0,
+      "actual_bank_drop_root": 144.0,
+      "side_nut_feed": "-Y/openbeforebanks, fullnut+washer",
+      "no_purchased_frame_cut": true
+    },
+    {
+      "role": "615KEEPER0",
+      "M2x8": true,
+      "ordinaryspacerL1": true,
+      "fullnut": true,
+      "washers2": true,
+      "tip_beyond_fullnut": 1.0,
+      "stock": "NEEDED_UNCONFIRMED"
+    },
+    {
+      "role": "615KEEPER1",
+      "M2x8": true,
+      "ordinaryspacerL1": true,
+      "fullnut": true,
+      "washers2": true,
+      "tip_beyond_fullnut": 1.0,
+      "stock": "NEEDED_UNCONFIRMED"
+    }
+  ],
+  "protected": [
+    {
+      "name": "root35",
+      "source_volume": 651.584969882997,
+      "missing": 0.0
+    },
+    {
+      "name": "root49",
+      "source_volume": 704.4760319676993,
+      "missing": 0.0
+    },
+    {
+      "name": "baseNEG",
+      "source_volume": 1264.4010420018053,
+      "missing": 0.0
+    },
+    {
+      "name": "basePOS",
+      "source_volume": 1681.6010420018054,
+      "missing": 0.0
+    },
+    {
+      "name": "keyNEG",
+      "source_volume": 353.524783386753,
+      "missing": 0.0
+    },
+    {
+      "name": "keyPOS",
+      "source_volume": 353.524783386753,
+      "missing": 0.0
+    },
+    {
+      "name": "P12lapNEG",
+      "source_volume": 537.3944010084435,
+      "missing": 0.0
+    },
+    {
+      "name": "P12lapPOS",
+      "source_volume": 327.4470140006017,
+      "missing": 0.0
+    }
+  ],
+  "ties": [
+    {
+      "role": "F_HY",
+      "selected145": true,
+      "loop": 94.89999999999999,
+      "head_full": [
+        4.8,
+        4.5,
+        3.5
+      ],
+      "unusedtail_open_then_humantrim": true
+    },
+    {
+      "role": "F_HP",
+      "selected145": true,
+      "loop": 94.89999999999999,
+      "head_full": [
+        4.8,
+        4.5,
+        3.5
+      ],
+      "unusedtail_open_then_humantrim": true
+    },
+    {
+      "role": "F_TY",
+      "selected145": true,
+      "loop": 94.89999999999999,
+      "head_full": [
+        4.8,
+        4.5,
+        3.5
+      ],
+      "unusedtail_open_then_humantrim": true
+    },
+    {
+      "role": "F_PI",
+      "selected145": true,
+      "loop": 96.7,
+      "head_full": [
+        4.8,
+        4.5,
+        3.5
+      ],
+      "unusedtail_open_then_humantrim": true
+    },
+    {
+      "role": "F_AUX",
+      "selected145": true,
+      "loop": 96.7,
+      "head_full": [
+        4.8,
+        4.5,
+        3.5
+      ],
+      "unusedtail_open_then_humantrim": true
+    },
+    {
+      "role": "PAUXnew",
+      "selected145": true,
+      "loop": 87.6,
+      "qty_new_demand_unconfirmed": 1,
+      "unusedtail_open_then_humantrim": true
+    },
+    {
+      "role": "POSTnew",
+      "selected145": true,
+      "loop": 69.6,
+      "qty_new_demand_unconfirmed": 1,
+      "unusedtail_open_then_humantrim": true
+    }
+  ],
+  "old_retire_functions": [
+    "fiveoldverticalFHACrack andupperfingers replaced by2horizontal+3sidecapturedgroups",
+    "oldBANK_NEGrearupperear/fullM3pose replacedbyWHOLElowerdoglegjoint",
+    "oldfront615uppercapture no longercurrent forP_SYS/P_REAR; newkeeper/fullM2",
+    "oldPAUX/POSTmountroles replacedbyactualcommonroots; no boughtcase deletion"
+  ],
+  "intended_members": [
+    {
+      "name": "NEG_BASE_DOGLEG",
+      "missing_after_designed_functional_bores_and_stockchannels": 106.35871315201125,
+      "connection_to_source": 432.0
+    },
+    {
+      "name": "NEG_OUTER_LOAD_POST",
+      "missing_after_designed_functional_bores_and_stockchannels": 14.124999999999979,
+      "connection_to_source": 120.0
+    },
+    {
+      "name": "NEG_UPPER_RETURN",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 359.99999999999994
+    },
+    {
+      "name": "POS_615_BACKWALL",
+      "missing_after_designed_functional_bores_and_stockchannels": 18.246370132049563,
+      "connection_to_source": 149.34282605343284
+    },
+    {
+      "name": "POS_UPPER_RETURN",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 663.8616213340216
+    },
+    {
+      "name": "TWO_FUSE_SHARED_BACKING",
+      "missing_after_designed_functional_bores_and_stockchannels": 40.79999999999994,
+      "connection_to_source": 10450.920000000016
+    },
+    {
+      "name": "NEG_FHAC_SHARED_BACKING",
+      "missing_after_designed_functional_bores_and_stockchannels": 44.99999999999988,
+      "connection_to_source": 208.8009538597904
+    },
+    {
+      "name": "NEG_CASE_ROOT_LOW",
+      "missing_after_designed_functional_bores_and_stockchannels": 37.28857971795014,
+      "connection_to_source": 0.0
+    },
+    {
+      "name": "NEG_CASE_ROOT_HIGH",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 245.79628710196283
+    },
+    {
+      "name": "BANK_LOWER_FIXED_RECEIVER",
+      "missing_after_designed_functional_bores_and_stockchannels": 108.95043322649417,
+      "connection_to_source": 842.4000000000003
+    },
+    {
+      "name": "FUSE_BASE_FRONT_55",
+      "missing_after_designed_functional_bores_and_stockchannels": 12.000000000000025,
+      "connection_to_source": 367.1999999999998
+    },
+    {
+      "name": "FUSE_BASE_REAR_55",
+      "missing_after_designed_functional_bores_and_stockchannels": 23.10000000000006,
+      "connection_to_source": 103.2240000000002
+    },
+    {
+      "name": "FUSE_BASE_FRONT_134",
+      "missing_after_designed_functional_bores_and_stockchannels": 12.000000000000025,
+      "connection_to_source": 309.59999999999985
+    },
+    {
+      "name": "FUSE_BASE_REAR_134",
+      "missing_after_designed_functional_bores_and_stockchannels": 23.10000000000006,
+      "connection_to_source": 110.87999999999998
+    },
+    {
+      "name": "615_FLOOR_100",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 97.44000000000001
+    },
+    {
+      "name": "615_LEFT_STOP_100",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 28.800000000000068
+    },
+    {
+      "name": "615_BACK_STOP_100",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 0.0
+    },
+    {
+      "name": "615_FLOOR_125",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 36.96000000000012
+    },
+    {
+      "name": "615_LEFT_STOP_125",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 2.8800000000000474
+    },
+    {
+      "name": "615_BACK_STOP_125",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 0.0
+    },
+    {
+      "name": "MG_BASE_55",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 0.0
+    },
+    {
+      "name": "MG_BASE_78",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 0.0
+    },
+    {
+      "name": "MG_BASE_101",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 0.0
+    },
+    {
+      "name": "PAUX_BEARING_A",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 0.0
+    },
+    {
+      "name": "PAUX_BEARING_B",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 0.0
+    },
+    {
+      "name": "PAUX_JOIN_EDGE",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 0.0
+    },
+    {
+      "name": "PAUX_RISING_WEB",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 0.0
+    },
+    {
+      "name": "PAUX_TOP_LOAD_RETURN",
+      "missing_after_designed_functional_bores_and_stockchannels": 0.0,
+      "connection_to_source": 96.0
+    }
+  ],
+  "bank_members": [
+    {
+      "name": "BANK_DROP_WEB",
+      "covered_volume": 1263.12,
+      "planned_volume": 1263.12
+    },
+    {
+      "name": "BANK_LOWER_DOGLEG",
+      "covered_volume": 5294.297606520874,
+      "planned_volume": 5499.000000000002
+    },
+    {
+      "name": "BANK_DROP_END_RETURN",
+      "covered_volume": 384.0,
+      "planned_volume": 384.0
+    }
+  ],
+  "original_shape_changes_explicit": [
+    "P11",
+    "P10",
+    "BANK_PANEL_NEG",
+    "BANK_NEG_REARfullM3set"
+  ],
+  "physical_pass": false,
+  "wholekit_ready": false,
+  "actual_fit_cut_slack": null,
+  "seconds": 24.04639520001365
+}
