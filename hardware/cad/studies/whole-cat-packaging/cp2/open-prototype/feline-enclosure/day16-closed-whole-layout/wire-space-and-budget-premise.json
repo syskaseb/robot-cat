@@ -1,0 +1,63 @@
+{
+  "scope": "GROUP occupiedregions/connectivity, no123axes/newfreewirefamily",
+  "fixed_clamps": [
+    "ActualPi/sourceports andfactoryendstrainpoints",
+    "ActualMTA/FHACcaseretention notwirepull",
+    "Sourcecarrierstraps batteryonly"
+  ],
+  "passive": [
+    "Openfoundationcenterlane",
+    "OpenleftneckCSI bow",
+    "Upperrearplaneedgefeed"
+  ],
+  "regions": [
+    {
+      "name": "lower_power_WAGO_to_fuses",
+      "bounds": [
+        -105,
+        -43,
+        49,
+        168,
+        78,
+        103
+      ],
+      "occupancy": "Branching actualwirecounts atrows; printedtrough/strainkeepers contractOPEN, not emptyboxPASS"
+    },
+    {
+      "name": "rear_module_ends",
+      "bounds": [
+        55,
+        20,
+        94,
+        156,
+        78,
+        130
+      ],
+      "occupancy": "MAIN/AUXsourceexistingterminalfields kept; no extra lengthcredit"
+    },
+    {
+      "name": "source_legs",
+      "occupancy": "Four220/selectedfactoryplugs unchanged; actualmotion-correlatedlength/slack stillFIT2, not rigidillustrativeaxes"
+    },
+    {
+      "name": "head_CSI_servicebow",
+      "bounds": [
+        -218,
+        -47,
+        128,
+        -104,
+        -28,
+        154
+      ],
+      "occupancy": "Actualfactoryribbon/connector normals/minR unknown; no fakeextension, localmotionqualificationOPEN"
+    }
+  ],
+  "length_rules": [
+    "Existingelectricalgraph/selectedstock preserved; actualcutNULL",
+    "ShortunfusedW075<=50 unchanged, FHAC84.5factoryavailableblank not installedslack",
+    "Allfourindependent220bothends retained; sourcephysicalunit ownership/MAX3/850/900 accounting reusedonlywhereapplicable, no oldchordcredit",
+    "Finalhandlay+clampsbeforecovers, actualperunitroute/slack/movinglength UNKNOWN until qualified. Old55/R35.1notautomaticallynewrequirements"
+  ],
+  "physical_pass": false,
+  "actual_lengths_or_fit_slack_cut": null
+}
