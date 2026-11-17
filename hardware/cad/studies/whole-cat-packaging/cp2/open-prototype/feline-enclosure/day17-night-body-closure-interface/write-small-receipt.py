@@ -4,7 +4,7 @@ import json,hashlib,zipfile,csv
 from datetime import datetime,timezone
 P=Path(__file__).parent;BASE=P.parent/'day17-night-common-body-mounts';MECH=P.parents[7]
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-def put(n,x):(P/n).write_text(json.dumps(x,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+def put(n,x):(P/n).write_bytes((json.dumps(x,indent=2,ensure_ascii=False)+'\n').encode('utf-8'))
 def pin(p):return {'path':str(p),'bytes':p.stat().st_size,'sha256':sha(p)}
 native=P/'body-closure-interface.FCStd';baseline=BASE/'common-body-mounts.FCStd'
 assert sha(baseline)=='4a4cb1fd1534e594bece855a8ff49aa8f29b2a532df518e14d52878cc7531361', 'Frozen source native changed'
