@@ -1,6 +1,8 @@
 # robot cat — notes for Codex
 
-## 17Nov do22Warszawa — NOWA jawna zgoda / AKTYWNE
+## 17Nov do22Warszawa — OKNO ZAMKNIĘTE
+
+**TERMINALNY STAN17Nov20:46:39UTC: enabled=false, bez automatycznego wznowienia.** OstatniCAD9fb4c049 odebrany/IDLE; jeden zapisanyGUI17796/1444objects/modifiedfalse/pendingnull zachowany. Wszyscy5agenci IDLE. Pakiet hardware/evening-fit-2026-11-17/START_HERE.md: 3lokalne części i jeden2częściowy kupon, NIEcałyzamkniętykot. NowyguardFFCHOLD467,339 i kierunekwygląduODEBRANYNEGATYWNY/GORSZYniż87c/ODRZUCONY. Stan/źródła/następnycheckpoint wFIRSTcard/runtime. Nativecut20:40/saveend20:50/hard21:00UTC nieprzedłużone; ordinaryusage dostępny, niepowódstopu. Poostatniejbezpiecznejporcji+kuracji nie zaczynaćnowychprac. GUI/MCPpozostająotwarte. Bezpurchase/power/druku/slicera/ROS/push/mail/resetu. Poniższa zgoda i NEXT dotyczą WYŁĄCZNIEhistorycznego zamkniętego okna.
 
 Użytkownik „Okej pracuj do22” wznowił pracę nad prostym CAŁYM zamkniętym WAVEGO-kotem: 2026-11-17T15:49:23Z–2026-11-17T21:00:00Z/22Warszawa. Poprzednie2h/noc zamknięte i historyczne. FIRST+freshruntimeaktualne, RECEIVEactualcurrentworker/nativeBEFOREdispatch. Odebrany1a20991c/twoassemblyinterfaces/ONEGUI17796/1354saved/actuale9b0completedIDLE. Te DWAprzymiarki otrzymane; nie odtwarzaćich ani oldglobalmatrix.
 Najpierw JEDENcałyfront/głowa+pełneFFC200ToFJR/realends/motionusablelength+occupiedregions/ports/cooling/mounts/assembly/Ola silhouette; potem niezbędneCAD/closure/coupons/exports. Własneoldprintedposes/guideszmienne, boughtparts/factoryends/currentselectedrules zachować. Nie thirdfreecurve/offsetgrid/123axes/produkcja/rapidservice/sourcecatalogaudit. BrakMTA0100335fullsamplenazwanynieblokujeniezależnejpracy. Po wiarygodnejwholepropozycji nowa JEDNAreadonlyriskreviewmax5+onecorrection tylkoactualnewscope; stare678dd64CLOSED. Beauvoirmax3prostota/Zenoactualmax3visual/Bohrtylkoownedprivateworktreedocs.
