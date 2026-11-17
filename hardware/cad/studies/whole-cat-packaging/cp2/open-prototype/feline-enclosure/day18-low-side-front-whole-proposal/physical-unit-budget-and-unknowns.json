@@ -1,0 +1,194 @@
+{
+  "utc": "2026-11-17T22:46:29.685284+00:00",
+  "all_10_FHAC_ends_accounted": true,
+  "roles_25_power_chambers": "4x615 plus1x415; assignments project logical not supplier pinout; no free chamber invented",
+  "units": [
+    {
+      "unit": "FFC15to15_200",
+      "capacity": 200,
+      "planned_length_incl_ends": [
+        163.67,
+        188.45
+      ],
+      "same_unit_end_once": 10,
+      "unoccupied_remainder": [
+        11.55,
+        36.33
+      ],
+      "status": "HOLD: 5 actual bearing intersections; full200 bight/roll/grips unqualified; not all routes impossible"
+    },
+    {
+      "unit": "W043_F_PI_input_factory_tail",
+      "capacity_raw": [
+        84.5,
+        94.5
+      ],
+      "route_center": 70.5,
+      "termination_same_unit": 14,
+      "total_planned": 84.5,
+      "R_project": 16,
+      "status": "ANALYTIC_SPACE_PLAN_ONLY: actual source mouths and strip need one sample; no fixed manufacturing radius claim",
+      "entry_assignment": "F_PI right +X tail selected as logical in; P_SYS chamber5 proposal at(58.5,-45,86), holder mouth(58.5,-45,118); no manufacturer pin coordinates"
+    },
+    {
+      "unit": "XA01_F_AUX_input_factory_tail",
+      "capacity_raw": [
+        84.5,
+        94.5
+      ],
+      "status": "UNCHANGED_RELATIVE_P_REAR_F_AUX, prior route not promoted; actual mouth and stock gate OPEN; no extension"
+    },
+    {
+      "unit": "F_PI_output",
+      "factory_capacity_raw": [
+        84.5,
+        94.5
+      ],
+      "to": "SPLICE_PI.16",
+      "status": "Separate same-unit plan OPEN; W078 does not turn this into a longer factory lead"
+    },
+    {
+      "unit": "XA02_F_AUX_output",
+      "factory_capacity_raw": [
+        84.5,
+        94.5
+      ],
+      "existing_extension": "HELU23502",
+      "lap": 8,
+      "sleeve": 18,
+      "status": "Existing composite, AUX moved Y-28.5; revised regional route upper OPEN, no new splice"
+    },
+    {
+      "unit": "F_HY_input_output",
+      "count_factory_ends": 2,
+      "raw_each": [
+        84.5,
+        94.5
+      ],
+      "existing_recipes": "XB11 HELU23502/lap8/sleeve20; XB12 HELU23302/lap8/sleeve20",
+      "status": "Full source units retained, current route upper OPEN"
+    },
+    {
+      "unit": "F_HP_input_output",
+      "count_factory_ends": 2,
+      "raw_each": [
+        84.5,
+        94.5
+      ],
+      "existing_recipes": "XB21 source extension recipe unbound; XB22 HELU23302/lap8/sleeve20",
+      "status": "Full source units retained, current route upper OPEN"
+    },
+    {
+      "unit": "F_TY_input_output",
+      "count_factory_ends": 2,
+      "raw_each": [
+        84.5,
+        94.5
+      ],
+      "existing_recipes": "XB31 source recipe unbound; XB32 lap8/exit sleeve35/JR",
+      "status": "Full source units retained, current route upper OPEN"
+    },
+    {
+      "unit": "Lanberg_DATA500",
+      "capacity": 500,
+      "profile_OD_project": 6.8,
+      "minR_project": 30,
+      "port_sources": "Pi full26x26x24 project field; BUS actual Type_C1 source frame retained",
+      "capacity_bay": [
+        [
+          -89.4,
+          -34.4,
+          160.6
+        ],
+        [
+          -20.6,
+          34.4,
+          174.6
+        ]
+      ],
+      "one_R30_turn_length": 188.49555921538757,
+      "two_layer_height": 13.6,
+      "available_height": 14,
+      "status": "CAPACITY_ONLY: actual mould/ends/transport and whole500 handlay not qualified. No old R25/184 spare credit. Two circle references are storage capacity, not a connected harness."
+    },
+    {
+      "unit": "ToF4_HELU",
+      "cores": 4,
+      "OD": 2.1,
+      "minR_source": 31.5,
+      "group": [
+        10.4,
+        2.9
+      ],
+      "ends": [
+        "LOGIC3V3->VIN",
+        "GND->GND",
+        "PI.H3->SDA",
+        "PI.H5->SCL"
+      ],
+      "status": "Regional lower/negative neck plan; actual header/branch loss and per-color bulk debit OPEN, no Pololu600 credit; former395 not immutable"
+    },
+    {
+      "unit": "JR_YAW_FACTORY",
+      "capacity": 250,
+      "case_motion": "FIXED",
+      "status": "Full factory unit/keyed mate retained; actual source grommet datum and current route upper OPEN"
+    },
+    {
+      "unit": "JR_PITCH_FACTORY",
+      "capacity": 250,
+      "case_motion": "YAW_ONLY",
+      "status": "Distinct full factory unit retained; moving bight/source grip OPEN"
+    },
+    {
+      "unit": "JR_PITCH_EXTENSION",
+      "capacity": 300,
+      "status": "Distinct existing unit; only existing farboard phase2 permission, no actual cut or universal end debit"
+    },
+    {
+      "unit": "K1474_ONE_PAIR",
+      "capacity_each_core": 1000,
+      "W078": "RED210 PROJECT piece SPLICE_PI.18->MAIN.VIN with lap8+MAIN12 once",
+      "W079": "MAIN.VOUT->Pi_USB_C.VBUS",
+      "W080": "MAIN.GND_OUT->Pi_USB_C.GND",
+      "status": "New Pi adapter pose invalidates old routes; no 150/250/350/600/offcut credit. Proper same-core planned sums still OPEN"
+    },
+    {
+      "unit": "E2_JPWM_independent",
+      "count": 4,
+      "nominal": 225,
+      "min_each": 220,
+      "source_contacts": [
+        "XP02.source2147612113",
+        "XP02.module2147632113",
+        "XP03.source2147611113",
+        "XP03.module2147631113"
+      ],
+      "status": "Four distinct full units; not leg-MTA or four BUS feeds; affected PCA/E1/BUS reach OPEN"
+    },
+    {
+      "unit": "ADD7_Pololu_parents",
+      "count": 5,
+      "capacity_each": 600,
+      "status": "Each SAME parent debit BOTH branches and proper ends/loss; only source-correct ADD7 units, no general pool"
+    },
+    {
+      "unit": "Battery_textile",
+      "count": 2,
+      "nominal_each": [
+        15,
+        200
+      ],
+      "source_total_including_buckle": 210,
+      "status": "Full uncut units, no extra10lap credit; source battery position retained, new common support retention OPEN"
+    },
+    {
+      "unit": "MTA0100335",
+      "count": 4,
+      "status": "REQUIRED FULL SAMPLE UNBOUND body/lid/tether/fuse/2leads. Four source markers are requirement markers, NOT eight-mm holder models. No borrowed WAGO dimensions,220 or84.5 credit; dependent enclosure/mount OPEN"
+    }
+  ],
+  "actual_cuts": null,
+  "actual_slack": null,
+  "physical_PASS": false
+}
