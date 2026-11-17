@@ -18,47 +18,53 @@
       "status": "CONDITIONAL_UNPOWERED_SUBASSEMBLY_FIT_NOT_WHOLECAT"
     },
     "unbuilt_proposal": {
-      "start_here": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-fixed-port-layers-and-full200-reserve/START_HERE.md",
-      "commit": "751e0f93dcb0a1590c043fde444aa36df40f7d44",
-      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-fixed-port-layers-and-full200-reserve/fixed-port-layers-and-full200.FCStd",
-      "native_sha256": "62a6154158fa9d56711064cb02496e06f251ea513c3a72fa616bd0ede495ad44",
-      "scope": "PORT_LAYER_SCOPED_CLEAR_FULL200_OWN_ENTRY_NECK_HOLD_NOT_MATERIAL",
+      "start_here": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-front-guard-and-full-units/START_HERE.md",
+      "commit": "9fb4c0496fec20d764d2630ee2cff357c81c0c5c",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-front-guard-and-full-units/front-guard-and-full-units.FCStd",
+      "native_sha256": "c2597023749ce71bff7d43c7d7166d8ebe7ccdefe78e89dfe09f829906e5018b",
+      "scope": "REAL_MATERIAL_CANDIDATE_LOCAL_FITS_ONLY__WHOLE_NECK_HOLD_AND_APPEARANCE_REJECTED",
       "whole_feasible": false,
       "appearance_accepted": false,
-      "stl_issued": [],
-      "print_index": null
+      "stl_issued": [
+        "front_common_carrier_FIT.stl",
+        "E1_root_keeper_FIT.stl",
+        "POWER_boot_keeper_FIT.stl",
+        "AMP_edge_coupon.stl",
+        "BUS90_seat_coupon.stl"
+      ],
+      "print_index": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-front-guard-and-full-units/current-conditional-print-index.json",
+      "note": "OnlylocalconditionalFITfiles; fixedhood/headbody skins NOTprintreleased/currentformNOTselectedfinal"
     },
     "wholekit_ready": false,
     "physical_pass": false,
     "actual_fit_cut_slack": null,
     "appearance_connection_addendum": "hardware/electronics/full-cat/closed-prototype-add7-2026-11-16/connections.json",
     "curated_package": {
-      "start_here": "hardware/overnight-2026-11-17/START_HERE.md",
-      "zip": "hardware/overnight-2026-11-17.zip",
-      "commit": "c0c5cb008832864d2dabb29b0955cc637acaf6aa",
-      "manifest_sha256": "b21d6fb65b873ad84e4c6ea43cc3af94b1a80fbe7ac595df84d97ab5a53ee73a",
-      "zip_sha256": "1e0d5edbc2dcdf248bc8a5873eda6bb511d80dd31093eaaf07a21e6c3d8fea87",
-      "status": "PARTIAL_CONDITIONAL_FIRST_FIT_NOT_WHOLECAT",
-      "stl_scope": "SEVEN_INDIVIDUAL_FIT_PLUS_ONE_MEASURE_COUPON_NO_N1_BODY_HEAD_RELEASE",
-      "parent_verified_exact_files": 22,
-      "package_files": 21
+      "start_here": "hardware/evening-fit-2026-11-17/START_HERE.md",
+      "commit": "706e74f3ead0eef6deec66b970a3c3f757932613",
+      "sources_sha256": "2b6769b39fdbfe494adbd06276d6b309750a5fa67cfafe7406ab4a78fd317607",
+      "status": "SCOPED_EVENING_LOCAL_FIT_NAVIGATION_NOT_WHOLECAT",
+      "zip": null,
+      "source_commit": "9fb4c0496fec20d764d2630ee2cff357c81c0c5c",
+      "parent_source_pins_verified": 16,
+      "old_morning_package_preserved": true
     },
     "source_corrections": {
       "MTA0100335": "UNBOUND assumed35.5x8.1x8.9/noMINIVAL and220/84.5eachlead notsupported; oneactualsample +lid/tether/fuse/twoleads required. MTA0300330bankcoupondifferent. SeeSOURCE_ERRATA.",
       "foundation_scope": "P02/P03 optionalemptystructuraldryfit afterP00, independent82e8proofnotuniversallyinvalidatedbyMTAunknown; P19/POWERdependentholdsremain.",
       "tail_motion": "Currentebddee50 actualYcartridge/root continuous, tipZ199.532..224.379 at+/-15; realflangeparting. Wholehardware/tool+P07/skincommon658.08 notclosed, no physical/STLrelease. OldZproofnotpitch."
     },
-    "next_checkpoint": "ONEwholefrontreview max5 then coherentcamera-entry/neckguard/sharedPi-BUS-E1receiver+ToFJR/actualassembly, notanothercurve.",
+    "next_checkpoint": "Noautomaticresume. CoupledAMP-BUSseat/Pi+BUS+POWER+FFC actualbenchmeasure/MTAfullsample; thenONEwholefrontoccupiedspace+organicform decision BEFOREmoreguard/maskdetails. Currentnewhood/archappearanceREJECTED, fixedguard467commonHOLD.",
     "work_window": {
       "id": "wavego-fasttrack-20261117-to2200",
-      "enabled": true,
+      "enabled": false,
       "started_utc": "2026-11-17T15:49:23Z",
       "deadline_utc": "2026-11-17T21:00:00Z",
+      "closed_utc": "2026-11-17T20:46:39Z",
       "native_long_operation_cutoff_utc": "2026-11-17T20:40:00Z",
       "save_compute_end_by_utc": "2026-11-17T20:50:00Z",
-      "human_request": "Okej pracuj do 22",
-      "scope": "WHOLE_HEAD_FRONT_LOOM_AND_CLOSED_CAT_FIRST_FIT_COMPLETION",
-      "whole_cat_complete": false
+      "whole_cat_complete": false,
+      "reason": "Lastsafechunkreceived/curationcompleted/savebuffer; no extension"
     },
     "requirements": {
       "tail_motion": {
@@ -83,6 +89,60 @@
       "feasible_compact_layout_proven": false
     },
     "latest_incremental_patch": {
+      "input": "01a1eb0c-662c-7e80-9332-847d6cab53b6",
+      "received_utc": "2026-11-17T20:46:39Z",
+      "commit": "9fb4c0496fec20d764d2630ee2cff357c81c0c5c",
+      "folder": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-front-guard-and-full-units",
+      "native_sha256": "c2597023749ce71bff7d43c7d7166d8ebe7ccdefe78e89dfe09f829906e5018b",
+      "manifest_sha256": "6cd8c9a2fd9f5374b0ad9a5015fbdb53e957116f55d2b2c7143af6e119994b76",
+      "commit_exact_files": 61,
+      "manifest_hashes_verified": 60,
+      "native_CRC_entries": 7551,
+      "STLs": 5,
+      "local_parts": 3,
+      "coupled_coupon_pieces": 2,
+      "mesh_reopened_closed": true,
+      "print256_with_allowance": true,
+      "wholecat_ready": false,
+      "physical_pass": false,
+      "actual_fit_cut_slack": null,
+      "appearance_accepted": false,
+      "status": "PARTIAL_CONDITIONAL_LOCAL_FIT_FILES__WHOLE_HOOD_HOLD__FORM_REJECTED",
+      "guard_HOLD": "samecriticalfullFFC20/+10 common467.338729940961 afterraw469.069834858065; no moreinlet/offsetfamily",
+      "JR_DATA_POWER": "realstub/mating/budgets andwholeassembly stillunqualified; no inherited150250350/pointaxiscredit",
+      "mass_same_functional_subset_delta_PETG_g": 69.38,
+      "moving_roof_delta_PETG_g": 29.327365181554754,
+      "source87c_unchanged": true,
+      "native_idle_fresh": "20:43MCPONEGUI17796/1444modifiedfalse/currentnative; ownnative-state pendingnull/IDLE",
+      "whole_body_closure": false
+    },
+    "front_review": {
+      "source_commit": "751e0f93dcb0a1590c043fde444aa36df40f7d44",
+      "input": "01a1ea7b-bbd8-7280-8753-980101675270",
+      "state": "CLOSED_ONE_ROUND_TWO_COMMENTS_ONE_COHERENT_CORRECTION_SCOPED_RESULT_NOT_WHOLE_ACCEPTANCE",
+      "comments": [
+        "POWER actualportallocation implemented/actualwholeleadpaths stillopen",
+        "CSI namedcomponents/air sourceclassificationimplemented/actualcoolerbenchFIT"
+      ],
+      "geometry_accepted": false
+    },
+    "evening_working_native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-front-guard-and-full-units/front-guard-and-full-units.FCStd",
+    "evening_working_commit": "9fb4c0496fec20d764d2630ee2cff357c81c0c5c",
+    "evening_status": "PARTIAL_CONDITIONAL_LOCAL_FIT_FILES__WHOLE_HOOD_HOLD__FORM_REJECTED",
+    "evening_manifest_sha256": "6cd8c9a2fd9f5374b0ad9a5015fbdb53e957116f55d2b2c7143af6e119994b76",
+    "whole_cat_ready": false,
+    "previous_curated_package_before_evening": {
+      "start_here": "hardware/overnight-2026-11-17/START_HERE.md",
+      "zip": "hardware/overnight-2026-11-17.zip",
+      "commit": "c0c5cb008832864d2dabb29b0955cc637acaf6aa",
+      "manifest_sha256": "b21d6fb65b873ad84e4c6ea43cc3af94b1a80fbe7ac595df84d97ab5a53ee73a",
+      "zip_sha256": "1e0d5edbc2dcdf248bc8a5873eda6bb511d80dd31093eaaf07a21e6c3d8fea87",
+      "status": "PARTIAL_CONDITIONAL_FIRST_FIT_NOT_WHOLECAT",
+      "stl_scope": "SEVEN_INDIVIDUAL_FIT_PLUS_ONE_MEASURE_COUPON_NO_N1_BODY_HEAD_RELEASE",
+      "parent_verified_exact_files": 22,
+      "package_files": 21
+    },
+    "previous_incremental_patch_before_evening": {
       "received_utc": "2026-11-17T14:57:50Z",
       "input": "01a1e9b0-a653-71c3-85e4-e13f1db55be9",
       "commit": "1a20991ce4fed2939b49e961e23b5179fdb652b4",
@@ -112,22 +172,7 @@
       "front": "actualoneprint/sourceprotectedmembers0missingoutsideexplicitboresanddriverchannels/P01bearing1147.685each/P04bearing111.447each/full4sourcebolts+full80mmdriverclear",
       "speaker": "fullSpeaker4/keeper1.75/fixedpost1.5mm vsrequired1.25/full8steelclear/boughtposesunchanged",
       "next_checkpoint": "Whole movingFFC200/ToF/JR space/end/usablemotion and correctfullMTA0100335sample; wholefrontform decision withactualparts before anothercosmeticmask. Requires futurehumanresume, no autostart."
-    },
-    "front_review": {
-      "source_commit": "751e0f93dcb0a1590c043fde444aa36df40f7d44",
-      "input": "01a1ea7b-bbd8-7280-8753-980101675270",
-      "state": "CLOSED_ONE_ROUND_TWO_COMMENTS_ONE_CORRECTION_PENDING",
-      "comments": [
-        "Complete POWER Delock60047/K1474 allocation at currentPi nottextonly",
-        "FunctionalCSIentry versus actualcomponent/cooling needs sourceclassification"
-      ],
-      "geometry_accepted": false
-    },
-    "evening_working_native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-coherent-front-material-and-loom/coherent-front-material-and-loom.FCStd",
-    "evening_working_commit": "87c16d2b3f3ea1a24556ee53e1807c7a3b1500b0",
-    "evening_status": "RECEIVED_SCOPED_COMMON_MATERIAL__WHOLE_NECK_AND_STOCK_HOLD_NOT_PRINT_RELEASE",
-    "evening_manifest_sha256": "07f3bfac5c10504a61d64c8d7364c78a0a21fdec5bf10e39764939ca58b0d497",
-    "whole_cat_ready": false
+    }
   },
   "legacy_pointer_snapshot": {
     "path": "hardware/cad/legacy/current-assembly-e6-before-cleanup-2026-11-16.json",
