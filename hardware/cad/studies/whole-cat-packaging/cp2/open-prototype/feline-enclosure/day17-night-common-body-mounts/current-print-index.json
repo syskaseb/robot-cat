@@ -1,0 +1,143 @@
+{
+  "parts": [
+    {
+      "file": null,
+      "source": "RG_FRONT_GRID_WITH_INTEGRAL_HEAD_RECEIVER",
+      "qty": 1,
+      "status": "UNRECEIVED_MESH_DO_NOT_PRINT_BREP_ONLY",
+      "size": [
+        216.0,
+        171.0,
+        93.97999999999999
+      ],
+      "localZ0": true,
+      "brim_each": 4,
+      "maxdim_withbrim": 224.0,
+      "orientation": "worldZ/localZ0; N1/N2/N4/N5 underside supports required; N3/N6 flat. No slicer/printPASS",
+      "sourcevalid": true,
+      "closed_reopened": false,
+      "meshvolume": 71786.6171875,
+      "volume_source": 71793.23324704132,
+      "coordinate_weld_only_methods": [
+        "removeDuplicatedPoints",
+        "removeDuplicatedFacets"
+      ],
+      "wholecatrelease": false,
+      "forensic_unreceived": "N1_common_front_PCB_frame.stl.unreceived",
+      "BREP_only": "N1_common_front_PCB_frame.brep",
+      "stage": "HOLD_MESH_NOT_PHYSICALFIT"
+    },
+    {
+      "file": "N2_BUS_E1_liftoff_bridge.stl",
+      "source": "CB_REMOVABLE_BUS_E1_BRIDGE",
+      "qty": 1,
+      "status": "CONDITIONAL_UNPOWERED_DRYFIT",
+      "size": [
+        167.5,
+        45.5,
+        10.0
+      ],
+      "localZ0": true,
+      "brim_each": 4,
+      "maxdim_withbrim": 175.5,
+      "orientation": "worldZ/localZ0; N1/N2/N4/N5 underside supports required; N3/N6 flat. No slicer/printPASS",
+      "sourcevalid": true,
+      "closed_reopened": true,
+      "meshvolume": 8951.1259765625,
+      "volume_source": 8952.04246603978,
+      "coordinate_weld_only_methods": [],
+      "wholecatrelease": false,
+      "stage": "BENCH_NOMINAL_MODULE_DRYFIT"
+    },
+    {
+      "file": "N3_PSYS_open_keeper.stl",
+      "source": "CB_REMOVABLE_PSYS_LOWER_BODY_KEEPER",
+      "qty": 1,
+      "status": "CONDITIONAL_UNPOWERED_DRYFIT",
+      "size": [
+        26.5,
+        40.5,
+        3.0
+      ],
+      "localZ0": true,
+      "brim_each": 4,
+      "maxdim_withbrim": 48.5,
+      "orientation": "worldZ/localZ0; N1/N2/N4/N5 underside supports required; N3/N6 flat. No slicer/printPASS",
+      "sourcevalid": true,
+      "closed_reopened": true,
+      "meshvolume": 1120.3389892578125,
+      "volume_source": 1120.1920373349385,
+      "coordinate_weld_only_methods": [],
+      "wholecatrelease": false,
+      "stage": "BENCH_NOMINAL_MODULE_DRYFIT"
+    },
+    {
+      "file": "N4_MTA_lower_access_frame.stl",
+      "source": "FORE_MTA_FIXED_COMMON_POSTS_AND_LOWER",
+      "qty": 1,
+      "status": "CONDITIONAL_UNPOWERED_DRYFIT",
+      "size": [
+        245.3,
+        58.0,
+        64.47999999999999
+      ],
+      "localZ0": true,
+      "brim_each": 4,
+      "maxdim_withbrim": 253.3,
+      "orientation": "worldZ/localZ0; N1/N2/N4/N5 underside supports required; N3/N6 flat. No slicer/printPASS",
+      "sourcevalid": true,
+      "closed_reopened": true,
+      "meshvolume": 65574.46875,
+      "volume_source": 65570.0403168342,
+      "coordinate_weld_only_methods": [],
+      "wholecatrelease": false,
+      "stage": "EMPTY_BASE_AFTER_P00_NO_FORCE_NO_BOUGHTDRILL"
+    },
+    {
+      "file": "N5_rear_POST_receiver.stl",
+      "source": "RG_REAR_GRID_WITH_STEPPED_RECEIVING_CROSSMEMBER",
+      "qty": 1,
+      "status": "CONDITIONAL_UNPOWERED_DRYFIT",
+      "size": [
+        183.0,
+        169.0,
+        114.47999999999999
+      ],
+      "localZ0": true,
+      "brim_each": 4,
+      "maxdim_withbrim": 191.0,
+      "orientation": "worldZ/localZ0; N1/N2/N4/N5 underside supports required; N3/N6 flat. No slicer/printPASS",
+      "sourcevalid": true,
+      "closed_reopened": true,
+      "meshvolume": 56337.11328125,
+      "volume_source": 56337.57516506027,
+      "coordinate_weld_only_methods": [],
+      "wholecatrelease": false,
+      "stage": "EMPTY_BASE_AFTER_P00_NO_FORCE_NO_BOUGHTDRILL"
+    },
+    {
+      "file": "N6_POST_open_keeper.stl",
+      "source": "CB_POST_REMOVABLE_OPEN_LEVER_KEEPER",
+      "qty": 1,
+      "status": "CONDITIONAL_UNPOWERED_DRYFIT",
+      "size": [
+        30.0,
+        23.0,
+        3.0
+      ],
+      "localZ0": true,
+      "brim_each": 4,
+      "maxdim_withbrim": 38.0,
+      "orientation": "worldZ/localZ0; N1/N2/N4/N5 underside supports required; N3/N6 flat. No slicer/printPASS",
+      "sourcevalid": true,
+      "closed_reopened": true,
+      "meshvolume": 1182.58837890625,
+      "volume_source": 1182.442037334938,
+      "coordinate_weld_only_methods": [],
+      "wholecatrelease": false,
+      "stage": "BENCH_NOMINAL_MODULE_DRYFIT"
+    }
+  ],
+  "only_status_CONDITIONAL_is_printtrial": "allUNRECEIVEDexcluded evenif .stl exists; BRep validdata remains",
+  "notreleased": "powered/allmodulekit/headloom/skins/deliveredPCBfit/strength"
+}

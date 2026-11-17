@@ -1,0 +1,126 @@
+{
+  "known_audio_junction": {
+    "cores": "5xOD1.6 I2S+MAINpower/2xOD2.1 BTLspeaker",
+    "actual_split": "5toAMPstationarylogic/power,2toSpeaker; all7onlyatAMPjunction",
+    "nominal_gap": 0.2,
+    "outer": 0.4,
+    "flatjunction_capacity": [
+      9.6,
+      4.7
+    ],
+    "source": "retained15Novaudioactualprofilebasis; no oldpathidentity reused afterposes changed"
+  },
+  "underbank": {
+    "cores": 2,
+    "OD": 2.1,
+    "gap": 0.2,
+    "outer": 0.4,
+    "envelope_crosssection": [
+      5.2,
+      2.9
+    ],
+    "actualstraight_length": 90,
+    "centerline_from": [
+      -90.75,
+      -10,
+      74.25
+    ],
+    "to": [
+      -90.75,
+      80,
+      74.25
+    ],
+    "occupied_solid_valid": true,
+    "checks": [
+      {
+        "part": "FORE_MTA_FIXED_COMMON_POSTS_AND_LOWER",
+        "gap": 1.2999999999999972,
+        "valid": true
+      },
+      {
+        "part": "RG_FRONT_GRID_WITH_INTEGRAL_HEAD_RECEIVER",
+        "gap": 0.0,
+        "valid": true
+      },
+      {
+        "part": "MG92B_Head_yaw",
+        "gap": 2.2272952016393672,
+        "valid": true
+      },
+      {
+        "part": "Motor_ATO4A__1_0",
+        "gap": 44.114409356426435,
+        "valid": true
+      }
+    ],
+    "namedrisk": "printedlowerMTArail/retainedfixedheadroot betweenamp andspeaker; regionalouterboxalonecannot show1.3mm bottleneck",
+    "scope": "ONLYstraightprofile occupancy, notfullwire/stock/movingproof"
+  },
+  "connected_functional_topology": [
+    {
+      "group": "AMP5logicpower",
+      "endregions": [
+        "currentMAX98357Ainstalledcover",
+        "PCA/E1/Pi-fixedreceivingfanout",
+        "MAIN5.1V"
+      ],
+      "shared_open_region": [
+        -68,
+        -2,
+        101,
+        50,
+        5,
+        132
+      ],
+      "portnormals": "physicalFIT; notinventedmanufacturerpoints",
+      "counts": 5
+    },
+    {
+      "group": "BTLspeaker2",
+      "endregions": [
+        "AMPfullcover+BTLendregion",
+        "outerfrontbodyhandlay",
+        "qualifiedunderbankstraight",
+        "Speakerrearwholecase-terminalregion"
+      ],
+      "turnbasis": "R10planned>=source8.4; actualterminals/endturns andselectedstock NOTqualifiedfromstraight",
+      "wire_terminated_stock": null
+    },
+    {
+      "group": "E2JPWM",
+      "physicalunits": 4,
+      "each_min": 220,
+      "nominal": 225,
+      "sourceends": [
+        "XP02source2147612113",
+        "XP02module2147632113",
+        "XP03source2147611113",
+        "XP03module2147631113"
+      ],
+      "not_MTA_looms": true,
+      "fullinstalledroute": null
+    },
+    {
+      "group": "ToF/head",
+      "cores": 4,
+      "OD": 2.1,
+      "sourceflexR": 31.5,
+      "ends": [
+        "LOGIC3V3",
+        "GND",
+        "H3",
+        "H5"
+      ],
+      "actualFFC200end": [
+        -86.5,
+        -73.5,
+        94.5
+      ],
+      "realconnectedmotion": "OPEN; no arbitrarywaypoints madefixedterminals"
+    }
+  ],
+  "P_SYS_F_PI": "currentfullminW043field+newbodyholders checkedscoped; all5P_SYS chamberroles kept, fieldsnotliteralwire; fullmaxstockfamily/other8FHAC OPEN",
+  "wire_unit_contracts": "W043/XA01factory84.5..94.5inclbare/14once;XA02existingHELU;W078red210PROJECTfromK1474/lap8+MAINfull12;5actual600parentsbothbranchesONLYADD7; nooffcutpool",
+  "actualcut_slack": null,
+  "wholewireplanPASS": false
+}
