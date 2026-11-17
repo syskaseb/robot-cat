@@ -1,5 +1,11 @@
 # robot cat — notes for Codex
 
+## Nowe2h17Nov — autoryzowane DWA interfejsy
+
+Użytkownik „Ok pracuj” wznowił TYLKO uzgodniony blok2h 2026-11-17T13:26:32Z–2026-11-17T15:26:32Z. Poniższe nocne okno zamknięte/historyczne. FIRST i świeży runtime określają aktualnyinput/piny. Cel: rzeczywistyjoint/load/parting N1–P02 oraz pełny Speaker/holder–FC_F_POS; source76244240/current1353saved. P02/osłona są WŁASNYMI drukami, nie niezmiennymi boughtparts. Zachowaćdno/funkcje/retencję/realny materiał i montaż. Jedna spójna korekta, nie osobny HOLD dla każdej zwykłej czynności. Tylko dotknięte checki i warunkowe eksporty; całykot/FFC/MTA4/wygląd/masa/physicalFIT OPEN. Nie nowylayout/productiongates/oldglobalreplays/review.
+SoleBanachCAD/jednaGUI; masterreadonlyintegracja/FIRST/runtime/currentassembly; nostageMECHwhileBanachactive. Aktualny895received/idle/native1353modifiedfalse potwierdzony przed nowymdispatch. Knownshoppingparts/factoryends/12ST3MG/nogi/ogonY/head2axis/rawnegatives/256cubeinclbrim zachować. Zwykłyusage target4max10/priorcostly/%guardNULL/noreset. Nativecut2026-11-17T15:06:32Z; saveend2026-11-17T15:16:32Z; HARD2026-11-17T15:26:32Z. Nie przedłużać. Stopreadytwointerfaces/noindependentinscope/ordinaryfalse-refusal-missingread→zapis/endownedcompute/enabledfalse/preserveGUI. Bez zakupów/zasilania/druku/slicera/ROS/push/mail/alertów/nowychagentów. Porannypakietc0c5zamrożony; wynik osobno.
+
+
 ## Noc16/17Nov do10Warszawa — OKNO ZAMKNIĘTE
 
 **STAN KOŃCOWY17Nov08:44UTC: okno CLOSED, enabled=false, bez automatycznego wznowienia.** Ostatni wynik CAD76244240ODEBRANY/IDLE; jeden zapisanyGUI17796/1353objects, wszyscy5agenciIDLE/pendingnull. Pakiet hardware/overnight-2026-11-17/START_HERE.md oraz ZIP, commitc0c5cb00/22exactfiles/7conditionalparts+1coupon; NIEcałyzamkniętykot. N1-P02/speaker-cowl/FFC200+ToF-JR/MTA4fullunit/appearance+physicalFIT+mass OPEN. Używanyzwykłylimitdostępny37used/63remaining, nieprzyczynastopu. Bezprzedłużeniadeadline09UTC; savebuffer08:50zachowany. PoniższyzakresnocnyjestHISTORYCZNY, nieNEXT. Bieżącyzapis/piny/następnycheckpoint w pierwszejkarcie.
