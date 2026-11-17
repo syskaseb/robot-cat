@@ -1,10 +1,10 @@
 # robot cat — notes for Codex
 
-## Nowe2h17Nov — autoryzowane DWA interfejsy
+## Nowe2h17Nov — OKNO ZAMKNIĘTE, DWA interfejsy nominalnie gotowe
 
-Użytkownik „Ok pracuj” wznowił TYLKO uzgodniony blok2h 2026-11-17T13:26:32Z–2026-11-17T15:26:32Z. Poniższe nocne okno zamknięte/historyczne. FIRST i świeży runtime określają aktualnyinput/piny. Cel: rzeczywistyjoint/load/parting N1–P02 oraz pełny Speaker/holder–FC_F_POS; source76244240/current1353saved. P02/osłona są WŁASNYMI drukami, nie niezmiennymi boughtparts. Zachowaćdno/funkcje/retencję/realny materiał i montaż. Jedna spójna korekta, nie osobny HOLD dla każdej zwykłej czynności. Tylko dotknięte checki i warunkowe eksporty; całykot/FFC/MTA4/wygląd/masa/physicalFIT OPEN. Nie nowylayout/productiongates/oldglobalreplays/review.
-SoleBanachCAD/jednaGUI; masterreadonlyintegracja/FIRST/runtime/currentassembly; nostageMECHwhileBanachactive. Aktualny895received/idle/native1353modifiedfalse potwierdzony przed nowymdispatch. Knownshoppingparts/factoryends/12ST3MG/nogi/ogonY/head2axis/rawnegatives/256cubeinclbrim zachować. Zwykłyusage target4max10/priorcostly/%guardNULL/noreset. Nativecut2026-11-17T15:06:32Z; saveend2026-11-17T15:16:32Z; HARD2026-11-17T15:26:32Z. Nie przedłużać. Stopreadytwointerfaces/noindependentinscope/ordinaryfalse-refusal-missingread→zapis/endownedcompute/enabledfalse/preserveGUI. Bez zakupów/zasilania/druku/slicera/ROS/push/mail/alertów/nowychagentów. Porannypakietc0c5zamrożony; wynik osobno.
-
+**Stan2026-11-17T14:57:50Z: enabled=false, bezautowznowienia.** Human„Ok pracuj”przyjął2h13:26:32–15:26:32UTC; ukończonotenograniczonyzakreswcześniej, deadlinebezprzedłużenia. Wynik1a20991ce4fed2939b49e961e23b5179fdb652b4/61exact60hash7103CRC: JEDENdrukA17_front_deck_framezastępujeN1+P02, realdno/oparcie/sourcebores/fullhardware/toolorder; A17_speaker_side_cowlzastępujeFC_F_POS, fullSpeaker/keeper/fixedpostgaps4/1,75/1,5>=1,25. DWAclosed/reopenedSTLfit256incl8 TYLKOwarunkoweprzymiarkibezprądu.
+Banachactual01a1e9b0-a653-71c3-85e4-e13f1db55be9RECEIVED/completedIDLE; świeżyMCPONEGUI17796/1354savedmodifiedfalse/pendingnull. FreeCAD/MCPzachowane/noowncompute. Source762 i porannypakietc0c5/ZIPnietknięte. Piny i instrukcja w FIRST/day17-two-assembly-interfaces/START_HERE.md; FIRST/runtime/currentassemblyzapisane.
+CAŁYkot/FFC200ToFJR/4fullMTA0100335/wholeclosure/wygląd/masa/physicalFIT OPEN/physicalPASSfalse. Zwykłyusage14:55dostępny38used62remaining/5hNULL/noreset; %guardNULL. Nie wznawiaćhistoricalNEXT/hooka beznowejzgody, nieoznaczać1/10. Brakzakupów/zasilania/druku/slicera/ROS/push/mail/alertów/newagent/review/oldscans. JedynyCADBanach/masterintegracja. PoniższeoknaHISTORYCZNE.
 
 ## Noc16/17Nov do10Warszawa — OKNO ZAMKNIĘTE
 

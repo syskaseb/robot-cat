@@ -18,15 +18,18 @@
       "status": "CONDITIONAL_UNPOWERED_SUBASSEMBLY_FIT_NOT_WHOLECAT"
     },
     "unbuilt_proposal": {
-      "start_here": "hardware/overnight-2026-11-17/START_HERE.md",
-      "commit": "7624424084ef2d7d4a6faf5b53ec20de97d2aa08",
-      "native": "hardware/overnight-2026-11-17/assembly/WAVEGO_CAT_WORKING_HOLD.FCStd",
-      "native_sha256": "994b1a656b9dd3f623a1b316bff3acd301de8887966171fe1550e34402362645",
-      "scope": "PARTIAL_WORKING_MODEL_N1_P02_BODY_SPEAKER_ROUTING_AND_APPEARANCE_OPEN",
+      "start_here": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-two-assembly-interfaces/START_HERE.md",
+      "commit": "1a20991ce4fed2939b49e961e23b5179fdb652b4",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-two-assembly-interfaces/two-assembly-interfaces.FCStd",
+      "native_sha256": "b43b90dcc582742eed723b72e7d59e6588e67b5acba398a5ca69acee45b20ea9",
+      "scope": "TWO_NOMINAL_INTERFACES_CLOSED_CONDITIONAL_UNPOWERED_TRIALS_NOT_WHOLECAT",
       "whole_feasible": false,
       "appearance_accepted": false,
-      "stl_issued": "SEVEN_INDIVIDUAL_CONDITIONAL_FIT_PLUS_ONE_MEASURE_COUPON",
-      "print_index": "hardware/overnight-2026-11-17/PRINT_STATUS.csv"
+      "stl_issued": [
+        "A17_front_deck_frame.stl",
+        "A17_speaker_side_cowl.stl"
+      ],
+      "print_index": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-two-assembly-interfaces/conditional-print-index.json"
     },
     "wholekit_ready": false,
     "physical_pass": false,
@@ -48,16 +51,19 @@
       "foundation_scope": "P02/P03 optionalemptystructuraldryfit afterP00, independent82e8proofnotuniversallyinvalidatedbyMTAunknown; P19/POWERdependentholdsremain.",
       "tail_motion": "Currentebddee50 actualYcartridge/root continuous, tipZ199.532..224.379 at+/-15; realflangeparting. Wholehardware/tool+P07/skincommon658.08 notclosed, no physical/STLrelease. OldZproofnotpitch."
     },
-    "next_checkpoint": "Coherent actualN1–P02 mating/loadparting andspeaker-cowl interface completion; onlyaffectedchecks/newconditionalexports.",
+    "next_checkpoint": "Whole movingFFC200/ToF/JR space/end/usablemotion and correctfullMTA0100335sample; wholefrontform decision withactualparts before anothercosmeticmask. Requires futurehumanresume, no autostart.",
     "work_window": {
       "id": "wavego-two-interfaces-20261117-2h",
-      "enabled": true,
+      "enabled": false,
       "started_utc": "2026-11-17T13:26:32Z",
       "deadline_utc": "2026-11-17T15:26:32Z",
       "native_long_operation_cutoff_utc": "2026-11-17T15:06:32Z",
       "save_compute_end_by_utc": "2026-11-17T15:16:32Z",
       "human_request": "Ok pracuj",
-      "scope": "TWO_ASSEMBLY_INTERFACES_NOT_WHOLECAT"
+      "scope": "TWO_ASSEMBLY_INTERFACES_NOT_WHOLECAT",
+      "closed_utc": "2026-11-17T14:57:50Z",
+      "stop_reason": "REQUESTED_TWO_INTERFACE_SCOPE_COMPLETED_EARLY_NOT_WHOLECAT",
+      "whole_cat_complete": false
     },
     "requirements": {
       "tail_motion": {
@@ -80,6 +86,37 @@
       "commit": "84715e26",
       "manifest_sha256": "0cf82443bcf4bffd494ef19e2ac0d33ac68541bfd574f9279def272bbccbd36c",
       "feasible_compact_layout_proven": false
+    },
+    "latest_incremental_patch": {
+      "received_utc": "2026-11-17T14:57:50Z",
+      "input": "01a1e9b0-a653-71c3-85e4-e13f1db55be9",
+      "commit": "1a20991ce4fed2939b49e961e23b5179fdb652b4",
+      "folder": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-two-assembly-interfaces",
+      "manifest_sha256": "5688763c6751a4ff018ce97df6b16d2ab0ae60b4fe4dfc35eb73b283a2409e1f",
+      "native_sha256": "b43b90dcc582742eed723b72e7d59e6588e67b5acba398a5ca69acee45b20ea9",
+      "commit_exact_files": 61,
+      "manifest_files_verified": 60,
+      "native_CRC_entries": 7103,
+      "scope_completed": true,
+      "scope": "TWO_NOMINAL_ASSEMBLY_INTERFACES_WITH_CONDITIONAL_UNPOWERED_TRIAL_EXPORTS",
+      "wholecat_ready": false,
+      "appearance_accepted": false,
+      "physical_pass": false,
+      "source762_unchanged": true,
+      "morningZIP_unchanged": true,
+      "native_idle_fresh": "14:55MCP1354modifiedfalse/ONEGUI17796/processverified",
+      "parts": [
+        "A17_front_deck_frame.stl",
+        "A17_speaker_side_cowl.stl"
+      ],
+      "retire_old_separate_print_roles": [
+        "N1",
+        "P02",
+        "oldFC_F_POS"
+      ],
+      "front": "actualoneprint/sourceprotectedmembers0missingoutsideexplicitboresanddriverchannels/P01bearing1147.685each/P04bearing111.447each/full4sourcebolts+full80mmdriverclear",
+      "speaker": "fullSpeaker4/keeper1.75/fixedpost1.5mm vsrequired1.25/full8steelclear/boughtposesunchanged",
+      "next_checkpoint": "Whole movingFFC200/ToF/JR space/end/usablemotion and correctfullMTA0100335sample; wholefrontform decision withactualparts before anothercosmeticmask. Requires futurehumanresume, no autostart."
     }
   },
   "legacy_pointer_snapshot": {
