@@ -1,0 +1,105 @@
+{
+  "parts": [
+    {
+      "object": "A17_INTEGRAL_FRONT_DECK_AND_N1",
+      "version": "A17_front_deck_frame",
+      "qty": 1,
+      "valid": true,
+      "solids": 1,
+      "world_bounds_optimal": [
+        -139.00000505,
+        -87.0000002,
+        41.5199998,
+        89.00000015,
+        88.50000505,
+        149.0000002
+      ],
+      "dimensions_mm": [
+        228.0000052,
+        175.50000525000002,
+        107.4800004
+      ],
+      "maxXYZ_plus8": 236.0000052,
+      "volume_mm3": 163655.0211474629,
+      "PETG1p27_g": 207.84187685727787,
+      "mesh_closed": true,
+      "mesh_volume": 163654.859375,
+      "facets": 24186,
+      "edge_histogram": {
+        "2": 36279
+      },
+      "bad_edges": [],
+      "matched_interface_checks_closed": true,
+      "orientation": "Source XYZ, min XYZ at Z0. Underside ribs require support up to4mm below continuous floor; upper PCB ledges as needed. Reserve8mm total per dimension.",
+      "deflection": 0.08,
+      "angular": 0.2,
+      "conditional_unpowered_interface_trial_release": true,
+      "reopened_closed": true,
+      "reopened_volume": 163653.359375,
+      "local_translation": [
+        139.00000505,
+        87.0000002,
+        -41.5199998
+      ],
+      "STL": "A17_front_deck_frame.stl",
+      "replaces_source_objects": [
+        "RG_FRONT_GRID_WITH_INTEGRAL_HEAD_RECEIVER",
+        "P02_front_deck"
+      ]
+    },
+    {
+      "object": "FC_F_POS",
+      "version": "A17_speaker_side_cowl",
+      "qty": 1,
+      "valid": true,
+      "solids": 1,
+      "world_bounds_optimal": [
+        -151.00000500000016,
+        -5.02279231344142e-06,
+        43.61999499999993,
+        87.60000500000001,
+        117.00000502279231,
+        189.00000015
+      ],
+      "dimensions_mm": [
+        238.60001000000017,
+        117.00001004558462,
+        145.38000515000007
+      ],
+      "maxXYZ_plus8": 246.60001000000017,
+      "volume_mm3": 88914.94157771979,
+      "PETG1p27_g": 112.92197580370413,
+      "mesh_closed": true,
+      "mesh_volume": 88895.0390625,
+      "facets": 14328,
+      "edge_histogram": {
+        "2": 21492
+      },
+      "bad_edges": [],
+      "matched_interface_checks_closed": true,
+      "orientation": "Source XYZ, min XYZ at Z0. Support under roof/collar overhangs; retain both acoustic openings. Reserve8mm total per dimension.",
+      "deflection": 0.08,
+      "angular": 0.2,
+      "conditional_unpowered_interface_trial_release": true,
+      "reopened_closed": true,
+      "reopened_volume": 88895.3359375,
+      "local_translation": [
+        151.00000500000016,
+        5.02279231344142e-06,
+        -43.61999499999993
+      ],
+      "STL": "A17_speaker_side_cowl.stl",
+      "replaces_source_objects": [
+        "FC_F_POS"
+      ]
+    }
+  ],
+  "wholekit": false,
+  "physicalPASS": false,
+  "actualfit": null,
+  "actualcut": null,
+  "installedslack": null,
+  "source_dependency": "P00/sourceframe actualthread/revision andactualscrewdrive + nominalPCB/speaker-safe-rimFIT; notwholecatrelease",
+  "seconds": 34.86438449996058,
+  "release_scope": "Two conditional UNPOWERED interface trials, not wholecat or populatedassembly acceptance"
+}
