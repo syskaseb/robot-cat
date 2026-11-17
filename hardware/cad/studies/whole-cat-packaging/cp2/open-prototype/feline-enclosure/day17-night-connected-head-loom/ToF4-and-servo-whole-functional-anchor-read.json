@@ -1,0 +1,74 @@
+{
+  "electrical4_ToF_current_source": [
+    {
+      "id": "EXT011",
+      "a": "LOCAL.LOGIC3V3",
+      "b": "EXT_TOF.VIN",
+      "signal": "3V3",
+      "physical_unit": "EXT_TOF",
+      "voltage_domain": "3V3",
+      "source": "TOF"
+    },
+    {
+      "id": "EXT012",
+      "a": "LOCAL.GND",
+      "b": "EXT_TOF.GND",
+      "signal": "GND",
+      "physical_unit": "EXT_TOF",
+      "voltage_domain": "3V3",
+      "source": "TOF"
+    },
+    {
+      "id": "EXT013",
+      "a": "PI.H3",
+      "b": "EXT_TOF.SDA",
+      "signal": "I2C1_SDA_0x29",
+      "physical_unit": "EXT_TOF",
+      "voltage_domain": "3V3",
+      "source": "TOF"
+    },
+    {
+      "id": "EXT014",
+      "a": "PI.H5",
+      "b": "EXT_TOF.SCL",
+      "signal": "I2C1_SCL",
+      "physical_unit": "EXT_TOF",
+      "voltage_domain": "3V3",
+      "source": "TOF"
+    }
+  ],
+  "source": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\electronics\\full-cat\\closed-prototype-add7-2026-11-16\\connections.json",
+  "sha256": "c9f6687e6a4419749781f4c7f57ef5b9895cc3a05064fa33b14e1ae0390c6553",
+  "physical_ToF_head_region": "nativeVL53L5CX actualsupplierSTEP unchanged83b: [-229.566,-6.35,94]..[-227,6.35,111.78]. Whole14x26x26installation preserved; 2mounts not8electricalholes. Trueheaderpinmouthpositions unboundONEsample, no manufacturedpoint.",
+  "ToF_wire_profile": "4xOD2.1 actualchosenwireR31.5;2x2packing5.2x5.2 inclgap.2outer.4; centreR34.1 conservative",
+  "body_region": "37de candidate63x5.2x46.5. 90quarter withR34.1/fullprofile+guardneeds41.8x41.8 dimensions fits necessaryonly; 180U needs75.9 cannotfit63x46.5. DoNOTforceU/55slack or callquarterconnected",
+  "actual_movement_roles": [
+    {
+      "unit": "ToF4",
+      "moving": "yaw20+pitch10 sensorcarrier",
+      "body_end": "LOCAL.LOGIC3V3/LOCAL.GND andPI.H3/PI.H5 exactlyabove, physicalstationaryfanoutland stillunrealized",
+      "reserve": "mustbeupstreamtruebodygrip via passiveguides; not slackbehindclamp"
+    },
+    {
+      "unit": "CSI200",
+      "moving": "camera trueelectricalsocket sourceprojectmouth; contactside unknown",
+      "fixed": "currentPiCSI project[-84.5,-47.5,60.62]",
+      "ends": "onewhole200 + ends10once, no longerFFC/USB/Grove/600borrow"
+    },
+    {
+      "unit": "yawMGfactorylead/JR",
+      "moving": "caseFIXED, hornrotationnotleadrotation",
+      "fixed_domain": "sourceC_HY/XB12 existingcomposite HELU23302+lap8/sleeve20/factoryJR preserved"
+    },
+    {
+      "unit": "pitchMGfactorylead/JR",
+      "moving": "caseYAWONLY, notpitchsensorframe",
+      "fixed_domain": "sourceC_HP/XB22 existingcomposite HELU23302+lap8/sleeve20/factoryJR preserved"
+    }
+  ],
+  "stock": "5Pololu600parents BOTHassignedportions+ends/slack/loss once onlyifactualassigned; actualcurrentperphysicalbounds notqualified; fullJR/factoryends preserved",
+  "initiallay": "wholeopenhead/backcover beforecamera+ToFconnection; passivelead beforeclosingneck. Grid/root hardware beforebodykit/banks; no virtualE1unplug or detachingintegralbeam",
+  "stage": "sourcefunctional/necessarydimensionread ONLY. ChosenfixedpowerfieldHOLD stopsdependentcurve/mountwork; no newToFcurvefamily",
+  "wholekit": false,
+  "physicalPASS": false
+}
