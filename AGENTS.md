@@ -1,6 +1,9 @@
 # robot cat — notes for Codex
 
-## Noc16/17Nov do10Warszawa — CAŁY zwarty WAVEGO-kot
+## Noc16/17Nov do10Warszawa — OKNO ZAMKNIĘTE
+
+**STAN KOŃCOWY17Nov08:44UTC: okno CLOSED, enabled=false, bez automatycznego wznowienia.** Ostatni wynik CAD76244240ODEBRANY/IDLE; jeden zapisanyGUI17796/1353objects, wszyscy5agenciIDLE/pendingnull. Pakiet hardware/overnight-2026-11-17/START_HERE.md oraz ZIP, commitc0c5cb00/22exactfiles/7conditionalparts+1coupon; NIEcałyzamkniętykot. N1-P02/speaker-cowl/FFC200+ToF-JR/MTA4fullunit/appearance+physicalFIT+mass OPEN. Używanyzwykłylimitdostępny37used/63remaining, nieprzyczynastopu. Bezprzedłużeniadeadline09UTC; savebuffer08:50zachowany. PoniższyzakresnocnyjestHISTORYCZNY, nieNEXT. Bieżącyzapis/piny/następnycheckpoint w pierwszejkarcie.
+
 
 Użytkownik jawnie wznowił: „Jeśli możesz to napierdzielaj do rana do godziny10.” Nowe okno do2026-11-17T09:00:00Z/10:00Warszawa; poprzednie2h pozostaje zamknięte/historia. Bieżące polecenie/piny/aktywnyinput: PIERWSZA kartaHOBBY_COMPLETION_PLAN.md i świeżyrobot-cat-work-window.json. To wznowienie ma pierwszeństwo nad poniższymi historycznymi zakazami wznowienia.
 Najpierw JEDEN zwarty podłużny rdzeń wszystkich wybranych modułów/ochrony/terminali zpełnymistockami, prawdziwymikońcami/chłodzeniem/portami/nośnością/montażem2osób RAZEM z sylwetką robotaOli, potem konieczne wspólne mounty/closedskins/fitcoupons/exports. Nie kolejna skorupa wokół starej rury ani lokalnyCSI/FPI/D5/pocketloop. Zachować12ST3215/3MG/leglength/head2axis/tailY/boughtparts/protection/factoryends; mała zmiana bazy/rozstawu CAŁYCH bioder dopuszczona po zysku, bez nowychserw/zakupów.
