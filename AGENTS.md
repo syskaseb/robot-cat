@@ -1,5 +1,12 @@
 # robot cat — notes for Codex
 
+## 17Nov do22Warszawa — NOWA jawna zgoda / AKTYWNE
+
+Użytkownik „Okej pracuj do22” wznowił pracę nad prostym CAŁYM zamkniętym WAVEGO-kotem: 2026-11-17T15:49:23Z–2026-11-17T21:00:00Z/22Warszawa. Poprzednie2h/noc zamknięte i historyczne. FIRST+freshruntimeaktualne, RECEIVEactualcurrentworker/nativeBEFOREdispatch. Odebrany1a20991c/twoassemblyinterfaces/ONEGUI17796/1354saved/actuale9b0completedIDLE. Te DWAprzymiarki otrzymane; nie odtwarzaćich ani oldglobalmatrix.
+Najpierw JEDENcałyfront/głowa+pełneFFC200ToFJR/realends/motionusablelength+occupiedregions/ports/cooling/mounts/assembly/Ola silhouette; potem niezbędneCAD/closure/coupons/exports. Własneoldprintedposes/guideszmienne, boughtparts/factoryends/currentselectedrules zachować. Nie thirdfreecurve/offsetgrid/123axes/produkcja/rapidservice/sourcecatalogaudit. BrakMTA0100335fullsamplenazwanynieblokujeniezależnejpracy. Po wiarygodnejwholepropozycji nowa JEDNAreadonlyriskreviewmax5+onecorrection tylkoactualnewscope; stare678dd64CLOSED. Beauvoirmax3prostota/Zenoactualmax3visual/Bohrtylkoownedprivateworktreedocs.
+SoleBanachCAD/masterreadonlyintegrate/FIRST/runtime/currentassembly/noMECHstagewhileactive. 20–30mincheckpoint może byćfakt+konsekwencja, zwykłydokończonyjointnieosobnyHOLDfinal; boundedusefulresult/owncommit/nativeIDLE→parentautomaticnext, noqueuedflood. Preserveallsourceparts/57ADD7/12ST3MG/nogi/tailY/head2axis/rawnegatives/256cubeinclbrimsupport. JednaGUI/MCP/savebeforecostly/normalreturn. Ordinaryusage target4max10/priorcostly/%guardNULL/noreset. Nativecut20:40UTC/saveend20:50/HARD21:00UTC; noextension. StopreadyWHOLEagreedpackage/noindependentworkafteralternatives/ordinaryfalse-refusal-missingread→zapis/endownedcompute/enabledfalse/preserveGUI. Nie stopowaćpo1lokalnympakiecie. No purchases/power/print/slicer/ROS/push/mail/alerts/schedule/newagentswithoutconcreteneed. Wholecat/physicalPASSnieudawane.
+
+
 ## Nowe2h17Nov — OKNO ZAMKNIĘTE, DWA interfejsy nominalnie gotowe
 
 **Stan2026-11-17T14:57:50Z: enabled=false, bezautowznowienia.** Human„Ok pracuj”przyjął2h13:26:32–15:26:32UTC; ukończonotenograniczonyzakreswcześniej, deadlinebezprzedłużenia. Wynik1a20991ce4fed2939b49e961e23b5179fdb652b4/61exact60hash7103CRC: JEDENdrukA17_front_deck_framezastępujeN1+P02, realdno/oparcie/sourcebores/fullhardware/toolorder; A17_speaker_side_cowlzastępujeFC_F_POS, fullSpeaker/keeper/fixedpostgaps4/1,75/1,5>=1,25. DWAclosed/reopenedSTLfit256incl8 TYLKOwarunkoweprzymiarkibezprądu.
