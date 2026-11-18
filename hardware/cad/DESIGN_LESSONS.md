@@ -1,5 +1,69 @@
 # Wnioski z projektowania 3D robot-cat
 
+<a id="iteration-gate-2026-11-18"></a>
+## 18.11.2026 — kontrola wniosków przed KAŻDĄ iteracją
+
+Użytkownik polecił sprawdzać ustalenia co iterację. Dotyczy to mastera i wykonawcy,
+także po wznowieniu lub zmianie kontekstu. Czytamy tę krótką sekcję i wnioski
+istotne dla zmienianego interfejsu; nie odtwarzamy za każdym razem całej historii.
+Celem pozostaje prosty, zamknięty WAVEGO-kot do złożenia przez dwie osoby.
+
+- **LL18-1 — najpierw cały zmieniany interfejs.** Przed detalem rozpatrz razem
+  pełny mechanizm i śruby, rzeczywiste sąsiednie moduły, zajęte regiony kabli,
+  osłonę oraz kolejność montażu. W próbie98 tył głowy przecinał korpus;
+  w252 usunięto ten kontakt, lecz nowa podpora weszła w pełny crosspin yaw,
+  a profil FFC w druk. Sprawdzenie samego widelca lub dwóch ścian pominęło
+  zależność. Najtańszy test rozstrzygający tę całość ma poprzedzać podporę/osłonę.
+- **LL18-2 — lokalny sukces nie zamraża naszego układu.** Własna niewydrukowana
+  półka, mocowanie, pozycja modułu lub maska są zmiennymi projektu.
+  Wcześniejszy lokalny FIT nie ma pierwszeństwa przed wykonalnością całego kota.
+  Zachowuj kupne części, funkcje, ochronę, fabryczne końce i ograniczenia ruchu.
+  Po dwóch odrzuceniach tej samej przyczyny zmień organizację, drogę podparcia,
+  kolejność albo uzasadnione założenie; kolejny offset nie zeruje licznika.
+- **LL18-3 — poziom szczegółowości prototypu.** Kable domyślnie opisuj wspólnymi,
+  połączonymi i dostępnymi regionami z obsadą, przekrojem, długościami i luzem.
+  Dokładny test ogranicz do nazwanego ryzyka, np. crosspinu lub krawędzi FFC.
+  Nie projektuj produkcyjnej wiązki ani osobnego uchwytu każdej żyły.
+  Przecinająca się ilustracyjna krzywa nie dowodzi braku wszystkich ręcznych tras.
+  Rzeczywistego przycięcia, złego promienia lub braku długości nie wolno ukrywać.
+- **LL18-4 — cała sylwetka i zamknięcie mają własny dowód.** Oglądaj rzeczywiste
+  przód/bok/3/4 i wnętrze względem ROBOTA z projektu Oli, przed kolejnymi detalami.
+  Poprawa oczu nie kwalifikuje pudełkowatego tułowia ani otwartej szyi.
+  Nie ukrywaj modułów na obrazach; otwór konstrukcyjny nie jest fizyczną niewiadomą.
+- **LL18-5 — master odpowiada za kierunek i uczciwy postęp.** Odbieraj rozwiązany
+  problem całości, nie liczbę plików, testów, lokalnych STL czy pozytywny tekst.
+  Gdy iteracja nie zmniejsza głównej blokady, zmień następne zadanie.
+  Rozdziel czas upływu okna, aktywne obliczenia oraz prognozę ukończenia;
+  budżet2h na fragment nie jest terminem całego robota. Kontrola dotyczy także
+  długości i sprzeczności poleceń mastera.
+
+### Krótki zapis w TEJ SAMEJ bieżącej karcie
+
+Przed iteracją master i wykonawca zapisują cztery krótkie pozycje:
+1. Cel: jaki problem całego układu ma zostać rozwiązany.
+2. Wnioski/ustalenia: istotne ID powyżej i jak zmieniają tę decyzję.
+3. Przyczyna i hipoteza: co zmieniamy, dlaczego usuwa poprzedni powód odrzucenia.
+4. Pierwszy test: najtańszy dowód, aktualne pełne operandy i warunek wyniku.
+
+Po iteracji dopisują dwie pozycje:
+5. Wynik: sprawdzony fakt, źródło oraz jego zakres; błąd/niepewność pozostają jawne.
+6. Decyzja: przyjąć w podanym zakresie / odrzucić / nierozstrzygnięte; następny krok.
+
+To zastępowany bieżący wpis, nie nowy dziennik ani pełny raport dla każdej śruby.
+Kontrola ma być krótka (zwykle do minuty); korzysta z niezmienionych dowodów.
+Nie uruchamiaj ponownie dawnych skanów ani nowej rundy recenzji dla samej kontroli.
+Beauvoir ocenia użycie tych reguł również przez mastera i zgłasza do niego
+maksymalnie3 konkretne odstępstwa, gdy uczestniczy w pracy. Master sprawdza
+zastosowanie przed każdym zleceniem i odbiorem, także bez aktywnego audytora.
+Brak testu całości zatrzymuje zależny detal; można kontynuować niezależną pracę.
+Ten zapis nie wznawia zamkniętego okna CAD.
+
+Dowody: [częściowa baza98](studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-closed-whole-common-assembly/START_HERE.md)
+oraz [odrzucona próba252](studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-final-neck-parting-and-loom/START_HERE.md).
+Wnioski z26.10 o wiązkach prototypu i02.11 o zastosowaniu feedbacku pozostają
+aktualne; nowością jest wymagany zapis użycia PRZED KAŻDĄ iteracją.
+
+
 - Przy odbiorze osobnego korpusu i zdejmowanego docisku sprawdzić
   poprawne lower.common(upper) == 0 przed montażem; zamierzony wcisk
   wymaga osobnego uzasadnienia. Zerowe różnice sumy i valid+1Solid

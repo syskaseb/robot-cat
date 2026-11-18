@@ -1,5 +1,25 @@
 # robot cat — notes for Codex
 
+## Kontrola przed każdą iteracją projektu — 18.11.2026
+
+To stała sekcja: zachowuj ją przy zmianie bloków zgody i zamknięcia okna.
+
+Przed KAŻDĄ iteracją master i wykonawca czytają bieżącą kartę i
+[wnioski LL18-1…5](hardware/cad/DESIGN_LESSONS.md#iteration-gate-2026-11-18).
+W [tej samej karcie](hardware/HOBBY_COMPLETION_PLAN.md) zapisują cztery krótkie pozycje:
+cel całego problemu, zastosowane wnioski, zmienianą przyczynę i pierwszy test.
+Po iteracji dopisują fakt ze źródłem oraz decyzję/następny krok.
+Master sprawdza zastosowanie przed każdym zleceniem i odbiorem; Beauvoir
+kontroluje również mastera (maksymalnie3 konkretne uwagi, gdy uczestniczy).
+Najpierw pełny zmieniany interfejs: mechanizm z całymi śrubami, moduły,
+zajęte regiony kabli, zamknięcie i montaż; dopiero zależne detale.
+Własne niebudowane pozy/mocowania pozostają zmienne. Po dwóch odrzuceniach
+tej samej przyczyny zmień organizację, nie kolejny offset.
+Krótka kontrola zwykle do minuty, bez nowego raportu/audytu/globalnego skanu.
+Nie traktuj lokalnego FIT ani liczby plików jako ukończenia całego kota.
+Ta reguła obejmuje przyszłe wznowienia; NIE włącza zamkniętego okna CAD.
+
+
 ## Noc17/18Nov do09:30Warszawa — OKNO ZAMKNIĘTE
 
 Stan 2026-11-18T08:03:10Z: enabled=false, bez automatycznego wznowienia. Harddeadline18Nov08:30UTC/09:30Warszawa nieprzedłużony. Geometria zakończona07:46UTC; ostatniBanach252b8440 ODEBRANY/REJECTED_UNSELECTED, nie następca użytecznej bazy98e25411. Cały zamknięty kot NIEGOTOWY/wyglądnieprzyjęty/physicalPASSfalse.

@@ -1,5 +1,19 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Kontrola każdej iteracji — ustalenie użytkownika18.11.2026
+
+To stała sekcja procesu — zachowuj ją przy aktualizacji statusu okna.
+
+Przed KAŻDĄ iteracją master i wykonawca stosują
+[wnioski LL18-1…5](cad/DESIGN_LESSONS.md#iteration-gate-2026-11-18).
+W tej samej bieżącej karcie zapisują krótko: **cel całości → użyte ustalenia →
+przyczyna/hipoteza → pierwszy test**, a po iteracji **fakt ze źródłem → decyzja**.
+Master sprawdza zapis przed zleceniem i odbiorem; Beauvoir pilnuje także mastera.
+Samo odczytanie zasad bez zmiany decyzji nie zalicza kontroli. Bez dodatkowych
+raportów, nowych recenzji i odtwarzania starych testów. Zamknięte okno CAD pozostaje
+zamknięte; teraz zmieniono wyłącznie dokumentację procesu.
+
+
 ## Bieżąca karta — noc17/18Nov do09:30Warszawa: OKNO ZAMKNIĘTE
 
 Stan 2026-11-18T08:03:10Z: enabled=false. Cały prosty zamknięty WAVEGO-kot NIEGOTOWY. Ostatnia ograniczona próba szyi odrzucona, odbiór i kuracja zakończone; wszystkie role IDLE. Jedna zapisana GUI/MCP zachowana. Maksymalny termin18Nov08:30UTC/09:30Warszawa nieprzedłużony; geometria zakończona07:46UTC. Zwykły limit dostępny, nie był przyczyną stopu. Nie włączać hooka ani nie wznawiać historycznych NEXT bez nowej jawnej zgody użytkownika.
