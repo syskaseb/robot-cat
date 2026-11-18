@@ -93,6 +93,6 @@ for y in (-20,-10,0,10,20):
       three_lap_centers=[pack(E-4*X+k*6*Y) for k in (-1,0,1)],sleeves=[20]*3,
       qualification="Only rows with zero residual within 0.01 mm house the nominal full centerline. Outer fanout, two intact lands and usable slack conditional."))
 result=dict(FFC=previous["FFC"],JR_factory=jr,extension=out,ToF_moving=tof,ToF_header=header,ToF_fixed=fixed,ToF_debits=debits,
-    ToF_per_core=5*math.ceil(sum(debits.values())/5),fixed_yaw_assumed_case=s.tolist() if False else [-119.5,0,53.2],physical_PASS=False)
+    ToF_per_core=5*math.ceil(sum(debits.values())/5),fixed_yaw_assumed_case=[-119.5,0,53.2],physical_PASS=False)
 (P/"occupied-layout.json").write_bytes((json.dumps(result,separators=(",",":"))+"\n").encode())
 print("300",[(q["yaw"],round(q["residual"],3),round(q["radius"],2)) for q in out],"ToF",debits,result["ToF_per_core"],min(q["inner_R"] for q in tof))

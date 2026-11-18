@@ -1,5 +1,5 @@
 """Plot true sections from selected saved solids plus labeled offset equipment sections."""
-import json, math, runpy
+import json, math, runpy, sys
 from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
@@ -27,6 +27,11 @@ sections={"shell":["OPEN_FRONT_COWL","OPEN_AFT_COWL","OPEN_BATTERY_DOOR","INSERT
           "gimbal":[n for n in D.members if n.startswith(("YAW_SHAFT_FORK_POSITIVE_CROSSPIN","YAW_HORN_KEY_HALF","YAW_HORN_ROOF","YAW_OUTER_RACE_SPACER","YAW_FIXED_OUTER_RACE_CAP","Yaw608_","HEAD_YAW_FORK_FIXED_", "MG92B_Head", "PITCH_HORN_ROOF","D18C_TRUE_PITCH_"))],
           "modules":["Pi4B_actual_PCB","Pi_components_and_cooling","PCA9685_Adafruit815_PCB","E1_populated_prototype_board","BUS25514_installed","PBAY_P_REAR","PBAY_F_AUX","Battery_GEA223S30X6GT","Monitor_MOD05015","VL53L5CX","Camera3_NoIR_Wide","CF17_POL1992_FULL_MATED_BODY"]+[n for n in D.members if n.startswith("Motor_ATO4A_")],
           "audio":["Speaker","ReSpeakerLite_on_REMOVABLE_back","MAX98357A_amp","INSERT_AUDIO_USB_A_FULL_MATE_FIELD","INSERT_AUDIO_USB_C_FULL_MATE_FIELD","INSERT_SPEAKER_TWO_BTL_TABS_FIELD"]}
+current="--current" in sys.argv
+final="--final" in sys.argv or current
+if final:
+    sections["shell"]=["FIT_FRONT_COWL","FIT_AFT_COWL","OPEN_BATTERY_DOOR","INSERT_OPTICAL_FACE","OPEN_SKULL_BACK"]
+    sections["structure"][0]="FIT_FLOOR_AND_BATTERY_MONITOR" if current else "FIT_FRONT_FLOOR"
 palette=dict(shell="#30363e",structure="#527171",gimbal="#82462e",modules="#88909e",audio="#126a94",FFC="#bc7252",ToF="#32843a",JR="#a167a2")
 def cut(n,axis,pos):
     b=D.bounds(n)
@@ -117,5 +122,6 @@ for axis,pos,name,title in [(1,0.03,"longitudinal","Przekrój podłużny przez w
          f"X = {pos:.2f} mm. Kolorowe pola pokazują zajęte przekroje wiązek w pozycji neutralnej. Złota linia przerywana wyznacza projektowe pole dojścia przy serwie.")
     fig.text(.055,.065,sub,fontsize=9)
     fig.legend([Line2D([0],[0],color=v,lw=2) for v in palette.values()],[labels[k] for k in palette],loc="lower center",ncol=8,frameon=False,fontsize=8)
-    fig.tight_layout(rect=[.015,.11,.99,.97]);fig.savefig(P/("section-"+name+".png"),dpi=140);plt.close(fig)
+    prefix="current-section-" if current else "fit-section-" if final else "section-"
+    fig.tight_layout(rect=[.015,.11,.99,.97]);fig.savefig(P/(prefix+name+".png"),dpi=140);plt.close(fig)
 print("Longitudinal and open bridge sections",src.name)
