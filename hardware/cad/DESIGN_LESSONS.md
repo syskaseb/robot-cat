@@ -14,6 +14,17 @@ Celem pozostaje prosty, zamknięty WAVEGO-kot do złożenia przez dwie osoby.
   w252 usunięto ten kontakt, lecz nowa podpora weszła w pełny crosspin yaw,
   a profil FFC w druk. Sprawdzenie samego widelca lub dwóch ścian pominęło
   zależność. Najtańszy test rozstrzygający tę całość ma poprzedzać podporę/osłonę.
+  Przed nowym dokładnym kontaktem sklasyfikuj tylko dotknięte operandy ze źródła.
+  W iteracji18/2 bryła Pi85×56×26 była rezerwą komponentów/chłodzenia/powietrza,
+  a wyjście JR i stub11,45 były projektowe. Trafienie w rezerwę oznacza
+  nierozstrzygniętą obsadę, nie kontakt z kupnym radiatorem. Trafienie dla
+  projektowego wyjścia odrzuca ten przebieg, nie wszystkie fabryczne przewody.
+  Zachowaj realne PCB/porty i funkcję chłodzenia; nie zastępuj klasyfikacji
+  usunięciem części ani ponownym audytem wszystkich źródeł.
+  W iteracji18/4 siedem trafień dotyczyło wycofanego aliasu P_AUX, nie drugiej
+  fizycznej złączki. Efektywność części potwierdził konstruktor; sama widoczność
+  lub lista wszystkich zapisanych obiektów nie ustala obsady. Pełna izolacja
+  na punkcie lutowania JP3 nie zastępuje modelu miedzi, lutu i początku izolacji.
 - **LL18-2 — lokalny sukces nie zamraża naszego układu.** Własna niewydrukowana
   półka, mocowanie, pozycja modułu lub maska są zmiennymi projektu.
   Wcześniejszy lokalny FIT nie ma pierwszeństwa przed wykonalnością całego kota.
