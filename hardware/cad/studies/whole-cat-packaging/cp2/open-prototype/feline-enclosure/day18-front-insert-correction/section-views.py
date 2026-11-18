@@ -23,7 +23,7 @@ rd=json.loads((P/"insert-regions.json").read_bytes())
 ex=json.loads((P/"connected-JR300.json").read_bytes())
 datum=json.loads((P/"throat-section-datum.json").read_bytes())
 sections={"shell":["INSERT_FRONT_NEG","INSERT_FRONT_POS","INSERT_REAR_NEG","INSERT_REAR_POS","INSERT_OPTICAL_FACE" if "INSERT_OPTICAL_FACE" in D.members else "F3_HEAD_FRONT","INSERT_HEAD_BACK"],
-          "structure":["FRONT18_FLOOR_AND_YAW_ROOT","P03_rear_deck_integrated_load_yoke","F2_COMMON_PI_BUS_PCA_RECEIVER","FRONT18_FORE_NEG_PANEL","FRONT18_FORE_POS_PANEL","FRONT18_REAR_NEG_PANEL","FRONT18_REAR_POS_PANEL"],
+          "structure":["FRONT18_LOWER_BEARING_FRAME","FRONT18_FLOOR_AND_YAW_ROOT","P03_rear_deck_integrated_load_yoke","F2_COMMON_PI_BUS_PCA_RECEIVER","FRONT18_FORE_NEG_PANEL","FRONT18_FORE_POS_PANEL","FRONT18_REAR_NEG_PANEL","FRONT18_REAR_POS_PANEL"],
           "gimbal":[n for n in D.members if n.startswith(("YAW_SHAFT_FORK_POSITIVE_CROSSPIN","YAW_HORN_KEY_HALF","YAW_HORN_ROOF","YAW_OUTER_RACE_SPACER","YAW_FIXED_OUTER_RACE_CAP","Yaw608_","HEAD_YAW_FORK_FIXED_", "MG92B_Head", "PITCH_HORN_ROOF","D18C_TRUE_PITCH_"))],
           "modules":["Pi4B_actual_PCB","Pi_components_and_cooling","PCA9685_Adafruit815_PCB","E1_populated_prototype_board","BUS25514_installed","PBAY_P_REAR","PBAY_F_AUX","Battery_GEA223S30X6GT","Monitor_MOD05015","VL53L5CX","Camera3_NoIR_Wide","CF17_POL1992_FULL_MATED_BODY"]+[n for n in D.members if n.startswith("Motor_ATO4A_")],
           "audio":["Speaker","ReSpeakerLite_on_REMOVABLE_back","MAX98357A_amp","INSERT_AUDIO_USB_A_FULL_MATE_FIELD","INSERT_AUDIO_USB_C_FULL_MATE_FIELD","INSERT_SPEAKER_TWO_BTL_TABS_FIELD"]}
@@ -62,7 +62,9 @@ tubes=[("FFC",np.array(next(q for q in rd["FFC"] if q["yaw"]==q["pitch"]==0)["co
 tubes += [("ToF",tube(q["centreline"],2.1,2.1)) for q in rd["ToF_fixed"]+rd["ToF_header"]]
 tubes += [("JR",tube(q["centreline"],3.5,1.8)) for q in rd["JR_factory"]+[next(q for q in ex["poses"] if q["yaw"]==0)]]
 def occupied_slices(ax,pos):
-    edges=[(i,(i+1)%4) for i in range(4)]+[(i+4,(i+1)%4+4) for i in range(4)]+[(i,i+4) for i in range(4)]
+    # Take the planar hull of every crossing chord of the local convex cell.
+    # This bounds the section for either ordering of the two four-corner ends.
+    edges=[(i,j) for i in range(8) for j in range(i+1,8)]
     for group,c in tubes:
         for a,b in zip(c,c[1:]):
             v=np.vstack([a,b]);pts=[]
