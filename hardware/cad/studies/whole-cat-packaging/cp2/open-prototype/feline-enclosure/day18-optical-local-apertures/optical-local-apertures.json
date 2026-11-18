@@ -1,0 +1,131 @@
+{
+  "status": "PROVISIONAL_LOCAL_MASK_GEOMETRY",
+  "basis_commit": "98e254116c1128f13a94742449beddf451461fd5",
+  "basis_native_sha256": "cb6cae78d89b1aee9bb05ba18c1a8ed129aadec572b3417a9c7677f7b61984c1",
+  "length_unit": "mm",
+  "mechanical_source_provenance": {
+    "camera_drawing_sha256_reported_in_cache": "c5f87a9b48d63857fb3d9c0a3deeec797325c56d198c80bcb77a2062e6925b92",
+    "camera_original_drawing_bytes_found": false,
+    "note": "SHA-256 values in sources bind bytes from the basis commit or the verified archive. The camera PDF digest is a recorded receipt."
+  },
+  "camera": {
+    "part": "Raspberry Pi Camera Module 3 NoIR Wide",
+    "pcb_local_axes": "u along 25 mm edge, v along 24 mm edge, n normal from PCB rear towards lens",
+    "pcb_size_uvn_mm": [25, 24, 1.12],
+    "installation_envelope_nuv_mm": [12.4, 25, 24],
+    "mounting_hole_diameter_mm": 2.2,
+    "mounting_holes_uv_mm": [
+      [2, 2],
+      [23, 2],
+      [2, 14.5],
+      [23, 14.5]
+    ],
+    "mounting_pitch_uv_mm": [21, 12.5],
+    "nominal_axis_local_uvn": [0, 0, 1],
+    "nominal_model_lens_face_center_uvn_mm": [12.5, 14.4, 12.4],
+    "model_lens_cylinder_diameter_mm": 6.95,
+    "source_entrance_pupil_center_uvn_mm": null,
+    "source_entrance_pupil_outline": null,
+    "cached_fov_hvd_deg": [102, 67, 120],
+    "mask_guide": {
+      "projection": "rectangular independent H/V slope envelope",
+      "reference_n_mm": 12.4,
+      "seed_u_limits_mm": [8.5, 16.5],
+      "seed_v_limits_mm": [10.4, 18.4],
+      "half_growth_hv_mm_per_mm": [1.234897156535051, 0.6618855611956914],
+      "implied_rectilinear_diagonal_deg": 108.967,
+      "qualification": "8 x 8 square seed is the older project allowance around the modeled cylinder. Physical pupil, field projection, focus/mode dependency and corner rays are unknown."
+    }
+  },
+  "tof": {
+    "part": "Pololu 3417 VL53L5CX",
+    "pcb_local_axes": "untransformed STEP x/y in PCB plane, +z towards scene; H along STEP y, V along STEP x (widths)",
+    "supplier_board_envelope_xyz_mm": [12.7, 17.78, 2.566],
+    "installation_envelope_axial_hv_mm": [14, 26, 26],
+    "nominal_package_normal_local_xyz": [0, 0, 1],
+    "package_top_plane_z_mm": 2.566,
+    "package_top_vertex_x_limits_mm": [4.429312, 10.859312],
+    "package_top_vertex_y_limits_mm": [7.310282, 10.370282],
+    "tx_optical_center_local_xyz_mm": null,
+    "rx_optical_center_local_xyz_mm": null,
+    "tx_rx_effective_outlines_and_axes": null,
+    "cached_fov_hvd_deg": [45, 45, 65],
+    "mask_guide": {
+      "projection": "shared rectangular pyramid from padded package top, independent H/V slopes",
+      "reference_z_mm": 2.566,
+      "seed_x_limits_mm": [4.1, 11.2],
+      "seed_y_limits_mm": [6.98, 10.7],
+      "seed_hv_size_mm": [3.72, 7.1],
+      "half_growth_hv_mm_per_mm": [0.41421356237309503, 0.41421356237309503],
+      "implied_pyramid_diagonal_deg": 60.722,
+      "qualification": "Rounded-package STEP vertices cross-checked against the historical padded reserve. Separate TX/RX apertures, TX spread, RX angular response, corner rays and mask reflections remain unverified."
+    }
+  },
+  "planes": {
+    "d_definition": "Axial distance ahead of the selected local optical reference plane. Table uses mechanical model references. For actual optics use each pupil or emitting/receiving reference separately.",
+    "d_back": "s",
+    "d_front": "s + t",
+    "d_for_true_aperture_when_s_is_mechanical_gap": "d = s + z_ref - z_opt at back, plus t at front; local coordinates along the optical direction. Evaluate plane ahead of each effective origin.",
+    "local_interval": "[L - d*k_minus - m_minus, U + d*k_plus + m_plus] per transverse axis. Union the TX and RX intervals independently at each plane when measured separately.",
+    "m_definition": "Extra per-edge fabrication and registration allowance. Sample includes seed allowances only.",
+    "wall": "Flare through the material to contain all intermediate sections. For a straight cut use the outer section for the whole thickness. On a sloped or curved mask check the opening where the local ray envelope actually crosses the wall."
+  },
+  "example_table": {
+    "columns": ["d_mm", "cam_H_mm", "cam_V_mm", "tof_H_mm", "tof_V_mm"],
+    "rows_approx": [
+      [0, 8, 8, 3.72, 7.1],
+      [1, 10.47, 9.32, 4.55, 7.93],
+      [2, 12.94, 10.65, 5.38, 8.76],
+      [3, 15.41, 11.97, 6.21, 9.59]
+    ]
+  },
+  "sources": [
+    {
+      "role": "Camera cached source receipt and project angles",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-head-tail-mask/sensor-primary-facts.json",
+      "sha256": "057a072c021b03c1732fbbe1cdff573bc905ba2782235703840042a9ba37f9ff"
+    },
+    {
+      "role": "Camera local PCB, lens envelope and pose of original ToF STEP",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-head-tail-mask/build-ola-mask-and-sensors.py",
+      "sha256": "1e4883a78e14da1ae819ecf5806cacba158f217aadde195d0b22c8f49d0d718e"
+    },
+    {
+      "role": "ToF package-top rectangle, with historical per-side allowance",
+      "path": "tools/freecad/skorupa/preflight32.py",
+      "sha256": "ec3e1c572b984306159b148744c0e0acf0589ca95c472913e260607470e3b6b4"
+    },
+    {
+      "role": "Verified archive containing the ToF drawing and STEP",
+      "path": "hardware/reference/component-selection-2026-09-22/sources.zip",
+      "sha256": "ec7f247bd19bee8f679751b21b4d0e673f908d022f2fbf513925efb50c367d49"
+    },
+    {
+      "role": "ToF supplier STEP, matches archive member",
+      "path": "hardware/reference/component-selection-2026-09-22/vl53l5cx-pololu-3417.step",
+      "archive_member": "vl53l5cx-pololu-3417.step",
+      "sha256": "1cb6ed4c1e94aaade7337a5fcfc2e263b14cceeac0295d1ce1ff2bb8b43b1bcc"
+    },
+    {
+      "role": "ToF supplier drawing, matches archive member",
+      "path": "hardware/reference/component-selection-2026-09-22/vl53l5cx-dimensions.pdf",
+      "archive_member": "vl53l5cx-dimensions.pdf",
+      "sha256": "8d0511ef00892bd612077607457a36189dccb91ab56e4421ce5f99abc636fe5e"
+    },
+    {
+      "role": "Antecedent cut seeds and angles",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-connected-storage-pitch-frame/build-true-pitch-receiver.py",
+      "sha256": "3d28e05ad35a73b0c875888b39c8429d6bbb08a0ebd8bcbbc4e0716c11dcb65d"
+    },
+    {
+      "role": "Antecedent placement evidence",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-connected-storage-pitch-frame/actual-selected-placement-delta.json",
+      "sha256": "6c5bd822f4bbf122a134dc72a7ecde9e12d0533e35606392193a815beda68267"
+    },
+    {
+      "role": "98 inherited-field cut of the front shell",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-closed-whole-common-assembly/whole-working-form.py",
+      "sha256": "09281b98017d8a87fbdf7b2b20f65294608314c8487b3fa70934eb685c8bb20a"
+    }
+  ]
+}
