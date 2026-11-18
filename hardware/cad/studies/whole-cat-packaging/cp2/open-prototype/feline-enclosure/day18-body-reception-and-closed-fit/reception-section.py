@@ -15,7 +15,10 @@ from OCP.TopoDS import TopoDS
 from OCP.GeomAbs import GeomAbs_Line
 from OCP.gp import gp_Pln,gp_Pnt,gp_Dir
 P=Path(__file__).parent
-trial="--trial" in sys.argv
+current="--current" in sys.argv
+frozen="--frozen" in sys.argv
+current=current or frozen
+trial="--trial" in sys.argv or current
 D=runpy.run_path(str(P.parent/"day18-front-insert-correction"/"saved-front.py"))["Saved"](P/"body-reception.FCStd" if trial else P.parent/"day18-open-front-assembly"/"open-front.FCStd")
 groups={"powłoka":(["FIT_FRONT_COWL","FIT_AFT_COWL","OPEN_SKULL_BACK","INSERT_OPTICAL_FACE"],"#82858c"),
     "podłoga / bank":(["FIT_FLOOR_AND_BATTERY_MONITOR"],"#467777"),
@@ -30,6 +33,19 @@ if trial:
     flex={"JR 250 + 250 + 300":([data["yaw"]["centreline"],select(data["pitch"])["centreline"],data["extension"]["centreline"]]+[q["centreline"] for q in data["extension"]["fans"]],3.5,"#d87d12"),
           "ToF 2×2 / odnogi":([select(data["ToF_move"])["centreline"]]+[q["centreline"] for q in data["ToF_fixed"]+data["ToF_head"]],4.9,"#359048"),
           "FFC 16,8 × 1,8":([np.array(select(old["FFC"])["corners"]).mean(axis=1)],16.8,"#3762b5")}
+if current:
+    choose=lambda *ns:next(n for n in ns if n in D.members)
+    groups["powłoka"]=([choose("BR_CHEST_EXTENSION_ENTRY","BR_CHEST_WITH_COVERED_ENTRIES","BR_CLOSED_CHEST_LIP"),"BR_ROUNDED_RUMP",choose("BR_BACK_UPPER_RETURN","BR_BACK_WITH_COVERED_ENTRIES","BR_PARTED_SKULL_BACK"),"BR_COMMON_OPTICAL_MASK"],"#82858c")
+    groups["nośnik Pi–PCA"]=([choose("BR_FORE_ROOT_PI_CARRIER","BR_PI_CARRIER_AROUND_LANE","F2_COMMON_PI_BUS_PCA_RECEIVER")],"#be4538")
+    groups["podłoga / bank"]=([choose("BR_BODY_FLOOR_OUTER_TOWER","BR_FLANK_FLOOR")],"#467777")
+    groups["gniazda i złącza"]=(["BR_PAIR_HY","BR_FLANK_HP_PAIR","BR_FLANK_THREE_LAPS",choose("BR_PITCH_RECEIVER_OPEN_ENTRY","BR_PITCH_RECEIVER_AND_GRIP")],"#a15696")
+    names=groups["wyposażenie"][0];names.remove("WAGO415_data_1_0");names.extend(["PBAY_F_HP","PBAY_F_HY","Speaker","ReSpeakerLite_on_REMOVABLE_back","INSERT_AUDIO_USB_A_FULL_MATE_FIELD","Pi_USB_DATA_Delock_mating"])
+    if "BR_YAW_FORK_WITH_SADDLE" in D.members:
+        groups["gimbal i stal"][0].remove("HEAD_YAW_FORK_FIXED_PITCH_HOUSING");groups["gimbal i stal"][0].append(choose("BR_FINISHED_YAW_SADDLE","BR_YAW_FORK_WITH_SADDLE"))
+    r=json.loads((P/"flank-reception.json").read_bytes());jr=json.loads((P/"yaw-laid-factory.json").read_bytes())["rows"]
+    fixed=json.loads((P/"jp3-shared-fan.json").read_bytes())["rows"]
+    flex["JR 250 + 250 + 300"]=([r["yaw"]["centreline"],select(jr)["centreline"],r["extension"]["centreline"]]+[q["centreline"] for q in r["extension"]["fans"]],3.5,"#d87d12")
+    flex["ToF 2×2 / odnogi"]=([select(r["ToF_move"])["centreline"]]+[q["centreline"] for q in r["ToF_head"]+fixed],4.9,"#359048")
 def section(n,axis,pos):
     b=D.bounds(n)
     if pos<b[axis] or pos>b[axis+3]:return []
@@ -43,7 +59,8 @@ def section(n,axis,pos):
         out.append(np.array(pts)[:,dim]);edges.Next()
     return out
 fig,axes=plt.subplots(2,2,figsize=(12,8))
-for ax,(axis,pos) in zip(axes.flat,[(2,131.5),(2,153.7),(0,-91),(0,-51)]):
+planes=[(2,80.5),(2,158.5),(0,-96),(0,-48)] if current else [(2,131.5),(2,153.7),(0,-91),(0,-51)]
+for ax,(axis,pos) in zip(axes.flat,planes):
     for names,color in groups.values():
         for n in names:
             lines=section(n,axis,pos)
@@ -61,4 +78,4 @@ for ax,(axis,pos) in zip(axes.flat,[(2,131.5),(2,153.7),(0,-91),(0,-51)]):
 colors={name:entry[-1] for name,entry in groups.items()}
 if trial:colors.update({n:q[-1] for n,q in flex.items()})
 fig.legend([Line2D([],[],color=c) for c in colors.values()],list(colors),loc="lower center",ncol=4)
-fig.tight_layout(rect=(0,.07,1,1));fig.savefig(P/("reception-sections.png" if trial else "source-sections.png"),dpi=140)
+fig.tight_layout(rect=(0,.07,1,1));fig.savefig(P/("frozen-section.png" if frozen else "current-section.png" if current else "reception-sections.png" if trial else "source-sections.png"),dpi=140)

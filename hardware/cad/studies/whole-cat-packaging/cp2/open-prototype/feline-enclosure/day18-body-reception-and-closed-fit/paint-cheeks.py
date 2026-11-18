@@ -31,6 +31,6 @@ def count(x):
 def volume(x):
     p=GProp_GProps();BRepGProp.VolumeProperties_s(x,p,1e-8);return p.Mass()
 res=dict(edges_added=i,faces_before=count(s),faces_after=count(coated),before_mm3=volume(s),after_mm3=volume(coated),valid=BRepCheck_Analyzer(coated).IsValid())
-(P/"paint-partition.json").write_text(json.dumps(res,indent=1)+"\n",encoding="utf8")
+(P/"paint-partition.json").write_bytes((json.dumps(res,indent=1)+"\n").encode("utf8"))
 assert res["valid"] and res["faces_after"]>res["faces_before"] and abs(res["before_mm3"]-res["after_mm3"])<1,res
 BRepTools.Write_s(coated,str(P/"cheek-painted-surface.brep"));print(res)

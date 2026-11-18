@@ -1,6 +1,6 @@
 """Measure the chest / moving-back overlap at three actual cross sections."""
 from pathlib import Path
-import runpy,json,math
+import runpy,json,math,sys
 from OCP.BRepAlgoAPI import BRepAlgoAPI_Common
 from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace
 from OCP.BRepExtrema import BRepExtrema_DistShapeShape
@@ -9,7 +9,8 @@ from OCP.GProp import GProp_GProps
 from OCP.gp import gp_Pnt,gp_Ax1,gp_Dir,gp_Trsf,gp_Pln
 from OCP.TopLoc import TopLoc_Location
 P=Path(__file__).parent;D=runpy.run_path(str(P.parent/"day18-front-insert-correction"/"saved-front.py"))["Saved"](P/"body-reception.FCStd")
-fixed=D.shape("BR_RECESSED_CHEST");back=D.shape("BR_OVERLAP_SKULL_BACK")
+matched="--matched" in sys.argv
+fixed=D.shape("BR_CLOSED_CHEST_LIP" if matched else "BR_RECESSED_CHEST");back=D.shape("BR_PARTED_SKULL_BACK" if matched else "BR_OVERLAP_SKULL_BACK")
 rows=[];cuts=[]
 for x in (-151,-133,-111):
     plane=BRepBuilderAPI_MakeFace(gp_Pln(gp_Pnt(x,0,140),gp_Dir(1,0,0)),-120,120,-130,130).Face()
@@ -27,4 +28,4 @@ for yaw,pitch in [(0,0),(-20,-10),(20,10),(-20,10),(20,-10)]:
         if gap<.001:
             p=GProp_GProps();BRepGProp.SurfaceProperties_s(BRepAlgoAPI_Common(f,b).Shape(),p);area=p.Mass()
         rows.append(dict(yaw=yaw,pitch=pitch,x=x,section_gap_mm=gap,section_overlap_mm2=area))
-    (P/"joint-sections.json").write_bytes((json.dumps(dict(rows=rows,scope="Named planar sections and five poses only; continuous motion and full shell clearance remain open.",physical_PASS=False),indent=1)+"\n").encode())
+    (P/("matched-joint-sections.json" if matched else "joint-sections.json")).write_bytes((json.dumps(dict(rows=rows,scope="Named planar sections and five poses only; continuous motion and full shell clearance remain open.",physical_PASS=False),indent=1)+"\n").encode())
