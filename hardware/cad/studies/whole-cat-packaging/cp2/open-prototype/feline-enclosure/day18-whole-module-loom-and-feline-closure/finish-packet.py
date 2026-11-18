@@ -1,0 +1,19 @@
+import pathlib,json,hashlib,zipfile,datetime
+P=pathlib.Path(__file__).parent;S=P.parent/'day18-connected-storage-pitch-frame'
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def wr(n,x):(P/n).write_bytes((json.dumps(x,indent=2,ensure_ascii=False)+'\n').encode('utf-8'))
+native=P/'whole-module-loom-and-feline-closure.FCStd'
+source=S/'connected-storage-pitch-frame.FCStd'
+assert sha(source)=='168563a7eb96d7b676e6edfd05dda600d181d6a7068fc55d3435b47e1540eeef'
+wr('sourcepins.json',dict(source_commit='d1ff7ee90ffa72ff6689b3b0afb93203f5cc0777',source_received='actualec23/D1 parent69exact68hash7827CRC; fresh02:20 oneGUI17796/1502 savedIDLE',source_native=str(source),source_native_sha256=sha(source),source_manifest_sha256=sha(S/'manifest.json'),inherited_sourcepins_sha256=sha(S/'sourcepins.json'),current_native=str(native),current_native_sha256=sha(native),source_geometry_frozen=True,shared_metadata_modified=False))
+wr('checkpoint-final-fact-and-consequence.json',dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),fact='F0-S1 8.0mm; XT60-F_AUX 2.0mm; S0_IN_lug-AUX 8.0373mm; current receiver-speaker 1.5mm. Full inherited Pi material missing0.',consequence='Independent current whole layer and actual hollow material saved; whole closure/appearance not accepted. New BUS installed-field overlap126 requires actual PCB datum qualification, not foreign contact waiver.',next_common_test='Finish connected ToF/JR/POWER source-to-source occupation jointly with receiver actual PCB/hardware/contact and late skin joins; no old global matrix.',physical_PASS=False))
+wr('current-print-index.json',dict(status='NO_NEW_STL_RELEASE',current_native=native.name,BREP_source='all current objects in native',reasons=['New hollow walls have unfinished mechanical joints and moving neck/tail closure','Changed common receiver BUS datum/hardware/assembly not yet qualified','Changed Pi carrier means D1 Pi STL is historical, not current'],new_actual_material=['F2_BODY_FORE_NEG','F2_BODY_FORE_POS','F2_BODY_REAR_NEG','F2_BODY_REAR_POS','F2_HEAD_FRONT','F2_HEAD_BACK','F2_COMMON_PI_BUS_PCA_RECEIVER'],retired_provisional_not_print_mass=['D18B_BODY_FORM','D18C_HEAD_FACE_CLOCK_BOUND_FORM','D18C_LOCAL_NECK_RECEIVING_FORM_NOT_PRINT','old D18C gold/dark eye forms'],replaced_own_parts=['D18C_COMMON_PI_OPEN_CARRIER (full old material preserved in new receiver after declared relief)','TAIL_HORN_ROOF_JOURNAL non-bearing corner relief only; bought bearing/MG/horn unchanged'],physical_PASS=False,whole_kit=False))
+z=zipfile.ZipFile(native);assert z.testzip() is None
+wr('native-integrity.json',dict(file=native.name,sha256=sha(native),zip_records=len(z.infolist()),crc_test='ALL_OK'))
+wr('receipt.json',dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),scope='ONE WHOLE module layer/common receiver/hollow wall correction; partial useful result, night window remains active',physical_PASS=False,whole_kit=False,appearance_accepted=False,actual_fit=None,actual_cut=None,installed_slack=None,ordinary_usage={'observed_utc':'2026-11-18T04:10:03Z','ordinaryUsageAllowed':True,'usedPercent':4,'percentage_guard':None},native_integrity='native-integrity.json',native_state='SEE native-final-state.json read-only snapshot after normal final save; no owned compute retained'))
+exclude=lambda q:q.suffix=='.FCBak' or '.FCStd.' in q.name or q.name=='manifest.json'
+for q in P.iterdir():
+ if q.is_file() and q.suffix in ['.py','.json','.md']:q.write_bytes(q.read_bytes().replace(b'\r\n',b'\n'))
+files=[q for q in P.iterdir() if q.is_file() and not exclude(q)]
+wr('manifest.json',dict(files=[dict(path=q.name,bytes=q.stat().st_size,sha256=sha(q)) for q in sorted(files)],excluded='own automatic FCBak and incomplete save temp, not source evidence'))
+print(json.dumps(dict(files=len(files)+1,native_sha256=sha(native),crc_records=len(z.infolist()),manifest_sha256=sha(P/'manifest.json'))))
