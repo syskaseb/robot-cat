@@ -1,6 +1,6 @@
 # Wkład przedni z górną zatoką audio — wynik iteracji 2
 
-**Odrzucić ten układ całego przodu.** W neutralnej pozycji środek fabrycznego przewodu yaw wchodzi w materiał dolnej kolumny łożyska 2,92 mm od projektowego wyjścia serwa. Prześwit wynosi tam 0 mm. Przy zachowanej trasie DATA500 górna zatoka jest zajęta również przy mikrofonie i wzmacniaczu. Kolejność składania nie usuwa żadnego z tych przecięć. [Przekrój w kolumnie](section-throat.png) · [Przekrój podłużny](section-longitudinal.png) · [Wynik sprawdzenia](effectivity.json)
+**Odrzucić sprawdzone ułożenie wiązek i osłon. Koncepcja wspólnego wkładu pozostaje otwarta.** Pewne przeszkody w tym modelu to zajęcie płytki Pi przez wybrany tor JR, wspólna objętość głośnika z obiema prawymi osłonami oraz wejście profilu ToF w prawy panel. Punkt 2,92 mm dotyczy konkretnego założenia wyjścia yaw. Osobno sprawdzono, gdzie taśma FFC wymaga współdzielenia rezerwy chłodzenia. [Przekrój w kolumnie](section-throat.png) · [Przekrój podłużny](section-longitudinal.png) · [Wynik sprawdzenia](effectivity.json)
 
 [Przód](insert-front.png) · [Bok](insert-side.png) · [Ujęcie 3/4](insert-three-quarter.png) · [Wnętrze](insert-interior.png) · [Aktualny model FreeCAD](front-insert-current.FCStd)
 
@@ -21,13 +21,17 @@ Przekrój podłużny przechodzi na Y = 0,03 mm. Kreskowane obrysy to przekroje r
 
 ## Próba montażu dla dwóch osób
 
-1. Na otwartej podstawie pierwsza osoba podaje serwo yaw i dolny wał, druga osadza łożyska, widelec i pełny crosspin. Już przy odkładaniu przewodu yaw we właściwym kierunku kolumna zajmuje jego wyjście. Tutaj przebiega pierwsza przeszkoda montażowa.
+1. Na otwartej podstawie pierwsza osoba podaje serwo yaw i dolny wał, druga osadza łożyska, widelec i pełny crosspin. Dla założonego wyjścia (−119,5, 0, 53,2) mm, stycznej +X i odcinka 11,45 mm wybrany tor trafia w kolumnę. Położenie wyjścia, kierunek i odcinek do pierwszego swobodnego zgięcia wymagają sprawdzenia na jednym MG z fabrycznym przewodem i wtykiem.
 2. Przy dostępnym spodzie banków osadzić pełne oprawki i końcówki TE. P_REAR–F_AUX pozostaje parą o zachowanej pozie względnej. Pi i zespół lutowany PCA–E1 wchodzą z odsłoniętymi końcami. Do założenia przed pokrywą pozostają FFC, cztery odrębne żyły JP3, para C_HP i trzy osobno izolowane złącza.
 3. Z górnym dostępem trzeba jednocześnie pomieścić odcinki DATA500 przy obu portach, USB_AUDIO z obiema wtyczkami oraz BTL i pełne moduły akustyczne. Przy obecnych położeniach etap ten jest zablokowany. Dostęp do baterii, wyłączników, chłodzenia, wszystkich krótkich fabrycznych końców i pokrycie karku wymagają potwierdzenia w wybranym później układzie.
 
-## Decyzja dla następnej iteracji
+## Rozstrzygnięcie źródłowe w tej samej iteracji
 
-Zachować jako dane przebieg od optyki do stałych końców, nominalne okna, pełne jednostki i wskazane przeszkody. Następne rozstrzygnięcie dotyczy wspólnego położenia **podparcia gimbala, rzeczywistych wyjść obu serw oraz nośnika Pi–PCA z wejściami przewodów**. Najpierw zestawić je w otwartym montażu z pełnym crosspinem i obiema drogami do portów DATA500. Dopiero ich wolna strona wyznaczy miejsce audio i zakrywający ją obrys barku. Wymiary modelu, wiązki i zatoki z tej iteracji pozostają propozycją odrzuconą.
+- **FFC i chłodzenie.** Bryła 85 × 56 × 26 mm rezerwuje miejsce na elementy i przepływ powietrza. W jej obrębie pole zajęte przez próbki taśmy przy CSI mieści się w prostopadłościanie 10,49 × 18,01 × 20,50 mm. Dolna granica odległości tej bryły do rzeczywistego obrysu PCB wynosi 5,50 mm, do pełnego pola 1992 wynosi 28,96 mm, do K1474 wynosi 6,88 mm. Wśród osobnych pól portów tylko CSI styka się z tą bryłą, zgodnie z planowanym wejściem. To rozmiar zajęty przez dziewięć próbek, przed doliczeniem luzu i pracy zatrzasku. Współdzielenie rezerwy 26 mm zależy od profilu zamontowanego chłodzenia, przepływu powietrza i obsługi zatrzasku z włożoną taśmą. [Granice kanału i poszczególne porty](csi-entry.json)
+- **JR i podparcie.** Punkt przecięcia z materiałem kolumny i dalsze wejście w PCB odrzucają jeden przebieg całej 250. Zależność od założonego wyjścia dotyczy także przekroju poprzecznego. Poza tym założeniem nośność kolumny i inne przebiegi od rzeczywistego wyjścia pozostają otwarte. Zachować całą jednostkę, obie funkcje mechanizmu, pełną stal i dostęp do montażu klucza. [Założenia wyjścia i zapasu](insert-regions.json)
+- **DATA500 i zatoka.** Dwa kontakty z audio dotyczą poprzedniego przykładowego ułożenia elastycznej jednostki. Zachować porty, pełne wtyki i osłony końców, odcinki od obu wtyków i miejsce na całą długość 500 mm. Obrys głośnika, miejscowe dojście BTL, dostęp do mikrofonu i niezależny USB_AUDIO muszą zmieścić się razem z tym zapasem. Własne osłony i kształt pętli pozostają zmienne. [Punkty i budżet jednostki DATA500](../day18-closed-whole-common-assembly/DATA500-horizontal-stock-plan.json)
+
+**Decyzja montażowa.** Zachować wspólny wkład jako wariant warunkowy. W otwartym złożeniu rozpatrywać użyteczny przekrój podparcia równocześnie z obszarem wyjścia pełnego MG, kanałem CSI i odkładaniem całej jednostki DATA500 przy obu końcach. O położeniu kolumny ma rozstrzygnąć ten wspólny przekrój i montaż. Dopiero wolne miejsce przy zamkniętych barkach i rzeczywistym głośniku kwalifikuje zatokę audio.
 
 Baza konstrukcyjna 98e25411, bezpośrednia kopia a81c35ac. Zapis pośredni front-insert.FCStd poprzedza maskę optyczną. Błąd zapisu pośredniego zachowano w źródłach. Plik front-insert-current.FCStd zawiera maskę i wszystkie końcowe widoki. Pierwszy checkpoint ddc60a13 zachowuje pierwotne dwa przekroje. W dostarczonych końcowych przekrojach dodano bezpośredni obrys kolumny oraz pełną otoczkę przekroju profilu.
 
