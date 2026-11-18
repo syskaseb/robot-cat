@@ -20,13 +20,12 @@ Nie traktuj lokalnego FIT ani liczby plików jako ukończenia całego kota.
 Ta reguła obejmuje przyszłe wznowienia; NIE włącza zamkniętego okna CAD.
 
 
-## 18.11 do16:00Warszawa — NOWA ZGODA / AKTYWNE
+## 18.11 do16:00Warszawa — OKNO ZAMKNIĘTE
 
-Użytkownik jawnie wznowił pracę do2026-11-18T15:00:00Z/16:00Warszawa oraz polecił ZASTĄPIĆ agentów najnowszymi modelami i autoskalować niezależne prace. Stare5ról odebrane i zamknięte; bieżące role/actualinput tylko zCURRENT FIRSTcard/runtime. Ta zgoda ma pierwszeństwo przed historycznymi zakazami wznowienia/starychmodeli poniżej.
-Najpierw CAŁY wykonalny przód/gimbal-szyja-przedniebanki/pełnycrosspin/occupiedFFC-ToF-JR/stock/assembly+Olaform, potemdetale. Ownunbuiltposesgimbala/modułów/mountów zmienne; mała zmiana bazy dozwolona po korzyści. Nie kolejny guard/offsetgrid; sourceparts/factoryends/protection/ranges/12ST3MG/nogi/tailY/256inclbrim zachowane.
-Nowe role: Banach Astra6.2high SOLEwriter złożenia/GUI; Lorentz Astra6.2high boundedsource/newwhole-review dopiero przy propozycji; Beauvoir Sol6.2medium LL18+prostota/master; Zeno Astra6.2high actualPNG/Ola; Bohr Sol6.2low dopiero kuracja. Autoscale tylko konkretne odrębne pliki/prywatnyworktree, nigdy drugi writer wspólnegoCAD. Masterreadintegrate+metadata/noMECHstagewhileCADactive.
-LL18przed KAŻDĄ iteracją4krótkiepola/po2wSAMEcard; actualresult/pins/factconsequence co20–30min, nieperboltHOLDfinal. Reuseunchangedproofs/onlyaffectedchecks, nie123axes/produkcja/service/globalreplay/katalogreaudit. FIRST+freshruntime/actualcurrentworkerRECEIVEbeforeNEXT/nohistoricalIDs/queuedflood.
-Ordinaryusagefresh target4/max10/priorcostly/%guardNULL/noreset. No longnewnative14:40UTC/saveendowned14:50/HARD15:00UTC; stopwholeagreedready/noindependentworkafteralternatives/ordinaryfalse-refusal-missingread→save/endowned/enabledfalse/preserveGUI/noextension. Physicalunknownsnameddependent/no physicalPASS/no purchasedcuts/no purchase/power/print/slicer/ROS/push/mail/alerts/schedule. Ownverifiedcommits/preserveforeign/history/atomicUTF8LFfreshcompare. ClosednightmorninghistorybelowisNOTcurrentNEXT.
+Stan 2026-11-18T14:38:44.218250+00:00: enabled=false, bez automatycznego wznowienia. Harddeadline15:00UTC/16:00Warszawa nieprzedłużony. Zamrożony wynik d5baf5e6 ODEBRANY, całość/wygląd HOLD; nie zadeklarowano ukończenia zamkniętego kota. [Jeden punkt wejścia](hardware/afternoon-2026-11-18/START_HERE.md) i bieżąca FIRSTcard/runtime zawierają aktualne ograniczenia oraz warunkową decyzję całego policzek–szyja–barki/ToF przed detalami.
+Nowe role są generation6.2: Banach/Lorentz/Zeno Astra6.2high, Beauvoir Sol6.2medium, Bohr Sol6.2low. Wszystkie actualinputs odebrane i role zamknięte; źródła i historyczne odbiory zachowane. Jedyny CADwriter złożenia; autoscale wyłącznie konkretna niezależna praca/prywatnyworktree.
+Native zapisany14:19:23UTC/1643obiekty, własne obliczenia zakończone14:25:35; jednaGUI17796/MCP zachowane/modifiedfalse. Odebrano też źródłowy plan bez zmiany geometrii. Przed odcięciem14:40 brak dalszego niezależnego pakietu do bezpiecznego ukończenia; żaden reset/zakup/przedłużenie. Ordinaryusage świeże/true, nie powód stopu.
+Warunkowy pojedynczy widelec STL służy tylko przymiarce bez zasilania. WholeprintindexNULL/physicalPASSfalse/fitcutslackNULL; pozostałe części/ochrona/factoryends/tailY/256inclbrim zachowane. Nie kontynuować starych NEXT ani uruchamiać następnej rodziny CAD bez nowej zgody. Brak zakupów/zasilania/druku/slicera/ROS/push/mail/alertów. Stała kontrola LL18 powyżej pozostaje obowiązująca przy przyszłym wznowieniu.
 
 ## Noc17/18Nov do09:30Warszawa — OKNO ZAMKNIĘTE
 
