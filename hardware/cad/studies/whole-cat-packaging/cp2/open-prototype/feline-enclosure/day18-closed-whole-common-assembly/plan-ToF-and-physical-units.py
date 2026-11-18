@@ -1,0 +1,38 @@
+import math,json,pathlib,numpy as np,xml.etree.ElementTree as E,hashlib
+P=pathlib.Path(__file__).parent;ROOT=pathlib.Path(r'C:/Users/Sysq/PycharmProjects/robot-cat-mechanical')
+def wr(n,x):(P/n).write_bytes((json.dumps(x,indent=2)+'\n').encode())
+S=np.array([-108.,45.,108.]);B=np.array([-70.,42.,179.]);W=10.4;T=2.9
+def pose(v,yaw,pitch):
+ a,b=map(math.radians,[yaw,pitch]);ry=np.array([[math.cos(b),0,math.sin(b)],[0,1,0],[-math.sin(b),0,math.cos(b)]]);rz=np.array([[math.cos(a),-math.sin(a),0],[math.sin(a),math.cos(a),0],[0,0,1]]);v=ry@(v-np.array([-135,0,121]))+[-135,0,121];return rz@(v-np.array([-106,0,127]))+[-106,0,127],rz@ry
+rows=[];required=[]
+for yaw in [-20,0,20]:
+ for pitch in [-10,0,10]:
+  s,R=pose(S,yaw,pitch);dh=np.linalg.norm(B[:2]-s[:2]);h=np.r_[(B[:2]-s[:2])/dh,0];r=(B[2]-s[2])/2;theta0=math.acos(np.clip(np.dot(R@np.array([1,0,0]),h),-1,1));theta1=math.acos(np.clip(h[0],-1,1));need=max(math.pi*r+dh+2*(33*theta1+3),math.pi*r-dh+2*(33*theta0+3));required.append(need);rows.append(dict(yaw=yaw,pitch=pitch,source=s.tolist(),H=h.tolist(),R=r,inner_R=r-T/2,source_tangent_mismatch_deg=math.degrees(theta0),body_tangent_mismatch_deg=math.degrees(theta1),minimum_free_U_length=need))
+free=5*math.ceil((max(required)+5)/5)
+for q in rows:
+ s=np.array(q['source']);h=np.array(q['H']);r=q['R'];d=np.linalg.norm(B[:2]-s[:2]);legs=free-math.pi*r;l1=(legs+d)/2;l2=(legs-d)/2;n=np.cross(h,[0,0,1]);pts=[s,s+l1*h]
+ for t in np.linspace(0,math.pi,91)[1:]:pts.append(s+l1*h+r*math.sin(t)*h+np.array([0,0,r*(1-math.cos(t))]))
+ pts.append(B);corners=[]
+ for p in pts:corners.append([(p+sign1*W/2*n+np.array([0,0,sign2*T/2])).tolist() for sign1,sign2 in [(-1,-1),(1,-1),(1,1),(-1,1)]])
+ q.update(first_straight=l1,return_straight=l2,free_U_length=free,centreline=[p.tolist() for p in pts],corners=corners)
+header=[]
+for y in [-6.35,6.35]:
+ for z in [94,111.78]:
+  a=S[0]-(-176);d=math.hypot(S[1]-y,S[2]-z);r=(a*a+d*d)/(4*d);theta=2*math.atan2(d,a);header.append(dict(source_bare_pad_back=[-182,y,z],project_intact_solder_approach=6,full_fan_length=6+2*r*theta,inner_R=r-T/2))
+# Direct binding to the retained actual PCA Eagle board, not free GPIO contacts or a new WAGO chamber.
+brd=ROOT/'hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.brd';e=E.parse(brd).getroot();signals={c.get('pad'):s.get('name') for s in e.findall('.//signals/signal') for c in s.findall('contactref') if c.get('element')=='JP3'}
+static=[];staticR=36.0  # Joint pad-height/entry-normal inequality gives R>=34.7, sourceX advance gives R<=52.
+for wire,pad,color,role in [('EXT011',2,'HELU23302','existing VCC=LOCAL.LOGIC3V3'),('EXT012',6,'HELU23301','existing GND=LOCAL.GND'),('EXT013',3,'HELU23308_SDA','existing SDA branch from PI.H3 / PCA.JP3.3'),('EXT014',4,'HELU23308_SCL','existing SCL branch from PI.H5 / PCA.JP3.4')]:
+ z=132.6+(pad-1)*2.54;drop=B[2]-z;side=-math.sqrt((2*staticR)**2-drop**2);end=np.array([B[0],B[1]+side,z]);a=-18-end[0]-staticR;b=20.95-end[1]-staticR;assert min(a,b)>=0
+ length=math.pi*staticR+a+math.pi/2*staticR+b
+ pts=[]
+ lateral=np.array([0,side/(2*staticR),-drop/(2*staticR)])
+ for t in np.linspace(0,math.pi,91):pts.append((B+np.array([-staticR*math.sin(t),0,0])+staticR*(1-math.cos(t))*lateral).tolist())
+ p=end+np.array([a,0,0]);pts.append(p.tolist());centre=p+np.array([0,staticR,0])
+ for t in np.linspace(-math.pi/2,0,46)[1:]:pts.append((centre+staticR*np.array([math.cos(t),math.sin(t),0])).tolist())
+ pts.append([-18,20.95,z])
+ static.append(dict(wire=wire,selected_bulk=color,actual_branch_binding=role,JP3_pad=pad,source_signal=signals[str(pad)],actual_primary_pad=[-18,20.95,z],fixed_fan_length=length,inner_R=staticR-T/2,centreline=pts,primary_sha256=hashlib.sha256(brd.read_bytes()).hexdigest(),termination='existing master-selected stationary soldered fanout; actual land/insulation/strain qualification, not new free terminal'))
+total=math.ceil(max(q['full_fan_length'] for q in header))+free+10+math.ceil(max(q['fixed_fan_length'] for q in static))+12+4;blank=5*math.ceil(total/5)
+wr('ToF4-full-connected-family-and-unit-plan.json',dict(scope='PROTOTYPE OCCUPIED FLEX FAMILY AND BULK PREPARATION PLAN; no fixed curve all poses/no physicalPASS',moving_grip=S.tolist(),fixed_body_grip=B.tolist(),profile=[W,T],required_inner_R=31.5,header_backside_solder_exit='PROJECT +X direct solder fan, entire actual PCB header-face bounds used; one actual sample must support chosen approach, no claimed preinstalled connector',header_corner_bounds=header,free_moving_U=free,transition_extra_length_budget=10,transition_basis='R33 gentle headings inside actual first/return straight lengths; max required lengths included above. Remaining local skin/gimbal check needed.',poses=rows,source_known_PHYSICAL_units='four selected HELU bulk cores, NOT Pololu600; actual cutsNULL',fixed_fans=static,per_core_gross_planning_blank=blank,per_core_upper_debits=dict(header_fan=math.ceil(max(q['full_fan_length'] for q in header)),moving_U=free,heading_transition_extra=10,fixed_fan=math.ceil(max(q['fixed_fan_length'] for q in static)),project_solder_end_total=12,cut_loss=4),stock_claim='NEEDED/planned by color and shared source bulk; no delivered metrage or unapproved offcut pool credit',physical_PASS=False))
+wr('JR-and-POWER-unit-budget-plan.json',dict(scope='source-bound physical-unit budgets and inverse capacity conditions; not exact delivered end datums',JR=[dict(unit='head_yaw_factory',raw=250,case_motion='FIXED',profile_project=[3.5,1.8],inner_R_project=22,storage_centre_R=23.5,receiver='C_HY existing selected full3pin mate; actualsource bindings retained',source_transport_plus_key_upper=160,needed_factory_reserve=90,available_factory_reserve_range=[90,175],source_exit_measurement='One MG actual exit/250length/profile/keyedmate sample must qualify source-to-reserve approach; no factory cut'),dict(unit='head_pitch_factory',raw=250,case_motion='YAW_ONLY',profile_project=[3.5,1.8],inner_R_project=22,storage_centre_R=23.5,receiver='C_HP on yaw-only fork, mates existing JR300',source_transport_plus_key_upper=100,needed_factory_reserve=150,available_factory_reserve_range=[100,230],source_exit_measurement='same MG sample; remain whole250, no cable on true pitch mask'),dict(unit='existing_pitch_JR300',raw=300,case_motion='yaw receiver to FIXED three individually insulated joins',full_key_project_debit=12,open_group_route_upper=210,proper_lap_debit=8,phase2_fit_reserve=20,cut_loss=3,planned_total_upper=253,nominal_remaining47='authorized far-board phase2 offcut only after physical FIT; not extra unit/stock credit',splice='3 individual lap8 / sleeve20 / two intact9mm lands each, fixed only; factory250 and keyed mating plug retained')],POWER=dict(unit='ONE K1474_1000 red/black pair, proper each-core ledger',RED=dict(W078_input_project_blank=210,source='SPLICE_PI.18 to MAIN.VIN, lap8 plus MAINfull12 ONCE; not PiUSB lead'),W079_W080=dict(path='MAIN.VOUT/GND to retained sealed POWERboot/actual adapter, source mouths still PROJECT',free_route_upper=165,MAIN_full_end_debit=12,retained_boot_end_debit=25,loss=3,planned_each=210),core_ledgers=dict(red_planned=420,black_planned=210,each_source_nominal=1000,source_delivery_length='UNVERIFIED',actual_cut=None),basis='two-plane regional route around Pi outside cooling: max orthogonal runs plus gentle Rturn allowances, remains to actual mouth/steel gate; no old150250350 or Pololu600 credit'),physical_PASS=False,actual_cut=None,installed_slack=None))
+print(json.dumps(dict(ToF_min_inner=min(q['inner_R'] for q in rows),header_min_inner=min(q['inner_R'] for q in header),moving_free=free,fixed_max=max(q['fixed_fan_length'] for q in static),per_core_blank=blank,JP3_signals=signals)))

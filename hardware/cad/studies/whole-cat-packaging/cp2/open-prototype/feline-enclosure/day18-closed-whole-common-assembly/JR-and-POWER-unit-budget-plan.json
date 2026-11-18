@@ -1,0 +1,82 @@
+{
+  "scope": "source-bound physical-unit budgets and inverse capacity conditions; not exact delivered end datums",
+  "JR": [
+    {
+      "unit": "head_yaw_factory",
+      "raw": 250,
+      "case_motion": "FIXED",
+      "profile_project": [
+        3.5,
+        1.8
+      ],
+      "inner_R_project": 22,
+      "storage_centre_R": 23.5,
+      "receiver": "C_HY existing selected full3pin mate; actualsource bindings retained",
+      "source_transport_plus_key_upper": 160,
+      "needed_factory_reserve": 90,
+      "available_factory_reserve_range": [
+        90,
+        175
+      ],
+      "source_exit_measurement": "One MG actual exit/250length/profile/keyedmate sample must qualify source-to-reserve approach; no factory cut"
+    },
+    {
+      "unit": "head_pitch_factory",
+      "raw": 250,
+      "case_motion": "YAW_ONLY",
+      "profile_project": [
+        3.5,
+        1.8
+      ],
+      "inner_R_project": 22,
+      "storage_centre_R": 23.5,
+      "receiver": "C_HP on yaw-only fork, mates existing JR300",
+      "source_transport_plus_key_upper": 100,
+      "needed_factory_reserve": 150,
+      "available_factory_reserve_range": [
+        100,
+        230
+      ],
+      "source_exit_measurement": "same MG sample; remain whole250, no cable on true pitch mask"
+    },
+    {
+      "unit": "existing_pitch_JR300",
+      "raw": 300,
+      "case_motion": "yaw receiver to FIXED three individually insulated joins",
+      "full_key_project_debit": 12,
+      "open_group_route_upper": 210,
+      "proper_lap_debit": 8,
+      "phase2_fit_reserve": 20,
+      "cut_loss": 3,
+      "planned_total_upper": 253,
+      "nominal_remaining47": "authorized far-board phase2 offcut only after physical FIT; not extra unit/stock credit",
+      "splice": "3 individual lap8 / sleeve20 / two intact9mm lands each, fixed only; factory250 and keyed mating plug retained"
+    }
+  ],
+  "POWER": {
+    "unit": "ONE K1474_1000 red/black pair, proper each-core ledger",
+    "RED": {
+      "W078_input_project_blank": 210,
+      "source": "SPLICE_PI.18 to MAIN.VIN, lap8 plus MAINfull12 ONCE; not PiUSB lead"
+    },
+    "W079_W080": {
+      "path": "MAIN.VOUT/GND to retained sealed POWERboot/actual adapter, source mouths still PROJECT",
+      "free_route_upper": 165,
+      "MAIN_full_end_debit": 12,
+      "retained_boot_end_debit": 25,
+      "loss": 3,
+      "planned_each": 210
+    },
+    "core_ledgers": {
+      "red_planned": 420,
+      "black_planned": 210,
+      "each_source_nominal": 1000,
+      "source_delivery_length": "UNVERIFIED",
+      "actual_cut": null
+    },
+    "basis": "two-plane regional route around Pi outside cooling: max orthogonal runs plus gentle Rturn allowances, remains to actual mouth/steel gate; no old150250350 or Pololu600 credit"
+  },
+  "physical_PASS": false,
+  "actual_cut": null,
+  "installed_slack": null
+}
