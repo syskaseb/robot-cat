@@ -1,0 +1,79 @@
+{
+  "parts": [
+    {
+      "object": "D18C_TRUE_PITCH_OPTICAL_RECEIVER",
+      "qty": 1,
+      "status": "CONDITIONAL_UNPOWERED_FIT_ONLY",
+      "valid": true,
+      "solids": 1,
+      "bounds_mm": [
+        51.0,
+        52.0,
+        66.0
+      ],
+      "orientation": "native XYZ local minimum0; support/orientation dryfit planning, no slicer",
+      "brim_support_reserve_mm": 8,
+      "under256": true,
+      "volume_mm3": 12247.583027035265,
+      "local_negatives": [],
+      "stl": "true-pitch-CAM-ToF-receiver-FIT.stl",
+      "closed_reopened": true,
+      "facets": 1536,
+      "sha256": "d4302a2825dc67fa5db2d4ae2cd3335ab99da37960e8db7b62d03c62c9eb29c0",
+      "print_note": "native local Z0; support beneath bridge/cantilever and open roof where needed, within model bounds plus8mm total reserve; no slicer validation"
+    },
+    {
+      "object": "D18C_COMMON_PI_OPEN_CARRIER",
+      "qty": 1,
+      "status": "CONDITIONAL_UNPOWERED_FIT_ONLY",
+      "valid": true,
+      "solids": 1,
+      "bounds_mm": [
+        77.0,
+        64.0,
+        47.48
+      ],
+      "orientation": "native XYZ local minimum0; support/orientation dryfit planning, no slicer",
+      "brim_support_reserve_mm": 8,
+      "under256": true,
+      "volume_mm3": 14466.303528127535,
+      "local_negatives": [],
+      "stl": "Pi-open-carrier-FIT.stl",
+      "closed_reopened": true,
+      "facets": 3200,
+      "sha256": "81c584947f410c65e8aa3acf86b438048abf9223729d9727dd073e81a857f2d0",
+      "print_note": "native local Z0; support beneath bridge/cantilever and open roof where needed, within model bounds plus8mm total reserve; no slicer validation"
+    },
+    {
+      "object": "D18C_P02_THREE_ROOT_THROUGH_VERSION",
+      "qty": 1,
+      "status": "CONDITIONAL_UNPOWERED_FIT_ONLY",
+      "valid": true,
+      "solids": 1,
+      "bounds_mm": [
+        169.0,
+        164.0,
+        27.999999999999993
+      ],
+      "orientation": "native XYZ local minimum0; support/orientation dryfit planning, no slicer",
+      "brim_support_reserve_mm": 8,
+      "under256": true,
+      "volume_mm3": 102884.5762055311,
+      "local_negatives": [],
+      "stl": "P02-floor-two-side-receivers-FIT.stl",
+      "closed_reopened": true,
+      "facets": 4882,
+      "sha256": "b9d64695fb8683d9668c12d69c88750cc5858fc5f970fa316cab0b0177f13baa",
+      "print_note": "native local Z0; support beneath bridge/cantilever and open roof where needed, within model bounds plus8mm total reserve; no slicer validation"
+    }
+  ],
+  "source_earlier_index": "conditional-print-index.json is RAW SUPERSEDED, do not use old statuses",
+  "whole_cat": false,
+  "physical_PASS": false,
+  "conditions": [
+    "P00 axes/thread for empty floor",
+    "Pi safe annuli/underboard/roof-feed coupon before preload",
+    "actual MG factory horn/bearing revision and full crosspin/tool loading before moving dryfit",
+    "FFC and USB source sample/ToFJR motion remains OPEN; no closed wired-cat release"
+  ]
+}

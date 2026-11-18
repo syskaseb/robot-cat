@@ -1,0 +1,118 @@
+{
+  "valid": true,
+  "solid_count": 1,
+  "volume_mm3": 12292.727027035264,
+  "PETG_g": 15.611763324334786,
+  "bounds": [
+    -179.0,
+    -22.0,
+    92.0,
+    -128.0,
+    30.0,
+    158.0
+  ],
+  "members": {
+    "CAM_plate": {
+      "planned_retained_volume": 2228.7920373349393,
+      "missing_volume": 0.0
+    },
+    "journal_boss": {
+      "planned_retained_volume": 1103.1026028090087,
+      "missing_volume": 0.0
+    },
+    "main_arm": {
+      "planned_retained_volume": 1799.6009901255454,
+      "missing_volume": 0.0
+    },
+    "front_crossmember": {
+      "planned_retained_volume": 4200.0,
+      "missing_volume": 0.0
+    },
+    "negative_upright": {
+      "planned_retained_volume": 1110.0,
+      "missing_volume": 0.0
+    },
+    "upper_negative": {
+      "planned_retained_volume": 396.0,
+      "missing_volume": 0.0
+    },
+    "upper_positive": {
+      "planned_retained_volume": 396.0,
+      "missing_volume": 0.0
+    },
+    "upper_central_rear": {
+      "planned_retained_volume": 411.40000000000066,
+      "missing_volume": 0.0
+    },
+    "ToF_plate": {
+      "planned_retained_volume": 1429.1920373349383,
+      "missing_volume": 0.0
+    },
+    "ToF_beam": {
+      "planned_retained_volume": 1016.0000000000001,
+      "missing_volume": 0.0
+    },
+    "ToF_branch": {
+      "planned_retained_volume": 750.0,
+      "missing_volume": 0.0
+    }
+  },
+  "positive_junctions": [
+    {
+      "a": "CAM_plate",
+      "b": "negative_upright",
+      "common_before_planned_cuts": 292.49999999999994
+    },
+    {
+      "a": "CAM_plate",
+      "b": "upper_positive",
+      "common_before_planned_cuts": 198.0
+    },
+    {
+      "a": "main_arm",
+      "b": "journal_boss",
+      "common_before_planned_cuts": 588.0
+    },
+    {
+      "a": "main_arm",
+      "b": "front_crossmember",
+      "common_before_planned_cuts": 504.0
+    },
+    {
+      "a": "front_crossmember",
+      "b": "negative_upright",
+      "common_before_planned_cuts": 210.0
+    },
+    {
+      "a": "negative_upright",
+      "b": "upper_negative",
+      "common_before_planned_cuts": 165.0
+    },
+    {
+      "a": "upper_negative",
+      "b": "upper_central_rear",
+      "common_before_planned_cuts": 18.700000000000028
+    },
+    {
+      "a": "upper_central_rear",
+      "b": "upper_positive",
+      "common_before_planned_cuts": 18.70000000000003
+    },
+    {
+      "a": "ToF_plate",
+      "b": "ToF_beam",
+      "common_before_planned_cuts": 120.0
+    },
+    {
+      "a": "ToF_beam",
+      "b": "ToF_branch",
+      "common_before_planned_cuts": 120.0
+    },
+    {
+      "a": "ToF_branch",
+      "b": "front_crossmember",
+      "common_before_planned_cuts": 330.0
+    }
+  ],
+  "assembly_status": "NOMINAL_RECEIVER; source horn/bearing fit and safe mounting annuli require physical dryfit; neighbors pending"
+}
