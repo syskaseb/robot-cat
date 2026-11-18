@@ -1,0 +1,26 @@
+# WAVEGO-kot — wejście na poranek 18 listopada
+
+**To przygotowanie do przymiarek bez zasilania. Nie ma jeszcze aktualnego kompletu zamkniętego robota do druku.** Punktem odniesienia jest odebrana propozycja 75a, nie wczorajsza lista STL.
+
+- Zobacz propozycję: [opis 75a](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-front-outboard-operator-whole/START_HERE.md), [model — propozycja HOLD](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-front-outboard-operator-whole/outboard-front-operator-whole.FCStd), [przód](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-front-outboard-operator-whole/whole-opaque-front.png), [bok](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-front-outboard-operator-whole/whole-opaque-side.png), [widok ukośny](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-front-outboard-operator-whole/whole-opaque-front-three-quarter.png). [Mapa jednostek i kolejności](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-front-outboard-operator-whole/unit-and-assembly-map.json) rozróżnia wykonane źródła od planowanych podpór.
+- **Miejsce na późniejszy przyjęty indeks druków: NIE ODEBRANO.** Nie ma tu odsyłacza do przyszłego pliku ani obietnicy wydania zestawu. Aktualizację po nowym odbiorze prowadzi master w [bieżącej karcie](../HOBBY_COMPLETION_PLAN.md).
+- [STATUS.csv](STATUS.csv) oddziela zachowane próbki od bieżącej architektury. Starsze paczki pozostają dostępne jako historia.
+
+**Co zmieniła propozycja:** pełny S0 ma nominalnie 44,49/40,23 mm do dwóch MTA. To lokalny zysk, nie odbiór operatora ani całego montażu. Dwie pozycje FFC200 nadal łamią promień. Nowy odbiornik głowy, podpory przeniesionych modułów, transport pozostałych pełnych jednostek i zamknięte osłony pozostają niewykonane lub nieodebrane. Zdjęcie obrysu nie zastępuje tych części. Wygląd **robota z projektu Oli** nie został przyjęty.
+
+**Nie wybieraj starych części jako nowego kompletu.** Trzy STL 9fb — nośnik Pi/BUS, docisk E1 i docisk POWER — mają tylko dawne lokalne warunki; Pi/BUS/cały E1 zmieniły położenia. Para AMP/BUS90 pozostaje jedną stołową próbą dawnego interfejsu, nie nowej architektury. Stare N1/N4/N5, A17 i kupon Pi49 również nie dostają aktualnej tożsamości po nazwie. Nie usuwać ich ani interpretować braku potwierdzenia jako fizycznego FAIL.
+
+### Cztery małe grupy przymiarek — plan dla dwóch osób, bez wykonywania teraz
+
+| Grupa / minimalna próbka | Co sprawdzić i jak wynik zmienia decyzję |
+|---|---|
+| **1. Kupna baza + P00** | Jedna osoba przykłada istniejący [P00](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day14-fasttrack-first-fit/fit-kit-ready/stl/P00_eight_hole_template.stl), druga sprawdza rzeczywiste osiem osi H01, rewizję ramy, gwinty i chwyt śrub. Rozbieżność zatrzymuje zależny montaż; bez wymuszania/wiercenia ramy. Tylko zakres P00 z [zamrożonej instrukcji](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day14-fasttrack-first-fit/fit-kit-ready/START_HERE.md), nie automatyczne zwolnienie jej pozostałych druków. |
+| **2. Jeden pełny zestaw Pi i portów** | Pi z rzeczywistym chłodzeniem, Camera3 + jedna FFC200, Delock60047 z zachowanym uszczelnionym K1474 oraz Lanberg500 i próbka BUSB. Powiązać stronę kontaktów, pełne wtyki/wyjścia, profil i odniesienia długości końców oraz rzeczywiste miejsce chłodzenia. Wynik wiąże potrzebną przestrzeń i kierunki; nie kwalifikuje niewykonanej trasy ruchu FFC ani nowych podpór. |
+| **3. Ochrona i najkrótsze końce** | Jedna właściwa MTA0100335: oznaczenie, pełny bezpiecznik MINIVAL, pokrywa/uwięź, obrys zamknięty/otwarty i oba NIECIĘTE przewody od wyjścia do końca — odniesienie dla czterech wymaganych oprawek. Osobno jeden właściwy FHAC + WAGO: rzeczywiste ustniki i najkrótszy fabryczny ogon źródłowo 84,5–94,5 mm. Odizolowanie pobiera długość z tej samej jednostki; nie dopisuje przedłużenia. Wynik określa zależną pojemność uchwytu i wzajemne ustawienie. |
+| **4. Napęd — tylko nadal zależny interfejs** | Jeden MG92B z właściwym JR, rogiem i 688: rzeczywiste osadzenie, śruba i wyjście pełnego przewodu. Wynik wiąże kontakt napędu/odbioru głowy lub ogona Y; nie zatwierdza planowanego, niewykonanego korzenia. Bez powielania pomiarów niezależnych części. |
+
+To nie katalogowa kontrola wszystkich części. Zachować wszystkie wybrane 57 pozycji + ADD7, ochronę, fabryczne końce, 12 ST3215 i 3 MG oraz obie osie głowy i ogon góra–dół. Pełna masa, środek masy i chód pozostają nieznane. Nie wykonano fizycznego odbioru, cięć ani kontroli zainstalowanego luzu.
+
+P00: 1 szt., płasko, 214×55×1,2 mm; ewentualny druk nadal musi zmieścić orientację, brim i podpory w **256×256×256 mm**. Nie uruchomiono druku ani slicera. Przy montażu jedna osoba podtrzymuje, druga łączy pełne zestawy; przewody przed późnymi pokrywami. Człowiek może dopiero po zablokowaniu przyciąć nadmiar **plastikowej opaski**, nie przewód elektryczny, FFC, JR ani tekstylny pas. Nie wymaga się stałego parkowania nadmiaru plastikowej końcówki.
+
+Piny i zakres weryfikacji: [SOURCES.json](SOURCES.json). Bez kopii dużych plików i bez zmian zamrożonych źródeł.
