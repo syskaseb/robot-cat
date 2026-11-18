@@ -20,6 +20,14 @@ Nie traktuj lokalnego FIT ani liczby plików jako ukończenia całego kota.
 Ta reguła obejmuje przyszłe wznowienia; NIE włącza zamkniętego okna CAD.
 
 
+## 18.11 do16:00Warszawa — NOWA ZGODA / AKTYWNE
+
+Użytkownik jawnie wznowił pracę do2026-11-18T15:00:00Z/16:00Warszawa oraz polecił ZASTĄPIĆ agentów najnowszymi modelami i autoskalować niezależne prace. Stare5ról odebrane i zamknięte; bieżące role/actualinput tylko zCURRENT FIRSTcard/runtime. Ta zgoda ma pierwszeństwo przed historycznymi zakazami wznowienia/starychmodeli poniżej.
+Najpierw CAŁY wykonalny przód/gimbal-szyja-przedniebanki/pełnycrosspin/occupiedFFC-ToF-JR/stock/assembly+Olaform, potemdetale. Ownunbuiltposesgimbala/modułów/mountów zmienne; mała zmiana bazy dozwolona po korzyści. Nie kolejny guard/offsetgrid; sourceparts/factoryends/protection/ranges/12ST3MG/nogi/tailY/256inclbrim zachowane.
+Nowe role: Banach Astra6.2high SOLEwriter złożenia/GUI; Lorentz Astra6.2high boundedsource/newwhole-review dopiero przy propozycji; Beauvoir Sol6.2medium LL18+prostota/master; Zeno Terra6.1high actualPNG/Ola; Bohr Sol6.2low dopiero kuracja. Autoscale tylko konkretne odrębne pliki/prywatnyworktree, nigdy drugi writer wspólnegoCAD. Masterreadintegrate+metadata/noMECHstagewhileCADactive.
+LL18przed KAŻDĄ iteracją4krótkiepola/po2wSAMEcard; actualresult/pins/factconsequence co20–30min, nieperboltHOLDfinal. Reuseunchangedproofs/onlyaffectedchecks, nie123axes/produkcja/service/globalreplay/katalogreaudit. FIRST+freshruntime/actualcurrentworkerRECEIVEbeforeNEXT/nohistoricalIDs/queuedflood.
+Ordinaryusagefresh target4/max10/priorcostly/%guardNULL/noreset. No longnewnative14:40UTC/saveendowned14:50/HARD15:00UTC; stopwholeagreedready/noindependentworkafteralternatives/ordinaryfalse-refusal-missingread→save/endowned/enabledfalse/preserveGUI/noextension. Physicalunknownsnameddependent/no physicalPASS/no purchasedcuts/no purchase/power/print/slicer/ROS/push/mail/alerts/schedule. Ownverifiedcommits/preserveforeign/history/atomicUTF8LFfreshcompare. ClosednightmorninghistorybelowisNOTcurrentNEXT.
+
 ## Noc17/18Nov do09:30Warszawa — OKNO ZAMKNIĘTE
 
 Stan 2026-11-18T08:03:10Z: enabled=false, bez automatycznego wznowienia. Harddeadline18Nov08:30UTC/09:30Warszawa nieprzedłużony. Geometria zakończona07:46UTC; ostatniBanach252b8440 ODEBRANY/REJECTED_UNSELECTED, nie następca użytecznej bazy98e25411. Cały zamknięty kot NIEGOTOWY/wyglądnieprzyjęty/physicalPASSfalse.
