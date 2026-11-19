@@ -72,6 +72,27 @@ zastosowanie przed każdym zleceniem i odbiorem, także bez aktywnego audytora.
 Brak testu całości zatrzymuje zależny detal; można kontynuować niezależną pracę.
 Ten zapis nie wznawia zamkniętego okna CAD.
 
+### 19.11 — Beauvoir zapisuje i sprawdza zastosowanie wniosków
+
+Podczas autoryzowanej pracy master przekazuje Beauvoir/Dirac Sol6.2medium ważną
+ocenę Zeno/Lorentz, nieudaną próbę z wnioskiem lub istotną korektę użytkownika,
+bez czekania na prośbę człowieka o zapis. Beauvoir w przydzielonym oknie dokumentów
+sam utrwala w SAMEJ bieżącej karcie fakt ze źródłem → wniosek → konkretną zmianę
+następnego zadania. Użyteczną trwałą zasadę dopisuje do istniejących wniosków,
+bez powielania dziennika. Master odpowiada za wywołanie, odbiór i zastosowanie.
+
+Przed następną iteracją Beauvoir sprawdza faktyczny zapis oraz uwzględnienie
+wniosku w zleceniu mastera. Brak zapisu albo powtórzenie błędu zgłasza masterowi
+z gotową krótką poprawką zapisu lub zadania. Kontrola trwa do minuty i obejmuje
+najwyżej 3 praktyczne uwagi do ważnych wyników/decyzji. Korzysta z istniejących
+dowodów. Zeno nadal ocenia wygląd, Banach wykonuje CAD, Bohr zajmuje się kuracją.
+Beauvoir działa w aktywnej autoryzowanej sesji. Zamknięte CAD/hook pozostają
+enabled=false.
+
+Źródło7363390f07cdab20796b7b3da12d71ca62594bef utrwala pięć różnic sylwetki
+i zmianę nadrzędnego checkpointu19.11 po ponagleniu użytkownika. Wynik oceny
+ma trafiać do zapisu i następnego zadania przy jego odbiorze.
+
 Dowody: [częściowa baza98](studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-closed-whole-common-assembly/START_HERE.md)
 oraz [odrzucona próba252](studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-final-neck-parting-and-loom/START_HERE.md).
 Wnioski z26.10 o wiązkach prototypu i02.11 o zastosowaniu feedbacku pozostają

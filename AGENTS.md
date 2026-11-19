@@ -9,8 +9,17 @@ Przed KAŻDĄ iteracją master i wykonawca czytają bieżącą kartę i
 W [tej samej karcie](hardware/HOBBY_COMPLETION_PLAN.md) zapisują cztery krótkie pozycje:
 cel całego problemu, zastosowane wnioski, zmienianą przyczynę i pierwszy test.
 Po iteracji dopisują fakt ze źródłem oraz decyzję/następny krok.
-Master sprawdza zastosowanie przed każdym zleceniem i odbiorem; Beauvoir
-kontroluje również mastera (maksymalnie3 konkretne uwagi, gdy uczestniczy).
+Beauvoir jest opiekunem ZAPISU I ZASTOSOWANIA wniosków, także z błędów mastera.
+Podczas autoryzowanej pracy master przekazuje mu ważne oceny, nieudane próby
+i istotne korekty użytkownika bez czekania na prośbę o zapis. Beauvoir sam
+zapisuje krótko fakt/źródło -> wniosek -> zmianę następnego zadania w SAMEFIRST;
+trwałą zasadę dopisuje do istniejących lessons. Przed kolejną iteracją
+sprawdza zapis i jego użycie w zleceniu; brak zgłasza masterowi z konkretną
+poprawką (maksymalnie3 praktyczne uwagi, kontrola zwykle do minuty).
+Master odpowiada za wywołanie i odbiór Beauvoir oraz zastosowanie decyzji.
+Edycja tych dokumentów ma jednego przypisanego autora w danym czasie.
+Bez nowych raportów, kontroli każdej komendy, recenzji lub zgód użytkownika.
+To nie jest stały proces w tle ani wznowienie zamkniętego okna CAD.
 Najpierw pełny zmieniany interfejs: mechanizm z całymi śrubami, moduły,
 zajęte regiony kabli, zamknięcie i montaż; dopiero zależne detale.
 Własne niebudowane pozy/mocowania pozostają zmienne. Po dwóch odrzuceniach
