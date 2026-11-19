@@ -14,6 +14,31 @@ raportów, nowych recenzji i odtwarzania starych testów. Sama kontrola procesu 
 wznawia zamkniętego okna CAD; aktualna zgoda i zakres są w bieżącej karcie poniżej.
 
 
+## Bieżąca karta — 19.11: KOMPLETNY PAKIET DO DRUKU I MONTAŻU DZIŚ / AKTYWNE
+
+Nowa zgoda użytkownika: „masz to zrobić dzisiaj”, „Sami wydrukujemy, dziś ma być wszystko gotowe”. Zastępuje plan końca miesiąca i zamknięte okno18.11. Termin23:00UTC/24:00Warszawa19.11; bez nowych długich operacji native po22:40UTC, zapis/endowned22:50. Użytkownik drukuje i składa; nie deklarować fizycznego PASS.
+
+### Aktualny odbiór i zadanie
+
+**Cel dzisiejszego wyniku:** jeden spójny pakiet zamkniętego WAVEGO-kota: native, właściwe STL/indeks/orientacje256³zbrimem, potrzebny osprzęt, kompletna kolejność montażu, połączenia i plan kabli/ruchu oraz rzeczywiste widoki porównane z ROBOTEM Oli. Nie nazywać lokalnego kuponu całym pakietem. Zachować57+ADD7/12ST3215+3MG/wybrane części/ochronę/factoryends/stock/obecne nogi/headyaw20pitch10/tailUPDOWN-Y. Mała zmiana szerokości/długości bazy dozwolona po korzyści, bez nowego zakupu/serw/drążenia boughtparts.
+
+**Nowy kierunek:** cały niższy, obły tułów z sensownie dużą kocią głową/uszy-policzki-pysk, zamkniętą szyją i proporcjami nóg. Rozmieścić ponownie WSPÓLNIE faktyczne moduły, pełne złącza/końce i grupy wiązek oraz prostą drogę montażu. Własne stare banki, ruszty, podpory i pozy NIEsą zamrożone. Preferuj wspólny otwarty nośnik z prostymi mocowaniami/otworami regulacji/opaskami i lekkie zdejmowane osłony. Realne funkcje/krótkie factorytails/izolacja/promienie/ruch zostają, bez 123indywidualnych osi/rapidservice/produkcji. Nie powielać historycznych/wycofanych aktorów z1643obiektów jako dodatkowych części.
+
+**Iteracja19A — PRZED, LL18:** (1) Cel: wiarygodna CAŁOŚĆ obsada+sylwetka+montaż+masy przed detalami. (2) Wnioski: negatywny wygląd zmienia zadanie; source-classifyactualparts vsreserves/aliases; groupregions. (3) Przyczyna: stara wysoka organizacja banków i podparć wymusza skrzynkę i osobne naprawy szyi. Hipoteza: niska wspólna organizacja modułów/ochrony/baterii i obła obudowa projektowane razem ze złączami i ruchem. (4) Pierwszy test: ONEwholelayout/fullselectedparts/occupiedcorridors/currentends+assembly, 3actualopaqueviews/interior i przekroje krytyczne, coarsebounds/massbudget; pierwsze realne R/space/length/stockfalsifier przed supports. Prefer pierwsza całość do15:00UTC; jeśliHOLD fakt+konsekwencja i zmiana przyczyny, nie scalargrid.
+**PO:** oczekuje na pierwszy wynik. Stare dane są źródłami, nie automatycznym odbiorem zmienionych pozy.
+
+**Odebrana baza:** d5baf5e6ce1598ff8031edb8b82f1a1011b4fada/day18-body-reception-and-closed-fit/body-reception.FCStd, SHA486abd0561488c91ea7d09344476c3b63c636c5f785238faa34ac36f7bf910d4. FreshGUI17796/1643/modifiedfalse i actualBanachinput01a1ef13-7ee6-7081-9ce8-a373fd3e871b COMPLETED/RECEIVED19Nov14:00. Boughtparts/base/source bindings reusable, własne stare osłony/pozy nieprzyjęte. LastwholeHOLD/appearanceREJECTED; ToFhead4/5, maskgrip1.055, physicalMTA/PiUSB+cooler/MG/basefits namedUNKNOWN. Nie odtwarzać starych macierzy; zmianie pozy odpowiadają tylko zależne nowe sprawdzenia.
+
+**Własność:** Banach/Boyle01a1ee1c-0480-7570-9edd-42c24ca07bdb Astra6.2high jedynyCAD/GUIwriter; parentreadintegrate+canonicalmetadata. Beauvoir/DiracSol6.2medium sam zapisuje ważne wnioski w przydzielonym oknieFIRST i sprawdza ich użycie; Zeno/HilbertAstra6.2high actualPNG/Ola; Lorentz/CarverAstra6.2high ONEnewwholetechnicalreview max5risks+onecorrection dopiero po proposal; starecykleclosed; Bohr/HalleySol6.2low kuracja dopiero usablefiles. Autoscale tylko konkretne niezależne pliki/prywatnyworktree, nigdy drugiwriterzłożenia.
+
+**Organizacja dzisiejszej dostawy:** najpierwwholeproposal+boundedrisk/visualfeedback, potem essentialmounts/skins/head-neck/tail/changedmotion, następnieSTL i instrukcje, na koniec integralność/kuracja. 20-30min zamkniętyproblem albo nowyfakt+konsekwencja, po2samecause zmiana organizacji. Żadnej nowej uniwersalnej procedury lub rerejestracji całego katalogu. Freezeouts rzeczywistychpełnychsztuk; uproszczenie dowodu nie oznacza podniesienia wyniku. Parametry fit/cut/slack fizyczneNULL, jawne warunki przymiarek/regulacji, nie znane kolizje ukryte w „ready”.
+
+**Czas/limit/stop:** freshactualUTC+ordinaryusage target4/max10min/priorcostly, procentguardNULL/noreset. LocalHOLD niekończy całego okna: kontynuuj zależnycausalfix albo przydatną niezależnączęść. Bez power/print/slicer/ROS/push/mail/alerts/schedule/zakupów. Ownnarrowverifiedcommits/noforeignstage; bezMECHstagepodczasCADwriteractive. AtomicUTF8LF/freshcompare/preservehistory. Stop po rzeczywiście gotowym uzgodnionym pakiecie/braku bezpiecznej przydatnej pracy poalternatywach/ordinaryfalse-refusal-missingfreshread albo oterminie: zapisz/endONLYownedcompute/enabledfalse/preserveGUI/noextension.
+
+### Odebrane źródła — użyteczne, NIE przyjęty cały robot
+
+#### Historia karty18/19 przed zgodą „wszystko dzisiaj” — nie bieżące NEXT
+
 ## Bieżąca karta — odbiór18.11 i uwagi19.11: CAD ZAMKNIĘTE
 
 Zgoda18.11 do16:00Warszawa została zakończona. Obecna praca19.11 obejmuje wyłącznie zapis obserwacji i przypisanie odpowiedzialności Beauvoir. CAD i hook pozostają wyłączone. Aktualne wnioski i nadrzędny następny checkpoint poniżej mają pierwszeństwo przed historycznymi NEXT.
@@ -64,7 +89,8 @@ Zgoda18.11 do16:00Warszawa została zakończona. Obecna praca19.11 obejmuje wył
 
 **Zamknięcie:** odebrano zamrożoną próbę, niezależną kurację i jedną źródłową decyzję całego podziału. Przed odcięciem native14:40 brak dalszego niezależnego pakietu do bezpiecznego ukończenia; nie uruchomiono kolejnej lokalnej rodziny. Wszystkie role odebrane/zamknięte, własne obliczenia zakończone, GUI/MCP zachowane. Ordinaryusage świeże/true; limit nie był przyczyną stopu. Następny checkpoint opisany wyżej pozostaje warunkowy, bez geometryGO/physicalPASS.
 
-### Odebrane źródła — użyteczne, NIE przyjęty cały robot
+
+#### Starsze odebrane pakiety — źródła
 
 - [Aktualny lżejszy model6a](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-low-light-whole-correction/START_HERE.md), commit6a4534fabd81e7fa409951e83698ad6e82fbf455; parent34exact/32hash/CRC5310, manifest102ec67c6e2f45a3a8d87ea4c2f508e32b53dad4bf94080f9eb33e357324e867; nativeb3c41e4ca129d0939ddef80b98d94fac2b71b658f0cb785b8a0e27edb2d2c476. 12ST3215/3MG/nogi zachowane, nominalne wspólne połączenia/pasy; po zmianiepozy tylko niezależne dowody się przenoszą.
 - [Całegrupy/1decyzja847](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-low-light-whole-decision/START_HERE.md),84715e266fd1312619fc03177a853495a4beb2ff/244ed4ec; parent13exact/11hash, manifest0cf82443bcf4bffd494ef19e2ac0d33ac68541bfd574f9279def272bbccbd36c. Wszystkie32pliki6a nietknięte. P01szyny214mm/osiebioderX219,62; własneruszty348, WAGO8-rzędy247, pełne12MTA+TE/ATO250,85×194,16×28. Osłony396×238: rozmieszczenie własnych rzędów i podpór jest zmienne, nie wymaganie zakupnej bazy.
