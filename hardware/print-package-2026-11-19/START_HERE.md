@@ -14,7 +14,7 @@ Pierwsze dwa sprawdzenia wykonaj przed dużymi wydrukami podstaw. Szczegóły dr
 
 | Materiał | Zastosowanie |
 |---|---|
-| [Archiwum 19I](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/19I-WAVEGO-first-fit.zip) | Rozpakuj w całości. Zawiera model, STL, STEP, instrukcje i folder `source` z mapą 160 połączeń oraz źródłami elektrycznymi. |
+| [Archiwum 19I](WAVEGO_KOT_19I.zip) | Rozpakuj w całości. Zawiera model, STL, STEP, instrukcje i folder `source` z mapą 160 połączeń oraz źródłami elektrycznymi. |
 | [PRINT.csv](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/PRINT.csv) | Pliki w archiwum, ilości, orientacje, gabaryty z rezerwą i mocowania. |
 | [Pełny indeks części](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/material-index.json) | Bieżący wybór obejmuje 50 modeli STL na 70 części i pięć STEP. Kompletuj według tego indeksu, uwzględniając zastąpione i wycofane części. Zachowany starszy STL liczy się w podanej tu ilości. |
 | [Model FreeCAD 19I](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-cat19I.FCStd) | Złożenie odpowiadające temu kompletowi. |
@@ -37,3 +37,5 @@ R7–R9 mają warunkową metodę lokalnych odczepów oraz podparcia w 19I. Spraw
 ## Historia źródeł
 
 Wcześniejsze odbiory i zamrożone kopie przewodników zachowano w [SOURCES_ELECTRICAL.json](SOURCES_ELECTRICAL.json). Bieżący komplet i zakres przymiarki wiążą źródła 19I.
+
+Archiwum dystrybucyjne zawiera aktualną instrukcję elektryczną oraz manifest plików. Model i wszystkie siatki zachowują bajty odebranego19I. Oryginalny pakietCAD pozostaje zapisany jako źródło.
