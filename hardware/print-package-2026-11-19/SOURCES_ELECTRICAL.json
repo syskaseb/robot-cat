@@ -1,14 +1,17 @@
 {
   "schema": 1,
   "scope": "UNPOWERED_ELECTRICAL_ASSEMBLY_GUIDE_EXISTING_134_PLUS_26_GRAPH",
-  "captured_utc": "2026-11-19T15:17:14+00:00",
+  "captured_utc": "2026-11-19T18:27:06+00:00",
   "mutable_authority_reference": {
     "path": "../HOBBY_COMPLETION_PLAN.md",
     "section": "Bieżąca karta — 19.11",
-    "record_captured_at_utc": "2026-11-19T15:17:14+00:00",
-    "observed_19A_whole_status": "HOLD",
-    "observed_19A_commit": "0736a387c38c298f0bc9ad473b3b18b0dbea2278",
-    "observed_19B_input": "01a1f45d-5943-75e3-bbe4-684179951c57"
+    "record_captured_at_utc": "2026-11-19T18:27:06+00:00",
+    "body_direction": "SIMPLE_BOX_ACCEPTED_BY_USER_17_22",
+    "appearance_direction": "19E_ADEQUATE_PROPORTIONS_CAT_AND_VISIBLE_TAIL",
+    "observed_received_revision": "19E",
+    "observed_received_commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+    "observed_whole_status": "HOLD_KNOWN_WIRE_INTERFERENCES",
+    "observed_active_input": "01a1f50d-547d-7b40-9e8f-8711699b138d"
   },
   "base_graph_sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
   "add7_graph_sha256": "c9f6687e6a4419749781f4c7f57ef5b9895cc3a05064fa33b14e1ae0390c6553",
@@ -25,7 +28,7 @@
   "actual_installed_length_mm": null,
   "actual_cuts_mm": null,
   "actual_slack_mm": null,
-  "route_values_status": "PENDING_19B_RECEIPT",
+  "route_values_status": "PENDING_PROJECT_WIRE_SPACE_AND_CLOSURE_RECEIPT",
   "physical_mg_and_jr_units": [
     {
       "id": "MG_head_yaw",
@@ -124,7 +127,7 @@
   },
   "final_package_reference_update": {
     "status": "PENDING",
-    "awaiting_19B_input_receipt": "01a1f45d-5943-75e3-bbe4-684179951c57",
+    "awaiting_current_input_receipt": "01a1f50d-547d-7b40-9e8f-8711699b138d",
     "required_references": [
       "accepted_commit",
       "native_assembly",
@@ -261,6 +264,70 @@
       "sha256": "ddd9e05c23e73123b6e371d766de9c572d89f6f2a3b265838fc1bbfe0b3a2e48",
       "bytes": 35966,
       "provenance": "git_blob_and_canonical_bytes"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/START_HERE.md",
+      "sha256": "ae337cfe04d0818ad37089d393574cf4f0724e5891895740d69cc787319bdc61",
+      "bytes": 3852,
+      "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/MONTAZ.md",
+      "sha256": "014a920ca953fce3e263b0d15bc1a563b2e39c4a289e57a6fda4f24977715510",
+      "bytes": 6841,
+      "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/material-index.json",
+      "sha256": "abe4a855f309cb5cbceb34b82f32bf552a40fc7cf0595e45f9a6e67193cd3e5e",
+      "bytes": 48919,
+      "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/effectivity.json",
+      "sha256": "6abc7b8020b21fd80e3895e99497c9ba9ba62695644b237cef0fc1f71e836107",
+      "bytes": 2048,
+      "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/verified-19E.json",
+      "sha256": "6dddbb40c5b266349717ad8cbbe898c72841ce8114adfa55f98238ce6933c0c2",
+      "bytes": 22108,
+      "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/whole-cat19E.FCStd",
+      "sha256": "cef650870eb4fd430b0b9ff2900217996992c553051fe5c5d594a0e2ff38330c",
+      "bytes": 35138800,
+      "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/components/E19_MTA_sample_land.stl",
+      "sha256": "bdbac591d926cc4c8248f91a085cd8c792f9f4dae075c9ac2bfbffee070c69ea",
+      "bytes": 2684,
+      "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/19E-components-and-assembly.zip",
+      "sha256": "9ec838ede5260868bed2bb04b936a3681f960d97c535aba8d523cd78a802da7f",
+      "bytes": 45049239,
+      "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
     }
   ],
   "supporting_canonical_worktree_references": [
@@ -314,5 +381,37 @@
       "bytes": 466618,
       "provenance": "canonical_worktree_bytes_only"
     }
-  ]
+  ],
+  "received_package_reference": {
+    "revision": "19E",
+    "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+    "whole_status": "HOLD_KNOWN_WIRE_INTERFERENCES",
+    "whole_print_GO": false,
+    "native_path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/whole-cat19E.FCStd",
+    "native_sha256": "cef650870eb4fd430b0b9ff2900217996992c553051fe5c5d594a0e2ff38330c",
+    "material_index": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/material-index.json",
+    "effectivity": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/effectivity.json",
+    "assembly_order": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/MONTAZ.md",
+    "part_models": 48,
+    "part_quantity": 64,
+    "off_robot_coupon": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/components/E19_MTA_sample_land.stl",
+    "factory_fields_failing": [
+      "DATA500 / Battery_GEA223S30X6GT",
+      "DATA500 / E19_RearBase",
+      "DATA500 / MAIN_Pololu4853",
+      "DATA500 / PBAY_F_PI",
+      "MG250_pitch / D19D_PitchBack",
+      "MG250_pitch / D19D_YawSaddle",
+      "MG250_pitch / E19_ForeLid",
+      "MG250_pitch / E19_UpperYawCover",
+      "MG250_tail / E19_WagoRearNeg",
+      "MG250_tail / Motor_ATO4A__1_5",
+      "MG250_tail / OP_S1_PRIMARY_CASE_CONSERVATIVE",
+      "MG250_tail / WAGO415_data_1_7",
+      "MG250_yaw / Pi4B_actual_PCB",
+      "ToF moving 1 / E19_ForeLid",
+      "ToF moving 3 / E19_ForeLid"
+    ],
+    "scope": "Received component and assembly reference; project wire paths and whole closure await correction and receipt"
+  }
 }
