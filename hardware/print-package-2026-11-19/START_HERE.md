@@ -1,34 +1,39 @@
-# WAVEGO — od czego zacząć montaż
+# WAVEGO 19I — przygotowanie druku i montażu
 
-Dla dwóch osób przygotowano model, indeks części i instrukcje odebranego wariantu **19E**. Prosty skrzynkowy tułów, proporcje głowy i widoczny ogon są przyjętym kierunkiem. **Cały pakiet pozostaje HOLD z powodu znanych kolizji przewodów.** Poprawa wspólnej przestrzeni wiązek i zamknięcia jest w toku. Powiązanie końcowego pakietu ma status **PENDING**.
+Odebrano **komplet cyfrowy do pierwszej przymiarki bez zasilania**. Zapisany model rozstrzyga wcześniejsze znane kolizje w przyjętym zakresie. Fizyczne dopasowanie, cięcia i zmierzony luz pozostają nieustalone. Kierunek skrzynkowego tułowia, kociej głowy i widocznego ogona jest przyjęty.
 
-## Pliki do przygotowania i przymiarek
+## Przed drukiem dużych części ramy
 
-| Materiał | Jak go używać |
+1. **Zmierz osobno oba fabryczne przewody dostarczonej baterii.** W 19I każdy wymaga około **208 mm samej drogi przewodu, przed doliczeniem rzeczywistych końców**. Model przyjmuje wyjście przy +X na górnej powierzchni pakietu. Potrzeba obejmuje 125,72 mm dolnego przejścia i 82,41 mm górnej pętli obsługowej. Zapisz długość od faktycznego wyjścia do złącza oraz wymiary końców i porównaj rzeczywiste miejsce wyjścia z modelem. Długości dostarczonej baterii pozostają UNKNOWN. Krótsza żyła lub inne wyjście pozostawia dopasowanie baterii OPEN. Tego warunku nie zamyka sam odbiór cyfrowy.
+2. **Sprawdź cztery pełne MTA0100335.** Zmierz korpus z MINIVAL, pokrywę z uwięzią, oba wyjścia, średnicę izolacji i niezależną długość każdego nieciętego przewodu. Osobny opcjonalny kupon `E19_MTA_sample_land` służy przymiarce podparcia i opaski poza robotem. Znajdziesz go jako `sample/E19_MTA_sample_land.stl` w archiwum.
+3. Sprawdź rewizje i mocowania dostarczonych płytek, oba nadlewy USB przy Pi, chłodzenie oraz długość osobnego USB_AUDIO. Przy R7–R9 przymierz zakładanie izolacji i odciążony odcinek JR przed przygotowaniem okien w izolacji.
+
+Pierwsze dwa sprawdzenia wykonaj przed dużymi wydrukami podstaw. Szczegóły drogi przewodów i rozliczenie oddzielnych jednostek zawiera [bilans 19I](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/source-units.json).
+
+## Pliki bieżącego kompletu
+
+| Materiał | Zastosowanie |
 |---|---|
-| [Indeks części 19E](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/material-index.json) | Pole `parts` określa 48 modeli STL na 64 sztuki. Sprawdź `qty`, orientację `print_pose` oraz gabaryt z rezerwą `envelope_with_allowance`. Największy zapisany wymiar z rezerwą wynosi 224 mm przy polu 256 × 256 × 256 mm. |
-| [Mapa użytych i wycofanych części](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/effectivity.json) | Kompletuj według aktualnego indeksu. Pozycje `retired` są zastąpione. Część zachowana ze starszego folderu występuje w ilości podanej w bieżącym indeksie. |
-| [Złożenie FreeCAD 19E](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/whole-cat19E.FCStd) | Pokazuje rozmieszczenie mechanizmów, modułów i osłon tej wersji. |
-| [Montaż mechaniczny dla dwóch osób](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/MONTAZ.md) | Kolejność mocowania nośników, głowy, ogona, ochrony, modułów i drzwi baterii. Podane przebiegi przewodów wymagają opisanych niżej poprawek. |
-| [Montaż elektryczny](ELECTRICAL_ASSEMBLY.md) i [mapa 160 połączeń](../electronics/full-cat/closed-prototype-add7-2026-11-16/assembly-reference/POLACZENIA.csv) | Identyfikacja obu końców, całych kabli, łączeń i kontrola bez zasilania. |
-| [Materiały elektryczne](../electronics/full-cat/closed-prototype-add7-2026-11-16/assembly-reference/MATERIALY.csv) | Tożsamości przewodów. Korektę błędnego 84,5 mm dla MTA0100335 podaje instrukcja elektryczna. |
+| [Archiwum 19I](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/19I-WAVEGO-first-fit.zip) | Rozpakuj w całości. Zawiera model, STL, STEP, instrukcje i folder `source` z mapą 160 połączeń oraz źródłami elektrycznymi. |
+| [PRINT.csv](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/PRINT.csv) | Pliki w archiwum, ilości, orientacje, gabaryty z rezerwą i mocowania. |
+| [Pełny indeks części](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/material-index.json) | Bieżący wybór obejmuje 50 modeli STL na 70 części i pięć STEP. Kompletuj według tego indeksu, uwzględniając zastąpione i wycofane części. Zachowany starszy STL liczy się w podanej tu ilości. |
+| [Model FreeCAD 19I](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-cat19I.FCStd) | Złożenie odpowiadające temu kompletowi. |
+| [Montaż mechaniczny we dwie osoby](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/MONTAZ.md) | Pełne śruby, mechanizmy, pokłady, moduły, dojścia i zamknięcie. |
+| [Bieżąca instrukcja elektryczna](ELECTRICAL_ASSEMBLY.md) | Identyfikacja końców, R7–R9, izolacja i kontrola bez zasilania. [Instrukcja w pakiecie 19I](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/ELECTRICAL_ASSEMBLY.md) korzysta z folderu `source` po rozpakowaniu ZIP. |
+| [Mapa 160 połączeń](../electronics/full-cat/closed-prototype-add7-2026-11-16/assembly-reference/POLACZENIA.csv) i [bilans zakończeń 19I](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-termination-plan.json) | 134 połączenia bazy i 26 ADD7 oraz tożsamości całych jednostek. |
 
-W indeksie `stl` wskazuje plik względem folderu 19E. `zip_entry` wskazuje go w [archiwum komponentów i montażu](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/19E-components-and-assembly.zip). Osobny kupon `E19_MTA_sample_land` znajduje się w `off_robot` i służy przymiarce jednej oprawki poza robotem. [Kupon STL](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/components/E19_MTA_sample_land.stl)
+Największy wymiar z rezerwą na brim i podpory wynosi 234 mm przy polu 256 × 256 × 256 mm. Objętość pełnego materiału odpowiada 1361,11 g PETG. Scenariusz masy robota wynosi 3,215–3,955 kg. Masa po wydruku, nośność i chód wymagają prób fizycznych.
 
-## Najpierw przymiarki dostarczonych części
+[Widok ¾](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/three-quarter.png) · [przód](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/front.png) · [bok](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/side.png) · [wnętrze](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/interior.png) · [zakres odbioru cyfrowego](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/decision.json)
 
-1. Zmierz kompletną MTA0100335 z MINIVAL, pokrywą i uwięzią, oba wyjścia, średnicę izolacji oraz osobno oba niecięte przewody. Porównaj cztery sztuki. Na kuponie sprawdź podparcie, przejście opaski i dostęp do jej zaciągnięcia.
-2. Sprawdź rzeczywiste obudowy, rewizje płytek i mocowania, szczególnie BUS, Pi z chłodzeniem, ReSpeaker i pełne wtyki USB. Przymierz maskę, gniazda uszu i oczu oraz sworzeń i klucz ogona.
-3. Przy odłączonej baterii i USB przymierz boczne drzwi, paski i drogę wyjęcia baterii z odłożonymi złączkami RR. Sprawdź dostęp do wyłączników.
+## Kolejność pierwszego montażu
 
-Osoba A montuje pełne mechanizmy i podpory, osoba B porównuje części z indeksem i prowadzi kable przy otwartych pokrywach. Dalej kolejno osadza się elektronikę i ochronę, rozpoznaje fabryczne końce, wykonuje i izoluje właściwe łączenia, ręcznie układa grupy wraz z luzem ruchowym, a następnie człowiek mierzy ciągłość odłączonej wiązki. Pokrywy są ostatnim etapem po rozwiązaniu kolizji i kontroli ruchu.
+Osoba A składa otwartą ramę i pełne mechanizmy, osoba B przygotowuje śruby, porównuje części z indeksem i prowadzi wtyki. Następnie osadza się elektronikę i ochronę, rozpoznaje fabryczne końce, wykonuje i izoluje właściwe łączenia, ręcznie układa grupy z luzem ruchowym oraz mierzy ciągłość odłączonej wiązki. Pokrywy zakłada się na końcu, obserwując przewody i nasadę ogona.
 
-## Co pozostaje otwarte w projekcie
+Zachowaj wszystkie 57 pozycji bazy i ADD7, ochronę, trzy MG250, trzy JR300, cztery E2 i pięć GPIO600. Dwie porcje każdego GPIO pochodzą z jego własnych 600 mm. DATA, POWER i USB_AUDIO mają odrębne funkcje. FFC i ToF zachowują swoje zakończenia. Ogon porusza się wokół Y.
 
-W 19E MG250 yaw przecina rzeczywistą płytkę Pi. MG250 pitch i część żył ToF trafiają w podporę lub ruchome osłony. Fabryczny powrót ogona przecina S1 i tylną obsadę. Dolny nawrót DATA500 przecina baterię, MAIN i F_PI, a także tylną podstawę. Te przebiegi wymagają zmiany projektu przed wiązaniem i cięciem. Pozostaje domknięcie przestrzeni wiązek przy szyi oraz potwierdzenie ruchu, chwytów i zamknięcia całego układu. [Zakres i otwarte kolizje 19E](../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/START_HERE.md)
+R7–R9 mają warunkową metodę lokalnych odczepów oraz podparcia w 19I. Sprawdź ją na dostarczonym JR z zachowaniem fabrycznych styków, izolacją i odciążeniem. Alarm MOD05015 pozostaw zamontowany i odłączony do uzyskania mapy komór G-Tech/ID konkretnej baterii. Dalsze sprawdzenia fizyczne obejmują wyjścia i końce nóg, rzeczywiste pola płytek, klapki FHAC, optykę, dźwięk, chłodzenie, ruch głowy i ogona oraz wyjęcie baterii. Głębokie pozycje nóg pozostają materiałem planistycznym.
 
-Zachowaj pełne 57 pozycji bazy i ADD7, ochronę, trzy osobne MG250 i trzy JR300, cztery przewody E2 oraz pięć Pololu600. Dwie porcje każdego Pololu rozlicza się w granicach jego własnych 600 mm. Fabryczne końce i wymagany ruch pozostają częścią montażu.
+## Historia źródeł
 
-Alarm MOD05015 pozostaje zamocowany i odłączony. Przed połączeniem z baterią potrzebna jest właściwa mapa fizycznych komór G-Tech i ID dla dostarczonej rewizji. Szczegóły identyfikacji oraz pomiarów MTA podaje instrukcja elektryczna.
-
-Fizyczne dopasowanie, wykonane cięcia i zmierzony luz pozostają nieustalone. Przymiarki i pomiar ciągłości odbywają się bez zasilania. Integrator po odbiorze końcowej wersji aktualizuje powiązanie plików w [SOURCES_ELECTRICAL.json](SOURCES_ELECTRICAL.json), a następnie odnośniki w tym punkcie wejścia.
+Wcześniejsze odbiory i zamrożone kopie przewodników zachowano w [SOURCES_ELECTRICAL.json](SOURCES_ELECTRICAL.json). Bieżący komplet i zakres przymiarki wiążą źródła 19I.
