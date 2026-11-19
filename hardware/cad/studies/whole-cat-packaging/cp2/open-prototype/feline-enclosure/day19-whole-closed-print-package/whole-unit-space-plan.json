@@ -1,0 +1,266 @@
+{
+ "utc": "2026-11-19T14:54:21.024694+00:00",
+ "moves": [
+  {
+   "primary": "BUS25514_installed",
+   "members": [
+    "BUS25514_installed",
+    "D18C_DATA_BUS_FULL26_PROJECT_BOOT",
+    "CB_BUS_0_0_PCBwasher",
+    "CB_BUS_0_0_nut",
+    "CB_BUS_0_1_PCBwasher",
+    "CB_BUS_0_1_nut",
+    "CB_BUS_1_0_PCBwasher",
+    "CB_BUS_1_0_nut",
+    "CB_BUS_1_1_PCBwasher",
+    "CB_BUS_1_1_nut",
+    "CF17_BUS_CSK10_m41p5_125",
+    "CF17_BUS_CSK10_m41p5_97",
+    "CF17_BUS_CSK10_m4p5_125",
+    "CF17_BUS_CSK10_m4p5_97"
+   ],
+   "target_primary_min": [
+    -4,
+    24,
+    125
+   ]
+  },
+  {
+   "primary": "MAIN_Pololu4853",
+   "members": [
+    "MAIN_Pololu4853",
+    "CB_MAIN_0_PCBwasher",
+    "CB_MAIN_0_basewasher",
+    "CB_MAIN_0_nut",
+    "CB_MAIN_1_PCBwasher",
+    "CB_MAIN_1_basewasher",
+    "CB_MAIN_1_nut",
+    "F3_MAIN_0_FULL_M2x16",
+    "F3_MAIN_1_FULL_M2x16"
+   ],
+   "target_primary_min": [
+    86,
+    -16,
+    92
+   ]
+  },
+  {
+   "primary": "AUX_Pololu4092",
+   "members": [
+    "AUX_Pololu4092",
+    "CB_AUX_0_PCBwasher",
+    "CB_AUX_0_basewasher",
+    "CB_AUX_0_nut",
+    "CB_AUX_1_PCBwasher",
+    "CB_AUX_1_basewasher",
+    "CB_AUX_1_nut",
+    "CB_AUX_2_PCBwasher",
+    "CB_AUX_2_basewasher",
+    "CB_AUX_2_nut",
+    "F3_AUX_0_FULL_M2x16",
+    "F3_AUX_1_FULL_M2x16",
+    "F3_AUX_2_FULL_M2x16"
+   ],
+   "target_primary_min": [
+    86,
+    16,
+    90
+   ]
+  },
+  {
+   "primary": "MAX98357A_amp",
+   "members": [
+    "MAX98357A_amp",
+    "CB_AMP_0_M2x12",
+    "CB_AMP_0_PCBwasher",
+    "CB_AMP_0_basewasher",
+    "CB_AMP_0_nut",
+    "CB_AMP_1_M2x12",
+    "CB_AMP_1_PCBwasher",
+    "CB_AMP_1_basewasher",
+    "CB_AMP_1_nut"
+   ],
+   "target_primary_min": [
+    79,
+    -50,
+    128
+   ]
+  },
+  {
+   "primary": "PBAY_POST_F0",
+   "members": [
+    "PBAY_POST_F0",
+    "CB_POST_0_M2x20",
+    "CB_POST_0_bottomwasher",
+    "CB_POST_0_fullnut",
+    "CB_POST_0_topwasher",
+    "CB_POST_1_M2x20",
+    "CB_POST_1_bottomwasher",
+    "CB_POST_1_fullnut",
+    "CB_POST_1_topwasher"
+   ],
+   "target_primary_min": [
+    105,
+    -12,
+    52
+   ]
+  }
+ ],
+ "DATA500": {
+  "raw": 500,
+  "boots": [
+   26,
+   26
+  ],
+  "pi_approach_plan": 76,
+  "reserve": 216,
+  "bus_approach_plan": 156,
+  "OD": 6.8,
+  "inner_R": 30,
+  "region": [
+   32,
+   -40,
+   41,
+   91,
+   16,
+   76
+  ],
+  "qualification": "Open reserve has both approaches assigned. Curvature/physical port/coallocation of those approaches still requires the named port-layer gate.",
+  "accepted": false
+ },
+ "JR300": [
+  {
+   "unit": "JR300_yaw",
+   "raw": 300,
+   "plug": 12,
+   "transport_plan": 120,
+   "laid_reserve": 126,
+   "fan": 25,
+   "insulated_land": 9,
+   "proper_lap": 8,
+   "profile": [
+    3.5,
+    1.8
+   ],
+   "inner_R": 22,
+   "region": [
+    -66,
+    -84,
+    128,
+    52,
+    52,
+    10
+   ],
+   "qualified": false
+  },
+  {
+   "unit": "JR300_pitch",
+   "raw": 300,
+   "plug": 12,
+   "transport_plan": 180,
+   "laid_reserve": 66,
+   "fan": 25,
+   "insulated_land": 9,
+   "proper_lap": 8,
+   "profile": [
+    3.5,
+    1.8
+   ],
+   "inner_R": 22,
+   "region": [
+    18,
+    -84,
+    128,
+    52,
+    52,
+    10
+   ],
+   "qualified": false
+  },
+  {
+   "unit": "JR300_tail",
+   "raw": 300,
+   "plug": 12,
+   "transport_plan": 145,
+   "laid_reserve": 101,
+   "fan": 25,
+   "insulated_land": 9,
+   "proper_lap": 8,
+   "profile": [
+    3.5,
+    1.8
+   ],
+   "inner_R": 22,
+   "region": [
+    102,
+    -84,
+    128,
+    52,
+    52,
+    10
+   ],
+   "qualified": false
+  }
+ ],
+ "FFC200": {
+  "raw": 200,
+  "proper_ends_once": 10,
+  "free": 190,
+  "head_and_Pi_identity_unchanged": true,
+  "changed_shell_neighbors_pending": true
+ },
+ "MG_factory_units": [
+  {
+   "role": "yaw",
+   "raw": 250,
+   "case_exit": "PROJECT actual sample",
+   "qualified": false
+  },
+  {
+   "role": "pitch",
+   "raw": 250,
+   "case_exit": "PROJECT actual sample",
+   "qualified": false
+  },
+  {
+   "role": "tail",
+   "raw": 250,
+   "case_exit": "PROJECT actual sample",
+   "qualified": false
+  }
+ ],
+ "ToF": {
+  "cores": 4,
+  "jacket_OD": 2.1,
+  "moving_inner_R": 31.5,
+  "JP3": [
+   2,
+   6,
+   3,
+   4
+  ],
+  "changed_rear_board_ends": "fixed fan and blank lengths must be rebound to the moved whole PCA-E1"
+ },
+ "E2": {
+  "independent_contact_wire_units": 4,
+  "available_each": 220,
+  "both_ends_retained": true,
+  "changed_body_station_plan": "pending"
+ },
+ "MTA0100335": {
+  "qty": 4,
+  "whole_profile": null,
+  "outer_OD": null,
+  "condition": "One complete delivered unit; adjustable open tray, no140mm orFHAC84.5 length credit."
+ },
+ "load_path": {
+  "inner_neck_to_bridge_mm3": 0.0,
+  "bridge_to_source_portal_mm3": 500.0999999999998,
+  "qualified": false
+ },
+ "physical_PASS": false,
+ "actual_fit": null,
+ "actual_cut": null,
+ "installed_slack": null,
+ "whole_accepted": false
+}

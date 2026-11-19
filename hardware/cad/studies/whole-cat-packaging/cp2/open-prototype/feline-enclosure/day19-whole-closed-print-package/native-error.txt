@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:/Users/Sysq/PycharmProjects/robot-cat-mechanical/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-whole-closed-print-package/run-low19.py", line 6, in <module>
+    runpy.run_path(str(P/"make-low-layout.py"),run_name="__main__")
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Sysq\PycharmProjects\robot-cat-mechanical\hardware\cad\studies\whole-cat-packaging\cp2\open-prototype\feline-enclosure\day19-whole-closed-print-package\make-low-layout.py", line 34, in <module>
+    assert (src.Shape.CenterOfMass-o.Shape.CenterOfMass).Length<1e-5,n
+            ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Part.Compound' object has no attribute 'CenterOfMass'
