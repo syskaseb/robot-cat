@@ -1,0 +1,318 @@
+{
+  "schema": 1,
+  "scope": "UNPOWERED_ELECTRICAL_ASSEMBLY_GUIDE_EXISTING_134_PLUS_26_GRAPH",
+  "captured_utc": "2026-11-19T15:17:14+00:00",
+  "mutable_authority_reference": {
+    "path": "../HOBBY_COMPLETION_PLAN.md",
+    "section": "Bieżąca karta — 19.11",
+    "record_captured_at_utc": "2026-11-19T15:17:14+00:00",
+    "observed_19A_whole_status": "HOLD",
+    "observed_19A_commit": "0736a387c38c298f0bc9ad473b3b18b0dbea2278",
+    "observed_19B_input": "01a1f45d-5943-75e3-bbe4-684179951c57"
+  },
+  "base_graph_sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
+  "add7_graph_sha256": "c9f6687e6a4419749781f4c7f57ef5b9895cc3a05064fa33b14e1ae0390c6553",
+  "graph_rows": {
+    "base": 134,
+    "add7": 26,
+    "combined_reference": 160
+  },
+  "selection": {
+    "base_rows": 57,
+    "add7_modules": 7
+  },
+  "physical_PASS": false,
+  "actual_installed_length_mm": null,
+  "actual_cuts_mm": null,
+  "actual_slack_mm": null,
+  "route_values_status": "PENDING_19B_RECEIPT",
+  "physical_mg_and_jr_units": [
+    {
+      "id": "MG_head_yaw",
+      "axis": "head_yaw",
+      "type": "MG92B_factory_lead",
+      "source_full_length_mm": 250,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    },
+    {
+      "id": "JR_head_yaw",
+      "axis": "head_yaw",
+      "type": "JR_586761_extension",
+      "source_full_length_mm": 300,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    },
+    {
+      "id": "MG_head_pitch",
+      "axis": "head_pitch",
+      "type": "MG92B_factory_lead",
+      "source_full_length_mm": 250,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    },
+    {
+      "id": "JR_head_pitch",
+      "axis": "head_pitch",
+      "type": "JR_586761_extension",
+      "source_full_length_mm": 300,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    },
+    {
+      "id": "MG_tail_pitch",
+      "axis": "tail_pitch",
+      "type": "MG92B_factory_lead",
+      "source_full_length_mm": 250,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    },
+    {
+      "id": "JR_tail_pitch",
+      "axis": "tail_pitch",
+      "type": "JR_586761_extension",
+      "source_full_length_mm": 300,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    }
+  ],
+  "unknowns": {
+    "MTA0100335": {
+      "quantity": 4,
+      "full_case_and_lid_envelope_mm": null,
+      "stock_outer_diameter_mm": null,
+      "individual_lead_lengths_mm": [
+        null,
+        null
+      ],
+      "catalog_reference_markings": [
+        "L120",
+        "L140"
+      ],
+      "catalog_markings_are_per_lead_lengths": false
+    },
+    "P309_alarm": {
+      "part": "MOD05015",
+      "view": "rear_label_pins_left",
+      "bottom_up": [
+        "minus",
+        "1S",
+        "2S",
+        "3S"
+      ],
+      "BAT_GTech_physical_cavities": {
+        "B0": null,
+        "B1": null,
+        "B2": null,
+        "B3": null,
+        "ID": null
+      },
+      "connection_status": "HOLD_PENDING_DELIVERED_REVISION_CAVITY_MAP"
+    }
+  },
+  "final_package_reference_update": {
+    "status": "PENDING",
+    "awaiting_19B_input_receipt": "01a1f45d-5943-75e3-bbe4-684179951c57",
+    "required_references": [
+      "accepted_commit",
+      "native_assembly",
+      "stl_index",
+      "assembly_order",
+      "approved_routes"
+    ],
+    "accepted_commit": null,
+    "source_pins": []
+  },
+  "source_pins": [
+    {
+      "path": "../electronics/kicad-current/design.json",
+      "sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
+      "bytes": 220440,
+      "commit": "6ab0a765f2860253b5c418e0b06fdac758842273",
+      "provenance": "git_blob_and_canonical_bytes",
+      "source_schema": 1
+    },
+    {
+      "path": "../electronics/kicad-current/selected-components.csv",
+      "sha256": "4ac53a1dba32ec771038cf30deada706657ca1b66f3c741c54dc249de11eabce",
+      "bytes": 4172,
+      "commit": "6ab0a765f2860253b5c418e0b06fdac758842273",
+      "provenance": "git_blob_and_canonical_bytes",
+      "csv": {
+        "delimiter": ",",
+        "columns": [
+          "id",
+          "installed",
+          "manufacturer",
+          "part",
+          "supplier",
+          "supplier_sku",
+          "catalog_role"
+        ],
+        "rows": 57
+      }
+    },
+    {
+      "path": "../electronics/full-cat/closed-prototype-add7-2026-11-16/connections.json",
+      "sha256": "c9f6687e6a4419749781f4c7f57ef5b9895cc3a05064fa33b14e1ae0390c6553",
+      "bytes": 20373,
+      "commit": "4f325e568ac7157e6b099085212e099b4cd9b35e",
+      "provenance": "git_blob_and_canonical_bytes",
+      "source_schema": 1
+    },
+    {
+      "path": "../electronics/full-cat/closed-prototype-add7-2026-11-16/assembly-reference/START_HERE.md",
+      "sha256": "fcf95e25c426ffab52dcc54e29c87534ac89ca91f9e380ec80756172eedd0ff5",
+      "bytes": 6436,
+      "commit": "120088a28eb82cb3c8222e5ccce725060c65f115",
+      "provenance": "git_blob_and_canonical_bytes"
+    },
+    {
+      "path": "../electronics/full-cat/closed-prototype-add7-2026-11-16/assembly-reference/POLACZENIA.csv",
+      "sha256": "d75f8d953bbac33c2aa67415e50adccc585ec11e851e7b04d49fbecac20d6c4e",
+      "bytes": 45788,
+      "commit": "120088a28eb82cb3c8222e5ccce725060c65f115",
+      "provenance": "git_blob_and_canonical_bytes",
+      "csv": {
+        "delimiter": ";",
+        "columns": [
+          "Zakres",
+          "ID",
+          "Koniec_A",
+          "Koniec_B",
+          "Modul_A_wartosc",
+          "Modul_B_wartosc",
+          "Funkcja",
+          "Jednostka_fizyczna_bazy",
+          "Grupa_deklarowana",
+          "Rodzic_GPIO_propozycja",
+          "Rodzaj",
+          "Uwaga"
+        ],
+        "rows": 160
+      }
+    },
+    {
+      "path": "../electronics/full-cat/closed-prototype-add7-2026-11-16/assembly-reference/MATERIALY.csv",
+      "sha256": "a0f51cbf2b54cfa5b69a74c118f19b724c999511f497bb8748e0e6afd9e0d832",
+      "bytes": 66899,
+      "commit": "120088a28eb82cb3c8222e5ccce725060c65f115",
+      "provenance": "git_blob_and_canonical_bytes",
+      "csv": {
+        "delimiter": ";",
+        "columns": [
+          "Typ_wiersza",
+          "Pozycja_zrodla",
+          "ID_polaczen",
+          "Jednostka_fizyczna",
+          "Grupa_deklarowana",
+          "Porcja",
+          "Zyla",
+          "SKU_lub_wybrany_material",
+          "Zapisana_granica_zrodla_mm_NIE_budzet_trasy",
+          "Ograniczenie_koncow_i_jednostki",
+          "Dlugosc_zamontowana_mm",
+          "Ciecie_rzeczywiste_mm",
+          "Luz_rzeczywisty_mm",
+          "Nieustalone",
+          "Status"
+        ],
+        "rows": 155
+      }
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-body-reception-and-closed-fit/frozen-unit-receipt.json",
+      "sha256": "7b5a7ce3e337119410f09436bceff9ba430a65ba9dfb46aa1016fe2be11fd028",
+      "bytes": 9256,
+      "commit": "d5baf5e6ce1598ff8031edb8b82f1a1011b4fada",
+      "provenance": "git_blob_and_canonical_bytes",
+      "source_schema": null
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-body-reception-and-closed-fit/typed-jp3.json",
+      "sha256": "ccbb24b850918225715474a1a16afd8bb2a509096c36bc02e612238b2ca2501e",
+      "bytes": 4149,
+      "commit": "d5baf5e6ce1598ff8031edb8b82f1a1011b4fada",
+      "provenance": "git_blob_and_canonical_bytes",
+      "source_schema": null
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-source-bom-budgets/README.md",
+      "commit": "d19be9ad22fa82f6d655f25ac2fac96688730d8b",
+      "sha256": "df9134e124c66ecf8dd0cde0e5cf2a2224038d66cdfc383a4c93ffa9f07632c1",
+      "bytes": 3515,
+      "provenance": "git_blob_and_canonical_bytes"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-source-bom-budgets/source-budget.json",
+      "commit": "d19be9ad22fa82f6d655f25ac2fac96688730d8b",
+      "sha256": "ddd9e05c23e73123b6e371d766de9c572d89f6f2a3b265838fc1bbfe0b3a2e48",
+      "bytes": 35966,
+      "provenance": "git_blob_and_canonical_bytes"
+    }
+  ],
+  "supporting_canonical_worktree_references": [
+    {
+      "path": "../electronics/kicad-current/README.md",
+      "sha256": "e46d6dd21b8850715e918347030d8d8c5801468634238d65465260faab67779b",
+      "bytes": 3494,
+      "provenance": "canonical_worktree_bytes_only"
+    },
+    {
+      "path": "../electronics/kicad-current/connections.csv",
+      "sha256": "d9dd55981fb4651629f15a9280591bae0f65ca7f0d66d89a83c8143322aeb2f4",
+      "bytes": 5121,
+      "provenance": "canonical_worktree_bytes_only",
+      "csv": {
+        "delimiter": ",",
+        "columns": [
+          "id",
+          "a",
+          "b",
+          "kind",
+          "historical_a",
+          "historical_b"
+        ],
+        "rows": 134
+      }
+    },
+    {
+      "path": "../electronics/kicad-current/pinouts.csv",
+      "sha256": "77d6d60ff3885247cf1569dfe5317662d3dbdfdf33809c562225867178ed43a2",
+      "bytes": 47450,
+      "provenance": "canonical_worktree_bytes_only",
+      "csv": {
+        "delimiter": ",",
+        "columns": [
+          "component",
+          "kicad_ref",
+          "number",
+          "endpoint",
+          "name",
+          "net",
+          "type",
+          "basis"
+        ],
+        "rows": 335
+      }
+    },
+    {
+      "path": "../electronics/kicad-current/robot_cat-schematic.pdf",
+      "sha256": "e23dd567be3b3cc949d884da4687d990c762dc4fdcd216cec2c537c5925a35c5",
+      "bytes": 466618,
+      "provenance": "canonical_worktree_bytes_only"
+    }
+  ]
+}
