@@ -29,7 +29,9 @@ Nie traktuj lokalnego FIT ani liczby plików jako ukończenia całego kota.
 Ta reguła obejmuje przyszłe wznowienia; NIE włącza zamkniętego okna CAD.
 
 
-## 19.11 — NOWA ZGODA: KOMPLET DO DRUKU I MONTAŻU DZIŚ / AKTYWNE
+## 19.11 — OKNO ZAMKNIĘTE: CYFROWY FIRST-FIT 19I
+
+Stan2026-11-19T22:37:55Z: enabled=false. Komplet cyfrowy do pierwszej przymiarki odebrany; fizyczne dopasowanie/chód/nośność niepotwierdzone. [Punkt wejścia](hardware/print-package-2026-11-19/START_HERE.md). ŹródłoCAD1d428594/pakiet8ed0f2dd. Przed dużymdrukiem pomiar208mm każdej żyły baterii i4pełnychMTA. GUI17796/551saved/modifiedfalse zachowane, wszystkie własne role i obliczenia zakończone. Bez automatycznego wznowienia, przedłużenia, starychNEXT lub fizycznegoPASS; noweCAD wymaga nowej ludzkiej instrukcji. Poniższa zgoda zachowuje historię zamkniętego okna.
 
 Użytkownik: „masz to zrobić dzisiaj”, „Sami wydrukujemy, dziś ma być wszystko gotowe”. To nowa zgoda CAD i kompletnego pakietu cyfrowego. Zastępuje zamknięte18Nov/planmiesiąca/NEXT; dzisiejszy termin23:00UTC/24:00Warszawa, nativecut22:40/saveend22:50, bezprzedłużenia.
 NOWA DECYZJA UŻYTKOWNIKA19Nov17:22: prosty SKRZYNKOWY TUŁÓW AKCEPTOWANY. Obłość/talia/wierna sylwetka Oli nie są warunkami ukończenia. Najpierw CAŁE57+ADD7 wyposażenie z ochroną, portami/chłodzeniem, pełnymi jednostkami przewodów i użytecznym luzem, stabilnym wspólnym nośnikiem, zamknięciem oraz montażem. Sensowne proporcje głowa–tułów i WIDOCZNY RZECZYWISTY OGON GÓRA–DÓŁ/Y, z mechanizmem, drukami i pełnym przewodem, są wymagane. Własne niewydrukowane banki/BUS/operator/mocowania/pozy/osłony pozostają zmienne. Zachować kupne części/fabryczne końce/ochronę/57+ADD7/12ST+3MG/nogi/head20yaw10pitch/256inclbrim. Mała zmiana bazy dozwolona; bez nowych serw, długich nóg lub zakupów. Poprzednie estetyczne odrzucenia pudełkowatości SUPERSEDED; realne kolizje i funkcje nie są zwolnione.

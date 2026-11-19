@@ -18,17 +18,21 @@
       "status": "CONDITIONAL_UNPOWERED_SUBASSEMBLY_FIT_NOT_WHOLECAT"
     },
     "unbuilt_proposal": {
-      "commit": "23f37ea7d3afc7a30753a11436f67f5a539c234c",
-      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-shared-open-trunk-and-body-parting/whole-cat19H.FCStd",
-      "native_sha256": "c7b92966e20312d19d0bc7cb74f0366a89471b9f61b6c4270cb15d6d8f4ce046",
-      "start_here": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-shared-open-trunk-and-body-parting/START_HERE.md",
-      "scope": "RECEIVED_INTEGRAL_FRONT_FRAME_AND_COMMON_OCCUPIED_TRUNK_NOT_COMPLETE_KIT",
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-cat19I.FCStd",
+      "native_sha256": "365633e3f78d40f6140c7169a1fd67dd5a9141935ca7c6937dba5ed664bd4f46",
+      "start_here": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/START_HERE.md",
+      "zip": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/19I-WAVEGO-first-fit.zip",
+      "zip_sha256": "fc064a4847f6ae9f592fdc2cb0c17ab82ee2ea591bd00696109e6ecd9800da49",
+      "scope": "DIGITAL_FIRST_FIT_READY_CONDITIONAL_DELIVERED_PART_CHECKS",
       "whole_feasible": false,
       "appearance_adequate_in_box_scope": true,
       "physical_pass": false,
-      "parent_commit_files_verified": 77,
-      "source_pins_verified": 122,
-      "native_CRC_entries": 3108
+      "parent_commit_files_verified": 178,
+      "source_pins_verified": 141,
+      "native_CRC_entries": 3141,
+      "digital_first_fit_ready": true,
+      "physical_feasibility": null
     },
     "wholekit_ready": false,
     "physical_pass": false,
@@ -37,14 +41,20 @@
     "curated_package": {
       "start_here": "hardware/print-package-2026-11-19/START_HERE.md",
       "sources": "hardware/print-package-2026-11-19/SOURCES_ELECTRICAL.json",
-      "canonical_doc_commit": "ae9fc78edcc218369f46bccf988f1f81dd69a073",
-      "private_doc_commit": "27c2af3c986e6afb1c499a40daffd01bf434f221",
-      "status": "DRAFT_CURRENT_19NOV_ENTRY_FINAL_REFERENCE_PENDING_CURRENT_CAD",
-      "received_source_commit_in_docs": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
-      "latest_CAD_receipt": "23f37ea7d3afc7a30753a11436f67f5a539c234c",
-      "whole_print_index": null,
-      "zip": null,
-      "old_packages_preserved": true
+      "canonical_doc_commit": "8ed0f2dd8f1c0bf8abbe06a3356e73751e88058a",
+      "guide_snapshot_commit": "86d4fa9009ae9c058abeeacb60b019959eabe869",
+      "private_doc_commit": "eff3bc42e6e036cda123dc83f4f9a8eed9a059b2",
+      "status": "CURRENT_DIGITAL_FIRST_FIT_CONDITIONAL_PHYSICAL_PREREQUISITES",
+      "received_source_commit_in_docs": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "latest_CAD_receipt": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "whole_print_index": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/material-index.json",
+      "print_csv": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/PRINT.csv",
+      "zip": "hardware/print-package-2026-11-19/WAVEGO_KOT_19I.zip",
+      "zip_sha256": "a45250c334a4df1619d57f29a7120dbc85ccfe85e600cd9f495fe5e34090933f",
+      "zip_CRC_entries": 120,
+      "source_CAD_zip": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/19I-WAVEGO-first-fit.zip",
+      "old_packages_preserved": true,
+      "physical_pass": false
     },
     "source_corrections": {
       "MTA0100335": "UNBOUND assumed35.5x8.1x8.9/noMINIVAL and220/84.5eachlead notsupported; oneactualsample +lid/tether/fuse/twoleads required. MTA0300330bankcoupondifferent. SeeSOURCE_ERRATA.",
@@ -54,13 +64,17 @@
     "next_checkpoint": "LastG1wholeportface+4fullFHACcase/printedmountinterface+manual2layerbattery/JR andcompletefirstfitpackage; onlyactualremainingnamedhazards",
     "work_window": {
       "id": "wavego-20261119-complete-print-package-today",
-      "enabled": true,
+      "enabled": false,
       "started_utc": "2026-11-19T14:04:54.269183+00:00",
       "deadline_utc": "2026-11-19T23:00:00Z",
       "native_long_operation_cutoff_utc": "2026-11-19T22:40:00Z",
       "save_compute_end_by_utc": "2026-11-19T22:50:00Z",
       "human_request": "Everything readyTODAYforuserprinting/assembly",
-      "whole_cat_complete": false
+      "whole_cat_complete": false,
+      "closed_utc": "2026-11-19T22:37:55Z",
+      "digital_first_fit_complete": true,
+      "stop_reason": "DIGITAL_FIRST_FIT_PACKAGE_DELIVERED_WITH_NAMED_PHYSICAL_PREREQUISITES",
+      "automatic_resume": false
     },
     "requirements": {
       "tail_motion": {
@@ -421,20 +435,22 @@
       "CAD_resumed": false
     },
     "day19_received": {
-      "commit": "53998c655629e22c613a4b62415335614b83cdb0",
-      "native_sha256": "e82c2658ddf204fe2c120e8951af51981846d9d9c5925876a71d649b6b13f403",
-      "parent_verification": "78exact/77pins+1source/CRC2617; GUIdirtydiscrepancyrequiresownerreconcile",
-      "status": "WHOLE_HOLD_NOT_PRINT_READY",
-      "physical_PASS": false
+      "revision": "19I",
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "input": "01a1f5c2-09f8-77d3-bda9-1326e4bfb608",
+      "digital_first_fit": true,
+      "physical_PASS": false,
+      "parent_exact_files": 178,
+      "native_world_BREP_same": 551
     },
-    "day19_active_input": "01a1f4ae-cefb-7a63-b4ee-589229e128c2",
+    "day19_active_input": "01a1f5c2-09f8-77d3-bda9-1326e4bfb608",
     "day19_cad_owner": "01a1f45d-57ef-70c2-9ef1-40eb48477bae",
-    "basis_candidate_commit": "23f37ea7d3afc7a30753a11436f67f5a539c234c",
-    "basis_native": "C:/Users/Sysq/PycharmProjects/robot-cat-mechanical/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-shared-open-trunk-and-body-parting/whole-cat19H.FCStd",
-    "basis_native_sha256": "c7b92966e20312d19d0bc7cb74f0366a89471b9f61b6c4270cb15d6d8f4ce046",
+    "basis_candidate_commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+    "basis_native": "C:/Users/Sysq/PycharmProjects/robot-cat-mechanical/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-cat19I.FCStd",
+    "basis_native_sha256": "365633e3f78d40f6140c7169a1fd67dd5a9141935ca7c6937dba5ed664bd4f46",
     "whole_print_kit_ready": false,
-    "current_scope": "19Nov17:22humanBOXaccepted/allmodulesfit/closed2personprototype/sensibleproportions/visiblephysicalUPDOWN-Ytail/completeprintpackageTODAY",
-    "next_action": "Wholemodulelayer+coreandconnectedbundleassembly before morelocalheadneckdetails",
+    "current_scope": "DELIVERED_COMPLETE_DIGITAL_FIRST_FIT_PACKAGE_PHYSICAL_FIT_NOT_CONFIRMED",
+    "next_action": "HumanbatteryandMTAmeasurements/unpoweredfirstfit; no automaticCADoroldNEXT",
     "appearance_adequate_for_box_prototype": true,
     "historical_unbuilt_proposals": [
       {
@@ -450,6 +466,19 @@
         ],
         "parent_commit_files_verified": 101,
         "parent_native_zip_crc_entries": 8611
+      },
+      {
+        "commit": "23f37ea7d3afc7a30753a11436f67f5a539c234c",
+        "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-shared-open-trunk-and-body-parting/whole-cat19H.FCStd",
+        "native_sha256": "c7b92966e20312d19d0bc7cb74f0366a89471b9f61b6c4270cb15d6d8f4ce046",
+        "start_here": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-shared-open-trunk-and-body-parting/START_HERE.md",
+        "scope": "RECEIVED_INTEGRAL_FRONT_FRAME_AND_COMMON_OCCUPIED_TRUNK_NOT_COMPLETE_KIT",
+        "whole_feasible": false,
+        "appearance_adequate_in_box_scope": true,
+        "physical_pass": false,
+        "parent_commit_files_verified": 77,
+        "source_pins_verified": 122,
+        "native_CRC_entries": 3108
       }
     ],
     "historical_curated_packages": [
@@ -464,9 +493,43 @@
         "zip": null,
         "whole_print_index": null,
         "old_packages_preserved": true
+      },
+      {
+        "start_here": "hardware/print-package-2026-11-19/START_HERE.md",
+        "sources": "hardware/print-package-2026-11-19/SOURCES_ELECTRICAL.json",
+        "canonical_doc_commit": "ae9fc78edcc218369f46bccf988f1f81dd69a073",
+        "private_doc_commit": "27c2af3c986e6afb1c499a40daffd01bf434f221",
+        "status": "FINAL_19I_DOC_BINDING_IN_PROGRESS_EXISTING_ENTRY_STILL_DRAFT",
+        "received_source_commit_in_docs": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+        "latest_CAD_receipt": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+        "whole_print_index": null,
+        "zip": null,
+        "old_packages_preserved": true
       }
     ],
-    "current_receipt_status": "19H_RECEIVED_SCOPED_KNOWN_LAST_G1_FHAC_AND_BATTERY_LAY_ISSUES_NOT_WHOLEKIT"
+    "current_receipt_status": "19I_DELIVERED_WINDOW_CLOSED_PHYSICAL_CHECKS_OPEN",
+    "digital_first_fit_package_ready": true,
+    "physical_prerequisites_19I": {
+      "battery_min_mm_per_lead_before_real_ends": 208,
+      "actual_battery_lead_mm": null,
+      "human_measurement_requested_utc": "2026-11-19T22:26:00Z",
+      "MTA_full_units_and_tails": "UNMEASURED",
+      "R7_contact_insulation": "PROPOSED_CONDITIONAL",
+      "payload": "UNMEASURED",
+      "physical_PASS": false
+    },
+    "day19_receipt_history": [
+      {
+        "commit": "53998c655629e22c613a4b62415335614b83cdb0",
+        "native_sha256": "e82c2658ddf204fe2c120e8951af51981846d9d9c5925876a71d649b6b13f403",
+        "parent_verification": "78exact/77pins+1source/CRC2617; GUIdirtydiscrepancyrequiresownerreconcile",
+        "status": "WHOLE_HOLD_NOT_PRINT_READY",
+        "physical_PASS": false
+      }
+    ],
+    "complete_digital_exports_ready": true,
+    "day19_owner_state": "CLOSED_RECEIVED_NO_OWNED_COMPUTE",
+    "readiness_definition": "Complete digital first-fit export set; wholekit/whole_cat flags stay false until physical fit and assembly requirements are resolved. No N01score awarded."
   },
   "legacy_pointer_snapshot": {
     "path": "hardware/cad/legacy/current-assembly-e6-before-cleanup-2026-11-16.json",

@@ -14,7 +14,123 @@ raportów, nowych recenzji i odtwarzania starych testów. Sama kontrola procesu 
 wznawia zamkniętego okna CAD; aktualna zgoda i zakres są w bieżącej karcie poniżej.
 
 
-## Bieżąca karta — 19.11: KOMPLET DO DRUKU I MONTAŻU DZIŚ / 19I DO ZLECENIA
+## Bieżąca karta — 19.11: OKNO ZAMKNIĘTE / CYFROWY FIRST-FIT 19I
+
+**Zamknięcie.** 2026-11-19T22:37:55Z /23:37Warszawa, enabled=false, bez automatycznego wznowienia i bez przedłużenia hard23:00UTC.
+**Wynik.** Odebrany i opublikowany CYFROWY komplet do pierwszej przymiarki bez zasilania. Fizyczny cały robot nie jest ukończony ani zweryfikowany.
+Prosty skrzynkowy tułów zgodny z decyzją użytkownika17:22, kocia głowa i widoczny rzeczywisty ogon góra–dół/Y. Całe57+ADD7, ochrona i fabryczne jednostki zachowane.
+
+**Jeden punkt wejścia.** [Instrukcja startowa](print-package-2026-11-19/START_HERE.md) / [archiwum do rozpakowania](print-package-2026-11-19/WAVEGO_KOT_19I.zip).
+50 modeliSTL na70części robota +opcjonalny kuponMTA,5STEP, modelFreeCAD,PRINT.csv, mapa160połączeń i instrukcje.
+Max234mm z rezerwą wobec256³. Model pełnegoPETG1361,11g; scenariusz całości3,215–3,955kg, masa/nośność/chód niemierzone.
+**Źródło CAD.** Actual01a1f5c2-09f8-77d3-bda9-1326e4bfb608 COMPLETED/RECEIVED/CLOSED; wcześniejszyf582 przerwany dla steeringu, nie osobny ukończony pakiet.
+Commit1d428594af9db9f49fa931e72d51fe48f611a21d, nativeSHA365633e3f78d40f6140c7169a1fd67dd5a9141935ca7c6937dba5ed664bd4f46.
+Parent178exact/177filepins+141sourcepins przy odbiorze22:25, nativeCRC3141/world551zgodne; źródłoweZIP116wpisów.
+**Dystrybucja.** Commit8ed0f2dd8f1c0bf8abbe06a3356e73751e88058a, ZIPa45250c334a4df1619d57f29a7120dbc85ccfe85e600cd9f495fe5e34090933f.
+Archiwum120wpisów/CRC/hash/odnośniki poprawne. Każda z50siatek i native zachowują bajty odebranegoCAD. Aktualny przewodnik elektryczny i warunek208mm dodane bez zmiany geometrii.
+Dokumenty: prywatnyeff3bc42 → kanoniczny86d4fa90 → końcowe opakowanie8ed0f2dd;16przypięć bieżącegoI zweryfikowano. Historyczne migawki przewodników zachowane.
+
+**Co rozstrzygnięto w przyjętym modelu.** 8oparć i dojście narzędzia,5FHAC/G1/P_FRONT/F_PWM/gimbal, drogi obu żył doXT60, dostępne zamknięcie.
+W07545+5=50mm, W041Rwew>=25,5mm, rozłączenieXT60 o14mm przy głowie na wprost. R7ma warunkowy plan montażu i lokalne podparcie.
+**Stan programu.** JednaGUI17796/whole_cat19I551/modified=false, saved22:21:39UTC; freshreadonly22:37. Własne obliczenia zakończone, wszystkie własne role zamknięte. FreeCAD/MCP zachowane.
+
+**WARUNEK przed dużym drukiem — bateria.** Potrzeba około208mm KAŻDEJ żyły przed rzeczywistymi końcami, przy założonym wyjściu przy+X górnej powierzchni.
+Dostarczone długości i wyjście są niepotwierdzone. Pytanie o pomiar zadano22:26, brak odpowiedzi. To nie przyznana długość ani zgoda na przedłużenie.
+**Drugi warunek przed dużym drukiem.** Zmierzyć wszystkie4MTA0100335 z pokrywami i oboma końcami; użyć opcjonalnego małego kuponu. Nie brać84,5FHAC za długośćMTA.
+**Pozostałe fizyczne sprawdzenia.** USBnadlewy/USB_AUDIO/chłodzenie, końce nóg i polaGrove/BNO/głośnika, R7izolacja/odciążenie/luz, wymiary zakupionych części i masa.
+AlarmG-Tech pozostaje zamontowany i ODŁĄCZONY do właściwej mapy wnęk. PhysicalPASS=false, actualfit/cut/slack=NULL. Bez uruchamiania lub druku przez agenta.
+R7–R9: warunkowe odczepyPWM/GNDJR,50+196=246mm wewnątrz każdejJR300,120TF31/90CR3042 z dotychczasowych rezerw, fabryczne styki zachowane.
+**Zakres ruchu.** Głowa yaw±20/pitch±10 i ogonY±15 jako zakresy przymiarki.49źródłowych głębokich póz nóg pozostaje planowaniem/selected=false, bez deklaracji przysiadu/leżenia/udźwigu.
+
+**Następny checkpoint.** Ludzkie pomiary baterii/MTA i próba montażowa bez zasilania. NoweCAD dopiero po nowej ludzkiej instrukcji; zamknięty hook nie uruchamia dawnychNEXT.
+ZachowaćLL18-1/3/5: realne końce i dostępne zajęte regiony; dawna swobodna krzywaW041 nie jest sztywną przeszkodą. Negatywy i historyczne odbiory poniżej pozostają bez resetu.
+**Limit/czas.** Odczyt22:37:54ordinarytrue/weekly41used59remaining/5hNULL, %guardNULL/noreset. Zamknięcie z powodu dostarczonego cyfrowego firstfit z jawnymi warunkami fizycznymi, nie z wyczerpania limitu. Czas okna to czas ścienny, nie ciągłe obliczenia.
+Bez zakupów/power/print/slicer/ROS/push/mail/alerts/schedule. Nie przyznano staregoN01=1/10 ani fizycznegoPASS.
+
+## HISTORYCZNY dziennik19Nov — zachowane wcześniejsze zadania i odbiory
+
+Archiwalny zapis poniżej zachowuje oryginalne nagłówki, dawne statusy aktywności, decyzje, źródła i negatywy. Bieżące zadanie określa wyłącznie krótka karta powyżej. Zakres dziennika kończy nagłówek „Odebrane źródła”.
+
+### Historyczna karta19I — kuracja zastąpiona zamknięciem22:37
+
+## Bieżąca karta — 19.11: SKRZYNKOWY KOT / 19I ODEBRANY / KOŃCOWE DOKUMENTY
+
+**Cel użytkownika17:22.** Prosty skrzynkowy tułów, rozpoznawalna kocia głowa i sensowne proporcje; rzeczywisty drukowany ogon GÓRA–DÓŁ/Y. Całe57+ADD7, ochrona, prawdziwe fabryczne jednostki, montaż dwóch osób.
+**Zakres wyniku.** Kompletny CYFROWY pakiet do pierwszej przymiarki bez zasilania. Fizycznego dopasowania/nośności/chodu ani wykonanych cięć nie potwierdzono.
+**Termin okna.** Hard23:00UTC, nativecut22:40/saveend22:50, bez przedłużenia. CAD zakończony22:24; pozostała wyłącznie kuracja i zamknięcie stanu.
+
+**Actual odbiór.** 01a1f5c2-09f8-77d3-bda9-1326e4bfb608 COMPLETED/RECEIVED. Wcześniejszyf582 przerwany dla steeringu, NIEoddzielny odebrany pakiet.
+**Commit CAD.** 1d428594af9db9f49fa931e72d51fe48f611a21d. Parent178exact/177filepins+141sourcepins, CRC3141native+116ZIP, 551worldBRep zgodne.
+**Native.** whole-cat19I.FCStd, SHA365633e3f78d40f6140c7169a1fd67dd5a9141935ca7c6937dba5ed664bd4f46, saved22:21:39UTC.
+FreshMCP22:25 jednaGUI17796/551/modified=false. Własne obliczenia zakończone, Maxwell-roleCAD zamknięty; GUI pozostaje.
+**Pakiet.** [START19I](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/START_HERE.md) / [ZIP](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/19I-WAVEGO-first-fit.zip).
+50STL/70sztuk +opcjonalny kuponMTA,5STEP,PRINT.csv, mapa160połączeń, MONTaz i źródła. SHA ZIPfc064a4847f6ae9f592fdc2cb0c17ab82ee2ea591bd00696109e6ecd9800da49.
+Parent potwierdził wszystkie efektywneSTL/ilości/sha i brak zerwanych odnośników trzech instrukcji wZIP. Max234mm z rezerwą wobec256³.
+**Wynik w modelu.** 8oparć i dojście narzędzia,5FHAC/G1/P_FRONT/F_PWM/gimbal, dolne i górne dojściaXT60. W07545+5=50mm; W041Rwew>=25,5mm.
+Ruch przy rozpinaniuXT60: głowa neutralnie, skok14mm. Lokalne nowe otwory zachowują podparcia i wybrane części. G1rzeczywiście5portów.
+**Wygląd.** Obejrzano aktualne opaque3/4 i bok. Skrzynka pozostaje zamierzona, ogon jest widoczny. Bez nowej rodziny stylistycznej.
+
+**PRZED DŁUGIM DRUKIEM — bateria.** Układ potrzebuje około208mm KAŻDEJ żyły pakietu przed rzeczywistymi zakończeniami. Dostarczona długość i położenie wyjścia niepotwierdzone.
+Pytanie o fizyczny pomiar zadane użytkownikowi22:26, odpowiedź nieobecna. To warunek dopasowania, NIEprzyznana długość, dodatkowy przewód ani zgoda na wydłużenie.
+**Pozostałe przymiarki.** Pełne4MTA0100335/pokrywy/obie długości, USBnadlewy/USB_AUDIO/chłodzenie, końce nóg i lokalne polaGrove/BNO/głośnika, R7izolacja/odciążenie/luz, masa/nośność.
+AlarmG-Tech zamontowany i ODŁĄCZONY do właściwej mapy wnęk. PhysicalPASS=false, actualfit/cut/slack=NULL.
+**R7–R9.** Metodaeb18a705/8sourcepins: warunkowe odczepy na ciągłychPWM/GNDJR.50+196=246 w każdejJR300, fabryczne styki zachowane; projektowo120TF31/90CR3042 z dotychczasowych rezerw. Fizyczna próba pozostaje wymagana.
+**Ruch nóg.** 49źródłowych pozycji to CURRENT_DATUM_LIE_PATH_PLANNING_ONLY/selected=false; negatywy zachowane, nie deklarować głębokiego leżenia, granic przegubów ani udźwigu.
+
+**Pozostałe zadanie.** Bohr01a1f45f, actual01a1f5ec-6700-7cf2-bb5e-eb550458b56f — prywatne3dokumenty końcowo wiążą19I zamiast starego19E. Target22:36.
+Parent ma następnie odebrać/połączyć3dokładne dokumenty, uaktualnić faktyczne wskaźniki rejestru, własne wąskie commity i zamknąć okno. Brak nowej rodzinyCAD lub przeglądu.
+**PRZED kuracją — cel.** Jeden czytelny punkt wejścia do tego samego odebranego pakietu19I i jawnych warunków pierwszej przymiarki.
+**PRZED — wnioski.** LL18-1/3/5: nie utożsamiać kompletnego eksportu z fizycznym dopasowaniem; źródłowe regiony/długości i rzeczywiste końce mają pierwszeństwo.
+**PRZED — przyczyna.** Stare odnośniki19E/PENDING muszą zostać zastąpione aktualnym źródłem bez nowego CAD i bez ukrycia208mm baterii.
+**PRZED — pierwszy test.** Odnośniki/sha/ilości/wersja instruktora zgodne z1d428594 i116wpisamiZIP; fizyczne wartości pozostająNULL.
+**Zachować.** Realne części/ochronę/factoryends,3MG250/3JR300/4E2/5GPIO600/FFC200=190+10/ToFR31,5/krótkieFHAC/8kotew/12ST3MG/head20yaw10pitch/tailY/256inclbrim.
+**Integralność i stop.** AtomicUTF8LF/freshcompare/własnecommity/bez cudzychstaged. FreshUTC+ordinaryusage target4/max10/przedkosztownym, %guardNULL/noreset. Po końcowej kuracji save/endowned/enabledfalse/preserveGUI/noextension. Bezpower/print/slicer/ROS/push/mail/purchase/alerts.
+
+
+### Historyczna karta19I — zastąpiona odbiorem22:25
+
+## Bieżąca karta — 19.11: KOMPLET DO DRUKU I MONTAŻU DZIŚ / 19I AKTYWNE
+
+**Cel17:22.** Prosty skrzynkowy tułów zaakceptowany, sensowne proporcje, kocia głowa i widoczny rzeczywisty ogon GÓRA–DÓŁ/Y z mechanizmem, wydrukami i pełnym przewodem.
+Całe57+ADD7 z ochroną, portami/chłodzeniem, pełnymi jednostkami, użytecznym luzem, mocowaniami i zamknięciem mają wejść do kompletnego pakietu DZISIAJ.
+**Termin.** Target22:05UTC nieosiągnięty; odbiór całości nadal w toku. Hard23:00UTC, nativecut22:40, zapis/endowned22:50, bez przedłużenia i bez nowej rodziny projektu.
+
+**Jedyny autorCAD.** Maxwell01a1f45d/Astra6.2high, jednaGUI17796. Parent read/integrate+metadata, bez równoległegoCAD/stageMECH przy aktywnym wykonawcy.
+**Actual19I.** `01a1f5c2-09f8-77d3-bda9-1326e4bfb608` ACTIVE po steeringu zakresu. Poprzedni f582 INTERRUPTED, cały pakiet19I pozostaje nieodebrany.
+**Stan21:41.**551obiektów/modified=true. Ostatni zapis na dysku21:40:45. Najpierw SAVE właściciela, potem odbiór aktualnego native i wyniku.
+**Ostatni odebrany cały wynik.**19H/23f37ea7d3afc7a30753a11436f67f5a539c234c, nativec7b92966e20312d19d0bc7cb74f0366a89471b9f61b6c4270cb15d6d8f4ce046.
+Parent77exact/76filepins+122sourcepins/CRC3108+82,544worldBRep zgodne. To źródłowy odbiórH, gotowość bieżącegoI pozostaje otwarta.
+**ZgłoszeniaI.**5FHAC i wspólne dojście5portówG1 mieszczą się w badanym modelu. G1 obejmujeW001/W025/W036/W060/W061.
+Pełny skokXT60 sprawdzony z głową na wprost. To wyniki lokalne zgłoszone przez wykonawcę, odbiór całego pakietu trwa.
+
+**Pozostały zakres.** Rzeczywista droga baterii poniżej wtyku, potrzebna nośna podłoga, montaż i zamknięcie, lokalny regionR7 oraz końcowe eksporty/integralność.
+Realne przycięcia, krawędzie, wymagane promienie, długości i użyteczny luz ruchowy muszą być rozwiązane w przyjmowanym zakresie.
+**Źródło49póz.** CURRENT_DATUM_LIE_PATH_PLANNING_ONLY, selected=false. Surowy negatyw głębokiego złożenia pozostaje zapisany, zakres przysiadu/leżenia nie jest zatwierdzony.
+Dawne swobodne krzyweW041/MTA przy nieznanych końcach opisują konkretny narysowany przebieg. Dostępność ręcznej trasy wymaga oceny rzeczywistych końców i zajętego regionu.
+**R7 — metoda lokalna.** eb18a705/8pinów zweryfikowanych, PROPOSED_CONDITIONAL, actualNULL. WykonawcaCAD zna propozycję.
+50mm nieruchomego odcinka pochodzi z246mmJR.120mmTF31 i90mmCR3042 pochodzą z istniejących zapasów projektowych, metoda zachowuje fabryczne końce.
+Przy odbiorze ująć lokalne miejsce odczepów, pozostały luz i plan zakładania izolacji od istniejących wolnych końców.
+[MetodaR7 i źródła](C:/Users/Sysq/PycharmProjects/robot-cat-docs-20261116/hardware/print-package-2026-11-19/ELECTRICAL_ASSEMBLY.md). Rzeczywiste zapasy, izolacja i wykonanie pozostają do sprawdzenia bez zasilania.
+
+**PRZED — cel.** Dokończyć ten sam cały firstfit, rzeczywistą drogę baterii, potrzebne nośne części, regionR7, montaż i eksporty w zaakceptowanej skrzynce.
+**PRZED — wnioski.** LL18-1/3/5 — wspólne połączone dostępne regiony, rzeczywiste porty/końce/ilości/długości/luz. Reużyć niezmienione dowody i zachować surowe negatywy.
+**PRZED — przyczyna/hipoteza.** Zatrzymać dryf w pojedyncze dawne krzyweW041 i niekwalifikowany deepfold. Ocenić całą drogę baterii i potrzebną podłogę z obsadą/nośnością w rzeczywiście przyjmowanym zakresie.
+**PRZED — pierwszy test.** Aktualny przekrój i kolejność montażu z prawdziwymi końcami, regionemR7, ruchem/odłączeniem baterii, użytecznym podparciem i zamknięciem mają rozstrzygnąć pozostałe nazwane konflikty.
+**Następny krok.** Właściciel zapisuje zmodyfikowany native, kończy spójną korektę i eksport. Master odbiera actualinput i zapisany native przed kolejnym zleceniem.
+Kierunek wyglądu utrwalony. Szyję oceniać pod kątem rzeczywistego odsłonięcia wyposażenia i potrzebnego szwu ruchowego.
+
+**Zachować.** Kupne części/funkcje/ochronę/stock,3MG250/3JR300/4E2, FFC200=190+10,ToFR31,5, krótkieFHAC,8kotew/korzeńyaw,12ST+3MG/nogi/head20yaw10pitch/tailY,256³ z brimem/podporami.
+[LL18](cad/DESIGN_LESSONS.md#iteration-gate-2026-11-18), [budżety57+ADD7](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-source-bom-budgets/README.md). Source/review/negatywy zachowane w historii.
+**Kryterium gotowości cyfrowej — jeszcze nie odbiórI.** Usunąć znane kolizje w przyjmowanym zakresie, zachować realne części/plany pełnych jednostek, potwierdzić wykonalny montaż/zamknięcie i kompletne eksporty.
+**Fizyczne niewiadome.** MTA/profile/pokrywy/wtyki/chłodzenie/USB_AUDIO/końce baterii/stykiR7–R9/końce nóg/mapa alarmu nazwane. Alarm niepodłączony, physicalPASS=false, actualfit/cut/slack=NULL.
+**Integralność/limit.** Własne wąskie zweryfikowane commity, zachować cudze zmiany. UTF-8/LF/atomic/freshcompare. FreshUTC+ordinaryusage target4/max10min/przedkosztownym, %guardNULL/noreset.
+**Zakres pracy.** Tylko potrzebne zmienione interfejsy, nośność, montaż i pakiet. Zachować adekwatny wygląd i poziom prototypu, bez nowych rodzin/recenzji/globalnych powtórek/produkcyjnej wiązki.
+**Stop.** Gotowy cały uzgodniony pakiet, deadline, brak użytecznej pracy po alternatywach albo ordinaryfalse/refusal/brakfreshread → zapis/endowned/enabledfalse/preserveGUI. Bez zakupów/power/print/slicer/ROS/push/mail/alerts/schedule.
+
+
+### Historyczna karta19I — zastąpiona korektą zakresu21:43
+
+## Bieżąca karta — 19.11: KOMPLET DO DRUKU I MONTAŻU DZIŚ / 19I AKTYWNE
 
 **Cel użytkownika17:22.** Skrzynkowy tułów zaakceptowany, sensowne proporcje i rozpoznawalna kocia głowa, całe57+ADD7 z ochroną/portami/chłodzeniem, zamknięciem i montażem DZISIAJ.
 Widoczny rzeczywisty ogon GÓRA–DÓŁ/Y obejmuje mechanizm, wydruki, eksport i pełny przewód. Kierunek wyglądu adekwatny i utrwalony.
@@ -25,14 +141,23 @@ Widoczny rzeczywisty ogon GÓRA–DÓŁ/Y obejmuje mechanizm, wydruki, eksport i
 Commit23f37ea7d3afc7a30753a11436f67f5a539c234c.
 Nativec7b92966e20312d19d0bc7cb74f0366a89471b9f61b6c4270cb15d6d8f4ce046.
 Parent77exact/76filepins+122sourcepins/CRC3108+82,544worldBRep zgodne ze sprawdzonym native.
-**Actual19I.** Jeszcze nie wysłany. Master ustawi input po odbiorze19H i zwrocieFIRST. Runtime jest źródłem późniejszego statusu.
+**Actual19I — ta sama praca, steeringmastera21:41.** `01a1f5c2-09f8-77d3-bda9-1326e4bfb608` ACTIVE. Poprzedni01a1f582-c70c-74c2-a19f-800b754bebb7 przerwany wyłącznie dla korekty zakresu, NIEodebrany jako cały pakiet. FreshreadonlyONE17796/whole_cat19I551/modifiedtrue, plik zapisany21:40:45/tap-carriers.done. Wykonawca ma najpierw zachować i zapisać stan; brak drugiegoCADwriter. Cel: dokończyć tę samą całość i eksport, target22:05, hard23:00.
+
+**Korekta mastera — PRZED dokończeniem.** Cel: cały firstfit. LL18-1/3/5: połączone dostępne zajęte regiony, rzeczywiste końce/ilości/długości/luz i konkretne miejscowe ryzyka. Niekwalifikowana głęboka49pozycja nie ustanawia nowego obowiązku leżenia/przysiadu. Dawna swobodna krzywaW041/MTA o nieznanych końcach nie jest sztywną przeszkodą ani dowodem braku trasy. Zachować negatywy, realne części/ochronę/promienie/fabryczne jednostki. Pierwszy test: cały aktualny montaż przy rzeczywiście przyjmowanym zakresie, własne użyteczne podpory, droga baterii, lokalny regionR7 i dostępne zamknięcie. Bez kolejnej rodziny banków, starego skanu160żył lub obowiązkowego deepfold.
+
+**R7–R9, źródło/wykonanie20:52.** Odebrano prywatnyeb18a705: warunkowy montaż odczepów na ciągłych żyłachPWM/GNDJR przy każdej parze serwa, bez lutowania do styku i bez zmiany fabrycznych końców. Koszulki zakładać od już planowanych wolnych końców korpusowych. Proponowane50mm odcinka nieruchomego pochodzi z246mm, nie jest dodatkiem; lokalne miejsce i pozostały użyteczny luz trzeba uwzględnić przy odbiorze19I. Materiał120mmTF31+90mmCR3042 z istniejących zapasów projektowych, rzeczywisty zapas/izolację/metodę sprawdzić bez zasilania. FizycznyPASS=false. To propozycja wykonawcza, nie nowa geometria ani dowód dopasowania. [Metoda i źródła](C:/Users/Sysq/PycharmProjects/robot-cat-docs-20261116/hardware/print-package-2026-11-19/ELECTRICAL_ASSEMBLY.md).
+
+**Checkpoint19I20:45 — zgłoszony, odbiór nadal w toku.** Cały5portowyG1 ma wspólne dojście od boku. Nowy powrót baterii ku tyłowi daje zgłoszone1,74mm od sprawdzonych przewodów przy złączonymXT60; rozłączenie wymaga głowy na wprost. Wykonawca nadal sprawdza pokrywę/wsporniki i4FHAC. Źródło: actual19I komentarz wykonawcy; nie oznacza odbioru całego pakietu.
+
+**Checkpoint19I21:11 — zgłoszony, odbiór nadal w toku.** Wszystkie5FHAC i nowa stacjaG1 mieszczą się w zapisanym modelu. Pełny skokXT60 z głową na wprost sprawdzony; dojście od pakietu poniżej złącza nadal poprawiane. Wykryto trafienie wcześniejszej podłogi w głębokiej pozycji nogi. Źródło49poses ma statusCURRENT_DATUM_LIE_PATH_PLANNING_ONLY/selected=false, mechaniczne limity i nativejoints OPEN. Zachować ten negatyw, lecz nie zamieniać niekwalifikowanej głębokiej pozycji w nowy obowiązkowy zakres przysiadu/leżenia prototypu. Nazwać rzeczywiście przyjmowany zakres i tylko zmienione lokalne ryzyko; brak deklaracji pełnej wykonalności chodu. Ewentualna zamknięta wnęka musi zachować użyteczny materiał/podparcie/porty/banki, bez nowej rodziny whole-core.
 
 **Zamknięty zakres19H.** Rzeczywisty integralny przedni frame/caps, podział przyMic,8kotew/narzędzie/yawcase,32sprawdzone przypadki nóg bez trafień.
 16nowych przewodów korpusu,74zachowane profile i30próbek ruchu bez trafień w swoim zakresie.
 Źródłowe polePi DATA26×15×9 zastąpiło stare26×26×24 pole serwisowe, odstęp poprzeczny4,23mm. Fizyczne dopasowanie wtyków pozostaje niezmierzone.
 BUS395/472 z tej samej jednostki900, pełne poleXT60/14mm rozłączenia i wyjęcieRR wolne, W07545,9/50. Eksport49STL/65szt/5STEP, max234mm z rezerwą, naprawa siatki2µm/błąd objętości0,05%. P1351,86g, robot3,205–3,945kg.
 
-**Blokada1.** W001 odG1.2 trafia w przedni frame. Dwa podejścia z tej samej strony odrzucone, zmienić wspólnie orientację6portówG1/wszystkich końców lub wspólne wejście.
+**Blokada1.** W001 odG1.2 trafia w przedni frame. Dwa podejścia z tej samej strony odrzucone, zmienić wspólnie orientację5portówG1/wszystkich końców lub wspólne wejście.
+**Errata mastera20:34:17.** Wykonawca actual19I potwierdził w [mapie źródłowej](electronics/kicad-current/design.json), że G1 WAGO221-615 ma5portów zajętych przezW001/W025/W036/W060/W061. Master błędnie przyjął6 z interpretacjiSKU. Liczbę torów ustala rzeczywisty kontrakt/mapa. Wykonawca już projektuje wszystkie5dojść w tej samej19I z zachowaniem części i przewodów.
 **Blokada2.** Pełne nominalne polaFHAC51×22×20,25 mają końcowe trafienia HY49,5/TY158,76/PI67,888/AUX438,747mm³. Wspólna organizacja4kołysek i użytecznych korzeni wymaga korekty.
 **Blokada3.** Łuk baterii82,41mm przecina narysowany izolowany fanJR, odległość osi0,09mm przy sumie promieni3,45. Wyznaczyć dwie dostępne warstwy i ręczne parkowanie w otworze36×24, zachować14mm skoku, parę, realne końce i luz.
 **Fizyczne niewiadome.** MTA/pokrywa/profile/wtyki/chłodzenie/USB_AUDIOdługość/końce baterii/stykiR7–R9/końce przewodów nóg/mapa alarmu nazwane. Alarm niepodłączony, physicalPASS=false, actualfit/cut/slack=NULL.
@@ -40,7 +165,7 @@ BUS395/472 z tej samej jednostki900, pełne poleXT60/14mm rozłączenia i wyjęc
 **PRZED19I — cel.** Dokończyć cały cyfrowyfirstfit, usuwając trzy wskazane blokady oraz niezbędne domknięcie i integralność pakietu w tej samej architekturze.
 **PRZED19I — wnioski.** LL18-1…5 — reużyć mapę160, pełne jednostki, źródła i niezależne dowody. Po dwóch odrzuceniach zmienić organizację całego interfejsuG1/kołysek, zachować surowe negatywy.
 **PRZED19I — przyczyna/hipoteza.** Wspólne ustawienieG1 i jego końców, organizacja4FHAC/kołysek i warstwy baterii/JR mają usunąć końcowe konflikty. Wybrania ograniczyć do rzeczywistego miejsca osadzonej oprawy, zapewniając alternatywną dodatnią drogę materiału tam, gdzie potrzebna. Zachować krótkieP_REAR–F_AUX/P_SYS–F_PI,8kotew, korzeńyaw i funkcje pozostałychPCB.
-**PRZED19I — pierwszy test.** Przekrój rzeczywistych6portówG1, osadzonych4FHAC z korzeniami oraz obu warstw baterii/JR razem z końcami, luzem i otwartą kolejnością montażu. Znane końcowe przenikania muszą być rozwiązane. Rzadki serwis bezpieczników dopuszcza częściowe zdjęciePi/banku.
+**PRZED19I — pierwszy test.** Przekrój rzeczywistych5portówG1, osadzonych4FHAC z korzeniami oraz obu warstw baterii/JR razem z końcami, luzem i otwartą kolejnością montażu. Znane końcowe przenikania muszą być rozwiązane. Rzadki serwis bezpieczników dopuszcza częściowe zdjęciePi/banku.
 **Wynik pracy.**20:45 checkpoint fakt+konsekwencja, target20:55 rzeczywisty wynik całości. Kontynuować spójną korektę do użytecznego wyniku całego zadania w dzisiejszym oknie.
 Szczelinę szyi oceniać jako rzeczywiste odsłonięcie wyposażenia albo potrzebny szew ruchowy. Adekwatny kierunek wyglądu pozostaje przyjęty.
 **Źródła.** [LL18](cad/DESIGN_LESSONS.md#iteration-gate-2026-11-18), [budżety57+ADD7](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-source-bom-budgets/README.md). Historyczne odbiory i negatywy zachowane poniżej.
@@ -48,10 +173,6 @@ Zachować części/funkcje/ochronę/stock,3MG250/3JR300/4E2, FFC200=190+10,ToFR3
 **Gotowość cyfrowa.** Usunięte znane kolizje druków i osadzonych części, realne części/plany pełnych jednostek, montaż, zamknięcie i kompletne eksporty. Wskazane przymiarki fizyczne pozostają jawne.
 **Integralność/limit.** Własne wąskie zweryfikowane commity, zachować cudze zmiany. UTF-8/LF/atomic/freshcompare. FreshUTC+ordinaryusage target4/max10min/przedkosztownym, %guardNULL/noreset. Tylko znane zmienione interfejsy i niezbędne domknięcie, bez nowych recenzji, audytów źródeł i globalnych powtórek.
 **Stop.** Cały uzgodniony pakiet gotowy, deadline, brak użytecznej pracy po alternatywach albo ordinaryfalse/refusal/brakfreshread → zapis/endowned/enabledfalse/preserveGUI. Bez zakupów/power/print/slicer/ROS/push/mail/alerts/schedule.
-
-## HISTORYCZNY dziennik19Nov — zachowane wcześniejsze zadania i odbiory
-
-Archiwalny zapis poniżej zachowuje oryginalne nagłówki, dawne statusy aktywności, decyzje, źródła i negatywy. Bieżące zadanie określa wyłącznie krótka karta powyżej. Zakres dziennika kończy nagłówek „Odebrane źródła”.
 
 ### Historyczna karta19H — zastąpiona odbiorem20:26 i zadaniem19I
 
