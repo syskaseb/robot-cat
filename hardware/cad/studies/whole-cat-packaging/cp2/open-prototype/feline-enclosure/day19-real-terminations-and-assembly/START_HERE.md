@@ -1,0 +1,21 @@
+# WAVEGO 19G — zakończenia wiązek i montaż skrzynki
+
+**Status całego montażu: HOLD.** Zapisana geometria obejmuje prostą skrzynkę, ruchomy ogon, obie pokrywy i nowe stanowiska zakończeń. ZIP zawiera 50 modeli STL na 66 sztuk, 5 plików STEP oraz osobny kupon MTA. Największy wymiar w orientacji z rezerwą na brim i podpory wynosi 222.00 mm. Pełna objętość druków odpowiada 1363.95 g PETG. Zakres masy robota wynosi 3.217–3.957 kg przy dotychczasowych założeniach.
+
+[Model FreeCAD](whole-cat19G.FCStd) · [widok całego robota](three-quarter.png) · [wnętrze](interior.png) · [przekroje](critical-sections.png) · [montaż dla dwóch osób](MONTAZ.md) · [ilości i orientacje](material-index.json)
+
+| Grupa | Koniec fizyczny i rozliczenie | Montaż |
+|---|---|---|
+| BUS D/G | Jeden H3, D_FL.1 i G2.4. Dwie żyły wspólnego 900 mm. Dłuższa potrzebuje 459 mm w rozpatrywanym ułożeniu z końcami i rezerwą. | Najpierw wsunąć pełny wtyk od góry, następnie rozdzielić żyły przy banku. |
+| Trzy MG i trzy JR | Osobno 250 i 300 mm na napęd. Dziewięć końców idzie do FHAC, zacisków powrotu oraz pól R1–R3. | Wkładać od strony otwartego podziału wieka, następnie połączyć zakładki. |
+| MAIN i Pi | K1474 ma dwie żyły po 1000 mm. Odcinki wyjściowe [270, 270] mm. Z dodatniej żyły pochodzi też wejściowy odcinek 210 mm, którego proponowany przebieg z końcami zajmuje 106 mm. | Zmierzyć przed pierwszym cięciem. Trasy kończą się na zarejestrowanych polach MAIN. |
+| ReSpeaker i USB | Złącze USB1 złożenia dostawcy ma wyjście w +X. Dwa wtyki Pi w oddzielnych stosach, DATA i AUDIO na różnych wysokościach. | Sprawdzić oba rzeczywiste nadlewy jednocześnie i długość osobnego przewodu AUDIO. |
+| Nogi, optyka, dotyk, głośnik | 134 bazowe i 26 dodatkowych połączeń mają przypisane role i grupy. Część współrzędnych wskazuje strefę dojścia do płytki. Oznaczenia fizycznych padów, wyjścia przewodów nóg i metraż otwartych odcinków wymagają sprawdzenia. | Dwie osoby układają przewody przed zamknięciem, pozostawiając dostęp do złączy i śrub. |
+
+**Wyniki.** Kolizja laminatu 1608 z oparciem wynosiła 19,399 mm³. W końcowym złożeniu tę parę zmierzono ponownie. Mikrofon ma 484 bryły dostawcy i dwa oryginalne zestawy śrub. W końcowym badaniu 12 z 70 przypadków nowych profili dało świadek przecięcia; dotyczą one EXT023, W002, W078, W079, W080, XB12, XB13, XB32, XB33, XS13, XS23, XS33. W testach zachowanych przewodów wskazań jest 0. Dodatnie lub nierozstrzygnięte pary sztywne: 5. Wskazania ruchu powierzchni: 0. Wyniki pól nadlewów są warunkowe do przymiarki rzeczywistych wtyków. W pliku effectivity.json każde wskazanie ma nazwanego sąsiada. Pierwsze odrzucone przebiegi pozostają w first-profiles.json. Wstępna różnica wysokości nowego boku i skrajnej obwiedni nóg dla 49 póz wynosi -14.62 mm. Ujemny wynik wymaga porównania tylko tam, gdzie pokrywają się X i Y. Wynik lokalny zawiera side-clearance.json.
+
+**Znane kolizje materiału.** Dolny bok osłony przecina ogniwa nogi w pozach 46, 47 i 48. W największym pojedynczym teście wspólna objętość wynosi 130.70 mm³. Osłona wymaga zmiany dolnego podziału z zachowaniem miejsca na nogę i pokrywy. Widok ¾ pokazuje nadal otwarte przejście pod policzkiem. Mikrofon koliduje z przednim wiekiem na 6,94 mm³. W dziewięciu próbach ToF po zmianie kierunku USB1 zniknęło wskazanie przy wtyku. Dwa projektowe pola nadlewów Pi mają 379,73 mm³ wspólnej objętości. Do oceny nadlewów potrzebne są oba rzeczywiste wtyki.
+
+**Do zamknięcia.** Rozwiązać pozostałe oznaczone wejścia w materiał i potwierdzić dostępny koniec przy każdej niezmierzonej strefie. Dopasować trójki zdalnych rezystorów do rzeczywistego styku z zachowaniem zacisków. Potwierdzić podwójny wtyk Pi, rzeczywistą długość USB_AUDIO, przewody nóg, cztery MTA0100335, wysunięcie obu połówek XT60 przez drzwiczki i prześwit chłodzenia przy zamkniętej pokrywie. Próbę optyczną i akustyczną oraz rzeczywisty pomiar zapasu wykonuje się po przymiarce. Alarm G-Tech czeka na mapę wnęk. Fizyczne cięcia, luz i odbiór pozostają otwarte.
+
+[Bilans jednostek i 160 połączeń](whole-termination-plan.json) · [stacje i materiał](final-stations.json) · [nowe przebiegi](final-profiles.json) · [zachowane jednostki przy nowych częściach](retained-runs.json) · [ruch](final-motion.json) · [obsługa i nogi](assembly-check.json)
