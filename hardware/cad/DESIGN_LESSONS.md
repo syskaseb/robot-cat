@@ -41,6 +41,9 @@ Celem pozostaje prosty, zamknięty WAVEGO-kot do złożenia przez dwie osoby.
   przód/bok/3/4 i wnętrze względem ROBOTA z projektu Oli, przed kolejnymi detalami.
   Poprawa oczu nie kwalifikuje pudełkowatego tułowia ani otwartej szyi.
   Nie ukrywaj modułów na obrazach; otwór konstrukcyjny nie jest fizyczną niewiadomą.
+  Negatywny wynik porównania całej sylwetki musi zmienić następne zadanie mastera.
+  Nie utrwalaj obrysu/banków ani nie dopracowuj oczu jako odpowiedzi na odrzucenie
+  proporcji tułowia, głowy i nóg; najpierw ponownie pokaż wspólną obsadę i sylwetkę.
 - **LL18-5 — master odpowiada za kierunek i uczciwy postęp.** Odbieraj rozwiązany
   problem całości, nie liczbę plików, testów, lokalnych STL czy pozytywny tekst.
   Gdy iteracja nie zmniejsza głównej blokady, zmień następne zadanie.
