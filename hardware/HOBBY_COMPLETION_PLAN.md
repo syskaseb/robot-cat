@@ -14,12 +14,86 @@ raportów, nowych recenzji i odtwarzania starych testów. Sama kontrola procesu 
 wznawia zamkniętego okna CAD; aktualna zgoda i zakres są w bieżącej karcie poniżej.
 
 
+## Bieżąca karta — 19.11: KOMPLET DO DRUKU I MONTAŻU DZIŚ / 19I DO ZLECENIA
+
+**Cel użytkownika17:22.** Skrzynkowy tułów zaakceptowany, sensowne proporcje i rozpoznawalna kocia głowa, całe57+ADD7 z ochroną/portami/chłodzeniem, zamknięciem i montażem DZISIAJ.
+Widoczny rzeczywisty ogon GÓRA–DÓŁ/Y obejmuje mechanizm, wydruki, eksport i pełny przewód. Kierunek wyglądu adekwatny i utrwalony.
+**Termin.**23:00UTC/24:00Warszawa. Nativecut22:40, zapis/endowned22:50, bez przedłużenia.
+
+**Jedyny autorCAD.** Maxwell01a1f45d/Astra6.2high, jednaGUI17796. Master read/integrate+metadata, bez równoległegoCAD/stageMECH podczas aktywnego wykonawcy.
+**Odbiór19H20:26.** Actual01a1f55c-f6e0-7571-80ac-f3ba40df7a0c COMPLETED/IDLE, saved20:21:13/544obiekty/modified=false.
+Commit23f37ea7d3afc7a30753a11436f67f5a539c234c.
+Nativec7b92966e20312d19d0bc7cb74f0366a89471b9f61b6c4270cb15d6d8f4ce046.
+Parent77exact/76filepins+122sourcepins/CRC3108+82,544worldBRep zgodne ze sprawdzonym native.
+**Actual19I.** Jeszcze nie wysłany. Master ustawi input po odbiorze19H i zwrocieFIRST. Runtime jest źródłem późniejszego statusu.
+
+**Zamknięty zakres19H.** Rzeczywisty integralny przedni frame/caps, podział przyMic,8kotew/narzędzie/yawcase,32sprawdzone przypadki nóg bez trafień.
+16nowych przewodów korpusu,74zachowane profile i30próbek ruchu bez trafień w swoim zakresie.
+Źródłowe polePi DATA26×15×9 zastąpiło stare26×26×24 pole serwisowe, odstęp poprzeczny4,23mm. Fizyczne dopasowanie wtyków pozostaje niezmierzone.
+BUS395/472 z tej samej jednostki900, pełne poleXT60/14mm rozłączenia i wyjęcieRR wolne, W07545,9/50. Eksport49STL/65szt/5STEP, max234mm z rezerwą, naprawa siatki2µm/błąd objętości0,05%. P1351,86g, robot3,205–3,945kg.
+
+**Blokada1.** W001 odG1.2 trafia w przedni frame. Dwa podejścia z tej samej strony odrzucone, zmienić wspólnie orientację6portówG1/wszystkich końców lub wspólne wejście.
+**Blokada2.** Pełne nominalne polaFHAC51×22×20,25 mają końcowe trafienia HY49,5/TY158,76/PI67,888/AUX438,747mm³. Wspólna organizacja4kołysek i użytecznych korzeni wymaga korekty.
+**Blokada3.** Łuk baterii82,41mm przecina narysowany izolowany fanJR, odległość osi0,09mm przy sumie promieni3,45. Wyznaczyć dwie dostępne warstwy i ręczne parkowanie w otworze36×24, zachować14mm skoku, parę, realne końce i luz.
+**Fizyczne niewiadome.** MTA/pokrywa/profile/wtyki/chłodzenie/USB_AUDIOdługość/końce baterii/stykiR7–R9/końce przewodów nóg/mapa alarmu nazwane. Alarm niepodłączony, physicalPASS=false, actualfit/cut/slack=NULL.
+
+**PRZED19I — cel.** Dokończyć cały cyfrowyfirstfit, usuwając trzy wskazane blokady oraz niezbędne domknięcie i integralność pakietu w tej samej architekturze.
+**PRZED19I — wnioski.** LL18-1…5 — reużyć mapę160, pełne jednostki, źródła i niezależne dowody. Po dwóch odrzuceniach zmienić organizację całego interfejsuG1/kołysek, zachować surowe negatywy.
+**PRZED19I — przyczyna/hipoteza.** Wspólne ustawienieG1 i jego końców, organizacja4FHAC/kołysek i warstwy baterii/JR mają usunąć końcowe konflikty. Wybrania ograniczyć do rzeczywistego miejsca osadzonej oprawy, zapewniając alternatywną dodatnią drogę materiału tam, gdzie potrzebna. Zachować krótkieP_REAR–F_AUX/P_SYS–F_PI,8kotew, korzeńyaw i funkcje pozostałychPCB.
+**PRZED19I — pierwszy test.** Przekrój rzeczywistych6portówG1, osadzonych4FHAC z korzeniami oraz obu warstw baterii/JR razem z końcami, luzem i otwartą kolejnością montażu. Znane końcowe przenikania muszą być rozwiązane. Rzadki serwis bezpieczników dopuszcza częściowe zdjęciePi/banku.
+**Wynik pracy.**20:45 checkpoint fakt+konsekwencja, target20:55 rzeczywisty wynik całości. Kontynuować spójną korektę do użytecznego wyniku całego zadania w dzisiejszym oknie.
+Szczelinę szyi oceniać jako rzeczywiste odsłonięcie wyposażenia albo potrzebny szew ruchowy. Adekwatny kierunek wyglądu pozostaje przyjęty.
+**Źródła.** [LL18](cad/DESIGN_LESSONS.md#iteration-gate-2026-11-18), [budżety57+ADD7](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-source-bom-budgets/README.md). Historyczne odbiory i negatywy zachowane poniżej.
+Zachować części/funkcje/ochronę/stock,3MG250/3JR300/4E2, FFC200=190+10,ToFR31,5, krótkieFHAC,8kotew,12ST+3MG/nogi/head20yaw10pitch/tailY i256³ z brimem/podporami.
+**Gotowość cyfrowa.** Usunięte znane kolizje druków i osadzonych części, realne części/plany pełnych jednostek, montaż, zamknięcie i kompletne eksporty. Wskazane przymiarki fizyczne pozostają jawne.
+**Integralność/limit.** Własne wąskie zweryfikowane commity, zachować cudze zmiany. UTF-8/LF/atomic/freshcompare. FreshUTC+ordinaryusage target4/max10min/przedkosztownym, %guardNULL/noreset. Tylko znane zmienione interfejsy i niezbędne domknięcie, bez nowych recenzji, audytów źródeł i globalnych powtórek.
+**Stop.** Cały uzgodniony pakiet gotowy, deadline, brak użytecznej pracy po alternatywach albo ordinaryfalse/refusal/brakfreshread → zapis/endowned/enabledfalse/preserveGUI. Bez zakupów/power/print/slicer/ROS/push/mail/alerts/schedule.
+
+## HISTORYCZNY dziennik19Nov — zachowane wcześniejsze zadania i odbiory
+
+Archiwalny zapis poniżej zachowuje oryginalne nagłówki, dawne statusy aktywności, decyzje, źródła i negatywy. Bieżące zadanie określa wyłącznie krótka karta powyżej. Zakres dziennika kończy nagłówek „Odebrane źródła”.
+
+### Historyczna karta19H — zastąpiona odbiorem20:26 i zadaniem19I
+
+## Bieżąca karta — 19.11: KOMPLET DO DRUKU I MONTAŻU DZIŚ / 19H AKTYWNE
+
+**Cel użytkownika17:22.** Skrzynkowy tułów zaakceptowany, sensowne proporcje i rozpoznawalna kocia głowa.
+Wszystkie57+ADD7 z ochroną, portami/chłodzeniem, mocowaniami i zamknięciem mają wejść do kompletnego pakietu DZISIAJ.
+Widoczny rzeczywisty ogon GÓRA–DÓŁ/Y obejmuje mechanizm, wydruki, eksport i pełny przewód. Kierunek wyglądu utrwalony.
+**Termin.**23:00UTC/24:00Warszawa. Nativecut22:40, zapis/endowned22:50, bez przedłużenia.
+
+**Jedyny autorCAD.** Maxwell01a1f45d/Astra6.2high, jednaGUI17796.
+**Actual19H.** `01a1f55c-f6e0-7571-80ac-f3ba40df7a0c`, ACTIVE od19:51UTC.
+Master read/integrate+metadata, bez równoległegoCAD/stageMECH podczas aktywnego wykonawcy.
+Odebrać ten actualinput i świeży native przed kolejnym zleceniem. Runtime utrzymuje aktualny stan.
+**Ostatni odbiór19G.** fb5d3c54853f5d781bfdfad283b20bfe3cd5d507/nativecdfce621…/534obiekty, parent61exact/60filepins+108sourcepins/CRC3059+79,534BRep zgodne.
+**Zeno ODEBRANY.** Kierunek prostego boxa, proporcje i widoczny ogon adekwatne. Pozostało funkcjonalne domknięcie szyi.
+
+**Przejęte19G.** Mapa160połączeń,9rzeczywistych celówJR, pełne jednostkiK1474/BUS900 i źródłowe porty. Cały kit HOLD.
+**5sztywnych par.** Mic/ForeLid6,94mm³ oraz projektowe PiAUDIO/DATA379,73mm³ wymagające klasyfikacji.
+FrontShroud/ForeBase928,67, /ForeLid159,04, /Fcap142,72mm³ dotyczą różnych części drukowanych.
+**12/70profili.** Trafienia głównie w druki, kupne przyEXT023 Speaker/AMP iXB12 Mic. Surowe wyniki w final-profiles pozostają zachowane.
+**3pozy nóg.** Dolna ściana trafia w rzeczywiste nogi w pozach46–48 z49badanych, max130,70mm³.
+**Fizyczne niewiadome.** MTA/wtyki/chłodzenie/mapa alarmu nazwane. Alarm niepodłączony, physicalPASS=false, actualfit/cut/slack=NULL.
+
+**PRZED19H — cel.** Cały rzeczywisty podział druków i otwarty zajęty kanał zasilania/danych/JR do prawdziwych końców, bezpieczny powrót ogona i wykonalny montaż.
+**PRZED19H — wnioski.** LL18-1…5 i poziom prototypu. Reużyć mapę160/końce/stock i niezależne wyniki, oceniać zmienione interfejsy oraz nazwane ryzyka.
+**PRZED19H — przyczyna/hipoteza.** Wspólny podział i dostępny kanał zastępują kolidujące nakładki. Shroud/ForeBase można scalić w rzeczywisty wydruk256 z wykonalnym montażem albo rozdzielić prawdziwym podziałem/retencją. Cofnąć własną ścianę poza ruch nóg, zachować8kotew i obciążenie yaw.
+**PRZED19H — pierwszy test.** Przekrój podziału i pełnej obsady kanału z końcami oraz kolejność otwartego układania/zamykania rozstrzygają wskazane kolizje i dostęp. UjąćFHAC, XT60, Grove/głośnik, wyjścia nóg i szyję. Pierwszy fakt20:05, wynik20:20–20:25.
+
+**Źródła.** [LL18](cad/DESIGN_LESSONS.md#iteration-gate-2026-11-18), [budżety57+ADD7](cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-source-bom-budgets/README.md). Odbiory i surowe negatywy w dzienniku poniżej.
+Zachować kupne części/funkcje, fabryczne końce,3MG250/3JR300/4E2, FFC200=190+10, ToFR31,5, krótkieFHAC,8kotew,12ST+3MG/nogi/head20yaw10pitch/tailY i256³ z brimem/podporami.
+**Gotowość cyfrowafirstfit.** Usunięte znane przenikania druków, rzeczywiste części i budżety całych jednostek, wykonalny montaż, kompletne eksporty. Przymiarki fizyczne pozostają jawne.
+**Integralność i limit.** Własne wąskie zweryfikowane commity, bez cudzych zmian. UTF-8/LF/atomic/freshcompare. FreshUTC+ordinaryusage target4/max10min i przed kosztownym, %guardNULL/noreset.
+**Dalsza praca.** Funkcjonalny podział/kanał/powrót ogona i cały montaż przed detalami. Bez kosmetyki, arbitralnego zmniejszania pól, produkcyjnej wiązki i odtwarzania globalnych starych skanów.
+**Stop.** Cały uzgodniony pakiet gotowy, deadline, brak użytecznej pracy po alternatywach albo ordinaryfalse/refusal/brakfreshread → zapis/endowned/enabledfalse/preserveGUI. Bez zakupów/power/print/slicer/ROS/push/mail/alerts/schedule.
+
 ## Bieżąca karta — 19.11: KOMPLETNY PAKIET DO DRUKU I MONTAŻU DZIŚ / AKTYWNE
 
 **19.11 — nadrzędna decyzja użytkownika17:22.** „Nie obraziłbym się nawet jakby tułów był taką skrzynką, byle wszystko się mieściło i moglibyśmy zamknąć projekt”. Użytkownik wskazał nieproporcjonalność i niewidoczny ogon na39684.jpg, źródło `SIM/.codex-attachments/c4d2f8e2-dfa3-46c1-bc33-5fdf494bd516/9e271c75-2de7-4434-b374-2059ff7bac06/`. Prosty skrzynkowy tułów AKCEPTOWANY.
 **Obowiązujący priorytet.** Wszystkie kupione moduły57+ADD7, pełne porty/chłodzenie, stock, długości i luz mieszczą się z mocowaniami, zamknięciem i kolejnością montażu. Dostawa kompletnego pakietu do druku i montażu DZISIAJ. Zachować sensowne proporcje głowa–tułów, rozpoznawalne kocie uszy/oczy i widoczny rzeczywisty ogon GÓRA–DÓŁ wokółY z mechanizmem, częściami do druku/eksportu oraz pełnym przewodem.
 **Zakres zastąpiony — SUPERSEDED.** Wcześniejsze wymagania obłego tułowia, talii i wiernej sylwetki Oli jako warunków ukończenia są zastąpione powyższą zgodą. Historyczne oceny Zeno i negatywy źródłoweC/D pozostają zapisane. Rzeczywiste kolizje i ograniczenia kupnych części nadal obowiązują. LL18-4 służy teraz ocenie proporcji, widocznego ogona i funkcjonalnego zamknięcia na rzeczywistych obrazach.
-**Bieżący wykonawca.** Maxwell01a1f45d/Astra6.2high, actualinput01a1f533-492e-75f0-b1ab-ef983035f6cc, CAŁE rzeczywiste zakończenia/grupy i montaż19G aktywne po odebranym19F8b2a765c/60exact/59+90pins/CRC2956+77/512modifiedfalse. Runtime jest źródłem świeżego stanu; odebrać ten aktualny wynik/native przed kolejnym zleceniem. Adekwatny kierunek box/proporcje/ogon utrzymany.
+**Bieżący wykonawca.** Maxwell01a1f45d/Astra6.2high, actualinput01a1f55c-f6e0-7571-80ac-f3ba40df7a0c, realny wspólny podział druków i otwarty zajęty kanał19H aktywne po odebranym19Gfb5d3c54/61exact/60+108pins/CRC3059+79/534modifiedfalse. Runtime źródłem świeżego stanu; odebrać ten aktualny wynik/native przed kolejnym zleceniem. Box/proporcje/ogon utrzymane, bez nowych wymogów estetycznych.
 **Następne zadanie — PRZED, cel.** Jeden cały wspólny nośnik modułów/rama ze skrzynkową obudową, kompletną obsadą, montażem i pakietem wydruków, równocześnie proporcje głowy do tułowia i funkcjonalny widoczny ogon.
 **PRZED — zastosowane wnioski.** LL18-1/2/3/4/5 wraz z decyzją użytkownika17:22 — planować wspólnie rzeczywiste moduły, porty i połączone zajęte regiony przewodów oraz użyteczny zapas przy przegubach. Własne pozy, podziały i wsporniki pozostają zmienne. Zachować kupne funkcje, ochronę, końce, obecne serwa/nogi i pole256³ z brimem/podporami.
 **PRZED — przyczyna i hipoteza.** Wcześniejsze rozdzielenie6par19A nie zamraża całego rdzenia. Wspólna reorganizacja nośnika, BUS/operatora i zapasu przewodów przed wspornikami ma usunąć konflikty obsady i uprościć zamknięcie. Skrzynkowy obrys dopasować do pełnego wyposażenia i sensownych proporcji.
