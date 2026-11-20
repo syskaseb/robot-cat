@@ -1,0 +1,605 @@
+{
+  "bounds": {
+    "XT60_full_parked": [
+      1,
+      17,
+      109,
+      51,
+      41,
+      127
+    ],
+    "XT60_pack_half_withdrawal": [
+      26,
+      17,
+      109,
+      65,
+      41,
+      127
+    ],
+    "XT60_finger_access": [
+      4,
+      14,
+      124,
+      65,
+      45,
+      155
+    ],
+    "F0_full_closed": [
+      -62,
+      29,
+      108,
+      -11,
+      50,
+      128
+    ],
+    "F0_lid_tether_and_fuse_access": [
+      -43,
+      26,
+      126,
+      5,
+      53,
+      167
+    ],
+    "POST_F0_full_closed": [
+      -101,
+      32.5,
+      113,
+      -81,
+      45.5,
+      123
+    ],
+    "POST_F0_levers_open": [
+      -100,
+      31,
+      123,
+      -81,
+      47,
+      140
+    ],
+    "W075_axial_pocket": [
+      -11,
+      31,
+      114,
+      1,
+      43,
+      122
+    ],
+    "W076_output_approach": [
+      -81,
+      32,
+      113,
+      -62,
+      45,
+      123
+    ],
+    "MTA_FL_installed": [
+      -64,
+      -98,
+      137,
+      -10,
+      -76,
+      158
+    ],
+    "MTA_FR_installed": [
+      -64,
+      75,
+      128,
+      -10,
+      97,
+      149
+    ],
+    "MTA_RL_installed": [
+      100,
+      -98,
+      141,
+      154,
+      -76,
+      162
+    ],
+    "MTA_RR_installed": [
+      100,
+      75,
+      128,
+      154,
+      97,
+      149
+    ],
+    "MTA_FL_lid_access": [
+      -58,
+      -98,
+      158,
+      -16,
+      -76,
+      181
+    ],
+    "MTA_FR_lid_access": [
+      -58,
+      75,
+      149,
+      -16,
+      97,
+      172
+    ],
+    "MTA_RL_lid_access": [
+      106,
+      -98,
+      162,
+      148,
+      -76,
+      185
+    ],
+    "MTA_RR_lid_access": [
+      106,
+      75,
+      149,
+      148,
+      97,
+      172
+    ]
+  },
+  "intersection": {
+    "XT60_full_parked": [
+      {
+        "member": "BNO085",
+        "kind": "retained body",
+        "bbox": [
+          39.0,
+          13.0,
+          106.0,
+          64.6,
+          35.7,
+          110.6
+        ],
+        "intersection_mm3": 359.04,
+        "applies_to_pose": true
+      },
+      {
+        "member": "D19_BODY_CONTROL_TRUNK",
+        "kind": "occupancy region",
+        "bbox": [
+          -19.0,
+          -35.0,
+          103.0,
+          110.0,
+          35.0,
+          110.0
+        ],
+        "intersection_mm3": 900.0,
+        "applies_to_pose": true
+      },
+      {
+        "member": "E19_RearLid",
+        "kind": "lid-mounted",
+        "bbox": [
+          6.7,
+          -103.0,
+          100.4,
+          209.0,
+          103.0,
+          188.02
+        ],
+        "intersection_mm3": 41.819,
+        "applies_to_pose": true
+      }
+    ],
+    "XT60_pack_half_withdrawal": [
+      {
+        "member": "BNO085",
+        "kind": "retained body",
+        "bbox": [
+          39.0,
+          13.0,
+          106.0,
+          64.6,
+          35.7,
+          110.6
+        ],
+        "intersection_mm3": 765.952,
+        "applies_to_pose": true
+      },
+      {
+        "member": "D19_BODY_CONTROL_TRUNK",
+        "kind": "occupancy region",
+        "bbox": [
+          -19.0,
+          -35.0,
+          103.0,
+          110.0,
+          35.0,
+          110.0
+        ],
+        "intersection_mm3": 702.0,
+        "applies_to_pose": true
+      },
+      {
+        "member": "E19_RearLid",
+        "kind": "lid-mounted",
+        "bbox": [
+          6.7,
+          -103.0,
+          100.4,
+          209.0,
+          103.0,
+          188.02
+        ],
+        "intersection_mm3": 83.639,
+        "applies_to_pose": false
+      }
+    ],
+    "XT60_finger_access": [
+      {
+        "member": "E19_RearBase",
+        "kind": "retained body",
+        "bbox": [
+          20.15,
+          -103.0,
+          38.52,
+          209.0,
+          103.0,
+          153.3
+        ],
+        "intersection_mm3": 7.161,
+        "applies_to_pose": true
+      },
+      {
+        "member": "E19_RearLid",
+        "kind": "lid-mounted",
+        "bbox": [
+          6.7,
+          -103.0,
+          100.4,
+          209.0,
+          103.0,
+          188.02
+        ],
+        "intersection_mm3": 161.2,
+        "applies_to_pose": false
+      }
+    ],
+    "F0_full_closed": [
+      {
+        "member": "D19_BODY_CONTROL_TRUNK",
+        "kind": "occupancy region",
+        "bbox": [
+          -19.0,
+          -35.0,
+          103.0,
+          110.0,
+          35.0,
+          110.0
+        ],
+        "intersection_mm3": 96.0,
+        "applies_to_pose": true
+      }
+    ],
+    "F0_lid_tether_and_fuse_access": [
+      {
+        "member": "E19_ForeLid",
+        "kind": "lid-mounted",
+        "bbox": [
+          -67.913,
+          -103.0,
+          124.55,
+          45.725,
+          103.0,
+          200.02
+        ],
+        "intersection_mm3": 64.246,
+        "applies_to_pose": false
+      },
+      {
+        "member": "E19_ReSpeakerSource",
+        "kind": "lid-mounted",
+        "bbox": [
+          -67.725,
+          23.531,
+          156.5,
+          15.877,
+          57.538,
+          167.43
+        ],
+        "intersection_mm3": 297.237,
+        "applies_to_pose": false
+      },
+      {
+        "member": "HB_MIC_1_M2x12_full",
+        "kind": "lid-mounted",
+        "bbox": [
+          -9.423,
+          24.293,
+          150.0,
+          -5.623,
+          28.093,
+          164.0
+        ],
+        "intersection_mm3": 36.259,
+        "applies_to_pose": false
+      },
+      {
+        "member": "HB_MIC_1_fullnut",
+        "kind": "lid-mounted",
+        "bbox": [
+          -9.832,
+          24.193,
+          161.095,
+          -5.214,
+          28.193,
+          162.695
+        ],
+        "intersection_mm3": 9.207,
+        "applies_to_pose": false
+      },
+      {
+        "member": "HB_MIC_1_headwasher",
+        "kind": "retained body",
+        "bbox": [
+          -10.023,
+          23.693,
+          152.0,
+          -5.023,
+          28.693,
+          152.5
+        ],
+        "intersection_mm3": 4.229,
+        "applies_to_pose": true
+      },
+      {
+        "member": "HB_MIC_1_nutwasher",
+        "kind": "lid-mounted",
+        "bbox": [
+          -10.023,
+          23.693,
+          160.595,
+          -5.023,
+          28.693,
+          161.095
+        ],
+        "intersection_mm3": 4.229,
+        "applies_to_pose": false
+      }
+    ],
+    "POST_F0_full_closed": [],
+    "POST_F0_levers_open": [],
+    "W075_axial_pocket": [],
+    "W076_output_approach": [],
+    "MTA_FL_installed": [
+      {
+        "member": "D19_JR300_YAW_RESERVE",
+        "kind": "occupancy region",
+        "bbox": [
+          -66.0,
+          -84.0,
+          128.0,
+          -14.0,
+          -32.0,
+          138.0
+        ],
+        "intersection_mm3": 400.0,
+        "applies_to_pose": true
+      },
+      {
+        "member": "E19_UpperYawCover",
+        "kind": "retained body",
+        "bbox": [
+          -153.0,
+          -94.2,
+          123.0,
+          -50.323,
+          82.13,
+          220.071
+        ],
+        "intersection_mm3": 376.772,
+        "applies_to_pose": true
+      }
+    ],
+    "MTA_FR_installed": [
+      {
+        "member": "E19_ForeLid",
+        "kind": "lid-mounted",
+        "bbox": [
+          -67.913,
+          -103.0,
+          124.55,
+          45.725,
+          103.0,
+          200.02
+        ],
+        "intersection_mm3": 835.555,
+        "applies_to_pose": true
+      },
+      {
+        "member": "H19_FrontFrame",
+        "kind": "retained body",
+        "bbox": [
+          -177.0,
+          -114.0,
+          17.998,
+          22.1,
+          104.0,
+          219.634
+        ],
+        "intersection_mm3": 977.912,
+        "applies_to_pose": true
+      },
+      {
+        "member": "PBAY_P_AUX",
+        "kind": "retained body",
+        "bbox": [
+          -17.0,
+          71.5,
+          127.0,
+          13.0,
+          90.5,
+          136.0
+        ],
+        "intersection_mm3": 868.0,
+        "applies_to_pose": true
+      },
+      {
+        "member": "WAGO615_power_0_0",
+        "kind": "retained body",
+        "bbox": [
+          -25.5,
+          70.0,
+          145.5,
+          11.5,
+          92.0,
+          156.5
+        ],
+        "intersection_mm3": 922.25,
+        "applies_to_pose": true
+      }
+    ],
+    "MTA_RL_installed": [],
+    "MTA_RR_installed": [
+      {
+        "member": "E19_RearBase",
+        "kind": "retained body",
+        "bbox": [
+          20.15,
+          -103.0,
+          38.52,
+          209.0,
+          103.0,
+          153.3
+        ],
+        "intersection_mm3": 977.912,
+        "applies_to_pose": true
+      },
+      {
+        "member": "S0_ring_IN_0_0",
+        "kind": "retained body",
+        "bbox": [
+          147.204,
+          70.8,
+          95.149,
+          175.796,
+          77.2,
+          131.171
+        ],
+        "intersection_mm3": 0.215,
+        "applies_to_pose": true
+      }
+    ],
+    "MTA_FL_lid_access": [
+      {
+        "member": "E19_ForeLid",
+        "kind": "lid-mounted",
+        "bbox": [
+          -67.913,
+          -103.0,
+          124.55,
+          45.725,
+          103.0,
+          200.02
+        ],
+        "intersection_mm3": 105.6,
+        "applies_to_pose": false
+      },
+      {
+        "member": "E19_UpperYawCover",
+        "kind": "retained body",
+        "bbox": [
+          -153.0,
+          -94.2,
+          123.0,
+          -50.323,
+          82.13,
+          220.071
+        ],
+        "intersection_mm3": 172.047,
+        "applies_to_pose": true
+      }
+    ],
+    "MTA_FR_lid_access": [
+      {
+        "member": "E19_ForeLid",
+        "kind": "lid-mounted",
+        "bbox": [
+          -67.913,
+          -103.0,
+          124.55,
+          45.725,
+          103.0,
+          200.02
+        ],
+        "intersection_mm3": 858.053,
+        "applies_to_pose": false
+      },
+      {
+        "member": "WAGO615_power_0_0",
+        "kind": "retained body",
+        "bbox": [
+          -25.5,
+          70.0,
+          145.5,
+          11.5,
+          92.0,
+          156.5
+        ],
+        "intersection_mm3": 1211.25,
+        "applies_to_pose": true
+      }
+    ],
+    "MTA_RL_lid_access": [
+      {
+        "member": "E19_RearLid",
+        "kind": "lid-mounted",
+        "bbox": [
+          6.7,
+          -103.0,
+          100.4,
+          209.0,
+          103.0,
+          188.02
+        ],
+        "intersection_mm3": 1478.4,
+        "applies_to_pose": false
+      }
+    ],
+    "MTA_RR_lid_access": [
+      {
+        "member": "E19_RearLid",
+        "kind": "lid-mounted",
+        "bbox": [
+          6.7,
+          -103.0,
+          100.4,
+          209.0,
+          103.0,
+          188.02
+        ],
+        "intersection_mm3": 480.6,
+        "applies_to_pose": false
+      },
+      {
+        "member": "G19_Group_I2S",
+        "kind": "occupancy region",
+        "bbox": [
+          -87.204,
+          -38.968,
+          113.95,
+          128.877,
+          79.592,
+          153.042
+        ],
+        "intersection_mm3": 17.396,
+        "applies_to_pose": true
+      },
+      {
+        "member": "Speaker",
+        "kind": "retained body",
+        "bbox": [
+          36.0,
+          54.0,
+          150.4,
+          136.0,
+          99.0,
+          171.4
+        ],
+        "intersection_mm3": 13860.0,
+        "applies_to_pose": true
+      }
+    ]
+  }
+}
