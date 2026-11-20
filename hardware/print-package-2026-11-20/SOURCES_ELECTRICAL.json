@@ -1,0 +1,840 @@
+{
+  "schema": 1,
+  "scope": "UNPOWERED_ELECTRICAL_ASSEMBLY_GUIDE_EXISTING_134_PLUS_26_GRAPH",
+  "captured_utc": "2026-11-20T17:34:38.225828+00:00",
+  "mutable_authority_reference": {
+    "path": "../HOBBY_COMPLETION_PLAN.md",
+    "section": "Bieżąca karta — 19.11",
+    "record_captured_at_utc": "2026-11-19T22:30:50+00:00",
+    "observed_received_revision": "19I",
+    "observed_received_commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+    "receipt_authority": "Parent explicit received22:25 and committed19I decision; current card may be updated independently",
+    "received_input": "01a1f5c2-09f8-77d3-bda9-1326e4bfb608",
+    "observed_whole_status": "DIGITAL_FIRST_FIT_CONDITIONAL_ON_DELIVERED_PART_MEASUREMENTS"
+  },
+  "base_graph_sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
+  "add7_graph_sha256": "c9f6687e6a4419749781f4c7f57ef5b9895cc3a05064fa33b14e1ae0390c6553",
+  "graph_rows": {
+    "base": 134,
+    "add7": 26,
+    "combined_reference": 160
+  },
+  "selection": {
+    "base_rows": 57,
+    "add7_modules": 7
+  },
+  "physical_PASS": false,
+  "actual_installed_length_mm": null,
+  "actual_cuts_mm": null,
+  "actual_slack_mm": null,
+  "route_values_status": "20H_CURRENT_BODY_FEED_OVERLAY_W001_W075_W076_W066__OTHER_19I_UNCHANGED__ACTUAL_NULL",
+  "physical_mg_and_jr_units": [
+    {
+      "id": "MG_head_yaw",
+      "axis": "head_yaw",
+      "type": "MG92B_factory_lead",
+      "source_full_length_mm": 250,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    },
+    {
+      "id": "JR_head_yaw",
+      "axis": "head_yaw",
+      "type": "JR_586761_extension",
+      "source_full_length_mm": 300,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    },
+    {
+      "id": "MG_head_pitch",
+      "axis": "head_pitch",
+      "type": "MG92B_factory_lead",
+      "source_full_length_mm": 250,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    },
+    {
+      "id": "JR_head_pitch",
+      "axis": "head_pitch",
+      "type": "JR_586761_extension",
+      "source_full_length_mm": 300,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    },
+    {
+      "id": "MG_tail_pitch",
+      "axis": "tail_pitch",
+      "type": "MG92B_factory_lead",
+      "source_full_length_mm": 250,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    },
+    {
+      "id": "JR_tail_pitch",
+      "axis": "tail_pitch",
+      "type": "JR_586761_extension",
+      "source_full_length_mm": 300,
+      "route_mm": null,
+      "actual_installed_length_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null
+    }
+  ],
+  "unknowns": {
+    "MTA0100335": {
+      "quantity": 4,
+      "full_case_and_lid_envelope_mm": null,
+      "stock_outer_diameter_mm": null,
+      "individual_lead_lengths_mm": [
+        null,
+        null
+      ],
+      "catalog_reference_markings": [
+        "L120",
+        "L140"
+      ],
+      "catalog_markings_are_per_lead_lengths": false
+    },
+    "P309_alarm": {
+      "part": "MOD05015",
+      "view": "rear_label_pins_left",
+      "bottom_up": [
+        "minus",
+        "1S",
+        "2S",
+        "3S"
+      ],
+      "BAT_GTech_physical_cavities": {
+        "B0": null,
+        "B1": null,
+        "B2": null,
+        "B3": null,
+        "ID": null
+      },
+      "connection_status": "HOLD_PENDING_DELIVERED_REVISION_CAVITY_MAP"
+    }
+  },
+  "source_pins": [
+    {
+      "path": "../electronics/kicad-current/design.json",
+      "sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
+      "bytes": 220440,
+      "commit": "6ab0a765f2860253b5c418e0b06fdac758842273",
+      "provenance": "git_blob_and_canonical_bytes",
+      "source_schema": 1
+    },
+    {
+      "path": "../electronics/kicad-current/selected-components.csv",
+      "sha256": "4ac53a1dba32ec771038cf30deada706657ca1b66f3c741c54dc249de11eabce",
+      "bytes": 4172,
+      "commit": "6ab0a765f2860253b5c418e0b06fdac758842273",
+      "provenance": "git_blob_and_canonical_bytes",
+      "csv": {
+        "delimiter": ",",
+        "columns": [
+          "id",
+          "installed",
+          "manufacturer",
+          "part",
+          "supplier",
+          "supplier_sku",
+          "catalog_role"
+        ],
+        "rows": 57
+      }
+    },
+    {
+      "path": "../electronics/full-cat/closed-prototype-add7-2026-11-16/connections.json",
+      "sha256": "c9f6687e6a4419749781f4c7f57ef5b9895cc3a05064fa33b14e1ae0390c6553",
+      "bytes": 20373,
+      "commit": "4f325e568ac7157e6b099085212e099b4cd9b35e",
+      "provenance": "git_blob_and_canonical_bytes",
+      "source_schema": 1
+    },
+    {
+      "path": "../electronics/full-cat/closed-prototype-add7-2026-11-16/assembly-reference/START_HERE.md",
+      "sha256": "fcf95e25c426ffab52dcc54e29c87534ac89ca91f9e380ec80756172eedd0ff5",
+      "bytes": 6436,
+      "commit": "120088a28eb82cb3c8222e5ccce725060c65f115",
+      "provenance": "git_blob_and_canonical_bytes"
+    },
+    {
+      "path": "../electronics/full-cat/closed-prototype-add7-2026-11-16/assembly-reference/POLACZENIA.csv",
+      "sha256": "d75f8d953bbac33c2aa67415e50adccc585ec11e851e7b04d49fbecac20d6c4e",
+      "bytes": 45788,
+      "commit": "120088a28eb82cb3c8222e5ccce725060c65f115",
+      "provenance": "git_blob_and_canonical_bytes",
+      "csv": {
+        "delimiter": ";",
+        "columns": [
+          "Zakres",
+          "ID",
+          "Koniec_A",
+          "Koniec_B",
+          "Modul_A_wartosc",
+          "Modul_B_wartosc",
+          "Funkcja",
+          "Jednostka_fizyczna_bazy",
+          "Grupa_deklarowana",
+          "Rodzic_GPIO_propozycja",
+          "Rodzaj",
+          "Uwaga"
+        ],
+        "rows": 160
+      }
+    },
+    {
+      "path": "../electronics/full-cat/closed-prototype-add7-2026-11-16/assembly-reference/MATERIALY.csv",
+      "sha256": "a0f51cbf2b54cfa5b69a74c118f19b724c999511f497bb8748e0e6afd9e0d832",
+      "bytes": 66899,
+      "commit": "120088a28eb82cb3c8222e5ccce725060c65f115",
+      "provenance": "git_blob_and_canonical_bytes",
+      "csv": {
+        "delimiter": ";",
+        "columns": [
+          "Typ_wiersza",
+          "Pozycja_zrodla",
+          "ID_polaczen",
+          "Jednostka_fizyczna",
+          "Grupa_deklarowana",
+          "Porcja",
+          "Zyla",
+          "SKU_lub_wybrany_material",
+          "Zapisana_granica_zrodla_mm_NIE_budzet_trasy",
+          "Ograniczenie_koncow_i_jednostki",
+          "Dlugosc_zamontowana_mm",
+          "Ciecie_rzeczywiste_mm",
+          "Luz_rzeczywisty_mm",
+          "Nieustalone",
+          "Status"
+        ],
+        "rows": 155
+      }
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-body-reception-and-closed-fit/frozen-unit-receipt.json",
+      "sha256": "7b5a7ce3e337119410f09436bceff9ba430a65ba9dfb46aa1016fe2be11fd028",
+      "bytes": 9256,
+      "commit": "d5baf5e6ce1598ff8031edb8b82f1a1011b4fada",
+      "provenance": "git_blob_and_canonical_bytes",
+      "source_schema": null
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-body-reception-and-closed-fit/typed-jp3.json",
+      "sha256": "ccbb24b850918225715474a1a16afd8bb2a509096c36bc02e612238b2ca2501e",
+      "bytes": 4149,
+      "commit": "d5baf5e6ce1598ff8031edb8b82f1a1011b4fada",
+      "provenance": "git_blob_and_canonical_bytes",
+      "source_schema": null
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-source-bom-budgets/README.md",
+      "commit": "d19be9ad22fa82f6d655f25ac2fac96688730d8b",
+      "sha256": "df9134e124c66ecf8dd0cde0e5cf2a2224038d66cdfc383a4c93ffa9f07632c1",
+      "bytes": 3515,
+      "provenance": "git_blob_and_canonical_bytes"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-source-bom-budgets/source-budget.json",
+      "commit": "d19be9ad22fa82f6d655f25ac2fac96688730d8b",
+      "sha256": "ddd9e05c23e73123b6e371d766de9c572d89f6f2a3b265838fc1bbfe0b3a2e48",
+      "bytes": 35966,
+      "provenance": "git_blob_and_canonical_bytes"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-material-selection-r4.json",
+      "sha256": "8b035cb9e0f0ee8802430fb0d7a0abe43f4b71fc84adf3d3d3b222d0130651ba",
+      "bytes": 78969,
+      "role": "R7_R9_CONDITIONAL_WINDOW_TAP_METHOD_ONLY",
+      "commit": "d8f11c98cc5d123a115fba5c9653d5cc6eef94c3",
+      "provenance": "git_blob_and_canonical_bytes"
+    },
+    {
+      "path": "../reference/u1-socket-connectors-2026-10-12/sleeve-facts.json",
+      "sha256": "6c7ea3217f0c9acc30d9c38972c3b272d62bf77da5dacb3b699edaf4df261627",
+      "bytes": 992,
+      "role": "R7_R9_CONDITIONAL_WINDOW_TAP_METHOD_ONLY",
+      "commit": "76c1fa6bcc43d81f1bdb3d1e4269f59b93afe4b4",
+      "provenance": "git_blob_and_canonical_bytes"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/START_HERE.md",
+      "sha256": "3a0eeb982d9c57bd3ac83e71af019d73029c79dc560b3170b45194bc8b914e06",
+      "bytes": 3250,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/MONTAZ.md",
+      "sha256": "ba08117bb8f66038110981db18a5aab853d487689ed6bd3f44762a6216c54e8c",
+      "bytes": 5463,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/material-index.json",
+      "sha256": "435f6a4e775144482729404d4e3379a1b2aee2eff10a8b43f1ad732fc344d62a",
+      "bytes": 55580,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/source-units.json",
+      "sha256": "70b755d84e42d5093e1f3a2ca4d6967abac4a335769484de2851b60f3d3ccddb",
+      "bytes": 36861,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/decision.json",
+      "sha256": "9dd6ac0eb3872f91957014daa6ca271423d83051820c35be18f33c01ba0539e7",
+      "bytes": 3366,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/PRINT.csv",
+      "sha256": "f2e6f9650e66f7e3f42706c4a3ffd01bc78e5588240b3335c7902aa45519237f",
+      "bytes": 8499,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-termination-plan.json",
+      "sha256": "25ec838720ab698a061f17d94adf588b112e95a14cf5321fb95650cdb86f15d8",
+      "bytes": 348816,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-cat19I.FCStd",
+      "sha256": "365633e3f78d40f6140c7169a1fd67dd5a9141935ca7c6937dba5ed664bd4f46",
+      "bytes": 38129053,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/19I-WAVEGO-first-fit.zip",
+      "sha256": "fc064a4847f6ae9f592fdc2cb0c17ab82ee2ea591bd00696109e6ecd9800da49",
+      "bytes": 51636389,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/three-quarter.png",
+      "sha256": "0a595187d667d148652bb3fe08e809dfd0f175fc678fac84d833acb94ff0c6b1",
+      "bytes": 83398,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/front.png",
+      "sha256": "31ed9789508fac40cdf1c8cb7461e96ccc74140df54fd4e24986597d50d3b9aa",
+      "bytes": 61803,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/side.png",
+      "sha256": "e5f96191209ea3d415d0049cd6af6a446aad9cd8424e253e7b7f254d1c84dd1b",
+      "bytes": 44660,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/interior.png",
+      "sha256": "204c828759a2acb71ba50f703fa684b3969bf2521ddfca45ccad826d19cc0ff5",
+      "bytes": 148906,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/verified-19I.json",
+      "sha256": "755c4ef2b7cc72bbfa8b10c42aa9547e3cac401ce2c1a53811df9866a3104498",
+      "bytes": 45522,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/ELECTRICAL_ASSEMBLY.md",
+      "sha256": "9ba5fe76361ea787b84d9252dfc46e496967e65f0d62743c442c40a5792fc8e3",
+      "bytes": 12418,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    },
+    {
+      "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/electrical-guide-receipt.json",
+      "sha256": "81be7a24a4f73b271e27ff181d6f54c46ff3106738fbb7ba6af53ddd41f60c9d",
+      "bytes": 480,
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "provenance": "git_blob_and_canonical_bytes",
+      "role": "19I_RECEIVED_DIGITAL_FIRST_FIT_PHYSICAL_UNVERIFIED"
+    }
+  ],
+  "supporting_canonical_worktree_references": [
+    {
+      "path": "../electronics/kicad-current/README.md",
+      "sha256": "e46d6dd21b8850715e918347030d8d8c5801468634238d65465260faab67779b",
+      "bytes": 3494,
+      "provenance": "canonical_worktree_bytes_only"
+    },
+    {
+      "path": "../electronics/kicad-current/connections.csv",
+      "sha256": "d9dd55981fb4651629f15a9280591bae0f65ca7f0d66d89a83c8143322aeb2f4",
+      "bytes": 5121,
+      "provenance": "canonical_worktree_bytes_only",
+      "csv": {
+        "delimiter": ",",
+        "columns": [
+          "id",
+          "a",
+          "b",
+          "kind",
+          "historical_a",
+          "historical_b"
+        ],
+        "rows": 134
+      }
+    },
+    {
+      "path": "../electronics/kicad-current/pinouts.csv",
+      "sha256": "77d6d60ff3885247cf1569dfe5317662d3dbdfdf33809c562225867178ed43a2",
+      "bytes": 47450,
+      "provenance": "canonical_worktree_bytes_only",
+      "csv": {
+        "delimiter": ",",
+        "columns": [
+          "component",
+          "kicad_ref",
+          "number",
+          "endpoint",
+          "name",
+          "net",
+          "type",
+          "basis"
+        ],
+        "rows": 335
+      }
+    },
+    {
+      "path": "../electronics/kicad-current/robot_cat-schematic.pdf",
+      "sha256": "e23dd567be3b3cc949d884da4687d990c762dc4fdcd216cec2c537c5925a35c5",
+      "bytes": 466618,
+      "provenance": "canonical_worktree_bytes_only"
+    },
+    {
+      "path": "../electronics/full-cat/pwm-signal-r1/circuit.json",
+      "sha256": "ee9e4d2cd25f472b5faed2be8d1452d68a8f35be0784831f123ae8bcb5d3dfc6",
+      "bytes": 4345,
+      "role": "R7_R9_FUNCTION_AND_ATTACHMENT_LIMITS_ONLY",
+      "provenance": "canonical_worktree_bytes_only",
+      "record_captured_at_utc": "2026-11-19T20:36:23+00:00"
+    },
+    {
+      "path": "../electronics/full-cat/pwm-carrier-r3/population.json",
+      "sha256": "fb128428d64701c7d317682218c4a909b70c8eff2339dd36ff2ddaebe929f793",
+      "bytes": 110103,
+      "role": "R7_R9_FUNCTION_AND_ATTACHMENT_LIMITS_ONLY",
+      "provenance": "canonical_worktree_bytes_only",
+      "record_captured_at_utc": "2026-11-19T20:36:23+00:00"
+    },
+    {
+      "path": "../electronics/full-cat/mg92b-jr-service-r1/interface.json",
+      "sha256": "fb8c8bf1f7637669c4bd72ce6686328397cede5ed132395fc9cdef986d91f5d6",
+      "bytes": 3031,
+      "role": "R7_R9_FUNCTION_AND_ATTACHMENT_LIMITS_ONLY",
+      "provenance": "canonical_worktree_bytes_only",
+      "record_captured_at_utc": "2026-11-19T20:36:23+00:00"
+    },
+    {
+      "path": "../reference/pwm-passives-2026-09-26/mrs16m25.pdf",
+      "sha256": "645bb41aaa34f2a72fc19fc71d02ddb14ed400ae97634684ad1745189505f47e",
+      "bytes": 94869,
+      "role": "R7_R9_CONDITIONAL_WINDOW_TAP_METHOD_ONLY",
+      "provenance": "canonical_worktree_bytes_only",
+      "record_captured_at_utc": "2026-11-19T20:51:15+00:00"
+    }
+  ],
+  "received_package_reference": {
+    "revision": "20H_CONDITIONAL_FIRST_FIT_FIT_S0_REQUIRED",
+    "source_received_commit": "81ccff2cbac6b0d20d2bf6a524b80f9e5873483b",
+    "native_sha256": "40f9ee0753ebc8819f03559ac037af08d82c868e6ecab7a06ed68da312a84c41",
+    "whole_cat_physical_PASS": false,
+    "physical_fit_cuts_slack": null
+  },
+  "R7_R9_assembly_source_note": {
+    "captured_utc": "2026-11-19T20:51:15+00:00",
+    "scope": "PROPOSED_ASSEMBLY_METHOD_ONLY_NO_GEOMETRY_RECEIPT",
+    "status": "PROPOSED_CONDITIONAL",
+    "bindings": [
+      {
+        "resistor": "R7",
+        "ohm": 10000,
+        "signal_endpoint": "C_HY.PWM",
+        "signal_net": "N_C_HY_PWM",
+        "after_series": "R1",
+        "ground_endpoint": "C_HY.GND",
+        "ground_net": "G_SYS"
+      },
+      {
+        "resistor": "R8",
+        "ohm": 10000,
+        "signal_endpoint": "C_HP.PWM",
+        "signal_net": "N_C_HP_PWM",
+        "after_series": "R2",
+        "ground_endpoint": "C_HP.GND",
+        "ground_net": "G_SYS"
+      },
+      {
+        "resistor": "R9",
+        "ohm": 10000,
+        "signal_endpoint": "C_TY.PWM",
+        "signal_net": "N_C_TY_PWM",
+        "after_series": "R3",
+        "ground_endpoint": "C_TY.GND",
+        "ground_net": "G_SYS"
+      }
+    ],
+    "function": "10k PWM pulldown to local G_SYS after R1-R3, located at servo connector; effective with continuity of both connections",
+    "selected_resistor": "MRS16000C1002FCT00",
+    "selected_JR": "586761",
+    "factory_units_preserved": {
+      "MG250": 3,
+      "JR300": 3
+    },
+    "documented_attachment_method": "Staggered insulation-window lap taps to continuous PWM/GND conductors of selected JR586761 immediately beside servo mating pair; individually sleeved resistor legs and independent strain relief",
+    "planned_splice_scope": "JR body-side branches to FHAC, G terminals and R1-R3; remote resistor contact attachment not defined by these splices",
+    "smallest_missing_implementation": "Delivered-lot access for intact sleeve installation; undamaged window preparation and solder process; recovered insulation at both branch exits; available material and local rigid span; remaining motion length",
+    "actual_contact_fit": null,
+    "actual_cuts_mm": null,
+    "physical_PASS": false,
+    "source_paths": [
+      "../electronics/full-cat/pwm-signal-r1/circuit.json",
+      "../electronics/full-cat/pwm-carrier-r3/population.json",
+      "../electronics/full-cat/mg92b-jr-service-r1/interface.json",
+      "../cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-material-selection-r4.json",
+      "../reference/u1-socket-connectors-2026-10-12/sleeve-facts.json",
+      "../reference/pwm-passives-2026-09-26/mrs16m25.pdf",
+      "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/MONTAZ.md",
+      "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/source-units.json",
+      "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-termination-plan.json",
+      "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/decision.json"
+    ],
+    "legacy_source_limitations": "Legacy direct-to-contact attachment is unverified; legacy interface explicitly leaves splice-method development open",
+    "proposed_window_tap": {
+      "copper_window_max_mm": 3,
+      "window_center_stagger_mm": 20,
+      "stationary_length_target_per_JR_mm": 50,
+      "stationary_length_is_within_existing_transport_and_reserve_mm": 246,
+      "remaining_transport_and_reserve_proposed_mm": 196,
+      "full_JR_budget_mm": [
+        12,
+        50,
+        196,
+        25,
+        9,
+        8
+      ],
+      "factory_contact_soldering": false,
+      "continuous_strands_required": true,
+      "sleeve_installation": "Slide individually from already planned free body ends before body splices; any contact extraction conditional on verified releasable delivered housing and sleeve passage, without cutting cable",
+      "proposed_material_debits": [
+        {
+          "sku": "333-30300 TF31-3/1",
+          "blank_qty": 6,
+          "blank_mm": 20,
+          "proposed_total_mm": 120,
+          "source_project_spare_mm": 200,
+          "actual_available_mm": null
+        },
+        {
+          "sku": "CR3042-000",
+          "blank_qty": 6,
+          "blank_mm": 15,
+          "proposed_total_mm": 90,
+          "source_project_spare_mm": 200,
+          "actual_available_mm": null
+        }
+      ],
+      "post_recovery_overlap_target_mm": 6,
+      "actual_window_cut_mm": null,
+      "actual_sleeve_cuts_mm": null,
+      "actual_rigid_span_mm": null,
+      "actual_remaining_motion_slack_mm": null,
+      "sample": "First of three intended assemblies, disconnected; no spare resistor assumed",
+      "physical_test_performed": false
+    },
+    "received_digital_support_revision": "19I",
+    "received_support_scope": "Local branch space and 50+196=246 JR allocation in committed19I; delivered insulation/contact fit remain unverified"
+  },
+  "history": {
+    "prior_authority_observation": {
+      "path": "../HOBBY_COMPLETION_PLAN.md",
+      "section": "Bieżąca karta — 19.11",
+      "record_captured_at_utc": "2026-11-19T18:27:06+00:00",
+      "body_direction": "SIMPLE_BOX_ACCEPTED_BY_USER_17_22",
+      "appearance_direction": "19E_ADEQUATE_PROPORTIONS_CAT_AND_VISIBLE_TAIL",
+      "observed_received_revision": "19E",
+      "observed_received_commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+      "observed_whole_status": "HOLD_KNOWN_WIRE_INTERFERENCES",
+      "observed_active_input": "01a1f50d-547d-7b40-9e8f-8711699b138d"
+    },
+    "received_19E": {
+      "revision": "19E",
+      "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+      "whole_status": "HOLD_KNOWN_WIRE_INTERFERENCES",
+      "whole_print_GO": false,
+      "native_path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/whole-cat19E.FCStd",
+      "native_sha256": "cef650870eb4fd430b0b9ff2900217996992c553051fe5c5d594a0e2ff38330c",
+      "material_index": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/material-index.json",
+      "effectivity": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/effectivity.json",
+      "assembly_order": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/MONTAZ.md",
+      "part_models": 48,
+      "part_quantity": 64,
+      "off_robot_coupon": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/components/E19_MTA_sample_land.stl",
+      "factory_fields_failing": [
+        "DATA500 / Battery_GEA223S30X6GT",
+        "DATA500 / E19_RearBase",
+        "DATA500 / MAIN_Pololu4853",
+        "DATA500 / PBAY_F_PI",
+        "MG250_pitch / D19D_PitchBack",
+        "MG250_pitch / D19D_YawSaddle",
+        "MG250_pitch / E19_ForeLid",
+        "MG250_pitch / E19_UpperYawCover",
+        "MG250_tail / E19_WagoRearNeg",
+        "MG250_tail / Motor_ATO4A__1_5",
+        "MG250_tail / OP_S1_PRIMARY_CASE_CONSERVATIVE",
+        "MG250_tail / WAGO415_data_1_7",
+        "MG250_yaw / Pi4B_actual_PCB",
+        "ToF moving 1 / E19_ForeLid",
+        "ToF moving 3 / E19_ForeLid"
+      ],
+      "scope": "Received component and assembly reference; project wire paths and whole closure await correction and receipt"
+    },
+    "prior_pending_binding": {
+      "status": "PENDING",
+      "awaiting_current_input_receipt": "01a1f50d-547d-7b40-9e8f-8711699b138d",
+      "required_references": [
+        "accepted_commit",
+        "native_assembly",
+        "stl_index",
+        "assembly_order",
+        "approved_routes"
+      ],
+      "accepted_commit": null,
+      "source_pins": []
+    },
+    "prior_route_values_status": "PENDING_PROJECT_WIRE_SPACE_AND_CLOSURE_RECEIPT",
+    "prior_received_package_source_pins": [
+      {
+        "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/START_HERE.md",
+        "sha256": "ae337cfe04d0818ad37089d393574cf4f0724e5891895740d69cc787319bdc61",
+        "bytes": 3852,
+        "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+        "provenance": "git_blob_and_canonical_bytes",
+        "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+      },
+      {
+        "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/MONTAZ.md",
+        "sha256": "014a920ca953fce3e263b0d15bc1a563b2e39c4a289e57a6fda4f24977715510",
+        "bytes": 6841,
+        "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+        "provenance": "git_blob_and_canonical_bytes",
+        "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+      },
+      {
+        "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/material-index.json",
+        "sha256": "abe4a855f309cb5cbceb34b82f32bf552a40fc7cf0595e45f9a6e67193cd3e5e",
+        "bytes": 48919,
+        "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+        "provenance": "git_blob_and_canonical_bytes",
+        "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+      },
+      {
+        "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/effectivity.json",
+        "sha256": "6abc7b8020b21fd80e3895e99497c9ba9ba62695644b237cef0fc1f71e836107",
+        "bytes": 2048,
+        "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+        "provenance": "git_blob_and_canonical_bytes",
+        "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+      },
+      {
+        "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/verified-19E.json",
+        "sha256": "6dddbb40c5b266349717ad8cbbe898c72841ce8114adfa55f98238ce6933c0c2",
+        "bytes": 22108,
+        "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+        "provenance": "git_blob_and_canonical_bytes",
+        "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+      },
+      {
+        "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/whole-cat19E.FCStd",
+        "sha256": "cef650870eb4fd430b0b9ff2900217996992c553051fe5c5d594a0e2ff38330c",
+        "bytes": 35138800,
+        "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+        "provenance": "git_blob_and_canonical_bytes",
+        "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+      },
+      {
+        "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/components/E19_MTA_sample_land.stl",
+        "sha256": "bdbac591d926cc4c8248f91a085cd8c792f9f4dae075c9ac2bfbffee070c69ea",
+        "bytes": 2684,
+        "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+        "provenance": "git_blob_and_canonical_bytes",
+        "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+      },
+      {
+        "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-simple-box-common-core/19E-components-and-assembly.zip",
+        "sha256": "9ec838ede5260868bed2bb04b936a3681f960d97c535aba8d523cd78a802da7f",
+        "bytes": 45049239,
+        "commit": "51821e8ee73a648c5fda76bdbafa72c5daadd4b6",
+        "provenance": "git_blob_and_canonical_bytes",
+        "role": "19E_RECEIVED_REFERENCE_ONLY_WHOLE_HOLD"
+      },
+      {
+        "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-real-terminations-and-assembly/MONTAZ.md",
+        "sha256": "87535a39a4b373bbbacd5f2352af3392fa446e23597e308bc6baf1e86751a98c",
+        "bytes": 4981,
+        "role": "R7_R9_FUNCTION_AND_ATTACHMENT_LIMITS_ONLY",
+        "commit": "fb5d3c54853f5d781bfdfad283b20bfe3cd5d507",
+        "provenance": "git_blob_and_canonical_bytes"
+      },
+      {
+        "path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-shared-open-trunk-and-body-parting/whole-termination-plan.json",
+        "sha256": "fe99107063eb9d552cca02afed0e707141ce539bc90a6de911824f3960f608dd",
+        "bytes": 272893,
+        "role": "R7_R9_CONDITIONAL_WINDOW_TAP_METHOD_ONLY",
+        "commit": "23f37ea7d3afc7a30753a11436f67f5a539c234c",
+        "provenance": "git_blob_and_canonical_bytes"
+      }
+    ],
+    "frozen_19I_source_receipt": {
+      "classification": "FROZEN_RECEIPT_CAPTURED_2026_11_19_22_25_UTC",
+      "geometry_commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "receipt": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/verified-19I.json",
+      "private_guide_commit": "eb18a7057e39e8c5546a3015bbbcd50d1c5331b7",
+      "captured_guide_sources": {
+        "hardware/print-package-2026-11-19/ELECTRICAL_ASSEMBLY.md": "df684d15b9946216795db5713dbb237349fd5acb0f8231cad9219ecc81035e71",
+        "hardware/print-package-2026-11-19/SOURCES_ELECTRICAL.json": "de30cc189242f037f8c72010ca9f25c0efab107e779dbc30ab99488180aadcc0",
+        "hardware/print-package-2026-11-19/START_HERE.md": "b56fcb59edaf45e7cabd5907ead285ebeefe5dd589c14efb3dd2b6659e397c45"
+      },
+      "committed_portable_guide": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/ELECTRICAL_ASSEMBLY.md",
+      "electrical_guide_receipt": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/electrical-guide-receipt.json",
+      "meaning": "Frozen source bytes used for the received 19I package. Current guide edits do not change that receipt or establish another geometry or physical acceptance."
+    },
+    "frozen19I_received_package_reference": {
+      "revision": "19I",
+      "commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "digital_first_fit": true,
+      "physical_PASS": false,
+      "actual_fit_mm": null,
+      "actual_cuts_mm": null,
+      "actual_slack_mm": null,
+      "native_path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-cat19I.FCStd",
+      "native_sha256": "365633e3f78d40f6140c7169a1fd67dd5a9141935ca7c6937dba5ed664bd4f46",
+      "archive_path": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/19I-WAVEGO-first-fit.zip",
+      "archive_sha256": "fc064a4847f6ae9f592fdc2cb0c17ab82ee2ea591bd00696109e6ecd9800da49",
+      "material_index": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/material-index.json",
+      "print_csv": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/PRINT.csv",
+      "assembly_order": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/MONTAZ.md",
+      "source_units": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/source-units.json",
+      "decision": "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/decision.json",
+      "part_models": 50,
+      "part_quantity": 70,
+      "step_models": 5,
+      "max_dimension_with_allowance_mm": 234,
+      "off_robot_coupon": {
+        "part": "E19_MTA_sample_land",
+        "zip_entry": "sample/E19_MTA_sample_land.stl"
+      },
+      "scope": "Digital complete first-fit package received. Delivered dimensions, lead lengths, assembly insulation and actual movement require unpowered checks."
+    },
+    "frozen19I_battery_condition": {
+      "status": "UNKNOWN_DELIVERED_FACTORY_LEAD_LENGTHS",
+      "before_large_frame_printing": true,
+      "estimated_exit": "pack +X end of upper face",
+      "per_lead_lower_passage_mm": 125.72,
+      "per_lead_upper_service_loop_mm": 82.41,
+      "per_lead_route_before_actual_ends_mm": 208.13,
+      "delivered_positive_lead_mm": null,
+      "delivered_negative_lead_mm": null,
+      "delivered_exit_verified": null,
+      "actual_ends_mm": null,
+      "action": "Measure both intact factory leads independently and compare delivered exit and end geometry before large frame printing. A shorter lead or different exit leaves battery fit OPEN."
+    },
+    "frozen19I_final_package_reference_update": {
+      "status": "BOUND_RECEIVED_19I_DIGITAL_FIRST_FIT",
+      "accepted_commit": "1d428594af9db9f49fa931e72d51fe48f611a21d",
+      "acceptance_scope": "Digital complete first-fit package received. Delivered dimensions, lead lengths, assembly insulation and actual movement require unpowered checks.",
+      "source_pins": [
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/START_HERE.md",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/MONTAZ.md",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/material-index.json",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/source-units.json",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/decision.json",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/PRINT.csv",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-termination-plan.json",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-cat19I.FCStd",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/19I-WAVEGO-first-fit.zip",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/three-quarter.png",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/front.png",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/side.png",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/interior.png",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/verified-19I.json",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/ELECTRICAL_ASSEMBLY.md",
+        "../cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/electrical-guide-receipt.json"
+      ]
+    }
+  },
+  "project_route_source": "source-units.json",
+  "battery_first_physical_condition": {
+    "source": "BODY_FEED_UNITS.json",
+    "old_208mm_route_superseded": true,
+    "delivered_positive_lead_mm": null,
+    "delivered_negative_lead_mm": null,
+    "delivered_exit_verified": false
+  },
+  "current_nominal_wire_stock_mm": {
+    "LAPP0107001": 3000,
+    "HELU23802": 9000
+  },
+  "current_S0_fit_gate": "FIT_S0.md",
+  "current_stock_required_for_S0": {
+    "DIN912_M6x20": 2,
+    "washer_6p4x12x1p6": 4,
+    "AF10_M6_nut_h5": 2,
+    "actual_owned": null
+  },
+  "final_package_reference_update": {
+    "status": "20H_CONDITIONAL_FIRST_FIT_PHYSICAL_FIT_S0_GATE",
+    "source_CAD_commit": "81ccff2cbac6b0d20d2bf6a524b80f9e5873483b",
+    "source_native_sha256": "40f9ee0753ebc8819f03559ac037af08d82c868e6ecab7a06ed68da312a84c41",
+    "package": "WAVEGO_KOT_20H_FIRST_FIT.zip",
+    "actual_fit_cut_slack": null,
+    "physical_PASS": false
+  }
+}

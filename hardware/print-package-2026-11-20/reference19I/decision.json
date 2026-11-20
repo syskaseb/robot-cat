@@ -1,0 +1,109 @@
+{
+ "digital_first_fit": true,
+ "label_pl": "Komplet cyfrowy do pierwszej przymiarki bez zasilania.",
+ "decision_pl": "Znane kolizje montażowe zmienionych podstaw, pięciu opraw, dojść G1/P_FRONT oraz górnej i dolnej strony XT60 rozstrzygnięto w zapisanym modelu. Warunki pomiaru dostarczonych części są wymienione w instrukcji.",
+ "source_H": "c7b92966e20312d19d0bc7cb74f0366a89471b9f61b6c4270cb15d6d8f4ce046",
+ "source_coverage": {
+  "selected_csv_rows": 57,
+  "all_selected_quantities_allocated_once": true,
+  "add7_modules": {
+   "EXT_IMU": {
+    "part": "BNO085 Adafruit4754",
+    "qty": 1
+   },
+   "EXT_TOF": {
+    "part": "VL53L5CX Pololu3417",
+    "qty": 1
+   },
+   "EXT_TOUCH": {
+    "part": "Grove TTP223",
+    "qty": 1
+   },
+   "EXT_AMP": {
+    "part": "MAX98357A Adafruit3006",
+    "qty": 1
+   },
+   "EXT_SPK": {
+    "part": "Selected4ohm5W speaker",
+    "qty": 1
+   },
+   "EXT_MIC": {
+    "part": "ReSpeaker Lite USB",
+    "qty": 1
+   },
+   "EXT_CAM": {
+    "part": "Camera Module3 NoIR Wide",
+    "qty": 1
+   }
+  }
+ },
+ "effective_prints": 50,
+ "installed_print_qty": 70,
+ "source_connections": [
+  134,
+  26
+ ],
+ "corrected_anchors": {
+  "H19_FrontFrame": {
+   "solids": 1,
+   "volume": 260092.01822503275,
+   "full_driver_common": 0.0,
+   "seated": {
+    "I19_FuseBand_HY": {
+     "before": 0.0,
+     "after": 0.0
+    },
+    "PBAY_F_HY": {
+     "before": 0.0,
+     "after": 0.0
+    }
+   },
+   "bounds": [
+    -178.2723,
+    -114.0,
+    8.0,
+    22.1,
+    104.0,
+    220.0
+   ]
+  },
+  "E19_RearBase": {
+   "solids": 1,
+   "volume": 249452.49072090507,
+   "full_driver_common": 0.0,
+   "seated": {
+    "I19_FuseBand_PI": {
+     "before": 0.0,
+     "after": 0.0
+    },
+    "PBAY_F_PI": {
+     "before": 0.0,
+     "after": 0.0
+    }
+   },
+   "bounds": [
+    20.15,
+    -103.0,
+    0.15,
+    209.0,
+    103.0,
+    153.3
+   ]
+  }
+ },
+ "lower_battery_test": "lower-profile-fit.json / pack±1, W001 and fixed W075. Two-jacket model. Delivered pack exit estimated at +X end of upper face.",
+ "seated_pack_min_clearance_to_allocated_groups": 2.161,
+ "neutral_14mm_withdrawal_min_clearance_to_allocated_groups": 7.77,
+ "r7_method": "Source eb18a705, conditional continuous window taps and insulated lead lengths; 50+196=246 within each JR",
+ "neck": "Opaque front-quarter and reverse view show a narrow running seam. Fixed side guard covers the outer approach to the connector; inspect manual movement and snagging before power.",
+ "leg_scope": "49 source planning poses, selected=false; only the affected wheel-well material evaluated. No certified deep lie, joint limits or payload.",
+ "physical_checks": [
+  "Leg body exit windows are sized for three looms; exact keyed distal port, delivered length and physical logical corner mapping must be bound before cutting.",
+  "BNO/Grove/speaker terminal points from G include gross approach regions rather than measured pad locations. Complete actual plug assignment and stock length before build.",
+  "Full MTA0100335 geometry and both independent tail lengths. Fit largest keyed leg end before closure.",
+  "Delivered USB overmolds, mic audio cable length, cooler and acoustic openings, pack leads / extraction; G-Tech cavity identity before energising.",
+  "R7/R8/R9 insulation, measured joint section and strain relief per electrical guide."
+ ],
+ "physical_PASS": false,
+ "actual_cut_fit_slack": null
+}

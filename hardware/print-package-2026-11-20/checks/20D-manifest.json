@@ -1,0 +1,229 @@
+{
+  "status": "DIGITAL_AXIAL_X_PROTOTYPE_DELTA",
+  "cad_actual_input": "01a1f975-9551-7b13-8ba2-af112b5d1030",
+  "frozen_20C_commit": "57e29fc2cc1f2a8f136d4266d51a1e59a64e2200",
+  "frozen_19I_commit": "1d428594",
+  "source_pins": {
+    "20C_native": {
+      "path": "cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day20-whole-battery-and-adaptable-protection/20C/whole-cat20C.FCStd",
+      "sha256": "92fc832c49983ce98cd8d0c7b182f126481d2aff89de36a9c76ee67842985059"
+    },
+    "20C_print_manifest": {
+      "path": "cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day20-whole-battery-and-adaptable-protection/20C/20C-manifest.json",
+      "sha256": "c19aca737d99fab40c64f8ff028587200f1b5a01c5758078e05ee15988f49a2d"
+    },
+    "20B_received_proposal": {
+      "path": "cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day20-whole-battery-and-adaptable-protection/20B-RECEIPT.json",
+      "sha256": "89ecd6aa5cdc12e4c26b2e9727ab47b4ab1aab2611740e7c7020807ea2b49f66"
+    },
+    "19I_native": {
+      "path": "cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day19-complete-first-fit/whole-cat19I.FCStd",
+      "sha256": "365633e3f78d40f6140c7169a1fd67dd5a9141935ca7c6937dba5ed664bd4f46"
+    },
+    "battery_selected_photo": {
+      "path": "reference/battery-exit-2026-11-20/manufacturer-view-1.jpg",
+      "sha256": "0c4f0c2736dc73bf55bf4088aa4a5856e16b1093080c8e51482a63d2fdcda69c"
+    },
+    "battery_photo_source": {
+      "path": "reference/battery-exit-2026-11-20/SOURCE.json",
+      "sha256": "086beb372eddac1642be8693642b24c1eb67322ff35f13c1197f8831909968ac"
+    },
+    "19I_material_selection": {
+      "path": "print-package-2026-11-19/WAVEGO_KOT_19I.zip",
+      "entry": "source/phase1-material-selection-r4.json",
+      "sha256": "8b035cb9e0f0ee8802430fb0d7a0abe43f4b71fc84adf3d3d3b222d0130651ba",
+      "LAPP0107001_project_supply_mm": 3000,
+      "HELU23802_project_supply_mm": 9000,
+      "ordered_mm": 0,
+      "actual_owned_mm": null,
+      "purchase_authorized": false
+    }
+  },
+  "print_replacement_map": {
+    "add": {
+      "D20_XT60_Axial_Adapter": 1
+    },
+    "replace": {
+      "C20_F0_OpenMount": "D20_F0_Open_Adapter",
+      "C20_Post_OpenSlottedMount": "D20_POST_Aft_Slotted"
+    },
+    "retain_20C_by_identity": [
+      "C20_FrontFrame",
+      "C20_RearBase",
+      "C20_BatteryUpperBridge",
+      "C20_MTA_FL",
+      "C20_MTA_FR",
+      "C20_MTA_RL",
+      "C20_MTA_RR"
+    ],
+    "other_19I_parts": "use the accepted current print-package and retained structure"
+  },
+  "selected_support_roles": {
+    "XT60_ties": 2,
+    "F0_ties": 3,
+    "POST_ties": 2,
+    "MTA_ties_each": 3,
+    "POST_clamp_DIN912_M3x12": 1,
+    "POST_clamp_M3_nut": 1,
+    "upper_bridge_existing_M3x12_and_nut": 2,
+    "foundation_existing_M2p5x16": 8
+  },
+  "known_mating_assumptions": {
+    "BAT_exit_to_boot_plus_mm": 134.95,
+    "BAT_exit_to_boot_minus_mm": 131.9,
+    "W075_project_total_mm": 37.34,
+    "F0_closed_height_mm_assumed": 21.5,
+    "F0_full_output_range_mm_model": [
+      89.67,
+      103.67
+    ],
+    "POST_project_pitch_mm": 5.5,
+    "W001_account_mm": 89,
+    "W076_custom_account_mm": 371,
+    "W076_custom_sampled_outer_gaps_to_other_inlet_wires_mm": {
+      "W075": 11.688,
+      "W001": 9.095,
+      "F0_full_WAGO_approach": 1.0,
+      "BAT_parked_min": 6.557,
+      "BAT_mid_min": 5.015,
+      "BAT_unmated_min": 3.653
+    },
+    "physical_samples": [
+      "both BAT exit-to-boot lengths and actual exit directions",
+      "auxiliary plug/lead parking and linked manual transit through opened throat",
+      "full FHAC0002 cap, tether, both molded ends, original output full length",
+      "actual WAGO port separation and body orientation",
+      "four MTA complete envelopes and adjacent lead dressing",
+      "stock, strain relief and clip/support retention"
+    ]
+  },
+  "native": {
+    "schema": "native live readback",
+    "frozen_source_sha256": "92fc832c49983ce98cd8d0c7b182f126481d2aff89de36a9c76ee67842985059",
+    "path": "whole-cat20D.FCStd",
+    "sha256": "b1549964028b289ccc9b27adb023ed804f331b8f4fa23159c00a072975a750e9",
+    "document_name": "whole_cat20A",
+    "document_label": "whole-cat20D",
+    "object_count": 574,
+    "modified": false,
+    "touched": false,
+    "gui_pid": 11580,
+    "saved_utc": "2026-11-20T15:41:20.588512+00:00",
+    "pending_operation": null,
+    "state": "IDLE"
+  },
+  "physicalPASS": false,
+  "actualfit": null,
+  "cut": null,
+  "slack": null,
+  "pins": {
+    "20D-INSTRUKCJA.md": {
+      "sha256": "6507e58eb99913bbddf50f8f32098ae7e05ba510e75eb7b6af26f0afa4edf002",
+      "bytes": 7388
+    },
+    "20D-closed-front.png": {
+      "sha256": "7b2215bdf6dbc53f6a06ae6c23c8f78a43cf5f4b9b382666a5d0e93116571f15",
+      "bytes": 107924
+    },
+    "20D-closed-side.png": {
+      "sha256": "8400c8b7ae848499e190b4947a09e7162583ebd8fe7a99b48882e2a1b2a77406",
+      "bytes": 64672
+    },
+    "20D-closed.png": {
+      "sha256": "9efaae564c7925697fb23c2dbed57e5e7e3ebf6b9bc480b6b0c86c777495244f",
+      "bytes": 95989
+    },
+    "20D-open-service.png": {
+      "sha256": "51776fb9e14bdd6ff4cd033065b8bb9fbf62a897415d6b4eb5efcf86423cfbec",
+      "bytes": 124802
+    },
+    "20D-short-end-cutaway.png": {
+      "sha256": "e9d8d229a260a714e93c436068d47c1779b7fd39313062477b68de267bf6d8d5",
+      "bytes": 145162
+    },
+    "20D-print-index.json": {
+      "sha256": "b465d1f5b5e3db361cfa711fd4a8c8daa5fae3814ec87cf625964f6bef1509ee",
+      "bytes": 1528
+    },
+    "20D-export-verification.json": {
+      "sha256": "4e8a25b45e6bf6aecf7a5201f7acb577b4764c3225605904df92d55e3240c4d3",
+      "bytes": 2013
+    },
+    "20D-final-gate.json": {
+      "sha256": "d4324bd46e568e13e51d8c89d131f61733480c70a7977ad595a9c371bacc76a4",
+      "bytes": 55253
+    },
+    "20D-support-fit.json": {
+      "sha256": "79bec79c3aa1c40033d0011bf51d8964f013f5fc426a77c7874616cc8e6098a2",
+      "bytes": 1699
+    },
+    "20D-local-wires.json": {
+      "sha256": "7d6485e008a05ffcd223add0b025a94fefb74b2dfb9f40b579aab7a1cbd5ba13",
+      "bytes": 1348
+    },
+    "20D-native-readback.json": {
+      "sha256": "680c4165eb552f8c9164a92441599be05a8dcbf27a095d0f5746fe01e23d8e96",
+      "bytes": 499
+    },
+    "whole-cat20D.FCStd": {
+      "sha256": "b1549964028b289ccc9b27adb023ed804f331b8f4fa23159c00a072975a750e9",
+      "bytes": 38355766
+    },
+    "build.py": {
+      "sha256": "1b79e5d67d9f0ebeb6917224fa70b6aa3cde87d081a29180612dbd024050c808",
+      "bytes": 8605
+    },
+    "final-native.py": {
+      "sha256": "004f5516b85a40e34a1cc6cf06817aedefb32391a623ac96440f04c698fb3889",
+      "bytes": 4394
+    },
+    "gate.py": {
+      "sha256": "c40a4c53978dcf3afe044436dbaf116376307e3e6122d139d086387aac38b56d",
+      "bytes": 8797
+    },
+    "geometry.py": {
+      "sha256": "b3708620361c7417deb06544a44f8ad2c2b43b9b1e825ac146b47e9d69980a92",
+      "bytes": 4893
+    },
+    "layout.py": {
+      "sha256": "f3fa0ba1777436ffcb3ebeddaae7201ac4d366cd6501f6428ef89674ff4e08a4",
+      "bytes": 6055
+    },
+    "local-wires.py": {
+      "sha256": "5d7e8a410808c829e79451130d2c3eeba3526a36b50ae4557c9cc6ef79e37272",
+      "bytes": 3267
+    },
+    "verify-delivery.py": {
+      "sha256": "cd585ea97d58722c8f2b8af67602515728e3749aedd1d1e592ba21b1ed85bd3c",
+      "bytes": 3506
+    },
+    "verify-support.py": {
+      "sha256": "d8ad872a26d9dd5429205336619ace526a0640a0ad5e83ed5b980279dc29d0ec",
+      "bytes": 4238
+    },
+    "parts/D20_XT60_Axial_Adapter.stl": {
+      "sha256": "cd045e938ac877d45f7f6aad815650b6745eb3f12ff67eb6bd8672a897342c27",
+      "bytes": 8284
+    },
+    "parts/D20_XT60_Axial_Adapter.step": {
+      "sha256": "c915d1e4e17fdfe6f0db11bac74b4e21129e0dd1382aacfe2b38b16b48d0893e",
+      "bytes": 53177
+    },
+    "parts/D20_F0_Open_Adapter.stl": {
+      "sha256": "81debaad8b1f4f96f6b6b9f6ce75ea44065e897d1dfe22659b382e1856962d44",
+      "bytes": 11484
+    },
+    "parts/D20_F0_Open_Adapter.step": {
+      "sha256": "3dc970c1624071f6501f8ee94af2da6bd54c54c9e8278c139f1e5c16bad5a1f8",
+      "bytes": 69362
+    },
+    "parts/D20_POST_Aft_Slotted.stl": {
+      "sha256": "4d73478bfe7c9ba8b0063cf205e96df5167e8a8096b219f38495623f8a438ab2",
+      "bytes": 74284
+    },
+    "parts/D20_POST_Aft_Slotted.step": {
+      "sha256": "19cc6b64fe2f86530f7628a87f98d1adda6dfff7550048d81c72a680c2eaffa0",
+      "bytes": 75597
+    }
+  }
+}
