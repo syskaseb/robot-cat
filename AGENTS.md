@@ -29,6 +29,11 @@ Nie traktuj lokalnego FIT ani liczby plików jako ukończenia całego kota.
 Ta reguła obejmuje przyszłe wznowienia; NIE włącza zamkniętego okna CAD.
 
 
+## 20.11 — OKNO ZAMKNIĘTE: WARUNKOWY FIRST-FIT 20H
+
+Stan2026-11-20T17:47:34Z: enabled=false, bez automatycznego wznowienia. [Jeden punkt wejścia](hardware/print-package-2026-11-20/START_HERE.md). CAD81ccff2cbac6/native40f9ee07/pakiet79346fb6e246, aktualnePNG25bcb. ZIP157wpisów/CRC/hash zweryfikowane;58robotSTL/78szt+osobnykupon. Najpierw FIT_S0 z rzeczywistym kluczem/oczkiem/stosemM6; duża podstawa20H WARUNKOWA do przymiarki. Stare208mm zastąpione nowym układem, rzeczywisteBAT/F0/4MTA nadal do pomiaru. PhysicalPASS=false/fitcutslackNULL/masa-nośność-chódniepotwierdzone, całyfizycznykotnieukończony.
+Sol6.2high soleBanach iSol6.2medium Beauvoir ODEBRANI/CLOSED; boundedreviewer Astra6.2high CLOSED1/1. JednaGUI11580/whole-cat20H/577savedIDLE zachowana, własne obliczenia zakończone. Zamknięto wcześniej po dostarczeniu użytecznego warunkowego pakietu i braku dalszego niezależnegoCAD przed pomiarami; ordinarytrue nie jest przyczyną stopu. Deadline21:00UTC/22Warszawa nieprzedłużony. NoweCAD wymaga nowej ludzkiej instrukcji; żadnych starychNEXT/hooka/zakupów/power/print/slicer/ROS/push/mail/resetów.
+
 ## 19.11 — OKNO ZAMKNIĘTE: CYFROWY FIRST-FIT 19I
 
 Stan2026-11-19T22:37:55Z: enabled=false. Komplet cyfrowy do pierwszej przymiarki odebrany; fizyczne dopasowanie/chód/nośność niepotwierdzone. [Punkt wejścia](hardware/print-package-2026-11-19/START_HERE.md). ŹródłoCAD1d428594/pakiet8ed0f2dd. Przed dużymdrukiem pomiar208mm każdej żyły baterii i4pełnychMTA. GUI17796/551saved/modifiedfalse zachowane, wszystkie własne role i obliczenia zakończone. Bez automatycznego wznowienia, przedłużenia, starychNEXT lub fizycznegoPASS; noweCAD wymaga nowej ludzkiej instrukcji. Poniższa zgoda zachowuje historię zamkniętego okna.
