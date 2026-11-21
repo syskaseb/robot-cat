@@ -1,0 +1,114 @@
+{
+  "disposition": "editable scoped visual revision",
+  "basis_commit": "ced48b1def5705d65e549d1f7a6ff7998b227586",
+  "basis_immutable_sha256": {
+    "whole-cat21-face.FCStd": "3026c641fb9aa1d569c62f3d9e11e9c9d8af4a3f9fec287e8f4ebd24217c3a15",
+    "21-front.png": "278b89f68f3f2b72e6cace41bdc57fc6d573ca96ec753130416de81c2fcced0f",
+    "21-close-3q.png": "61d78ca6aec547f91b344aadc5d8a3926c72a246616e33489bff6c9c21b41d10",
+    "21-whole.png": "2bbaf431376efab07a5fe49f338ef906eef0cf434966b5ca22682c0da2703ab2"
+  },
+  "affected_objects_mutated": [
+    "D21_Ear_L",
+    "D21_Ear_R",
+    "D21_Face"
+  ],
+  "retained_head_brep_byte_equal": {
+    "D21_Camera_OEM": true,
+    "D21_ToF": true,
+    "D21_Carrier": true,
+    "D21_Nose": true,
+    "D21_Rim_Cam": true,
+    "D21_Rim_ToF": true,
+    "D21_Insert_Cam": true,
+    "D21_Insert_ToF": true,
+    "D21_Ear_Inset_R": true,
+    "D21_Ear_Inset_L": true
+  },
+  "retained_head_brep_equal_after_signed_zero_normalization": {
+    "D21_Camera_OEM": true,
+    "D21_ToF": true,
+    "D21_Carrier": true,
+    "D21_Nose": true,
+    "D21_Rim_Cam": true,
+    "D21_Rim_ToF": true,
+    "D21_Insert_Cam": true,
+    "D21_Insert_ToF": true,
+    "D21_Ear_Inset_R": true,
+    "D21_Ear_Inset_L": true
+  },
+  "raw_brep_serialization_delta_count": 3,
+  "raw_brep_serialization_other_names": [],
+  "artifact_sha256": {
+    "whole-cat21-sculpted-head.FCStd": "18c690a253ac8c0270ca4f9e4a49a492b85cccd51176696f4292b3ae9c53dd98",
+    "front.png": "72504efdb760a79bdafea335d56f7d3e69e935de0edd15c34eec30344c06629b",
+    "side.png": "e9f3c9a006bbdc53581b3d810c59a3aa977efdee00f237049b830d6872ee7808",
+    "three-quarter.png": "0f90067b37c3b8d0e9305c9d351abb030c6dbe04126f76a2f6f775f9809d7f6b",
+    "profile-comparison.png": "c6c928f8ae3c1b4fbcfd15948f123f33f6dac2532f9440a77bbbd4a96df2dcba",
+    "sculpt.py": "f2a1bb13e327a77d318edaff77da4fc6c56f1c05e4c96ae34cbaadf524f8535f",
+    "native.py": "2a43e3135826e92dbafc34d87742613ea650e09fd64572f3caff0a24e1778139",
+    "scoped-proof.json": "7f4f8e20c2f7a092820ced6a2ddcff9f20b1892a260302b45647b2158570f360",
+    "native-readback.json": "f0b3717342bcae745129b8a4e272d4005c6da8636f0643f9e12172174bc68024"
+  },
+  "motion_delta_mm3": [
+    {
+      "yaw": 0,
+      "pitch": 0,
+      "delta_contact_mm3": {
+        "E19_FrontShroud": 0.0,
+        "H19_FrontFrame": 0.0,
+        "E19_UpperYawCover": 0.0
+      }
+    },
+    {
+      "yaw": -20,
+      "pitch": -10,
+      "delta_contact_mm3": {
+        "E19_FrontShroud": 0.0,
+        "H19_FrontFrame": 0.0,
+        "E19_UpperYawCover": 0.0
+      }
+    },
+    {
+      "yaw": -20,
+      "pitch": 10,
+      "delta_contact_mm3": {
+        "E19_FrontShroud": 0.0,
+        "H19_FrontFrame": 0.0,
+        "E19_UpperYawCover": 0.0
+      }
+    },
+    {
+      "yaw": 20,
+      "pitch": -10,
+      "delta_contact_mm3": {
+        "E19_FrontShroud": 0.0,
+        "H19_FrontFrame": 0.0,
+        "E19_UpperYawCover": 0.0
+      }
+    },
+    {
+      "yaw": 20,
+      "pitch": 10,
+      "delta_contact_mm3": {
+        "E19_FrontShroud": 0.0,
+        "H19_FrontFrame": 0.0,
+        "E19_UpperYawCover": 0.0
+      }
+    }
+  ],
+  "visual_inspection": {
+    "front": "Symmetric seated outlines. No visible daylight at the front roots.",
+    "three_quarter": "Both full amber rims and separate rectangular ToF aperture visible.",
+    "side": "Forehead crown fuller, original rear heel relief still visible from the side."
+  },
+  "physical_fit": null,
+  "actual_cut": null,
+  "actual_slack": null,
+  "physical_pass": false,
+  "print_release": false,
+  "still_open": [
+    "physical seat and ear retention",
+    "M2 fastening",
+    "FFC200 routing"
+  ]
+}
