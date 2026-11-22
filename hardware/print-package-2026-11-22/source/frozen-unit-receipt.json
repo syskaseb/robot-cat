@@ -1,0 +1,386 @@
+{
+ "source_sha256": "d75f8d953bbac33c2aa67415e50adccc585ec11e851e7b04d49fbecac20d6c4e",
+ "archived_ends_sha256": "3ff749aa3d78c3e80f6ebdda76e7bcb101db346ccaf376749febca8143cd8155",
+ "print_envelopes": {
+  "BR_COMMON_OPTICAL_MASK": {
+   "box_mm": [
+    57.48102870915025,
+    153.32174880003498,
+    126.71812948829603
+   ],
+   "native_axes_with_8mm_brim_each_side_and_4mm_Z_allowance": [
+    73.48102870915025,
+    169.32174880003498,
+    130.71812948829603
+   ],
+   "box_screen": true
+  },
+  "BR_PARTED_SKULL_BACK": {
+   "box_mm": [
+    50.09912187652921,
+    154.00000020000002,
+    122.5260866624027
+   ],
+   "native_axes_with_8mm_brim_each_side_and_4mm_Z_allowance": [
+    66.09912187652921,
+    170.00000020000002,
+    126.5260866624027
+   ],
+   "box_screen": true
+  },
+  "BR_CHEST_EXTENSION_ENTRY": {
+   "box_mm": [
+    197.00000020122872,
+    192.71892526309372,
+    179.7747773527755
+   ],
+   "native_axes_with_8mm_brim_each_side_and_4mm_Z_allowance": [
+    213.00000020122872,
+    208.71892526309372,
+    183.7747773527755
+   ],
+   "box_screen": true
+  },
+  "BR_ROUNDED_RUMP": {
+   "box_mm": [
+    174.00000020000004,
+    180.440499619278,
+    188.87150580688652
+   ],
+   "native_axes_with_8mm_brim_each_side_and_4mm_Z_allowance": [
+    190.00000020000004,
+    196.440499619278,
+    192.87150580688652
+   ],
+   "box_screen": true
+  },
+  "BR_FINISHED_YAW_SADDLE": {
+   "box_mm": [
+    65.43114630922621,
+    91.78233398355378,
+    39.0
+   ],
+   "native_axes_with_8mm_brim_each_side_and_4mm_Z_allowance": [
+    81.43114630922621,
+    107.78233398355378,
+    43.0
+   ],
+   "box_screen": true
+  },
+  "BR_FORE_ROOT_PI_CARRIER": {
+   "box_mm": [
+    219.0,
+    109.5,
+    114.47999999999999
+   ],
+   "native_axes_with_8mm_brim_each_side_and_4mm_Z_allowance": [
+    235.0,
+    125.5,
+    118.47999999999999
+   ],
+   "box_screen": true
+  },
+  "BR_BODY_FLOOR_OUTER_TOWER": {
+   "box_mm": [
+    198.0,
+    170.0,
+    137.07999999999998
+   ],
+   "native_axes_with_8mm_brim_each_side_and_4mm_Z_allowance": [
+    214.0,
+    186.0,
+    141.07999999999998
+   ],
+   "box_screen": true
+  },
+  "BR_PITCH_RECEIVER_OPEN_ENTRY": {
+   "box_mm": [
+    56.0,
+    75.2,
+    66.0
+   ],
+   "native_axes_with_8mm_brim_each_side_and_4mm_Z_allowance": [
+    72.0,
+    91.2,
+    70.0
+   ],
+   "box_screen": true
+  }
+ },
+ "active_roles": [
+  "BR_COMMON_OPTICAL_MASK",
+  "BR_PARTED_SKULL_BACK",
+  "BR_CHEST_EXTENSION_ENTRY",
+  "BR_ROUNDED_RUMP",
+  "BR_FINISHED_YAW_SADDLE",
+  "BR_FORE_ROOT_PI_CARRIER",
+  "BR_BODY_FLOOR_OUTER_TOWER",
+  "BR_PITCH_RECEIVER_OPEN_ENTRY"
+ ],
+ "unit_budgets": {
+  "yaw_JR": {
+   "full": 250,
+   "case_stub": 11.45,
+   "static_free": 223.55,
+   "plug": 15,
+   "body_pair": "C_HY",
+   "far_ends": [
+    "XB12 F_HY.out",
+    "XB13 G_AUX.4",
+    "XS13 R1.2"
+   ]
+  },
+  "pitch_JR": {
+   "full": 250,
+   "case_stub": 11.45,
+   "on_yaw_saddle": 65.44984694978736,
+   "moving": 158.10015305021267,
+   "plug": 15,
+   "body_pair": "C_HP",
+   "minimum_inner_R": 22.33333860011464
+  },
+  "static_JR300": {
+   "full": 300,
+   "plug": 12,
+   "shared_free": 246,
+   "individual_fan": 25,
+   "insulated_land": 9,
+   "lap": 8,
+   "three_sleeves_mm": [
+    20,
+    20,
+    20
+   ],
+   "body_continuations": [
+    {
+     "wire": "XB23",
+     "from_body_land": [
+      -49.0,
+      65.220664,
+      158.5
+     ],
+     "existing_end": "G_AUX.3",
+     "existing_function_group": "WAGO:W3Ref_G_AUX_case",
+     "selected_body_unit_or_E1_allocation": "WAGO415_data_1_6",
+     "body_box": [
+      110.49999999999997,
+      -22.000000000000014,
+      144.99999999999997,
+      119.49999999999997,
+      7.999999999999986,
+      163.99999999999997
+     ],
+     "bulk_stock": "HELU23301",
+     "capacity_radius_mm": 2.1,
+     "lower_bound_to_body_box_mm": 169.45339887001646,
+     "lower_bound_scope": "Distance to the selected housing or E1 regional allocation only. R2.2 source group PWM1608_U1 still needs its particular mounted endpoint. The FHAC exit side and the physical cavity mouth are not frozen by the box.",
+     "proper_HELU_land": 9,
+     "proper_HELU_lap": 8,
+     "body_blank_rule": "ceil5(L to proper end + 30) after continuous actual body allocation",
+     "planned_body_blank": null,
+     "actual_cut": null
+    },
+    {
+     "wire": "XB22",
+     "from_body_land": [
+      -43.0,
+      66.207978,
+      158.5
+     ],
+     "existing_end": "F_HP.out",
+     "existing_function_group": "F_HP",
+     "selected_body_unit_or_E1_allocation": "PBAY_F_HP",
+     "body_box": [
+      -37.999999999999986,
+      -8.000000000000014,
+      50.00000000000006,
+      13.000000000000014,
+      13.999999999999986,
+      70.25000000000006
+     ],
+     "bulk_stock": "HELU23302",
+     "capacity_radius_mm": 1.05,
+     "lower_bound_to_body_box_mm": 102.6583433864412,
+     "lower_bound_scope": "Distance to the selected housing or E1 regional allocation only. R2.2 source group PWM1608_U1 still needs its particular mounted endpoint. The FHAC exit side and the physical cavity mouth are not frozen by the box.",
+     "proper_HELU_land": 9,
+     "proper_HELU_lap": 8,
+     "body_blank_rule": "ceil5(L to proper end + 30) after continuous actual body allocation",
+     "planned_body_blank": null,
+     "actual_cut": null
+    },
+    {
+     "wire": "XS23",
+     "from_body_land": [
+      -37.0,
+      65.220664,
+      158.5
+     ],
+     "existing_end": "R2.2",
+     "existing_function_group": "PWM1608_U1",
+     "selected_body_unit_or_E1_allocation": "E1_populated_prototype_board",
+     "body_box": [
+      52.0,
+      12.54999999999999,
+      128.00000000000003,
+      102.0,
+      22.54999999999999,
+      158.00000000000003
+     ],
+     "bulk_stock": "HELU23308",
+     "capacity_radius_mm": 1.05,
+     "lower_bound_to_body_box_mm": 98.70175057313268,
+     "lower_bound_scope": "Distance to the selected housing or E1 regional allocation only. R2.2 source group PWM1608_U1 still needs its particular mounted endpoint. The FHAC exit side and the physical cavity mouth are not frozen by the box.",
+     "proper_HELU_land": 9,
+     "proper_HELU_lap": 8,
+     "body_blank_rule": "ceil5(L to proper end + 30) after continuous actual body allocation",
+     "planned_body_blank": null,
+     "actual_cut": null
+    }
+   ]
+  },
+  "FFC": {
+   "raw": 200,
+   "proper_ends_once": 10,
+   "nominal_free": 190,
+   "sampled_free": [
+    190.0,
+    190.0,
+    190.0,
+    190.0,
+    190.0,
+    190.0,
+    190.0,
+    190.0,
+    190.0
+   ],
+   "source_contacts": "unchanged"
+  },
+  "ToF": {
+   "moving_free": 170,
+   "minimum_inner_R": 31.954802500148258,
+   "stationary_fan": [
+    {
+     "wire": "EXT011",
+     "JP3": 2,
+     "fixed_length": 239.0633015642627,
+     "minimum_fixed_inner_R": 14.45,
+     "budget": {
+      "header": 97,
+      "moving": 170,
+      "lane_difference": 7,
+      "fixed": 240,
+      "ends_once": 12,
+      "loss": 4
+     },
+     "planned_each": 530
+    },
+    {
+     "wire": "EXT013",
+     "JP3": 3,
+     "fixed_length": 243.43851947782292,
+     "minimum_fixed_inner_R": 14.45,
+     "budget": {
+      "header": 97,
+      "moving": 170,
+      "lane_difference": 7,
+      "fixed": 244,
+      "ends_once": 12,
+      "loss": 4
+     },
+     "planned_each": 535
+    },
+    {
+     "wire": "EXT014",
+     "JP3": 4,
+     "fixed_length": 232.88270076251632,
+     "minimum_fixed_inner_R": 14.45,
+     "budget": {
+      "header": 97,
+      "moving": 170,
+      "lane_difference": 7,
+      "fixed": 233,
+      "ends_once": 12,
+      "loss": 4
+     },
+     "planned_each": 525
+    },
+    {
+     "wire": "EXT012",
+     "JP3": 6,
+     "fixed_length": 237.5658256616453,
+     "minimum_fixed_inner_R": 14.45,
+     "budget": {
+      "header": 97,
+      "moving": 170,
+      "lane_difference": 7,
+      "fixed": 238,
+      "ends_once": 12,
+      "loss": 4
+     },
+     "planned_each": 530
+    }
+   ]
+  },
+  "DATA500": {
+   "raw": 500,
+   "fixed_boot_debits": [
+    26,
+    26
+   ],
+   "free": 448,
+   "stored": 253.3744407846,
+   "transport": 194.6255592154
+  },
+  "USB_AUDIO": {
+   "measured_length": null,
+   "illustrative_free_polyline": 213.79000000000008,
+   "condition": "Seat both delivered plugs together in the diagonal Pi USB-A ports and confirm the jacket and supplied length to ReSpeaker; BTL stays AMP-to-speaker."
+  }
+ },
+ "local": [
+  {
+   "a": "BR_CHEST_EXTENSION_ENTRY",
+   "b": "BR_FLANK_HP_PAIR",
+   "common_mm3": 0.0
+  },
+  {
+   "a": "BR_CHEST_EXTENSION_ENTRY",
+   "b": "BR_FLANK_THREE_LAPS",
+   "common_mm3": 0.0
+  },
+  {
+   "a": "BR_COMMON_OPTICAL_MASK",
+   "b": "BR_PITCH_RECEIVER_OPEN_ENTRY",
+   "common_mm3": 1.055181481272149
+  },
+  {
+   "a": "BR_FINISHED_YAW_SADDLE",
+   "b": "YAW_SHAFT_FORK_POSITIVE_CROSSPIN_full_screw",
+   "common_mm3": 0.0
+  },
+  {
+   "a": "BR_FINISHED_YAW_SADDLE",
+   "b": "YAW_SHAFT_FORK_POSITIVE_CROSSPIN_headwasher",
+   "common_mm3": 0.0
+  },
+  {
+   "a": "BR_FINISHED_YAW_SADDLE",
+   "b": "YAW_SHAFT_FORK_POSITIVE_CROSSPIN_nutwasher",
+   "common_mm3": 0.0
+  },
+  {
+   "a": "BR_FINISHED_YAW_SADDLE",
+   "b": "YAW_SHAFT_FORK_POSITIVE_CROSSPIN_fullnut",
+   "common_mm3": 0.0
+  },
+  {
+   "a": "BR_FINISHED_YAW_SADDLE",
+   "b": "MG92B_Head_pitch",
+   "common_mm3": 0.0
+  }
+ ],
+ "print_status": "Dimensional screen only; slicing and actual support/brim remain unverified.",
+ "physical_PASS": false,
+ "actual_cuts": null,
+ "installed_slack": null
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "scope": "Three auxiliary PWM signal channels only; not servo power wiring",
+  "readiness": "prototype",
+  "physical_tests_performed": false,
+  "part": "Texas Instruments SN74LVC8T245PW",
+  "package": "TSSOP24 PW; top-view pin numbers",
+  "source": "https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf",
+  "source_revision": "SCES584D, May 2026",
+  "rails": {
+    "LOGIC3V3": {"source": "Pi 3.3 V logic domain", "nominal_v": 3.3},
+    "PWM5_SW": {"source": "Separate qualified 5 V signal supply behind S1; exact regulator pending", "nominal_v": 5.0, "minimum_v": 4.5, "maximum_v": 5.5, "qualified": false},
+    "GND": {"source": "Common G_SYS; signal return only, not servo current through Pi"}
+  },
+  "pins": {
+    "1": "LOGIC3V3", "2": "LOGIC3V3",
+    "3": "PWM_HEAD_YAW_3V3", "4": "PWM_HEAD_PITCH_3V3", "5": "PWM_TAIL_YAW_3V3",
+    "6": "GND", "7": "GND", "8": "GND", "9": "GND", "10": "GND",
+    "11": "GND", "12": "GND", "13": "GND",
+    "14": "B8_UNUSED", "15": "B7_UNUSED", "16": "B6_UNUSED", "17": "B5_UNUSED", "18": "B4_UNUSED",
+    "19": "PWM_TAIL_YAW_BUF", "20": "PWM_HEAD_PITCH_BUF", "21": "PWM_HEAD_YAW_BUF",
+    "22": "OE_N_3V3", "23": "PWM5_SW", "24": "PWM5_SW"
+  },
+  "channels": [
+    {"axis": "head_yaw", "source": "PWM_BOARD.confirmed_head_yaw_output", "input_pin": 3, "output_pin": 21, "series_ref": "R1", "destination": "HEAD_YAW.MG92B.PWM"},
+    {"axis": "head_pitch", "source": "PWM_BOARD.confirmed_head_pitch_output", "input_pin": 4, "output_pin": 20, "series_ref": "R2", "destination": "HEAD_PITCH.MG92B.PWM"},
+    {"axis": "tail_yaw", "source": "PWM_BOARD.confirmed_tail_yaw_output", "input_pin": 5, "output_pin": 19, "series_ref": "R3", "destination": "TAIL_YAW.MG92B.PWM"}
+  ],
+  "components": [
+    {"ref": "U1", "quantity": 1, "value": "SN74LVC8T245PW", "use": "3.3 V to nominal 5 V, fixed A-to-B"},
+    {"ref": "PCB1", "quantity": 1, "value": "Kamami 575070 TSSOP24/DIP24 adapter", "use": "Solder U1; verify 0.65 mm side and numbering before assembly"},
+    {"ref": "R1-R3", "quantity": 3, "value": "220 ohm, 1%, 0.25 W", "use": "Series at B1/B2/B3 before servo PWM cable"},
+    {"ref": "R4-R6", "quantity": 3, "value": "10 kohm, 1%, 0.25 W", "use": "A1/A2/A3 to GND when source is disconnected"},
+    {"ref": "R7-R9", "quantity": 3, "value": "10 kohm, 1%, 0.25 W", "use": "After series resistor, PWM to GND, at servo-side connector"},
+    {"ref": "R10-R14", "quantity": 5, "value": "10 kohm, 1%, 0.25 W", "use": "B4-B8 to GND; unused channels not left floating"},
+    {"ref": "R15", "quantity": 1, "value": "10 kohm, 1%, 0.25 W", "use": "OE_N_3V3 to LOGIC3V3, default disabled"},
+    {"ref": "R16", "quantity": 1, "value": "10 kohm, 1%, 0.25 W", "use": "PWM5_SW to GND, discharge bleeder; no guaranteed off-time"},
+    {"ref": "C1-C2", "quantity": 2, "value": "100 nF ceramic, >=16 V", "use": "U1 VCCA/GND and VCCB/GND, close to pins"}
+  ],
+  "logic_binding": {"pwm_board_sku": null, "pwm_channels": null, "oe_gpio_bcm": null, "pi_header_pin": null, "confirmed": false},
+  "cables": {
+    "signal": "Stranded 0.14 mm2; PWM paired with signal GND; no servo current in these returns",
+    "static": "Short on carrier; cut after regulator/PWM board position is fixed",
+    "head": "Outside passive journal; yaw loop before moving carrier, pitch loop at driven side; strain relief on both fixed and moving ends",
+    "tail": "At fixed servo base, not through tail bearing",
+    "bend": "Design target radius >=10 mm and >=6 cable diameters, whichever greater; actual wire data overrides",
+    "cutting": "Dociąć po przymiarce across full accepted motion; add 30 mm service allowance per detachable end; purchase total pending final routes",
+    "edges": "Sleeve on hard edges; no tension, rubbing or pinching; removable restraints",
+    "power": "Servo V+/power GND, fuses, terminals and converter sizing explicitly outside this signal-only increment"
+  },
+  "off_guarantee": {"ioff_max_uA_per_pin": 2, "supply_test_v": 0, "io_test_max_v": 5.5, "qualified_at_intermediate_voltage": false},
+  "open": ["PWM5_SW regulator and fuse", "Servo AUX supply/current/thermal budget", "Actual PWM board and GPIO binding", "Carrier insulation and mounting", "Complete cable lengths/connectors and power returns", "First-pulse and manual restart procedure", "Bench power decay and PWM measurements"]
+}

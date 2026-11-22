@@ -1,0 +1,949 @@
+{
+  "name": "22 head first-fit replacement set",
+  "basis_20H_unchanged_outside_exact_replacements": true,
+  "native": "whole-cat22-head-first-fit.FCStd",
+  "units": "mm",
+  "parts": [
+    {
+      "filename": "STL/22_Face.stl",
+      "object": "D21_Face",
+      "quantity": 1,
+      "replaces": "STL/D19D_Face.stl",
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "graphite",
+      "orientation": "rear rim down, face up",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          -76.66035511531227,
+          88.25003341563888,
+          -161.72999990000002
+        ]
+      ],
+      "stl_bounding_mm": [
+        148.9366,
+        176.4998,
+        85.97
+      ],
+      "actual_with_allowance_mm": [
+        164.9366,
+        192.4998,
+        93.97
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Four M2×16 stations in the complete moving head. Two transverse joints to carrier; two axial joints to rear rim. Root hardware installed during bench assembly.",
+      "required_ops": [
+        "Dry-fit carrier with steel; gauge Ø2.32 holes; trim or ream by hand if required.",
+        "Deburr captive square nut and washer pockets; keep outside finish. Install inserts and bonded ears before optics."
+      ],
+      "volume_mm3": 166541.176,
+      "meshing": {
+        "linear_mm": 0.09,
+        "angular_rad": 0.19,
+        "raw_solid": true
+      },
+      "sha256": "a36afe3510ae1bcd8e5c06981e2a8040ca5eb8ddbfb8d1204075c5d9d1dec670",
+      "triangles": 61604,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        212978.39,
+        -23283.917,
+        -23283.766
+      ],
+      "positive_mesh_mm3": 166410.707,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        148.93655,
+        176.4998,
+        85.97
+      ]
+    },
+    {
+      "filename": "STL/22_PitchBack.stl",
+      "object": "D19D_PitchBack",
+      "quantity": 1,
+      "replaces": "STL/D19D_PitchBack.stl",
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "graphite",
+      "orientation": "front mating rim down",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          -0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          213.00000010000002,
+          76.6685783539887,
+          166.00000010000008
+        ]
+      ],
+      "stl_bounding_mm": [
+        128.0,
+        153.6686,
+        33.2
+      ],
+      "actual_with_allowance_mm": [
+        144.0,
+        169.6686,
+        41.2
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Two M2×16, two AF4 nuts, four OD5×0.5 washers. Bearing tabs and two driver passages. Negative screw lies above retained factory pitch-lead opening.",
+      "required_ops": [
+        "Clear both Ø5.5 driver entries and bore only if printed undersize. Do not fill the negative MG lead relief."
+      ],
+      "volume_mm3": 19819.814,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "d368b2553bcf1d895abde816f5d092302e8fe27aceb284e48be58fa83061142e",
+      "triangles": 5018,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        19807.705
+      ],
+      "positive_mesh_mm3": 19807.701,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        128.0,
+        153.66858,
+        33.2
+      ]
+    },
+    {
+      "filename": "STL/22_OpticsCarrier.stl",
+      "object": "D21_Carrier",
+      "quantity": 1,
+      "replaces": "STL/D19D_OpticsCarrier.stl",
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "graphite",
+      "orientation": "lowest load foot down",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          215.834,
+          49.2,
+          -92.0
+        ]
+      ],
+      "stl_bounding_mm": [
+        69.834,
+        103.5,
+        67.15
+      ],
+      "actual_with_allowance_mm": [
+        85.834,
+        119.5,
+        75.15
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Source pitch shaft, horn and crosspin, two transversely seated mask M2×16; reuse two M2×12 camera assemblies and two M2×10 ToF assemblies with source washers and nuts.",
+      "required_ops": [
+        "Clean the through M2 holes and flat washers seats at both optical modules; retain source stand-off heights."
+      ],
+      "volume_mm3": 18804.751,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "ae8e9cad975618836075e62cbc4a28bf4ce6646492ea51fcd12c7c18c1f56a95",
+      "triangles": 10040,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        18804.665
+      ],
+      "positive_mesh_mm3": 18804.664,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        69.834,
+        103.5,
+        67.15
+      ]
+    },
+    {
+      "filename": "STL/22_Ear_L.stl",
+      "object": "D21_Ear_L",
+      "quantity": 1,
+      "replaces": "STL/D19D_Ear_L.stl",
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "graphite",
+      "orientation": "inner bowl up",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          -177.6999713282467,
+          -31.39701087318105,
+          -176.81168634289295
+        ]
+      ],
+      "stl_bounding_mm": [
+        66.2227,
+        54.0408,
+        36.8445
+      ],
+      "actual_with_allowance_mm": [
+        82.2227,
+        70.04079999999999,
+        44.8445
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Matching temple seating perimeter and bonded hidden root/fillet.",
+      "required_ops": [
+        "Remove supports and burrs only on intended underside; dry-fit the original positive stops before adhesive."
+      ],
+      "volume_mm3": 27843.9,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "308afaa6c19bfebc395688d8a7dd48bc032ea1b31f237e19e841035d9b1221d6",
+      "triangles": 17668,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        27791.913
+      ],
+      "positive_mesh_mm3": 27791.913,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        66.22265,
+        54.04079,
+        36.84447
+      ]
+    },
+    {
+      "filename": "STL/22_Ear_R.stl",
+      "object": "D21_Ear_R",
+      "quantity": 1,
+      "replaces": "STL/D19D_Ear_R.stl",
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "graphite",
+      "orientation": "inner bowl up",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          -177.6999713282467,
+          85.44300428416562,
+          -176.81168634289295
+        ]
+      ],
+      "stl_bounding_mm": [
+        66.2227,
+        54.0408,
+        36.8445
+      ],
+      "actual_with_allowance_mm": [
+        82.2227,
+        70.04079999999999,
+        44.8445
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Matching temple seating perimeter and bonded hidden root/fillet.",
+      "required_ops": [
+        "Remove supports and burrs only on intended underside; dry-fit the original positive stops before adhesive."
+      ],
+      "volume_mm3": 27843.9,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "dbae9319e9ce0648a645438b0cc69b6b1c750e0dd2623fc1fec9c31e349ea21e",
+      "triangles": 17682,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        27791.35
+      ],
+      "positive_mesh_mm3": 27791.349,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        66.22265,
+        54.04079,
+        36.84447
+      ]
+    },
+    {
+      "filename": "STL/22_Ear_Inlay_L.stl",
+      "object": "D21_Ear_Inset_L",
+      "quantity": 1,
+      "replaces": null,
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "dark graphite",
+      "orientation": "back of inlay down",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          -187.39775374778554,
+          -44.20955960103108,
+          -191.31219256243392
+        ]
+      ],
+      "stl_bounding_mm": [
+        45.4972,
+        32.177,
+        13.0692
+      ],
+      "actual_with_allowance_mm": [
+        61.4972,
+        48.177,
+        21.069200000000002
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Existing positive stopped pocket, roughen hidden back and bond inlay to ear shell.",
+      "required_ops": [
+        "Remove supports and burrs only on intended underside; dry-fit the original positive stops before adhesive."
+      ],
+      "volume_mm3": 3997.738,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "ca39eb8dfe6b0b88e23aeafc5792ca810f18ca12119c34a45120457f16cae94f",
+      "triangles": 672,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        4000.041
+      ],
+      "positive_mesh_mm3": 4000.041,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        45.49719,
+        32.17696,
+        13.06924
+      ]
+    },
+    {
+      "filename": "STL/22_Ear_Inlay_R.stl",
+      "object": "D21_Ear_Inset_R",
+      "quantity": 1,
+      "replaces": null,
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "dark graphite",
+      "orientation": "back of inlay down",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          -187.39775374778554,
+          76.4032401,
+          -191.31219256243392
+        ]
+      ],
+      "stl_bounding_mm": [
+        45.4972,
+        32.177,
+        13.0692
+      ],
+      "actual_with_allowance_mm": [
+        61.4972,
+        48.177,
+        21.069200000000002
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Existing positive stopped pocket, roughen hidden back and bond inlay to ear shell.",
+      "required_ops": [
+        "Remove supports and burrs only on intended underside; dry-fit the original positive stops before adhesive."
+      ],
+      "volume_mm3": 3997.738,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "420763539dd9996da16cf88dc8a009db406e7c533f58febb279cde71741c245d",
+      "triangles": 672,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        4000.041
+      ],
+      "positive_mesh_mm3": 4000.041,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        45.49719,
+        32.17696,
+        13.06924
+      ]
+    },
+    {
+      "filename": "STL/22_Nose.stl",
+      "object": "D21_Nose",
+      "quantity": 1,
+      "replaces": "STL/D19D_Nose.stl",
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "brown-black",
+      "orientation": "stem down",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          -110.24618708734802,
+          11.117674967597855,
+          -232.59999990000003
+        ]
+      ],
+      "stl_bounding_mm": [
+        16.2217,
+        22.2344,
+        18.4
+      ],
+      "actual_with_allowance_mm": [
+        32.2217,
+        38.2344,
+        26.4
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Existing Ø6.10 locating stem in Ø6.48 hole. Bond post and rear shoulder.",
+      "required_ops": [
+        "Remove supports and burrs only on intended underside; dry-fit the original positive stops before adhesive."
+      ],
+      "volume_mm3": 1576.146,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "d345f23962d7b3262365cf886210f5ea353d28888f66f5c893d208bd566510d3",
+      "triangles": 8428,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        1572.232
+      ],
+      "positive_mesh_mm3": 1572.232,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        16.22168,
+        22.23443,
+        18.4
+      ]
+    },
+    {
+      "filename": "STL/22_Iris_Cam_L.stl",
+      "object": "D21_Rim_Cam",
+      "quantity": 1,
+      "replaces": "STL/D19D_Iris_L.stl",
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "amber",
+      "orientation": "flat seating face down",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          -122.67000000000007,
+          -20.67,
+          -218.62000000000003
+        ]
+      ],
+      "stl_bounding_mm": [
+        38.6514,
+        38.6557,
+        2.4298
+      ],
+      "actual_with_allowance_mm": [
+        54.6514,
+        54.6557,
+        10.4298
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Existing toroidal front ring, spigot Ø38.20 in Ø38.74 seat. Glue at three concealed land points.",
+      "required_ops": [
+        "Remove supports and burrs only on intended underside; dry-fit the original positive stops before adhesive."
+      ],
+      "volume_mm3": 436.435,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "c44c7b27d966212ad1e11d617f60da6964e2e1f4143c72166a19f496009b6db9",
+      "triangles": 16380,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        436.084
+      ],
+      "positive_mesh_mm3": 436.084,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        38.65135,
+        38.65567,
+        2.42984
+      ]
+    },
+    {
+      "filename": "STL/22_Iris_ToF_R.stl",
+      "object": "D21_Rim_ToF",
+      "quantity": 1,
+      "replaces": "STL/D19D_Iris_R.stl",
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "amber",
+      "orientation": "flat seating face down",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          -122.67000000000007,
+          59.33000000000001,
+          -218.62000000000003
+        ]
+      ],
+      "stl_bounding_mm": [
+        38.6514,
+        38.6557,
+        2.4298
+      ],
+      "actual_with_allowance_mm": [
+        54.6514,
+        54.6557,
+        10.4298
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Existing toroidal front ring, spigot Ø38.20 in Ø38.74 seat. Glue at three concealed land points.",
+      "required_ops": [
+        "Remove supports and burrs only on intended underside; dry-fit the original positive stops before adhesive."
+      ],
+      "volume_mm3": 436.435,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "76939b0473d99016ecdd2d84e35df4a6b7d03b1b5a533d1a818735e57be42eea",
+      "triangles": 16380,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        436.084
+      ],
+      "positive_mesh_mm3": 436.084,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        38.65135,
+        38.65567,
+        2.42984
+      ]
+    },
+    {
+      "filename": "STL/22_Insert_Cam_L.stl",
+      "object": "D21_Insert_Cam",
+      "quantity": 1,
+      "replaces": "STL/D19D_Pupil_L.stl",
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "charcoal",
+      "orientation": "rear pad down",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          -124.71999990000009,
+          -22.7199999,
+          -218.19999990000002
+        ]
+      ],
+      "stl_bounding_mm": [
+        34.5523,
+        34.5561,
+        1.52
+      ],
+      "actual_with_allowance_mm": [
+        50.5523,
+        50.5561,
+        9.52
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Dark insert Ø34.56, keyed by ring bore and stepped mask; tiny compatible adhesive beads on perimeter, outside field.",
+      "required_ops": [
+        "Remove supports and burrs only on intended underside; dry-fit the original positive stops before adhesive."
+      ],
+      "volume_mm3": 1257.354,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "a4051a89c624838bcfffe9419ce8dfa6c502b40fb3434c78f1599f119e2f3e9b",
+      "triangles": 904,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        1256.573
+      ],
+      "positive_mesh_mm3": 1256.573,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        34.55227,
+        34.55613,
+        1.52
+      ]
+    },
+    {
+      "filename": "STL/22_Insert_ToF_R.stl",
+      "object": "D21_Insert_ToF",
+      "quantity": 1,
+      "replaces": "STL/D19D_Pupil_R.stl",
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "charcoal",
+      "orientation": "rear pad down",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          -124.71999990000009,
+          57.28000010000002,
+          -218.5999999
+        ]
+      ],
+      "stl_bounding_mm": [
+        34.5523,
+        34.5561,
+        1.12
+      ],
+      "actual_with_allowance_mm": [
+        50.5523,
+        50.5561,
+        9.120000000000001
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Dark insert Ø34.56, keyed by ring bore and stepped mask; tiny compatible adhesive beads on perimeter, outside both ToF windows.",
+      "required_ops": [
+        "Remove supports and burrs only on intended underside; dry-fit the original positive stops before adhesive."
+      ],
+      "volume_mm3": 994.778,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "e81cff6be9b138bab01ffa040a35541f7d9a0d08a77fe863a6e3d40ec0a5cf77",
+      "triangles": 436,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        994.151
+      ],
+      "positive_mesh_mm3": 994.151,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        34.55227,
+        34.55613,
+        1.12
+      ]
+    },
+    {
+      "filename": "STL/22_CSI_ParkingClip.stl",
+      "object": "D22_CSI_ParkingClip",
+      "quantity": 1,
+      "replaces": null,
+      "material": "PETG (verify adhesive compatibility with actual filament)",
+      "colour": "graphite",
+      "orientation": "side of riser down",
+      "native_to_bed_rotation_xyzw_and_translation_mm": [
+        [
+          0.7071067811865476,
+          0.0,
+          0.0,
+          0.7071067811865476
+        ],
+        [
+          130.20000000000002,
+          162.20000000000002,
+          28.200000000000042
+        ]
+      ],
+      "stl_bounding_mm": [
+        22.0,
+        27.8,
+        23.6
+      ],
+      "actual_with_allowance_mm": [
+        38.0,
+        43.8,
+        31.6
+      ],
+      "allowances": {
+        "brim_per_side_mm": 8,
+        "additional_support_height_mm": 8
+      },
+      "mounts": "Positive-Y lip of existing D20_POST_Aft_Slotted rail. Form-fitting shoe and thin cured compatible adhesive. Soft closure ties leave full cable slip.",
+      "required_ops": [
+        "Deburr shoe and wet-sand slip slot edges. Verify 7 mm movement in guide before applying adhesive.",
+        "Keep epoxy and tie out of POST adjustment and release envelope."
+      ],
+      "volume_mm3": 988.467,
+      "meshing": {
+        "linear_mm": 0.065,
+        "angular_rad": 0.12,
+        "raw_solid": true
+      },
+      "sha256": "caa75bc4178ed3eedfe868c4f40209cba550246eb278281e4bdaf9b312b78611",
+      "triangles": 256,
+      "watertight": true,
+      "material_components": 1,
+      "surface_shell_signed_volumes_mm3": [
+        988.467
+      ],
+      "positive_mesh_mm3": 988.467,
+      "stl_bbox_mm": [
+        0.0,
+        0.0,
+        0.0,
+        22.0,
+        27.8,
+        23.6
+      ]
+    }
+  ],
+  "moving_mass_reference": {
+    "printed_moving_parts_solid_volume_cm3": 273.55,
+    "solid_petg_reference_density_g_cm3": 1.27,
+    "fully_dense_printed_mass_reference_g": 347.41,
+    "printed_solid_centroid_working_frame_mm": [
+      -199.9662058895754,
+      0.6291378374735348,
+      162.95184029236296
+    ],
+    "distance_to_pitch_datum_mm": 58.64,
+    "actual_printed_mass_g": null,
+    "actual_motion_and_load": null
+  },
+  "conditional_prototype_first_fit": true,
+  "retired_print_slugs": [
+    "STL/D19D_Face.stl",
+    "STL/D19D_PitchBack.stl",
+    "STL/D19D_OpticsCarrier.stl",
+    "STL/D19D_Ear_L.stl",
+    "STL/D19D_Ear_R.stl",
+    "STL/D19D_Nose.stl",
+    "STL/D19D_Iris_L.stl",
+    "STL/D19D_Iris_R.stl",
+    "STL/D19D_Pupil_L.stl",
+    "STL/D19D_Pupil_R.stl"
+  ],
+  "retired_native_names": [
+    "D19D_Face",
+    "D19D_OpticsCarrier",
+    "D19D_Ear_L",
+    "D19D_Ear_R",
+    "D19D_Iris_L",
+    "D19D_Iris_R",
+    "D19D_Pupil_L",
+    "D19D_Pupil_R",
+    "D19D_Nose",
+    "D21_FFC_Screen_Unqualified",
+    "D21_Mask_M2_reference_L",
+    "D21_Mask_M2_reference_R",
+    "F3_HEAD_BACK_1_FULL_M2x16",
+    "F3_HEAD_BACK_1_FULL_NUT",
+    "F3_HEAD_BACK_1_HEAD_WASHER",
+    "F3_HEAD_BACK_1_NUT_WASHER",
+    "F3_HEAD_BACK_m1_FULL_M2x16",
+    "F3_HEAD_BACK_m1_FULL_NUT",
+    "F3_HEAD_BACK_m1_HEAD_WASHER",
+    "F3_HEAD_BACK_m1_NUT_WASHER",
+    "F3_HEAD_ROOT_1_FULL_M2x12",
+    "F3_HEAD_ROOT_1_FULL_NUT",
+    "F3_HEAD_ROOT_1_HEAD_WASHER",
+    "F3_HEAD_ROOT_1_NUT_WASHER",
+    "F3_HEAD_ROOT_m1_FULL_M2x12",
+    "F3_HEAD_ROOT_m1_FULL_NUT",
+    "F3_HEAD_ROOT_m1_HEAD_WASHER",
+    "F3_HEAD_ROOT_m1_NUT_WASHER"
+  ],
+  "superseded_existing_native_geometry": [
+    "D21_Face",
+    "D19D_PitchBack",
+    "D21_Carrier"
+  ],
+  "stock_needs": {
+    "M2x16": 4,
+    "M2_AF4_nuts": 4,
+    "OD5x0.5_M2_washers": 8,
+    "selected_camera_M2x12_reused": 2,
+    "selected_ToF_M2x10_reused": 2,
+    "CSI_Standard_Standard_300mm": 1,
+    "inventory_verified": false
+  },
+  "actual_cut": null,
+  "actual_fit": null,
+  "actual_supplementary_steel_inventory": null,
+  "physical_pass": false,
+  "combined_with_frozen20H_exact": {
+    "robot_unique_STL": 61,
+    "robot_quantity": 81,
+    "separate_FIT_S0_coupon_retained": true,
+    "removed_from20H_robot_STL": 10,
+    "added_current_STL": 13,
+    "untouched_stock_paths": [
+      "STL/20H_RearBase_CONDITIONAL_AFTER_FIT_S0.stl",
+      "STL/Bracket_v.stl",
+      "STL/C20_BatteryUpperBridge.stl",
+      "STL/C20_FrontFrame.stl",
+      "STL/C20_MTA_FL.stl",
+      "STL/C20_MTA_FR.stl",
+      "STL/C20_MTA_RL.stl",
+      "STL/C20_MTA_RR.stl",
+      "STL/D19D_YawSaddle.stl",
+      "STL/D20_F0_Open_Adapter.stl",
+      "STL/D20_POST_Aft_Slotted.stl",
+      "STL/D20_XT60_Axial_Adapter.stl",
+      "STL/E19_BatteryDoor.stl",
+      "STL/E19_ForeLid.stl",
+      "STL/E19_KeyedTail.stl",
+      "STL/E19_RearLid.stl",
+      "STL/E19_UpperYawCover.stl",
+      "STL/E19_WagoForeNeg.stl",
+      "STL/E19_WagoForePos.stl",
+      "STL/E19_WagoRearNeg.stl",
+      "STL/E19_WagoRearPos.stl",
+      "STL/F19_ForeCap.stl",
+      "STL/F19_RearCap.stl",
+      "STL/I19_FuseBand_AUX.stl",
+      "STL/LegLink.stl",
+      "STL/LegSpacer.stl",
+      "STL/PITCH_FIXED_OUTER_RACE_CAP.stl",
+      "STL/PITCH_HORN_KEY_HALF_NEG.stl",
+      "STL/PITCH_HORN_KEY_HALF_POS.stl",
+      "STL/PITCH_HORN_ROOF_JOURNAL.stl",
+      "STL/PITCH_INNER_THRUST_SPACER.stl",
+      "STL/PITCH_REAL_REMOVABLE_SERVO_SADDLE.stl",
+      "STL/TAIL_FIXED_BEARING_CARTRIDGE.stl",
+      "STL/TAIL_FIXED_OUTER_RACE_CAP.stl",
+      "STL/TAIL_HORN_KEY_HALF_NEG.stl",
+      "STL/TAIL_HORN_KEY_HALF_POS.stl",
+      "STL/TAIL_HORN_ROOF_JOURNAL.stl",
+      "STL/TAIL_INNER_THRUST.stl",
+      "STL/TAIL_OUTER_RACE_SPACER.stl",
+      "STL/TAIL_REAL_REMOVABLE_SERVO_SADDLE.stl",
+      "STL/WConnector.stl",
+      "STL/YAW_FIXED_OUTER_RACE_CAP.stl",
+      "STL/YAW_HORN_KEY_HALF_NEG.stl",
+      "STL/YAW_HORN_KEY_HALF_POS.stl",
+      "STL/YAW_HORN_ROOF_JOURNAL.stl",
+      "STL/YAW_INNER_RACE_SPACER.stl",
+      "STL/YAW_OUTER_RACE_SPACER.stl",
+      "STL/YAW_TOP_THRUST.stl"
+    ]
+  }
+}
