@@ -1,0 +1,133 @@
+{
+  "native_sha256": "ab43ac577077ccfb38e6dbffff537d0356680bbfaf9c3454694bed9dd9b14f58",
+  "seat_mm": [
+    174.0,
+    101.0,
+    112.05
+  ],
+  "orientation": "outward +Y, LINE facing front",
+  "physical_pass": false,
+  "actual_fit": null,
+  "actual_cut": null,
+  "R_inner_mm": 25.2,
+  "bench_tool_before_mount": true,
+  "ring_termination_contacts": {
+    "LOAD_driver": {
+      "E19_RearLid": 127.4606
+    }
+  },
+  "local_connected_wire_regions": {
+    "LINE": {
+      "first_region_end_mm": [
+        122.58999999999999,
+        52.0,
+        162.10000000000002
+      ],
+      "path": {
+        "0": {
+          "length_mm": 42.883,
+          "bounds": [
+            122.59,
+            48.65,
+            134.8,
+            155.7653,
+            55.35,
+            167.9753
+          ],
+          "contacts_mm3": {
+            "E19_RearLid": 65.7527
+          }
+        }
+      }
+    },
+    "LOAD": {
+      "first_region_end_mm": [
+        170.81,
+        52.0,
+        62.0
+      ],
+      "path": {
+        "0": {
+          "length_mm": 42.883,
+          "bounds": [
+            170.81,
+            48.65,
+            56.1247,
+            203.9853,
+            55.35,
+            89.3
+          ],
+          "contacts_mm3": {}
+        },
+        "1": {
+          "length_mm": 5.81,
+          "bounds": [
+            165.0,
+            48.65,
+            58.65,
+            170.81,
+            55.35,
+            65.35
+          ],
+          "contacts_mm3": {}
+        }
+      }
+    }
+  },
+  "body_vs_recovered_base_opening_needed_mm3": null,
+  "source_P_SYS_1_mouth_mm": [
+    165.0,
+    52.0,
+    62.0
+  ],
+  "scope": "Functional minimum bend at the switch and approach to the installed P_SYS point. LINE segment must connect to retained POST_F0.2 accessible region.",
+  "decision": "Carling fit remains open. Release the restored blank rear base only and preserve the electronics tray.",
+  "available_fixed_bay": {
+    "assembly_coordinates_mm": {
+      "face_centre": [
+        174,
+        101,
+        112.05
+      ],
+      "whole_case_bounds_XYZ": [
+        148.09,
+        56.55,
+        102.46,
+        199.91,
+        101,
+        121.64
+      ]
+    },
+    "reinstated_flank_Y_at_old_key_centre": [
+      105.36996,
+      107.66751
+    ],
+    "local_body_result": "Source case envelope 51.82 x 44.45 x 19.18 fits behind flank before installed bracket.",
+    "nominal_sourced_panel_interface": {
+      "clearance_diameter_mm": 16.0,
+      "fastener_hole_diameter_mm": 3.96,
+      "hole_pitch_mm": 42.16,
+      "handle_offset_from_screw_pitch_centre_mm": 5.59
+    },
+    "support_state": "The historic inner M6 seating rings were absent from the accepted ab43 outline at their documented Y99\u2013102 seats. There is a curved printed wall and no verified existing interchangeable support in this bay.",
+    "case_vs_final_flank_mm3": 0.0
+  },
+  "blocked_release": {
+    "mechanical": "W076 LINE transfer bend reserve intersects retained rear tray even though the protected eye and boot fit. Both an accessible continuous cable region back to POST_F0.2 and real bearing/installation remain open.",
+    "first_fit": "Bench-fit supplied rings to the 10-32 pads under the screw heads, cover each using an actual boot. Assemble battery hatch, rear tray and switch witness with battery physically disconnected. Test lever reach, tool and insulated wire clearance with at least the 25.2 mm stationary inside radius. Choose the mounting plate only after observing reachable routing.",
+    "LINE_tray_intersection_XYZ_mm": [
+      128.15,
+      50.91,
+      155.858,
+      134.0,
+      52.733,
+      164.941
+    ]
+  },
+  "new_switch_opening_emitted": false,
+  "actual_removed_wires": [
+    "C20_Protected_and_Return",
+    "G20_W066_Out_To_PSYS"
+  ],
+  "restoration_check_sha256": "131b019e1508c9624ab96e46edee6b3bdcafb2af18fe8aced559a216beb2aa9b"
+}
