@@ -1,0 +1,86 @@
+{
+  "source_native_sha256": "7502ddd0b2b3c663d39bd1209ee11db9847193a042f2460824a03d6f0eeca677",
+  "native_sha256": "4d6055c15a85bcb78fdad51276cf4aec04fba1c269b3a499b05f2e881ae0794e",
+  "new_switch": "Carling BA1-A0-03-650-511-C and two TE 8-35109-0 ends",
+  "electrical_path": "BAT+ > factory XT60 > F0 30 A > POST_F0 > S0 LINE/LOAD > P_SYS.1",
+  "pins": {
+    "whole-cat25-s0-mounted.FCStd": "4d6055c15a85bcb78fdad51276cf4aec04fba1c269b3a499b05f2e881ae0794e",
+    "STL/24S_RearBase_Carling.stl": "ef38ee54c254c2d57bccced8c5f2eaa9c72013dc57bc2c2a1412b2df0abb797c",
+    "mechanical-gate.json": "e20ff4e4ed570544e0ebdc587a6742f39e4a854f90a0119536589d3abffafd9c",
+    "printed-mount-gate.json": "c542d7b984a48e1d5484396989ff9d1ad55be1e19bdba11874e6c7a653a3e045",
+    "terminal-minimum-gaps.json": "69c2cb5f7b2674a0357b7329dbaed25cae772b55b074c3fa3b658b80b33bb33d",
+    "native-mounted-readback.json": "8e41a6792898940678c4b9f28d583f2c25e62977f358346a15c925ffc7cc7cbb",
+    "rear-mounted-stl.json": "e6179e41da354e800b0c4a83f0b5e0113ba1036b75bb8e07c7be8b38cccb7584",
+    "mounted-switch-close.png": "8a1d9c7739508631618793366d53b5fb963cd18e7c7ec9cb7c0d82963c9607d8",
+    "mounted-native-brep-audit.json": "a67c4b816f4ae7c29ec11b49820c763c0b7ed8a7dc1d437a752b888748f9cbc4"
+  },
+  "kept_native_dependencies": {
+    "E19_RearLid": "3cb00af1abeda9e47031aa7c2e589ecb01f5316b088623910a7c4451f183c29c",
+    "D24_AftSkin": "8fe23f8c7d1d3a7f0d84427f12cddac3466b12bc78a3f6050826cbb0160195d9",
+    "D24_BatteryDoor": "c1faa7669e934deb1e5bdef6edcd4d474baf29023249055ad75efdebf49dbf44",
+    "Battery_GEA223S30X6GT": "88b4e4546b87fe2edacee832f9a6ecd46b304e36150169baa72830c0c0da9e6c",
+    "C20_BatteryUpperBridge": "6d0e7648e6a27ef60a2291e8f9cb2f1f11a8ca7912e87d63538d98f70ece7cc6",
+    "PBAY_POST_F0": "eb020dc6c87cd73d635d5126bb07639aa2bc9b9242c8cc889d48acfeff4b74fa",
+    "OP_S1_LEVER_NOMINAL": "f3373232ed9dde067dd2c5810bbafa54af2d0b03f4e7723745e5119b48842dbe",
+    "PBAY_P_SYS": "5633c9a7f3f3e4e294a3023a880b930d9bdc1b03969a6c6abfc945f3f978dacc"
+  },
+  "print": {
+    "replacement_only": "STL/24S_RearBase_Carling.stl",
+    "previous": "STL/24S_RearBase_Keyless_Blank.stl",
+    "measured_max_mm_including_brim": 235.9789,
+    "quantity": 1
+  },
+  "mount": {
+    "nominal_steel": "2 x #6-32 UNC x 3/8 in, washer 0.52 mm, 3.625 mm nominal insert engagement",
+    "assembly_samples": 13,
+    "cold_sequence": [
+      "Keep battery and USB disconnected. Remove aft cap, electronics tray and E1 before prewired switch insertion.",
+      "Trial the two flat 10-32 pads with real TE rings and boots, and set the lever into the aft insertion detent.",
+      "Lower the fully terminated switch 18 mm inboard, then slide +Y onto the two rooted pads. Install exterior 6-32 fasteners.",
+      "Connect and lay loose far ends on original accessible routing, reinstall E1 and tray, then exercise lever and hatch without power."
+    ],
+    "physical_pending": [
+      "Actual switch and fastener availability, full terminal seat and torque.",
+      "Actual boot profile and minimum loaded clearance to E1.",
+      "Actual lever stroke, slack, protected wire lengths, cold end-to-end continuity and hand access."
+    ],
+    "terminal_minimum_distances_mm": {
+      "LINE_insulating_boot_reserve": {
+        "E1_populated_prototype_board": 0.2383,
+        "G19_PermaProto1608": 4.2381,
+        "E19_RearLid": 12.59,
+        "C20_MTA_RR": 5.9923,
+        "E19_RearBase": 47.6278
+      },
+      "LOAD_insulating_boot_reserve": {
+        "E1_populated_prototype_board": 4.0,
+        "G19_PermaProto1608": 7.9998,
+        "E19_RearLid": 11.6934,
+        "C20_MTA_RR": 21.5401,
+        "E19_RearBase": 14.3192
+      }
+    }
+  },
+  "harness": {
+    "LINE_to_existing_gateway_mm": 191.59,
+    "source_20G_upstream_to_gateway_mm": 140.735,
+    "W076_custom_free_space_polycurve_mm": 332.325,
+    "W066_free_space_polycurve_mm": 48.693,
+    "ends_mm_once": {
+      "TE_crimp_borrowed_provisional": 8.0,
+      "WAGO_source_strip": 11.0
+    },
+    "lay_reserve_mm_once": 20.0,
+    "conditional_W076_blank_mm": 372,
+    "conditional_W066_blank_mm": 88,
+    "actual_cut_mm": null,
+    "stock_actual_mm": null
+  },
+  "carling_sources": [
+    "https://www.carlingtech.com/eParts-catalog/b-series-hydraulic-magnetic-circuit-breakers/BA1-A0-03-650-511-C",
+    "https://www.te.com/en/product-8-35109-0.html"
+  ],
+  "physical_pass": false,
+  "actual_fit": null,
+  "power_applied": false
+}
