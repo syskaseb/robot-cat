@@ -1,0 +1,357 @@
+{
+  "source_sha256": "82ce16a0ed3adc980ef4282ecd1da4b5bade3235774713a23f2d206a7377be82",
+  "document": "whole-cat24-final-body.FCStd",
+  "stage": "closed sculpted profile; final two light passages measured and closed",
+  "reviewed_6ba6_sha256": "6ba6c927307153729f89c667521318efdee007151633a958ef82526e5b51ac06",
+  "reviewed_b44_sha256": "b44f30259a00a5956b14168c8bd598b271f1a5057a2b8e0f5f7498efd1411e8d",
+  "changed": [
+    "E19_RearBase",
+    "D24_ForeSkin",
+    "D24_AftSkin",
+    "D24_BatteryDoor",
+    "E19_ForeLid",
+    "E19_RearLid",
+    "E19_UpperYawCover",
+    "D20_F0_Open_Adapter"
+  ],
+  "files": {
+    "E19_RearBase": "final-b44-rear-base-bounded.brep",
+    "D24_ForeSkin": "final-neck-and-tail-positive-fore.brep",
+    "D24_AftSkin": "final-neck-and-tail-positive-aft.brep",
+    "D24_BatteryDoor": "views-current-D24_BatteryDoor.brep",
+    "E19_ForeLid": "views-current-E19_ForeLid.brep",
+    "E19_RearLid": "final-rear-deck-closed.brep",
+    "E19_UpperYawCover": "final-trimmed-yaw-cover.brep",
+    "D20_F0_Open_Adapter": "final-F0-with-Pi-side.brep",
+    "TTP223_touch": "views-current-TTP223_touch.brep",
+    "D19D_YawMatedPair": "views-current-D19D_YawMatedPair.brep",
+    "G19_RemoteR_yaw": "views-current-G19_RemoteR_yaw.brep",
+    "B19_TailMatedPair": "views-current-B19_TailMatedPair.brep",
+    "G19_RemoteR_tail": "views-current-G19_RemoteR_tail.brep",
+    "H19_FrontFrame": "pre24-H19-reference.brep"
+  },
+  "transferred_units_mm": {
+    "TTP223_touch": [
+      0.0,
+      0.0,
+      -9.2
+    ],
+    "D19D_YawMatedPair": [
+      0.0,
+      0.0,
+      -8.7
+    ],
+    "G19_RemoteR_yaw": [
+      -7.8,
+      0.0,
+      -14.3
+    ],
+    "B19_TailMatedPair": [
+      0.0,
+      0.0,
+      -6.8
+    ],
+    "G19_RemoteR_tail": [
+      0.0,
+      0.0,
+      -10.1
+    ]
+  },
+  "print_meshes": [
+    {
+      "surface_file": "flat24S-Carrier-FinalSightline.stl",
+      "sha256": "aa439650e75868f39ff0407486c3432bab0608744049a35a09cf48e37e41b73f",
+      "triangles": 52742,
+      "bounds_mm": [
+        [
+          -166.800003,
+          -67.800003,
+          -1.4
+        ],
+        [
+          19.860001,
+          90.109627,
+          188.836929
+        ]
+      ],
+      "volume_mm3": 263071.763,
+      "object": "H19_FrontFrame_Print",
+      "source_world_mesh_sha256": "72fcdb9cafd20d419e5c934b9cba2a6b42639835a6d8ed862ccd3144ca8a2a0e",
+      "touched_vertices": 4,
+      "degenerate_triangles": 0,
+      "edge_incidence": {
+        "2": 79113
+      },
+      "stl_volume_delta_mm3": 0.3669,
+      "original_surface_file": "world-24S-FrontCarrier.stl",
+      "before_roof_file": "flat24S-Carrier-HipClear.stl",
+      "b44_world_mesh": "flat24S-Carrier-InnerRoof.stl",
+      "prelast_world_mesh": "flat24S-Carrier-SoftSeam.stl",
+      "label": "24S | Przedni nosnik"
+    },
+    {
+      "surface_file": "flat24S-LowerMantle-SoftSeam.stl",
+      "sha256": "a92f81419af2feb49937f2caf13320a245e3d0a0414460b8e2f52e56368dda1b",
+      "triangles": 20534,
+      "bounds_mm": [
+        [
+          -163.199997,
+          -107.027336,
+          21.497538
+        ],
+        [
+          19.91,
+          107.029213,
+          140.0
+        ]
+      ],
+      "volume_mm3": 100964.666,
+      "object": "D24_FrontLowerShroud",
+      "source_world_mesh_sha256": "37f17ef7737b44130b761d2f44ca04b0a3da38d0b811bc8d303a07db17b5e6e1",
+      "touched_vertices": 0,
+      "degenerate_triangles": 0,
+      "edge_incidence": {
+        "2": 30801
+      },
+      "stl_volume_delta_mm3": 0.2055,
+      "original_surface_file": "world-24S-FrontLowerMantle.stl",
+      "before_returns_file": "flat24S-LowerMantle.stl",
+      "b44_world_mesh": "flat24S-LowerMantle-Returns.stl",
+      "label": "24S | Dolna oslona przednia"
+    }
+  ],
+  "service_hidden": [
+    "D24_ForeSkin",
+    "D24_AftSkin",
+    "D24_BatteryDoor",
+    "E19_UpperYawCover",
+    "E19_ForeLid",
+    "E19_RearLid"
+  ],
+  "native_sha256": "ab43ac577077ccfb38e6dbffff537d0356680bbfaf9c3454694bed9dd9b14f58",
+  "gui_pid": 14076,
+  "objects": 640,
+  "modified": false,
+  "pending_operation": null,
+  "physical_pass": false,
+  "cameras": {
+    "front": {
+      "pos": [
+        -349.5033264160156,
+        0.0,
+        51.37665557861328
+      ],
+      "height": 611.4725952148438,
+      "hx": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "hy": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bz": [
+        -1.0,
+        0.0,
+        0.0
+      ]
+    },
+    "rear": {
+      "pos": [
+        361.5113220214844,
+        0.0,
+        51.37665557861328
+      ],
+      "height": 611.4725952148438,
+      "hx": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "hy": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bz": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    "left": {
+      "pos": [
+        6.003997802734375,
+        355.5072937011719,
+        51.376678466796875
+      ],
+      "height": 611.4725952148438,
+      "hx": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "hy": [
+        0.0,
+        -0.0,
+        1.0
+      ],
+      "bz": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    "right": {
+      "pos": [
+        6.003997802734375,
+        -355.5072937011719,
+        51.376678466796875
+      ],
+      "height": 611.4725952148438,
+      "hx": [
+        1.0,
+        0.0,
+        -0.0
+      ],
+      "hy": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bz": [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    },
+    "top": {
+      "pos": [
+        6.003997802734375,
+        0.0,
+        406.88397216796875
+      ],
+      "height": 611.4725952148438,
+      "hx": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "hy": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "bz": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "bottom": {
+      "pos": [
+        6.003997802734375,
+        0.0,
+        -304.1306457519531
+      ],
+      "height": 611.4725952148438,
+      "hx": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "hy": [
+        1.0,
+        -0.0,
+        0.0
+      ],
+      "bz": [
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    "front-three-quarter": {
+      "pos": [
+        -243.43336486816406,
+        229.4823455810547,
+        158.63473510742188
+      ],
+      "height": 611.4725952148438,
+      "hx": [
+        -0.6770565308208834,
+        -0.7359310117618296,
+        0.0
+      ],
+      "hy": [
+        0.22203351055640885,
+        -0.20427082971189617,
+        0.9534015671891938
+      ],
+      "bz": [
+        -0.7016377799568574,
+        0.6455067575603088,
+        0.3017042453814487
+      ]
+    },
+    "rear-three-quarter": {
+      "pos": [
+        255.4413604736328,
+        -229.4823455810547,
+        158.63473510742188
+      ],
+      "height": 611.4725952148438,
+      "hx": [
+        0.6770565308208834,
+        0.7359310117618296,
+        -0.0
+      ],
+      "hy": [
+        -0.22203351055640885,
+        0.20427082971189617,
+        0.9534015671891938
+      ],
+      "bz": [
+        0.7016377799568574,
+        -0.6455067575603088,
+        0.3017042453814487
+      ]
+    },
+    "service": {
+      "pos": [
+        -137.90716552734375,
+        275.8847961425781,
+        277.1683654785156
+      ],
+      "height": 627.8758544921875,
+      "hx": [
+        -0.8650311892618034,
+        -0.501718089771846,
+        0.0
+      ],
+      "hy": [
+        0.31032899669118036,
+        -0.5350499942951387,
+        0.7857591344791466
+      ],
+      "bz": [
+        -0.39422957197165637,
+        0.6797061585718214,
+        0.6185326043003574
+      ]
+    }
+  },
+  "views": {
+    "front.png": "32cc8938fb92760fc6a1b1adab59d9e835414e430f63063e3a0cd7769253270d",
+    "rear.png": "6fb42cccac3d8f71239568a529fa9ad6bba950e33caa348697a87840dacace4d",
+    "left.png": "33badd1e6782cbf222d8126631470f07377553e3891e4b51d996b23b9695c314",
+    "right.png": "a5e327511e03658dee696429be25beecc26ebe4f9df68f934060700224f8c1ae",
+    "top.png": "d1f41e4d8ce6d130bf7b88ca77983d90ca1e5434c0dddd21b85421221a9ee39b",
+    "bottom.png": "02354857f3ca4c5fb7d87eed024b7c3148b28eaf14265d8107c5f464189c8d55",
+    "front-three-quarter.png": "6b1fd12a952dc2540666eed2bdc91d14eec1f76c985ff0d02a04547d59714cb6",
+    "rear-three-quarter.png": "1b29634e3b4bc2aff8a5e5bd699b29fb11489e12c2970c54d120e975f093707a",
+    "service.png": "15ca8de0d76ba2e10af487b3842719ffdae273475b401448b6aaa4efe8d8f1c9"
+  }
+}

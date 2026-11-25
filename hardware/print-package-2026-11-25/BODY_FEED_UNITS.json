@@ -1,0 +1,89 @@
+{
+  "scope": "20H_CONDITIONAL_FIRST_FIT_BODY_FEED_OVERLAY",
+  "source_cad": "81ccff2cbac6",
+  "mounting_release": false,
+  "required_gate": "FIT_S0 before large RearBase printing",
+  "actual_cut_fit_slack": null,
+  "physical_PASS": false,
+  "units": {
+    "BAT_positive_factory": {
+      "factory_ends_intact": true,
+      "project_exit_to_boot_with_dressing_mm": 134.95,
+      "dressing_already_included_mm": 8,
+      "delivered_length_mm": null,
+      "exact_exit_pose": null
+    },
+    "BAT_negative_factory": {
+      "factory_ends_intact": true,
+      "project_exit_to_boot_with_dressing_mm": 131.9,
+      "dressing_already_included_mm": 8,
+      "delivered_length_mm": null,
+      "exact_exit_pose": null
+    },
+    "W075_robot_F0_in": {
+      "kind": "original FHAC0002 input lead, only robot-side preparation",
+      "project_total_mm": 37.34,
+      "XT60_cup_debit_already_included_mm": 5,
+      "limit_before_F0_mm": 50,
+      "actual_cut_mm": null
+    },
+    "W076_factory": {
+      "ends": [
+        "F0.out",
+        "POST_F0.1"
+      ],
+      "kind": "complete FHAC0002 output, no assumed FHAC0001 minimum",
+      "project_capacity_including_WAGO_entry_mm": [
+        92.42,
+        106.42
+      ],
+      "delivered_length_mm": null
+    },
+    "W001": {
+      "ends": [
+        "robot XT60.minus",
+        "G1.2"
+      ],
+      "stock": "LAPP0107001",
+      "project_blank_with_ends_and_one_lay_allowance_mm": 89,
+      "actual_cut_mm": null
+    },
+    "W076_custom": {
+      "ends": [
+        "POST_F0.2",
+        "S0.in"
+      ],
+      "stock": "HELU23802",
+      "OD_mm": 4.2,
+      "minimum_fixed_radius_mm": 25.2,
+      "conditional_project_blank_including_ends_and_lay_once_mm": 389,
+      "actual_cut_mm": null
+    },
+    "W066": {
+      "ends": [
+        "S0.out",
+        "P_SYS.1"
+      ],
+      "stock": "HELU23802",
+      "OD_mm": 4.2,
+      "minimum_fixed_radius_mm": 25.2,
+      "conditional_project_blank_including_ends_and_lay_once_mm": 260,
+      "actual_cut_mm": null
+    }
+  },
+  "untouched_short_factory_unit": "W077 F_PI.out to SPLICE_PI.16; not the S0 output wire",
+  "selected_nominal_stock_mm": {
+    "LAPP0107001": 3000,
+    "HELU23802": 9000
+  },
+  "actual_owned_stock_mm": null,
+  "purchase_authorized": false,
+  "assembly": "Prepare both complete S0 terminal stacks on bench, install into open frame, install whole E1 later, connect far WAGO ends. Covers close after manual lay. No post-installed socket/rapidservice requirement.",
+  "physical_checks": [
+    "actual BAT exits, both leads, both factory plugs and full manual withdrawal",
+    "whole F0 cap/body/tether and both factory leads",
+    "four full MTA units/lids/two leads",
+    "FIT_S0 full actual key/contact seat/fixings/both lugs"
+  ],
+  "native_sha256": "40f9ee0753ebc8819f03559ac037af08d82c868e6ecab7a06ed68da312a84c41"
+}

@@ -1,0 +1,1108 @@
+{
+  "scope": "Source groups for day19 whole low rounded layout; existing identities and budgets only",
+  "basis_commits": {
+    "current_receipt": "d5baf5e6ce1598ff8031edb8b82f1a1011b4fada",
+    "receipt_antecedent": "8e4f8d9668a13a8057ff2797f137d49b2fc88136",
+    "constructive_98": "98e254116c1128f13a94742449beddf451461fd5",
+    "mass_measurement_92a": "92a798fc",
+    "mass_baseline_c12": "c12d9a4e"
+  },
+  "native_receipt_sha256": "486abd0561488c91ea7d09344476c3b63c636c5f785238faa34ac36f7bf910d4",
+  "coverage": {
+    "selected_csv_rows": 57,
+    "all_selected_quantities_allocated_once": true,
+    "add7_modules": {
+      "EXT_IMU": {
+        "part": "BNO085 Adafruit4754",
+        "qty": 1
+      },
+      "EXT_TOF": {
+        "part": "VL53L5CX Pololu3417",
+        "qty": 1
+      },
+      "EXT_TOUCH": {
+        "part": "Grove TTP223",
+        "qty": 1
+      },
+      "EXT_AMP": {
+        "part": "MAX98357A Adafruit3006",
+        "qty": 1
+      },
+      "EXT_SPK": {
+        "part": "Selected4ohm5W speaker",
+        "qty": 1
+      },
+      "EXT_MIC": {
+        "part": "ReSpeaker Lite USB",
+        "qty": 1
+      },
+      "EXT_CAM": {
+        "part": "Camera Module3 NoIR Wide",
+        "qty": 1
+      }
+    }
+  },
+  "classification_rule": "Envelope type qualifies evidence. Union BBoxes and project air/install fields remain allocation constraints until actual occupancy resolved; they do not prove physical contact or clearance. Supplier model dimensions still require delivered revision binding.",
+  "groups": [
+    {
+      "group": "WAVEGO drive and base",
+      "selected": [
+        {
+          "selected_id": "Drive ST3215",
+          "qty": 12,
+          "part": "22414"
+        }
+      ],
+      "envelopes_mm": [],
+      "whole_ends_and_function": "Retain all 12 drives, selected source base/legs and complete stock interfaces. Source chassis/leg geometry remains the CAD binding.",
+      "allocation": "Existing leg length retained. Small whole-base size adjustment allowed by current brief. Own deck/skin/mount poses are variables.",
+      "sources": [
+        "selected",
+        "design"
+      ]
+    },
+    {
+      "group": "Head and tail mechanism",
+      "selected": [
+        {
+          "selected_id": "Drive MG92B",
+          "qty": 3,
+          "part": "MG92B positional"
+        },
+        {
+          "selected_id": "Head pitch bearing",
+          "qty": 1,
+          "part": "688-2RS 8x16x5"
+        },
+        {
+          "selected_id": "Head yaw and tail bearings",
+          "qty": 3,
+          "part": "SKF608-2Z"
+        }
+      ],
+      "envelopes_mm": [
+        {
+          "part": "MG92B full cached supplier model",
+          "size_xyz_mm": [
+            12,
+            31.5,
+            36.8
+          ],
+          "type": "supplier_model_envelope_delivery_fit_unknown"
+        }
+      ],
+      "whole_ends_and_function": "3 positional MG92B; 688 x1 and 608 x3. Retain horns, complete fasteners, bearing function and all factory leads. Model envelope excludes current assembled bracket/horn/cable clearance.",
+      "allocation": "Head yaw +/-20 deg, pitch +/-10 deg; tail pitch about Y. Own support/saddle positions variable.",
+      "sources": [
+        "selected",
+        "component_receipt",
+        "units"
+      ]
+    },
+    {
+      "group": "Low battery and access",
+      "selected": [
+        {
+          "selected_id": "Battery",
+          "qty": 1,
+          "part": "GEA223S30X6GT"
+        },
+        {
+          "selected_id": "Battery monitor",
+          "qty": 1,
+          "part": "5015"
+        },
+        {
+          "selected_id": "Battery straps",
+          "qty": 2,
+          "part": "4982"
+        }
+      ],
+      "envelopes_mm": [
+        {
+          "part": "GEA223S30X6GT",
+          "size_xyz_mm": [
+            106.5,
+            35,
+            21.5
+          ],
+          "type": "selected_nominal_pack"
+        },
+        {
+          "part": "monitor MOD05015",
+          "size_xyz_mm": [
+            41,
+            25,
+            12
+          ],
+          "type": "cached_nominal_case"
+        }
+      ],
+      "whole_ends_and_function": "1 pack, 1 monitor, 2 straps. Keep pack XT60/balance tails, visible monitor and battery removal path; extra XT60 pair belongs to source-power group.",
+      "allocation": "Battery low on common open carrier. Strap/connector access allocated before covers; current tray and poses variable.",
+      "sources": [
+        "selected",
+        "construct"
+      ]
+    },
+    {
+      "group": "Source protection and switching",
+      "selected": [
+        {
+          "selected_id": "Source S0",
+          "qty": 1,
+          "part": "6EK002843-002"
+        },
+        {
+          "selected_id": "Source S1",
+          "qty": 1,
+          "part": "S821"
+        },
+        {
+          "selected_id": "Source XT60 pair",
+          "qty": 1,
+          "part": "XT60H-M/F with covers"
+        },
+        {
+          "selected_id": "S0 ring M10",
+          "qty": 2,
+          "part": "130207"
+        },
+        {
+          "selected_id": "S1 rings",
+          "qty": 4,
+          "part": "130171"
+        },
+        {
+          "selected_id": "F0 holder",
+          "qty": 1,
+          "part": "FHAC0002ZXJ"
+        },
+        {
+          "selected_id": "Fuse 0287030.PXCN",
+          "qty": 1,
+          "part": "0287030.PXCN"
+        },
+        {
+          "selected_id": "POST_F0 protected junction",
+          "qty": 1,
+          "part": "221-412"
+        }
+      ],
+      "envelopes_mm": [
+        {
+          "part": "F0 FHAC0002 + fuse",
+          "size_xyz_mm": [
+            70,
+            35,
+            26
+          ],
+          "type": "project_installation_field"
+        },
+        {
+          "part": "S1 S821 lever/tool allowance",
+          "size_xyz_mm": [
+            22,
+            22,
+            40
+          ],
+          "type": "project_installation_field"
+        },
+        {
+          "part": "XT60H mated with boots",
+          "size_xyz_mm": [
+            50,
+            24,
+            18
+          ],
+          "type": "project_mating_field"
+        }
+      ],
+      "whole_ends_and_function": "Full HELLA S0 with body/key/studs/nuts/rings, S821 with full4 ring terminals, F0 30A holder and factory ends, POST_F0 221-412. F0 field is provisional; exact complete end geometry remains sample-dependent.",
+      "allocation": "Operator access through planned openings. Mount full source assemblies to carrier; old rear tower/panel poses variable.",
+      "sources": [
+        "selected",
+        "construct"
+      ]
+    },
+    {
+      "group": "Distribution",
+      "selected": [
+        {
+          "selected_id": "WAGO power221615",
+          "qty": 4,
+          "part": "221-615"
+        },
+        {
+          "selected_id": "WAGO 221415",
+          "qty": 16,
+          "part": "221-415"
+        },
+        {
+          "selected_id": "WAGO opposed inline",
+          "qty": 8,
+          "part": "221-2411"
+        }
+      ],
+      "envelopes_mm": [],
+      "whole_ends_and_function": "4 x221-615, 16 x221-415, 8 x221-2411. 415 effective count is15 bank actors + actual PBAY_P_AUX; retired WAGO415_data_1_0 is the alias of that same unit. Preserve occupied chambers and levers.",
+      "allocation": "Open common side strips/corridors with access before cover closure. Old bank arrays and union BBoxes variable.",
+      "sources": [
+        "selected",
+        "effectivity"
+      ]
+    },
+    {
+      "group": "Twelve servo protection units",
+      "selected": [
+        {
+          "selected_id": "MTA servo bank",
+          "qty": 12,
+          "part": "0300330"
+        },
+        {
+          "selected_id": "Bank TE input",
+          "qty": 12,
+          "part": "4-520448-2"
+        },
+        {
+          "selected_id": "Bank TE output",
+          "qty": 12,
+          "part": "2-520184-2"
+        },
+        {
+          "selected_id": "Fuse 0287004.PXCN",
+          "qty": 12,
+          "part": "0287004.PXCN"
+        }
+      ],
+      "envelopes_mm": [
+        {
+          "part": "one MTA0300330 + TE IN + TE OUT + ATO4A",
+          "size_xyz_mm": [
+            71.43,
+            21.8486,
+            28
+          ],
+          "type": "cached_complete_source_assembly_envelope"
+        }
+      ],
+      "whole_ends_and_function": "12 full units including12 of13 selected4A fuses. Retain both DIFFERENT TE ends, fuse/lid/access and insulation. Orientations above are one cached pose; preserve actual constituent shapes.",
+      "allocation": "Arrange along sides as complete units. Old6+6/12-holder carrier250x194 footprint is an own arrangement, not a supplier minimum.",
+      "sources": [
+        "selected",
+        "group_cache",
+        "snapshot",
+        "construct"
+      ]
+    },
+    {
+      "group": "Four leg protection units",
+      "selected": [
+        {
+          "selected_id": "MTA four legs",
+          "qty": 4,
+          "part": "0100335"
+        },
+        {
+          "selected_id": "Fuse MTA MINIVAL10A / supplier AMFM-10A",
+          "qty": 4,
+          "part": "MINIVAL10A"
+        }
+      ],
+      "envelopes_mm": [
+        {
+          "part": "old MTA0100335 placeholder",
+          "size_xyz_mm": [
+            35.5,
+            8.1,
+            8.9
+          ],
+          "type": "unbound_placeholder_not_complete_selected_unit"
+        }
+      ],
+      "whole_ends_and_function": "4 MTA0100335 +4 MINIVAL10A. Complete selected housing/lid/tether/fuse/BOTH ends and actual tail lengths are UNKNOWN. MTA0300330x12 models, E2 220mm and FHAC84.5mm provide no substitute source.",
+      "allocation": "Place one full region per leg branch. Old placeholder and allowance fields do not establish a fit; obtain one complete selected sample/source.",
+      "sources": [
+        "selected",
+        "group_cache",
+        "add7"
+      ]
+    },
+    {
+      "group": "Five small protected branches",
+      "selected": [
+        {
+          "selected_id": "Small FHAC holders",
+          "qty": 5,
+          "part": "FHAC0001ZXJ"
+        },
+        {
+          "selected_id": "Fuse 0287004.PXCN",
+          "qty": 1,
+          "part": "0287004.PXCN"
+        },
+        {
+          "selected_id": "Fuse 0287003.PXCN",
+          "qty": 1,
+          "part": "0287003.PXCN"
+        },
+        {
+          "selected_id": "Fuse 0287001.PXCN",
+          "qty": 3,
+          "part": "0287001.PXCN"
+        },
+        {
+          "selected_id": "Fuse 0242.100UAT1",
+          "qty": 1,
+          "part": "0242.100UAT1"
+        }
+      ],
+      "envelopes_mm": [
+        {
+          "part": "each FHAC0001 case installation",
+          "size_xyz_mm": [
+            51,
+            22,
+            20.25
+          ],
+          "type": "cached_project_case_field"
+        }
+      ],
+      "whole_ends_and_function": "5 holders F_PI/F_AUX/F_HY/F_HP/F_TY and10 individual factory ends, raw84.5..94.5mm INCLUDING bare tips. Fuse4A x1,3A x1,1A x3 serve these branches;100mA logic fuse remains per existing design. Existing composite HELU/lap recipes retained.",
+      "allocation": "Keep P_SYS-F_PI and P_REAR-F_AUX factory-only approaches local. All5 mouths/cover access and full uncut surplus must remain allocated.",
+      "sources": [
+        "selected",
+        "design",
+        "short_ends",
+        "short_pair"
+      ]
+    },
+    {
+      "group": "Pi, complete ports and power/data",
+      "selected": [
+        {
+          "selected_id": "Owned Pi4B",
+          "qty": 1,
+          "part": "Raspberry Pi4B"
+        },
+        {
+          "selected_id": "Pi GPIO housing",
+          "qty": 1,
+          "part": "1992"
+        },
+        {
+          "selected_id": "Pi microSD",
+          "qty": 1,
+          "part": "1188166"
+        },
+        {
+          "selected_id": "Pi power K1474",
+          "qty": 1,
+          "part": "K-1474"
+        },
+        {
+          "selected_id": "Pi BUS USB cable",
+          "qty": 1,
+          "part": "CA-USBO-10CU-0005-BK"
+        },
+        {
+          "selected_id": "Pi passive angle adapter",
+          "qty": 1,
+          "part": "Delock60047"
+        }
+      ],
+      "envelopes_mm": [
+        {
+          "part": "Pi PCB",
+          "size_xyz_mm": [
+            85,
+            56,
+            1.6
+          ],
+          "type": "cached_board_material_envelope"
+        },
+        {
+          "part": "Pi components/cooling/air",
+          "size_xyz_mm": [
+            85,
+            56,
+            26
+          ],
+          "type": "project_air_and_component_reserve"
+        },
+        {
+          "part": "DATA full mating field",
+          "size_xyz_mm": [
+            26,
+            26,
+            24
+          ],
+          "type": "project_mating_field"
+        },
+        {
+          "part": "1992 full mated body",
+          "size_xyz_mm": [
+            51.1,
+            5.1,
+            14.25
+          ],
+          "type": "source_body_project_engagement"
+        },
+        {
+          "part": "Delock60047 body",
+          "size_xyz_mm": [
+            22,
+            13,
+            8
+          ],
+          "type": "supplier_approx_body_project_engagement"
+        },
+        {
+          "part": "retained K1474 boot",
+          "size_xyz_mm": [
+            25,
+            14,
+            8
+          ],
+          "type": "project_full_boot_field"
+        }
+      ],
+      "whole_ends_and_function": "1 Pi4,1992,microSD,K1474,DATA500 andDelock. Preserve CSI/GPIO/USB latches, all11 official-footprint port/component fields, wire exits, cooling airflow and full POWER boot. Cooler SKU/physical profile UNKNOWN. K1474 nominal1000mm per core in source ledger, delivered length unmeasured. DATA is a separate500mm unit.",
+      "allocation": "Low complete control module, practical side/top cable access. Pi pose variable with all occupied ports and cooling moved together.",
+      "sources": [
+        "selected",
+        "pi_contract",
+        "audio",
+        "units"
+      ]
+    },
+    {
+      "group": "BUS and regulators",
+      "selected": [
+        {
+          "selected_id": "BUS",
+          "qty": 1,
+          "part": "25514"
+        },
+        {
+          "selected_id": "MAIN",
+          "qty": 1,
+          "part": "4853"
+        },
+        {
+          "selected_id": "AUX",
+          "qty": 1,
+          "part": "4092"
+        }
+      ],
+      "envelopes_mm": [
+        {
+          "part": "BUS25514",
+          "size_xyz_mm": [
+            42,
+            33,
+            24
+          ],
+          "type": "project_component_and_mating_field"
+        },
+        {
+          "part": "MAIN4853 full retained family",
+          "size_xyz_mm": [
+            30.48,
+            22.86,
+            7.6748
+          ],
+          "type": "cached_family_model_envelope"
+        },
+        {
+          "part": "AUX4092 full populated scope",
+          "size_xyz_mm": [
+            25.4,
+            25.4,
+            9.5
+          ],
+          "type": "project_populated_reserve_not_bare_PCB"
+        }
+      ],
+      "whole_ends_and_function": "1 each. MAIN source shape/family and AUX complete populated scope both retained. Bare AUX thickness1.57mm does not cover components. Allocate real soldered ports, insulation and cooling. BUS USB and factory ends remain complete.",
+      "allocation": "Shared low carrier/control bay; previous stacked/vertical towers variable.",
+      "sources": [
+        "selected",
+        "group_cache",
+        "snapshot"
+      ]
+    },
+    {
+      "group": "Whole soldered PCA-E1",
+      "selected": [
+        {
+          "selected_id": "PCA9685",
+          "qty": 1,
+          "part": "815 revC"
+        },
+        {
+          "selected_id": "E1 MRS16000C2200FCT00",
+          "qty": 3,
+          "part": "MRS16000C2200FCT00"
+        },
+        {
+          "selected_id": "E1 MRS16000C1002FCT00",
+          "qty": 10,
+          "part": "MRS16000C1002FCT00"
+        },
+        {
+          "selected_id": "E1 L78L05ACZ",
+          "qty": 1,
+          "part": "L78L05ACZ"
+        },
+        {
+          "selected_id": "E1 C320C334K5R5TA",
+          "qty": 1,
+          "part": "C320C334K5R5TA"
+        },
+        {
+          "selected_id": "E1 C315C104K5R5TA",
+          "qty": 3,
+          "part": "C315C104K5R5TA"
+        },
+        {
+          "selected_id": "E1 MRS16000C2201FCT00",
+          "qty": 1,
+          "part": "MRS16000C2201FCT00"
+        },
+        {
+          "selected_id": "E1 M20-7821242",
+          "qty": 2,
+          "part": "M20-7821242"
+        },
+        {
+          "selected_id": "E1 M20-9991245",
+          "qty": 2,
+          "part": "M20-9991245"
+        },
+        {
+          "selected_id": "E1 Adafruit1608",
+          "qty": 1,
+          "part": "1608"
+        },
+        {
+          "selected_id": "E1 Adafruit1208",
+          "qty": 1,
+          "part": "Adafruit1208"
+        },
+        {
+          "selected_id": "E1 SN74LVC8T245PW",
+          "qty": 1,
+          "part": "SN74LVC8T245PW"
+        },
+        {
+          "selected_id": "Remote R7 R8 R9",
+          "qty": 3,
+          "part": "MRS16000C1002FCT00"
+        }
+      ],
+      "envelopes_mm": [
+        {
+          "part": "PCA815 revC PCB",
+          "size_xyz_mm": [
+            62.23,
+            25.4,
+            1.6
+          ],
+          "type": "cached_board_material_envelope"
+        },
+        {
+          "part": "populated E1",
+          "size_xyz_mm": [
+            50,
+            10,
+            30
+          ],
+          "type": "project_component_and_end_reserve"
+        }
+      ],
+      "whole_ends_and_function": "All selected E1 board/breakout, translator, regulator, resistors/caps/Harwin connectors and3 remote resistors retained. PCA and E1 are soldered as a whole; preserve linked contacts, JP3 fields and both-side insulation/fasteners.",
+      "allocation": "Relocate/rotate as one connected group. Own shelf/keeper/current orientation variable; no virtual unplug.",
+      "sources": [
+        "selected",
+        "design",
+        "soldered_pair"
+      ]
+    },
+    {
+      "group": "Servo JR and E2 complete units",
+      "selected": [
+        {
+          "selected_id": "JR extension",
+          "qty": 3,
+          "part": "586761"
+        },
+        {
+          "selected_id": "E2 source housing",
+          "qty": 1,
+          "part": "430250200"
+        },
+        {
+          "selected_id": "E2 module housing",
+          "qty": 1,
+          "part": "430200201"
+        },
+        {
+          "selected_id": "E2 source V contact",
+          "qty": 1,
+          "part": "2147612113"
+        },
+        {
+          "selected_id": "E2 source G contact",
+          "qty": 1,
+          "part": "2147611113"
+        },
+        {
+          "selected_id": "E2 module V contact",
+          "qty": 1,
+          "part": "2147632113"
+        },
+        {
+          "selected_id": "E2 module G contact",
+          "qty": 1,
+          "part": "2147631113"
+        }
+      ],
+      "envelopes_mm": [],
+      "whole_ends_and_function": "3 selected JR300 extensions retained as3 separate purchased units; head yaw250,pitch250 and tail250 are independent factory leads. E2:2 selected plastic housings +4 distinct precrimp contact-wire units, nominal225mm/conservative available220mm EACH, both delivered ends preserved. These4 conductors are distinct from4 leg MTA holders.",
+      "allocation": "Allocate full keyed pairs and unit-specific storage. Frozen head has C_HY and C_HP on BODY; this pose may change only with whole-unit/motion accounting. Tail Y function retained.",
+      "sources": [
+        "selected",
+        "add7",
+        "units"
+      ]
+    },
+    {
+      "group": "Head optics ADD7",
+      "selected": [],
+      "envelopes_mm": [
+        {
+          "part": "camera PCB",
+          "size_xyz_mm": [
+            25,
+            24,
+            1.12
+          ],
+          "type": "source_receipt_board"
+        },
+        {
+          "part": "camera full",
+          "size_xyz_mm": [
+            12.4,
+            25,
+            24
+          ],
+          "type": "nominal_installation_envelope_axial_width_height"
+        },
+        {
+          "part": "Pololu3417 STEP board/package",
+          "size_xyz_mm": [
+            12.7,
+            17.78,
+            2.566
+          ],
+          "type": "supplier_model_envelope"
+        },
+        {
+          "part": "ToF full",
+          "size_xyz_mm": [
+            14,
+            26,
+            26
+          ],
+          "type": "project_installation_reserve"
+        }
+      ],
+      "whole_ends_and_function": "Camera Module3 NoIR Wide x1 +Pololu3417 ToF x1. Full lens/PCB and both TX/RX remain; actual optical pupil/origins UNKNOWN. CSI200 has10mm total end debit ONCE and190mm free. Four HELU ToF cores eachOD2.1mm, moving sourceR31.5mm, fixed minimum sampled inner R14.45mm in the frozen receipt.",
+      "allocation": "Optics/head mounts and own mask pose variable within complete head yaw/pitch ranges. Recompute affected routes and apertures for new poses.",
+      "sources": [
+        "add7",
+        "optics",
+        "units"
+      ]
+    },
+    {
+      "group": "Fixed sensors and audio ADD7",
+      "selected": [],
+      "envelopes_mm": [
+        {
+          "part": "BNO085 supplier model",
+          "size_xyz_mm": [
+            25.4,
+            22.86,
+            4.53
+          ],
+          "type": "supplier_model_envelope"
+        },
+        {
+          "part": "touch TTP223",
+          "size_xyz_mm": [
+            25,
+            20,
+            8
+          ],
+          "type": "cached_project_installation_field"
+        },
+        {
+          "part": "MAX98357A AMP",
+          "size_xyz_mm": [
+            27,
+            24,
+            13
+          ],
+          "type": "cached_project_installation_field"
+        },
+        {
+          "part": "speaker",
+          "size_xyz_mm": [
+            100,
+            45,
+            21
+          ],
+          "type": "cached_nominal_selected_revision_fit_unknown"
+        },
+        {
+          "part": "ReSpeaker Lite",
+          "size_xyz_mm": [
+            86,
+            35,
+            10
+          ],
+          "type": "cached_nominal_installation_field"
+        },
+        {
+          "part": "ReSpeaker Lite v1.1 complete cached STEP",
+          "size_xyz_mm": [
+            83.602,
+            34.007,
+            10.93
+          ],
+          "type": "supplier_model_envelope_revision_delivery_binding_unknown"
+        }
+      ],
+      "whole_ends_and_function": "BNO085,TTP223,MAX98357A,4ohm5W speaker,ReSpeaker Lite x1 EACH. Preserve Grove end, microphone acoustics and speaker OUT+/OUT- BTL pair. ReSpeaker independent USB_AUDIO A-to-C data cable length/plug profile UNKNOWN; DATA500 cannot supply this role. Cached ReSpeaker nominal86x35x10 field and v1.1 STEP83.602x34.007x10.93 differ. Retain complete board/connectors and match actual revision; nominal10mm height alone is insufficient for that STEP.",
+      "allocation": "Fixed common bay with acoustic openings and practical plug/installation access before closure; current dorsal/audio rails are own variables.",
+      "sources": [
+        "add7",
+        "construct",
+        "audio",
+        "audio_ports",
+        "respeaker_receipt"
+      ]
+    }
+  ],
+  "allocation_constraints": [
+    {
+      "id": "C1",
+      "constraint": "Five FHAC holders: ten separate84.5..94.5mm factory tails, bare tip already included. Keep P_SYS->F_PI.in (W043) and P_REAR->F_AUX.in (XA01) close with reachable mouths; retain whole surplus. Other branch composites retain original HELU/lap ends.",
+      "source": [
+        "short_ends",
+        "short_pair"
+      ],
+      "decision": "Relocate pair as a functional pair before banking; case pose and raw lead length are different budgets."
+    },
+    {
+      "id": "C2",
+      "constraint": "12 full MTA0300330+2differentTE+ATO units are reusable in new poses;4 complete MTA0100335 units remain unbound. Four E2/JPWM contact-wire units220mm EACH are a separate stock identity.",
+      "source": [
+        "selected",
+        "group_cache",
+        "add7"
+      ],
+      "decision": "Discard old carrier footprint as minimum; keep sourceparts and an explicit complete-sample dependency for4 leg holders."
+    },
+    {
+      "id": "C3",
+      "constraint": "PCA+E1 soldered whole and full AUX populated scope retained; preserve end/latch/insulation access and all active WAGO16, including PBAY_P_AUX.",
+      "source": [
+        "soldered_pair",
+        "pi_contract",
+        "effectivity"
+      ],
+      "decision": "One low connected control bay installed before side banks/cover."
+    },
+    {
+      "id": "C4",
+      "constraint": "Pi85x56x26 is component/cooling/AIR reserve. Keep complete ports, full DATA500+two26mm boots/free448, minimum projectR30/OD6.8 and retained K1474/Delock POWER boot. USB_AUDIO is independent and unmeasured.",
+      "source": [
+        "pi_contract",
+        "audio",
+        "audio_ports",
+        "units"
+      ],
+      "decision": "Actual Pi/cooler/CSI latch +both delivered USB plugs fit check determines usable local space; reserve contact stays inconclusive."
+    },
+    {
+      "id": "C5",
+      "constraint": "Yaw20/pitch10, tailY, full CSI200 (10ends once), independent MG250/JR300 units and ToF4xOD2.1 movingR31.5 preserved. JR mouths/stub11.45/profileR are project datums, not supplier exits.",
+      "source": [
+        "units",
+        "add7"
+      ],
+      "decision": "Move own receivers/loops with whole-unit budgets; frozen route splits are history for changed poses. Delivered ends, cuts and slack remain unknown."
+    }
+  ],
+  "frozen_length_reference_only": {
+    "FFC": {
+      "raw_mm": 200,
+      "ends_total_once_mm": 10,
+      "free_mm": 190
+    },
+    "head_yaw250": {
+      "full": 250,
+      "case_stub": 11.45,
+      "static_free": 223.55,
+      "plug": 15,
+      "body_pair": "C_HY",
+      "far_ends": [
+        "XB12 F_HY.out",
+        "XB13 G_AUX.4",
+        "XS13 R1.2"
+      ]
+    },
+    "head_pitch250": {
+      "full": 250,
+      "case_stub": 11.45,
+      "on_yaw_saddle": 65.44984694978736,
+      "moving": 158.10015305021267,
+      "plug": 15,
+      "body_pair": "C_HP",
+      "minimum_inner_R": 22.33333860011464
+    },
+    "head_JR300": {
+      "raw_mm": 300,
+      "plug_mm": 12,
+      "shared_free_mm": 246,
+      "fan_mm": 25,
+      "insulated_land_mm": 9,
+      "lap_mm": 8,
+      "body_continuations": "G_AUX.3,F_HP.out,R2.2 lengths remain unresolved; old straight lower bounds are not new route lengths"
+    },
+    "DATA500": {
+      "raw_mm": 500,
+      "boots_each_mm": 26,
+      "free_mm": 448
+    },
+    "ToF_planned_old_mm": {
+      "EXT011": 530,
+      "EXT012": 530,
+      "EXT013": 535,
+      "EXT014": 525
+    },
+    "reuse": "Physical identities/end debits only. Old route allocations/5 sampled poses do not qualify new layout."
+  },
+  "mass_budget": {
+    "unit": "g",
+    "ST3215": {
+      "qty": 12,
+      "working_each": 69,
+      "working_total": 828,
+      "basis": "Explicit day19 task working value; cached c12 assumption60..75g/each encompasses it. Delivered SKU22414 mass unmeasured. Cached55+/-1g C018 is not bound to delivered revision."
+    },
+    "MG92B": {
+      "qty": 3,
+      "nominal_each": 13.8,
+      "nominal_total": 41.4,
+      "basis": "cached TowerPro receipt; scope of horn/cable/accessories not separated"
+    },
+    "battery": {
+      "qty": 1,
+      "nominal_total": 174,
+      "basis": "cached GEA223S30X6GT receipt; factory tails/connectors mass scope not separated"
+    },
+    "fixed_nominal_subtotal": 1043.4,
+    "allowances_from_c12": [
+      {
+        "group": "original_chassis_and_all_metal_bearings_fasteners",
+        "range": [
+          180,
+          400
+        ],
+        "known_mass": null,
+        "scope": "All original chassis and metal, selected bearings/fasteners. Include retained/new hardware here once; no extra39.97g."
+      },
+      {
+        "group": "all_boards_cooling_sensors_audio",
+        "range": [
+          180,
+          350
+        ],
+        "known_mass": null,
+        "scope": "Includes Pi46g reference, MAIN4.6g nominal, AUX,BUS,PCA/E1,ADD7,cooling. No extra Pi/MAIN/ADD7 additions."
+      },
+      {
+        "group": "all_protection_switches_junctions_terminals_cables",
+        "range": [
+          450,
+          800
+        ],
+        "known_mass": null,
+        "scope": "Includes WAGO111.6g and factory leads as counted with their unit. Supplied-unit overlap with nominal drive/battery mass requires final reconciliation; no duplicate cable addition."
+      }
+    ],
+    "WAGO_nominal_inside_protection_allowance": {
+      "221-615": {
+        "qty": 4,
+        "each": 7.1,
+        "subtotal": 28.4
+      },
+      "221-415": {
+        "qty": 16,
+        "each": 4,
+        "subtotal": 64
+      },
+      "221-2411": {
+        "qty": 8,
+        "each": 2.4,
+        "subtotal": 19.2
+      },
+      "subtotal": 111.6,
+      "additional_mass_above_allowance": 0
+    },
+    "base_plus_bought_allowances_excluding_prints_range": [
+      1853.4,
+      2593.4
+    ],
+    "printed_mass_parameter_P": {
+      "budget_g": null,
+      "actual_g": null,
+      "scope": "Retained printed leg parts plus all new/current own carrier, supports and skins; exclude source chassis already in180..400g. Count each retained print once. CAD author to assign P after new geometry; old prints not immutable."
+    },
+    "whole_formula_g": "[1853.4 + P, 2593.4 + P]",
+    "illustrative_sensitivity_only": [
+      {
+        "P": 800,
+        "whole": [
+          2653.4,
+          3393.4
+        ]
+      },
+      {
+        "P": 1000,
+        "whole": [
+          2853.4,
+          3593.4
+        ]
+      }
+    ],
+    "historical_comparators": {
+      "baseline_prints_plus_leg_candidates_g": [
+        1346.660167,
+        1896.710908
+      ],
+      "baseline_full_PETG_model_g": 1778.501,
+      "later_6a_full_PETG_model_g": 1283.436104,
+      "same_density_g_cm3": 1.27,
+      "status": "Historical model/heuristics, no new frozen d5baf material sum and no physical/slicer mass"
+    },
+    "specific_missing": [
+      "Delivered ST3215 revision/mass scope",
+      "Actual complete Pi/cooler and full electronics mass",
+      "Actual complete4MTA0100335, source switching/terminal/wiring unit mass",
+      "Original chassis material/mass and retained printed leg total",
+      "New selected geometry manufactured mass P",
+      "Hardware retirement and factory-wire/accessory overlap reconciliation"
+    ],
+    "physical_whole_mass_g": null,
+    "COM": null,
+    "payload_or_walking_acceptance": null
+  },
+  "physical_PASS": false,
+  "actual_fit_cut_slack": null,
+  "sources": {
+    "selected": {
+      "path": "hardware/electronics/kicad-current/selected-components.csv",
+      "sha256": "4ac53a1dba32ec771038cf30deada706657ca1b66f3c741c54dc249de11eabce"
+    },
+    "design": {
+      "path": "hardware/electronics/kicad-current/design.json",
+      "sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01"
+    },
+    "add7": {
+      "path": "hardware/electronics/full-cat/closed-prototype-add7-2026-11-16/connections.json",
+      "sha256": "c9f6687e6a4419749781f4c7f57ef5b9895cc3a05064fa33b14e1ae0390c6553"
+    },
+    "verified": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-body-reception-and-closed-fit/verified-reception.json",
+      "sha256": "7253f8972070a1f7f8101c9364add25dc49a6faf817bbc2bf6618c00d07aec33"
+    },
+    "units": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-body-reception-and-closed-fit/frozen-unit-receipt.json",
+      "sha256": "7b5a7ce3e337119410f09436bceff9ba430a65ba9dfb46aa1016fe2be11fd028"
+    },
+    "effectivity": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-body-reception-and-closed-fit/pa-aux-effectivity.json",
+      "sha256": "f0cc5dc52424fdafac8ad1592e1a933cb47d26a363a1f32ed706bd8b7f0084af"
+    },
+    "group_cache": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-low-light-whole-decision/cached-current-wholegroups.json",
+      "sha256": "381650a1c9648a6f8f5c5bb88bb54c7784c089e0806ef5237fb6d3828dfd4157"
+    },
+    "snapshot": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-low-side-front-whole-proposal/source-object-metadata.json",
+      "sha256": "1e3ccf3c7c9ba5228644053cba63a627e571923729a77671006f6426d62bbae9"
+    },
+    "construct": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day14-fasttrack-first-fit/day14-firstfit-build.py",
+      "sha256": "f1b1deba2c9a00f5ad87dcce666d9694d2eda10c834fc342b64eba1836a79bbf"
+    },
+    "pi_contract": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-coherent-front-material-and-loom/build-one-common-front.py",
+      "sha256": "b475c23b2950be341a3dc5190a7b2a9911b5e7abaa5757a7df1fcebaa648c7d7"
+    },
+    "short_ends": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-night-body-connected-layout/all25chambers-and10factory-end-contracts.json",
+      "sha256": "8cf139101217d5d1869aabef2b282fc950c76df326b637f8a571c225e23acd75"
+    },
+    "short_pair": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day17-night-body-connected-layout/two-factory-only-unit-whole-upperplans.json",
+      "sha256": "690443e04c5456c4044388253c9ecaa7a64c20cc5427d514e8b154e98d8c828d"
+    },
+    "soldered_pair": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-front-insert-correction/place-audio-bay.py",
+      "sha256": "f2084fea8b8d012f179e016bd83554324ab23928f22981aa74e34cdac376fbd5"
+    },
+    "audio": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-open-front-assembly/audio-connections.json",
+      "sha256": "06f132bb1319386aa43362ba4dc7a34f93ac365dfb85f92c638556940cadc05b"
+    },
+    "audio_ports": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-open-front-assembly/audio-port-binding.json",
+      "sha256": "192f58380730d201e5fed094407deb56107471eb96e2bc1d417d1c8771d5b5ad"
+    },
+    "optics": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day18-optical-local-apertures/optical-local-apertures.json",
+      "sha256": "fff98535f1588adc4b0908d3582ffc61d53a57588deba641a698715ce449361d"
+    },
+    "mass_note": {
+      "path": "hardware/bom/overnight-mass-source-note-2026-11-17.md",
+      "sha256": "6c969212171bc77ba6d936e0cd1f1c109dee3599080ee7cdd1042710c74838c6"
+    },
+    "mass_c12": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-whole-power-entry-and-full-CSI/rough-mass-readonly/coordinator-rough-load-estimate.json",
+      "sha256": "186650723c1818d9783d5f3be6b4b35cb4971706b9e72690112596c959418e21"
+    },
+    "mass_6a": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-low-light-whole-decision/coordinator-mass-and-load.json",
+      "sha256": "9abb17c7d1de2772855ab32ca67ecd6feef3d42ed050930ab7f6aba8fafd2201"
+    },
+    "mass_92a": {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day16-whole-power-entry-and-full-CSI/rough-mass-readonly/measurement-selection-and-source.json",
+      "sha256": "b960f587e6cc587cd8e748fc93727ff4acab5181d4f6fdbff90e55b61b238dd4"
+    },
+    "component_receipt": {
+      "path": "hardware/reference/component-selection-2026-09-22/README.md",
+      "sha256": "1016a6b4fb740b569f02524f9bf49c83d3b568ca59c481a255bed110bfc20205"
+    },
+    "respeaker_receipt": {
+      "path": "hardware/reference/head-electronics-2026-09-22/README.md",
+      "sha256": "3b5311437fca90814ae9e7dfe342883057b82118ab11849227cf59bb30f007a3"
+    }
+  }
+}

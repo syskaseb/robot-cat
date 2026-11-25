@@ -1,0 +1,61 @@
+{
+  "status": "CONDITIONAL_FACTORY_JR_PIGTAIL_PRESERVED",
+  "date_utc": "2026-09-28",
+  "servo_model": "TowerPro MG92B positional variant, not the MG-92B Robot continuous-rotation SKU",
+  "factory_plug": "JR universal S type, manufacturer statement; cavity orientation and wire colors to verify on delivered lot",
+  "factory_lead_nominal_mm": 250,
+  "mating_candidate": {
+    "part": "Pololu 2184 Servo Extension Cable, 12 inch, male-female, 22 AWG",
+    "quantity_connector_ends": 3,
+    "reason": "Premade male end mates with factory JR female without cutting the servo lead or hand-crimping tiny contacts; cut extension only after physical routing",
+    "extension_wire_awg": 22,
+    "unused_extension_female_end": "Keep or trim only after fit; not an additional service connector in the selected arrangement",
+    "polarization": "Beveled corners hinder but do not prevent reversed insertion; labels and unpowered pin check required",
+    "source": "https://www.pololu.com/product/2184"
+  },
+  "alternate_assembly_only": {
+    "part": "Pololu 1925 JR Connector Pack, Male",
+    "crimp_wire_range_awg": [22, 26],
+    "status": "not selected; needs compatible crimp tool and inspection"
+  },
+  "connectors": [
+    {
+      "id": "C_HY",
+      "location": "stationary head yaw-servo side, accessible before neck removal",
+      "pin_1": "G_AUX.3 via XB13, GND",
+      "pin_2": "F_HY.out via XB12, AUX6 V+",
+      "pin_3": "R1.2 via XS13, PWM5 logic",
+      "factory_lead_cut": false
+    },
+    {
+      "id": "C_HP",
+      "location": "moving pitch carrier, not removable rear shell",
+      "pin_1": "G_AUX.4 via XB23, GND",
+      "pin_2": "F_HP.out via XB22, AUX6 V+",
+      "pin_3": "R2.2 via XS23, PWM5 logic",
+      "factory_lead_cut": false
+    },
+    {
+      "id": "C_TY",
+      "location": "stationary tail support, accessible before bridge removal",
+      "pin_1": "G_TAIL.2 via XB33, GND",
+      "pin_2": "F_TY.out via XB32, AUX6 V+",
+      "pin_3": "R3.2 via XS33, PWM5 logic",
+      "factory_lead_cut": false
+    }
+  ],
+  "pin_order_basis": "JR convention: ground, center supply, signal; physical viewing orientation must be established on delivered mating pair",
+  "harness_power_mm2": 0.5,
+  "harness_signal_mm2": 0.14,
+  "transition": "The premade 22 AWG extension is not a replacement for nominal 0.5 mm2/AWG20 power or 0.14 mm2 signal harness. Cut only after actual routing, then make three insulated, mechanically restrained transitions outside a moving loop; splice method and actual cable/servo current qualification remain open.",
+  "mechanical_retention": "Connector must be restrained independently of the electrical contacts; actual mating envelope, wire exit, pull relief and hand access remain open",
+  "no_hot_plug": true,
+  "new_stls": 0,
+  "physical_pass": false,
+  "sources": [
+    "https://towerpro.com.tw/product/mg92b/",
+    "https://www.pololu.com/product/2184",
+    "https://www.pololu.com/product/1925",
+    "https://learn.sparkfun.com/tutorials/hobby-servo-tutorial/servo-motor-background"
+  ]
+}

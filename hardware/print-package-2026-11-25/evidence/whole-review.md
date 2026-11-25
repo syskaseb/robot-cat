@@ -1,0 +1,11 @@
+# Odbiór całego projektu WAVEGO-kota przed pierwszą przymiarką
+
+Zapis FreeCAD: `ab43ac577077ccfb38e6dbffff537d0356680bbfaf9c3454694bed9dd9b14f58`.
+
+**Wygląd.** Koordynator i Zeno porównali rzeczywiste ujęcia tego zapisu od przodu, od tyłu, z obu boków, z góry, od spodu i z dwóch skosów z robotem Oli. Wspólny obrys tworzą pysk, węższa talia, łuki barków i bioder oraz uniesiony ogon. Widać styk ruchomej szyi, cienką linię pokrywy zadu oraz oryginalną bazę i przeguby od spodu. Dla dwóch poprawionych otwarć sprawdzono 377 kierunków widzenia, bez widoku przez wnętrze. Próbki ciemnego pasa z obu boków przypisano drukowanym powierzchniom. Wygląd przyjęto dla prototypu WAVEGO.
+
+**Złożenie i ruch.** Sprawdzono osadzenie oddzielnych druków nośnika i dolnego płaszcza, zakotwienie przedniej ramy, drogę montażu Pi oraz wejście pełnego modelowego wtyku USB-C. Potwierdzono dostęp do otwartej blokady CSI przy osadzonym Pi. Dwa rzeczywiste wydruki z przodu i nową pokrywę sprawdzono względem całych modelowanych regionów taśmy CSI, ruchomego i odłożonego, w ustawieniu neutralnym oraz w czterech skrajnych kombinacjach yaw ±20° i pitch ±10°. W sprawdzonych fragmentach nie wykryto kontaktów. Ocena ruchu nie zastępuje sprawdzenia rzeczywistej taśmy i wtyków na złożonym robocie.
+
+**Zasilanie i złącza.** Zachowano części, fabryczne końce, ochronę i mapę 160 połączeń. Ścieżka otwarcia baterii korzysta z odłączania w osi wtyku XT60 i wyjęcia go ręcznie. Pierwsza przymiarka sprawdza cały klucz S0 i komplet M6/M10, obie żyły fabryczne baterii z końcami, pełną oprawę F0 oraz cztery MTA na ich właściwych mocowaniach. Przy otwartym korpusie osadź Pi, wsuń pełne USB-C i oba nadlewy USB z kompletem kabli, zamknij blokadę CSI. Zamknij pokrywy dopiero po sprawdzeniu realnego luzu taśmy, ręcznym przejściu zakresu głowy, ogona i nóg oraz kontroli osadzenia i wentylacji.
+
+**Zakres wyniku.** Zestaw druków obejmuje 62 modele na 82 sztuki i osobny kupon. Dziewięć wydruków zastąpiono, dodano dolny płaszcz przodu, a 52 modele z wydania 22 zachowano. Największy wymiar z rezerwą na brim i podpory wynosi 235,98 mm przy polu 256 × 256 × 256 mm. Rzeczywiste luzy, długości cięcia, dopasowanie, masa, nośność i chód sprawdza się po wydruku i montażu. Bez potwierdzenia fizycznego.

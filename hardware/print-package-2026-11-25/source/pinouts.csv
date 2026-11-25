@@ -1,0 +1,336 @@
+﻿component,kicad_ref,number,endpoint,name,net,type,basis
+AUX,U1000,VIN,AUX.VIN,VIN,N_AUX_VIN,passive,"{'device': 'AUX', 'sku': 'Pololu4092 D36V50F6', 'physical_pin': 'VIN', 'role': 'VIN', 'endpoint': 'AUX.VIN', 'view': 'Use printed pad NAME, not apparent left/right photo', 'evidence': 'https://www.pololu.com/product/4092', 'conditional_delivery': 'False'}"
+AUX,U1000,VOUT,AUX.VOUT,VOUT,AUX_6V,passive,"{'device': 'AUX', 'sku': 'Pololu4092 D36V50F6', 'physical_pin': 'VOUT', 'role': 'VOUT', 'endpoint': 'AUX.VOUT', 'view': 'Use printed pad NAME, not apparent left/right photo', 'evidence': 'https://www.pololu.com/product/4092', 'conditional_delivery': 'False'}"
+AUX,U1000,GND,AUX.GND,GND,G_SYS,passive,"{'device': 'AUX', 'sku': 'Pololu4092 D36V50F6', 'physical_pin': 'GND', 'role': 'GND', 'endpoint': 'AUX.GND', 'view': 'Use printed pad NAME, not apparent left/right photo', 'evidence': 'https://www.pololu.com/product/4092', 'conditional_delivery': 'False'}"
+AUX,U1000,EN_NC,AUX.EN_NC,EN_NC,,passive,{}
+AUX,U1000,PG_NC,AUX.PG_NC,PG_NC,,passive,{}
+AUX,U1000,VRP_NC,AUX.VRP_NC,VRP_NC,,passive,{}
+BAT,U1001,minus,BAT.minus,minus,G_SYS,passive,{}
+BAT,U1001,plus,BAT.plus,plus,N_BAT_plus,passive,{}
+BUS,U1002,D,BUS.D,D white,BUS_DATA,passive,"{'device': 'BUS', 'sku': 'Waveshare25514 BusServoAdapterA', 'physical_pin': 'H3.1', 'role': 'D white', 'endpoint': 'BUS.D', 'view': 'Manufacturer H3 numbering; switchB forUSB; power/DC/UART connectorsunused', 'evidence': 'hardware/reference/power-platform-2026-09-23/README.md', 'conditional_delivery': 'False'}"
+BUS,U1002,G,BUS.G,G black,G_SYS,passive,"{'device': 'BUS', 'sku': 'Waveshare25514 BusServoAdapterA', 'physical_pin': 'H3.3', 'role': 'G black', 'endpoint': 'BUS.G', 'view': 'Manufacturer H3 numbering; switchB forUSB; power/DC/UART connectorsunused', 'evidence': 'hardware/reference/power-platform-2026-09-23/README.md', 'conditional_delivery': 'False'}"
+BUS,U1002,USB_C.VBUS,BUS.USB_C.VBUS,USB_C.VBUS,MAIN_5V1,passive,{}
+BUS,U1002,USB_C.GND,BUS.USB_C.GND,USB_C.GND,G_SYS,passive,{}
+BUS,U1002,USB_C.D+,BUS.USB_C.D+,USB_C.D+,N_BUS_USB_C_D_,passive,{}
+BUS,U1002,USB_C.D-,BUS.USB_C.D-,USB_C.D-,N_BUS_USB_C_D_,passive,{}
+BUS,U1002,H3.2_V_NC,BUS.H3.2_V_NC,H3.2_V_NC,,passive,{}
+C1,C1,1,C1.1,1,LOGIC_3V3,passive,{}
+C1,C1,2,C1.2,2,G_SYS,passive,{}
+C2,C2,1,C2.1,1,PWM_5V,passive,{}
+C2,C2,2,C2.2,2,G_SYS,passive,{}
+C_HP,U1005,V+,C_HP.V+,V+ AUX6 through1Afuse,N_C_HP_V_,passive,"{'device': 'C_HP', 'sku': 'TowerProMG92B BotlandDNG24409', 'physical_pin': 'red centre', 'role': 'V+ AUX6 through1Afuse', 'endpoint': 'C_HP.V+', 'view': 'JR wire-side colour/role; centre redV+; alignKamami586761extension colour-for-colour', 'evidence': 'sources/mg92b-factory.jpg; https://www.adafruit.com/product/2307', 'conditional_delivery': 'True'}"
+C_HP,U1005,GND,C_HP.GND,GND powerreturn,G_SYS,passive,"{'device': 'C_HP', 'sku': 'TowerProMG92B BotlandDNG24409', 'physical_pin': 'brown', 'role': 'GND powerreturn', 'endpoint': 'C_HP.GND', 'view': 'JR wire-side colour/role; centre redV+; alignKamami586761extension colour-for-colour', 'evidence': 'sources/mg92b-factory.jpg; https://www.adafruit.com/product/2307', 'conditional_delivery': 'True'}"
+C_HP,U1005,PWM,C_HP.PWM,PWM afterU1+220ohm,N_C_HP_PWM,passive,"{'device': 'C_HP', 'sku': 'TowerProMG92B BotlandDNG24409', 'physical_pin': 'yellow/orange outer', 'role': 'PWM afterU1+220ohm', 'endpoint': 'C_HP.PWM', 'view': 'JR wire-side colour/role; centre redV+; alignKamami586761extension colour-for-colour', 'evidence': 'sources/mg92b-factory.jpg; https://www.adafruit.com/product/2307', 'conditional_delivery': 'True'}"
+C_HY,U1006,V+,C_HY.V+,V+ AUX6 through1Afuse,N_C_HY_V_,passive,"{'device': 'C_HY', 'sku': 'TowerProMG92B BotlandDNG24409', 'physical_pin': 'red centre', 'role': 'V+ AUX6 through1Afuse', 'endpoint': 'C_HY.V+', 'view': 'JR wire-side colour/role; centre redV+; alignKamami586761extension colour-for-colour', 'evidence': 'sources/mg92b-factory.jpg; https://www.adafruit.com/product/2307', 'conditional_delivery': 'True'}"
+C_HY,U1006,GND,C_HY.GND,GND powerreturn,G_SYS,passive,"{'device': 'C_HY', 'sku': 'TowerProMG92B BotlandDNG24409', 'physical_pin': 'brown', 'role': 'GND powerreturn', 'endpoint': 'C_HY.GND', 'view': 'JR wire-side colour/role; centre redV+; alignKamami586761extension colour-for-colour', 'evidence': 'sources/mg92b-factory.jpg; https://www.adafruit.com/product/2307', 'conditional_delivery': 'True'}"
+C_HY,U1006,PWM,C_HY.PWM,PWM afterU1+220ohm,N_C_HY_PWM,passive,"{'device': 'C_HY', 'sku': 'TowerProMG92B BotlandDNG24409', 'physical_pin': 'yellow/orange outer', 'role': 'PWM afterU1+220ohm', 'endpoint': 'C_HY.PWM', 'view': 'JR wire-side colour/role; centre redV+; alignKamami586761extension colour-for-colour', 'evidence': 'sources/mg92b-factory.jpg; https://www.adafruit.com/product/2307', 'conditional_delivery': 'True'}"
+C_IN,U1007,1,C_IN.1,1,N_C_IN_1,passive,{}
+C_IN,U1007,2,C_IN.2,2,G_SYS,passive,{}
+C_OUT,U1008,1,C_OUT.1,1,PWM_5V,passive,{}
+C_OUT,U1008,2,C_OUT.2,2,G_SYS,passive,{}
+C_TY,U1009,V+,C_TY.V+,V+ AUX6 through1Afuse,N_C_TY_V_,passive,"{'device': 'C_TY', 'sku': 'TowerProMG92B BotlandDNG24409', 'physical_pin': 'red centre', 'role': 'V+ AUX6 through1Afuse', 'endpoint': 'C_TY.V+', 'view': 'JR wire-side colour/role; centre redV+; alignKamami586761extension colour-for-colour', 'evidence': 'sources/mg92b-factory.jpg; https://www.adafruit.com/product/2307', 'conditional_delivery': 'True'}"
+C_TY,U1009,GND,C_TY.GND,GND powerreturn,G_SYS,passive,"{'device': 'C_TY', 'sku': 'TowerProMG92B BotlandDNG24409', 'physical_pin': 'brown', 'role': 'GND powerreturn', 'endpoint': 'C_TY.GND', 'view': 'JR wire-side colour/role; centre redV+; alignKamami586761extension colour-for-colour', 'evidence': 'sources/mg92b-factory.jpg; https://www.adafruit.com/product/2307', 'conditional_delivery': 'True'}"
+C_TY,U1009,PWM,C_TY.PWM,PWM afterU1+220ohm,N_C_TY_PWM,passive,"{'device': 'C_TY', 'sku': 'TowerProMG92B BotlandDNG24409', 'physical_pin': 'yellow/orange outer', 'role': 'PWM afterU1+220ohm', 'endpoint': 'C_TY.PWM', 'view': 'JR wire-side colour/role; centre redV+; alignKamami586761extension colour-for-colour', 'evidence': 'sources/mg92b-factory.jpg; https://www.adafruit.com/product/2307', 'conditional_delivery': 'True'}"
+D_FL,U1010,1,D_FL.1,1,BUS_DATA,passive,{}
+D_FL,U1010,2,D_FL.2,2,BUS_DATA,passive,{}
+D_FL,U1010,3,D_FL.3,3,BUS_DATA,passive,{}
+D_FL,U1010,4,D_FL.4,4,BUS_DATA,passive,{}
+D_FL,U1010,5,D_FL.5,5,BUS_DATA,passive,{}
+D_FR,U1011,1,D_FR.1,1,BUS_DATA,passive,{}
+D_FR,U1011,2,D_FR.2,2,BUS_DATA,passive,{}
+D_FR,U1011,3,D_FR.3,3,BUS_DATA,passive,{}
+D_FR,U1011,4,D_FR.4,4,BUS_DATA,passive,{}
+D_FR,U1011,5,D_FR.5,5,BUS_DATA,passive,{}
+D_RL,U1012,5,D_RL.5,5,BUS_DATA,passive,{}
+D_RL,U1012,2,D_RL.2,2,BUS_DATA,passive,{}
+D_RL,U1012,3,D_RL.3,3,BUS_DATA,passive,{}
+D_RL,U1012,4,D_RL.4,4,BUS_DATA,passive,{}
+D_RL,U1012,1,D_RL.1,1,BUS_DATA,passive,{}
+D_RR,U1013,1,D_RR.1,1,BUS_DATA,passive,{}
+D_RR,U1013,5,D_RR.5,5,BUS_DATA,passive,{}
+D_RR,U1013,2,D_RR.2,2,BUS_DATA,passive,{}
+D_RR,U1013,3,D_RR.3,3,BUS_DATA,passive,{}
+D_RR,U1013,4,D_RR.4,4,BUS_DATA,passive,{}
+F0,F0,in,F0.in,in,N_BAT_plus,passive,{}
+F0,F0,out,F0.out,out,N_F0_out,passive,{}
+FL1,FL1,D,FL1.D,DATA,BUS_DATA,passive,"{'device': 'FL1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'FL1.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FL1,FL1,G,FL1.G,GND powerreturn,G_SYS,passive,"{'device': 'FL1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'FL1.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FL1,FL1,V,FL1.V,V+ individual4Afuse,N_FL1_V,passive,"{'device': 'FL1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'FL1.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FL2,FL2,D,FL2.D,DATA,BUS_DATA,passive,"{'device': 'FL2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'FL2.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FL2,FL2,G,FL2.G,GND powerreturn,G_SYS,passive,"{'device': 'FL2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'FL2.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FL2,FL2,V,FL2.V,V+ individual4Afuse,N_FL2_V,passive,"{'device': 'FL2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'FL2.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FL3,FL3,D,FL3.D,DATA,BUS_DATA,passive,"{'device': 'FL3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'FL3.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FL3,FL3,G,FL3.G,GND powerreturn,G_SYS,passive,"{'device': 'FL3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'FL3.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FL3,FL3,V,FL3.V,V+ individual4Afuse,N_FL3_V,passive,"{'device': 'FL3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'FL3.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FL_G,U1018,2,FL_G.2,2,G_SYS,passive,{}
+FL_G,U1018,3,FL_G.3,3,G_SYS,passive,{}
+FL_G,U1018,4,FL_G.4,4,G_SYS,passive,{}
+FL_G,U1018,1,FL_G.1,1,G_SYS,passive,{}
+FL_G,U1018,5,FL_G.5,5,G_SYS,passive,{}
+FL_P,U1019,2,FL_P.2,2,N_FL_P_1,passive,{}
+FL_P,U1019,3,FL_P.3,3,N_FL_P_1,passive,{}
+FL_P,U1019,4,FL_P.4,4,N_FL_P_1,passive,{}
+FL_P,U1019,1,FL_P.1,1,N_FL_P_1,passive,{}
+FL_P,U1019,5,FL_P.5,5,N_FL_P_1,passive,{}
+FR1,FR1,D,FR1.D,DATA,BUS_DATA,passive,"{'device': 'FR1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'FR1.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FR1,FR1,G,FR1.G,GND powerreturn,G_SYS,passive,"{'device': 'FR1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'FR1.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FR1,FR1,V,FR1.V,V+ individual4Afuse,N_FR1_V,passive,"{'device': 'FR1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'FR1.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FR2,FR2,D,FR2.D,DATA,BUS_DATA,passive,"{'device': 'FR2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'FR2.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FR2,FR2,G,FR2.G,GND powerreturn,G_SYS,passive,"{'device': 'FR2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'FR2.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FR2,FR2,V,FR2.V,V+ individual4Afuse,N_FR2_V,passive,"{'device': 'FR2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'FR2.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FR3,FR3,D,FR3.D,DATA,BUS_DATA,passive,"{'device': 'FR3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'FR3.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FR3,FR3,G,FR3.G,GND powerreturn,G_SYS,passive,"{'device': 'FR3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'FR3.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FR3,FR3,V,FR3.V,V+ individual4Afuse,N_FR3_V,passive,"{'device': 'FR3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'FR3.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+FR_G,U1023,2,FR_G.2,2,G_SYS,passive,{}
+FR_G,U1023,3,FR_G.3,3,G_SYS,passive,{}
+FR_G,U1023,4,FR_G.4,4,G_SYS,passive,{}
+FR_G,U1023,5,FR_G.5,5,G_SYS,passive,{}
+FR_G,U1023,1,FR_G.1,1,G_SYS,passive,{}
+FR_P,U1024,2,FR_P.2,2,N_FR_P_1,passive,{}
+FR_P,U1024,3,FR_P.3,3,N_FR_P_1,passive,{}
+FR_P,U1024,4,FR_P.4,4,N_FR_P_1,passive,{}
+FR_P,U1024,1,FR_P.1,1,N_FR_P_1,passive,{}
+FR_P,U1024,5,FR_P.5,5,N_FR_P_1,passive,{}
+F_AUX,U1025,in,F_AUX.in,in,P_REAR,passive,{}
+F_AUX,U1025,out,F_AUX.out,out,N_AUX_VIN,passive,{}
+F_FL,U1026,out,F_FL.out,out,N_FL_P_1,passive,{}
+F_FL,U1026,in,F_FL.in,in,P_FRONT,passive,{}
+F_FL1,U1027,out,F_FL1.out,out,N_FL1_V,passive,{}
+F_FL1,U1027,in,F_FL1.in,in,N_FL_P_1,passive,{}
+F_FL2,U1028,out,F_FL2.out,out,N_FL2_V,passive,{}
+F_FL2,U1028,in,F_FL2.in,in,N_FL_P_1,passive,{}
+F_FL3,U1029,out,F_FL3.out,out,N_FL3_V,passive,{}
+F_FL3,U1029,in,F_FL3.in,in,N_FL_P_1,passive,{}
+F_FR,U1030,out,F_FR.out,out,N_FR_P_1,passive,{}
+F_FR,U1030,in,F_FR.in,in,P_FRONT,passive,{}
+F_FR1,U1031,out,F_FR1.out,out,N_FR1_V,passive,{}
+F_FR1,U1031,in,F_FR1.in,in,N_FR_P_1,passive,{}
+F_FR2,U1032,out,F_FR2.out,out,N_FR2_V,passive,{}
+F_FR2,U1032,in,F_FR2.in,in,N_FR_P_1,passive,{}
+F_FR3,U1033,out,F_FR3.out,out,N_FR3_V,passive,{}
+F_FR3,U1033,in,F_FR3.in,in,N_FR_P_1,passive,{}
+F_HP,U1034,in,F_HP.in,in,AUX_6V,passive,{}
+F_HP,U1034,out,F_HP.out,out,N_C_HP_V_,passive,{}
+F_HY,U1035,in,F_HY.in,in,AUX_6V,passive,{}
+F_HY,U1035,out,F_HY.out,out,N_C_HY_V_,passive,{}
+F_PI,U1036,in,F_PI.in,in,P_SYS,passive,{}
+F_PI,U1036,out,F_PI.out,out,N_F_PI_out,passive,{}
+F_PWM,U1037,in,F_PWM.in,in,P_REAR,passive,{}
+F_PWM,U1037,out,F_PWM.out,out,N_C_IN_1,passive,{}
+F_RL,U1038,in,F_RL.in,in,P_REAR,passive,{}
+F_RL,U1038,out,F_RL.out,out,N_F_RL_out,passive,{}
+F_RL1,U1039,in,F_RL1.in,in,N_F_RL_out,passive,{}
+F_RL1,U1039,out,F_RL1.out,out,N_F_RL1_out,passive,{}
+F_RL2,U1040,in,F_RL2.in,in,N_F_RL_out,passive,{}
+F_RL2,U1040,out,F_RL2.out,out,N_F_RL2_out,passive,{}
+F_RL3,U1041,in,F_RL3.in,in,N_F_RL_out,passive,{}
+F_RL3,U1041,out,F_RL3.out,out,N_F_RL3_out,passive,{}
+F_RR,U1042,in,F_RR.in,in,P_REAR,passive,{}
+F_RR,U1042,out,F_RR.out,out,N_F_RR_out,passive,{}
+F_RR1,U1043,in,F_RR1.in,in,N_F_RR_out,passive,{}
+F_RR1,U1043,out,F_RR1.out,out,N_F_RR1_out,passive,{}
+F_RR2,U1044,in,F_RR2.in,in,N_F_RR_out,passive,{}
+F_RR2,U1044,out,F_RR2.out,out,N_F_RR2_out,passive,{}
+F_RR3,U1045,in,F_RR3.in,in,N_F_RR_out,passive,{}
+F_RR3,U1045,out,F_RR3.out,out,N_F_RR3_out,passive,{}
+F_TY,U1046,in,F_TY.in,in,AUX_6V,passive,{}
+F_TY,U1046,out,F_TY.out,out,N_C_TY_V_,passive,{}
+G1,G1,2,G1.2,2,G_SYS,passive,{}
+G1,G1,5,G1.5,5,G_SYS,passive,{}
+G1,G1,3,G1.3,3,G_SYS,passive,{}
+G1,G1,1,G1.1,1,G_SYS,passive,{}
+G1,G1,4,G1.4,4,G_SYS,passive,{}
+G2,G2,4,G2.4,4,G_SYS,passive,{}
+G2,G2,1,G2.1,1,G_SYS,passive,{}
+G2,G2,2,G2.2,2,G_SYS,passive,{}
+G2,G2,3,G2.3,3,G_SYS,passive,{}
+G2,G2,5,G2.5,5,G_SYS,passive,{}
+G_AUX,U1049,2,G_AUX.2,2,G_SYS,passive,{}
+G_AUX,U1049,1,G_AUX.1,1,G_SYS,passive,{}
+G_AUX,U1049,5,G_AUX.5,5,G_SYS,passive,{}
+G_AUX,U1049,4,G_AUX.4,4,G_SYS,passive,{}
+G_AUX,U1049,3,G_AUX.3,3,G_SYS,passive,{}
+G_TAIL,U1050,1,G_TAIL.1,1,G_SYS,passive,{}
+G_TAIL,U1050,5,G_TAIL.5,5,G_SYS,passive,{}
+G_TAIL,U1050,4,G_TAIL.4,4,G_SYS,passive,{}
+G_TAIL,U1050,3,G_TAIL.3,3,G_SYS,passive,{}
+G_TAIL,U1050,2,G_TAIL.2,2,G_SYS,passive,{}
+JPWM_MODULE,U1051,1,JPWM_MODULE.1,PWM_REG_IN red,N_C_IN_1,passive,"{'device': 'JPWM_MODULE', 'sku': '430200201', 'physical_pin': '1', 'role': 'PWM_REG_IN red', 'endpoint': 'JPWM_MODULE.1', 'view': 'Molded cavity numbers on each housing; opposite faces mirror; no left/right rule', 'evidence': 'hardware/electronics/full-cat/pwm-complete-e2-r1/interface.json', 'conditional_delivery': 'True'}"
+JPWM_MODULE,U1051,2,JPWM_MODULE.2,G_SYS black,G_SYS,passive,"{'device': 'JPWM_MODULE', 'sku': '430200201', 'physical_pin': '2', 'role': 'G_SYS black', 'endpoint': 'JPWM_MODULE.2', 'view': 'Molded cavity numbers on each housing; opposite faces mirror; no left/right rule', 'evidence': 'hardware/electronics/full-cat/pwm-complete-e2-r1/interface.json', 'conditional_delivery': 'True'}"
+JPWM_SOURCE,U1052,1,JPWM_SOURCE.1,PWM_REG_IN red,N_C_IN_1,passive,"{'device': 'JPWM_SOURCE', 'sku': '430250200', 'physical_pin': '1', 'role': 'PWM_REG_IN red', 'endpoint': 'JPWM_SOURCE.1', 'view': 'Molded cavity numbers on each housing; opposite faces mirror; no left/right rule', 'evidence': 'hardware/electronics/full-cat/pwm-complete-e2-r1/interface.json', 'conditional_delivery': 'True'}"
+JPWM_SOURCE,U1052,2,JPWM_SOURCE.2,G_SYS black,G_SYS,passive,"{'device': 'JPWM_SOURCE', 'sku': '430250200', 'physical_pin': '2', 'role': 'G_SYS black', 'endpoint': 'JPWM_SOURCE.2', 'view': 'Molded cavity numbers on each housing; opposite faces mirror; no left/right rule', 'evidence': 'hardware/electronics/full-cat/pwm-complete-e2-r1/interface.json', 'conditional_delivery': 'True'}"
+MAIN,U1053,GND,MAIN.GND,GND,G_SYS,passive,"{'device': 'MAIN', 'sku': 'Pololu4853 D30V33MAL', 'physical_pin': 'GND', 'role': 'GND', 'endpoint': 'MAIN.GND', 'view': 'Use printed pad NAME, not apparent left/right photo', 'evidence': 'https://www.pololu.com/product/4853', 'conditional_delivery': 'False'}"
+MAIN,U1053,VIN,MAIN.VIN,VIN,N_F_PI_out,passive,"{'device': 'MAIN', 'sku': 'Pololu4853 D30V33MAL', 'physical_pin': 'VIN', 'role': 'VIN', 'endpoint': 'MAIN.VIN', 'view': 'Use printed pad NAME, not apparent left/right photo', 'evidence': 'https://www.pololu.com/product/4853', 'conditional_delivery': 'False'}"
+MAIN,U1053,VOUT,MAIN.VOUT,VOUT,MAIN_5V1,passive,"{'device': 'MAIN', 'sku': 'Pololu4853 D30V33MAL', 'physical_pin': 'VOUT', 'role': 'VOUT', 'endpoint': 'MAIN.VOUT', 'view': 'Use printed pad NAME, not apparent left/right photo', 'evidence': 'https://www.pololu.com/product/4853', 'conditional_delivery': 'False'}"
+MAIN,U1053,GND_OUT,MAIN.GND_OUT,GND_OUT,G_SYS,passive,{}
+P309,P309,minus,P309.minus,minus HOLD_GTECH_MAP,,passive,{'conditional_delivery': True}
+P309,P309,1S,P309.1S,1S HOLD_GTECH_MAP,,passive,{'conditional_delivery': True}
+P309,P309,2S,P309.2S,2S HOLD_GTECH_MAP,,passive,{'conditional_delivery': True}
+P309,P309,3S,P309.3S,3S HOLD_GTECH_MAP,,passive,{'conditional_delivery': True}
+PCA,U1055,CH0.S,PCA.CH0.S,CH0 signal,N_PCA_CH0_S,output,"{'device': 'PCA', 'sku': 'Adafruit815 revC', 'physical_pin': 'JP2.10', 'role': 'CH0 signal', 'endpoint': 'PCA.CH0.S', 'view': 'component-side; labelled channel0/1/2 S row; adjacent V+ NC', 'evidence': 'hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.sch', 'conditional_delivery': 'False'}"
+PCA,U1055,CH1.S,PCA.CH1.S,CH1 signal,N_PCA_CH1_S,output,"{'device': 'PCA', 'sku': 'Adafruit815 revC', 'physical_pin': 'JP2.7', 'role': 'CH1 signal', 'endpoint': 'PCA.CH1.S', 'view': 'component-side; labelled channel0/1/2 S row; adjacent V+ NC', 'evidence': 'hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.sch', 'conditional_delivery': 'False'}"
+PCA,U1055,CH2.S,PCA.CH2.S,CH2 signal,N_PCA_CH2_S,output,"{'device': 'PCA', 'sku': 'Adafruit815 revC', 'physical_pin': 'JP2.4', 'role': 'CH2 signal', 'endpoint': 'PCA.CH2.S', 'view': 'component-side; labelled channel0/1/2 S row; adjacent V+ NC', 'evidence': 'hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.sch', 'conditional_delivery': 'False'}"
+PCA,U1055,JP3.2,PCA.JP3.2,VCC,LOGIC_3V3,passive,"{'device': 'PCA', 'sku': 'Adafruit815 revC', 'physical_pin': 'JP3.2', 'role': 'VCC', 'endpoint': 'PCA.JP3.2', 'view': 'component-side Eagle XY [1.905, 9.017]mm', 'evidence': 'hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.sch', 'conditional_delivery': 'False'}"
+PCA,U1055,JP3.3,PCA.JP3.3,SDA,I2C_SDA,bidirectional,"{'device': 'PCA', 'sku': 'Adafruit815 revC', 'physical_pin': 'JP3.3', 'role': 'SDA', 'endpoint': 'PCA.JP3.3', 'view': 'component-side Eagle XY [1.905, 11.557]mm', 'evidence': 'hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.sch', 'conditional_delivery': 'False'}"
+PCA,U1055,JP3.4,PCA.JP3.4,SCL,I2C_SCL,bidirectional,"{'device': 'PCA', 'sku': 'Adafruit815 revC', 'physical_pin': 'JP3.4', 'role': 'SCL', 'endpoint': 'PCA.JP3.4', 'view': 'component-side Eagle XY [1.905, 14.097]mm', 'evidence': 'hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.sch', 'conditional_delivery': 'False'}"
+PCA,U1055,JP3.6,PCA.JP3.6,GND,G_SYS,passive,"{'device': 'PCA', 'sku': 'Adafruit815 revC', 'physical_pin': 'JP3.6', 'role': 'GND', 'endpoint': 'PCA.JP3.6', 'view': 'component-side Eagle XY [1.905, 19.177]mm', 'evidence': 'hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.sch', 'conditional_delivery': 'False'}"
+PCA,U1055,JP3.1,PCA.JP3.1,JP3.1,,passive,{}
+PCA,U1055,JP3.5,PCA.JP3.5,JP3.5,,passive,{}
+PI,U1056,H1,PI.H1,3V3,LOGIC_3V3,passive,"{'device': 'PI', 'sku': 'Raspberry Pi4B', 'physical_pin': '1', 'role': '3V3', 'endpoint': 'PI.H1', 'view': '40-pin PHYSICAL numbering; pin1 at square pad; mark housing, no5V pins2/4', 'evidence': 'hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json', 'conditional_delivery': 'False'}"
+PI,U1056,H3,PI.H3,BCM2 SDA,I2C_SDA,bidirectional,"{'device': 'PI', 'sku': 'Raspberry Pi4B', 'physical_pin': '3', 'role': 'BCM2 SDA', 'endpoint': 'PI.H3', 'view': '40-pin PHYSICAL numbering; pin1 at square pad; mark housing, no5V pins2/4', 'evidence': 'hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json', 'conditional_delivery': 'False'}"
+PI,U1056,H5,PI.H5,BCM3 SCL,I2C_SCL,bidirectional,"{'device': 'PI', 'sku': 'Raspberry Pi4B', 'physical_pin': '5', 'role': 'BCM3 SCL', 'endpoint': 'PI.H5', 'view': '40-pin PHYSICAL numbering; pin1 at square pad; mark housing, no5V pins2/4', 'evidence': 'hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json', 'conditional_delivery': 'False'}"
+PI,U1056,H11,PI.H11,BCM17 U1 /OE,OE_N,output,"{'device': 'PI', 'sku': 'Raspberry Pi4B', 'physical_pin': '11', 'role': 'BCM17 U1 /OE', 'endpoint': 'PI.H11', 'view': '40-pin PHYSICAL numbering; pin1 at square pad; mark housing, no5V pins2/4', 'evidence': 'hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json', 'conditional_delivery': 'False'}"
+PI,U1056,H6,PI.H6,GND,G_SYS,passive,"{'device': 'PI', 'sku': 'Raspberry Pi4B', 'physical_pin': '6', 'role': 'GND', 'endpoint': 'PI.H6', 'view': '40-pin PHYSICAL numbering; pin1 at square pad; mark housing, no5V pins2/4', 'evidence': 'hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json', 'conditional_delivery': 'False'}"
+PI,U1056,USB2_A.VBUS,PI.USB2_A.VBUS,USB2_A.VBUS,MAIN_5V1,passive,{}
+PI,U1056,USB2_A.GND,PI.USB2_A.GND,USB2_A.GND,G_SYS,passive,{}
+PI,U1056,USB2_A.D+,PI.USB2_A.D+,USB2_A.D+,N_BUS_USB_C_D_,passive,{}
+PI,U1056,USB2_A.D-,PI.USB2_A.D-,USB2_A.D-,N_BUS_USB_C_D_,passive,{}
+PI,U1056,H2_5V_NC,PI.H2_5V_NC,H2_5V_NC,,passive,{}
+PI,U1056,H4_5V_NC,PI.H4_5V_NC,H4_5V_NC,,passive,{}
+PI_USB_C,U1057,VBUS,PI_USB_C.VBUS,VBUS,MAIN_5V1,passive,{}
+PI_USB_C,U1057,GND,PI_USB_C.GND,GND,G_SYS,passive,{}
+POST_F0,U1058,1,POST_F0.1,1,N_F0_out,passive,{}
+POST_F0,U1058,2,POST_F0.2,2,N_F0_out,passive,{}
+P_AUX,U1059,2,P_AUX.2,2,AUX_6V,passive,{}
+P_AUX,U1059,1,P_AUX.1,1,AUX_6V,passive,{}
+P_AUX,U1059,3,P_AUX.3,3,AUX_6V,passive,{}
+P_AUX,U1059,4,P_AUX.4,4,AUX_6V,passive,{}
+P_AUX,U1059,5,P_AUX.5,5,AUX_6V,passive,{}
+P_FRONT,U1060,1,P_FRONT.1,1,P_FRONT,passive,{}
+P_FRONT,U1060,2,P_FRONT.2,2,P_FRONT,passive,{}
+P_FRONT,U1060,3,P_FRONT.3,3,P_FRONT,passive,{}
+P_FRONT,U1060,4,P_FRONT.4,4,P_FRONT,passive,{}
+P_FRONT,U1060,5,P_FRONT.5,5,P_FRONT,passive,{}
+P_REAR,U1061,5,P_REAR.5,5,P_REAR,passive,{}
+P_REAR,U1061,1,P_REAR.1,1,P_REAR,passive,{}
+P_REAR,U1061,4,P_REAR.4,4,P_REAR,passive,{}
+P_REAR,U1061,3,P_REAR.3,3,P_REAR,passive,{}
+P_REAR,U1061,2,P_REAR.2,2,P_REAR,passive,{}
+P_SYS,U1062,5,P_SYS.5,5,P_SYS,passive,{}
+P_SYS,U1062,1,P_SYS.1,1,P_SYS,passive,{}
+P_SYS,U1062,2,P_SYS.2,2,P_SYS,passive,{}
+P_SYS,U1062,3,P_SYS.3,3,P_SYS,passive,{}
+P_SYS,U1062,4,P_SYS.4,4,P_SYS,passive,{}
+R1,R1,1,R1.1,1,N_R1_1,passive,{}
+R1,R1,2,R1.2,2,N_C_HY_PWM,passive,{}
+R10,R10,1,R10.1,1,N_R10_1,passive,{}
+R10,R10,2,R10.2,2,G_SYS,passive,{}
+R11,R11,1,R11.1,1,N_R11_1,passive,{}
+R11,R11,2,R11.2,2,G_SYS,passive,{}
+R12,R12,1,R12.1,1,N_R12_1,passive,{}
+R12,R12,2,R12.2,2,G_SYS,passive,{}
+R13,R13,1,R13.1,1,N_R13_1,passive,{}
+R13,R13,2,R13.2,2,G_SYS,passive,{}
+R14,R14,1,R14.1,1,N_R14_1,passive,{}
+R14,R14,2,R14.2,2,G_SYS,passive,{}
+R15,R15,1,R15.1,1,OE_N,passive,{}
+R15,R15,2,R15.2,2,LOGIC_3V3,passive,{}
+R16,R16,1,R16.1,1,PWM_5V,passive,{}
+R16,R16,2,R16.2,2,G_SYS,passive,{}
+R2,R2,1,R2.1,1,N_R2_1,passive,{}
+R2,R2,2,R2.2,2,N_C_HP_PWM,passive,{}
+R3,R3,1,R3.1,1,N_R3_1,passive,{}
+R3,R3,2,R3.2,2,N_C_TY_PWM,passive,{}
+R4,R4,1,R4.1,1,N_PCA_CH0_S,passive,{}
+R4,R4,2,R4.2,2,G_SYS,passive,{}
+R5,R5,1,R5.1,1,N_PCA_CH1_S,passive,{}
+R5,R5,2,R5.2,2,G_SYS,passive,{}
+R6,R6,1,R6.1,1,N_PCA_CH2_S,passive,{}
+R6,R6,2,R6.2,2,G_SYS,passive,{}
+R7,R7,1,R7.1,1,N_C_HY_PWM,passive,{}
+R7,R7,2,R7.2,2,G_SYS,passive,{}
+R8,R8,1,R8.1,1,N_C_HP_PWM,passive,{}
+R8,R8,2,R8.2,2,G_SYS,passive,{}
+R9,R9,1,R9.1,1,N_C_TY_PWM,passive,{}
+R9,R9,2,R9.2,2,G_SYS,passive,{}
+RL1,RL1,D,RL1.D,DATA,BUS_DATA,passive,"{'device': 'RL1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'RL1.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RL1,RL1,V,RL1.V,V+ individual4Afuse,N_F_RL1_out,passive,"{'device': 'RL1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'RL1.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RL1,RL1,G,RL1.G,GND powerreturn,G_SYS,passive,"{'device': 'RL1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'RL1.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RL2,RL2,D,RL2.D,DATA,BUS_DATA,passive,"{'device': 'RL2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'RL2.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RL2,RL2,V,RL2.V,V+ individual4Afuse,N_F_RL2_out,passive,"{'device': 'RL2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'RL2.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RL2,RL2,G,RL2.G,GND powerreturn,G_SYS,passive,"{'device': 'RL2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'RL2.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RL3,RL3,D,RL3.D,DATA,BUS_DATA,passive,"{'device': 'RL3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'RL3.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RL3,RL3,V,RL3.V,V+ individual4Afuse,N_F_RL3_out,passive,"{'device': 'RL3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'RL3.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RL3,RL3,G,RL3.G,GND powerreturn,G_SYS,passive,"{'device': 'RL3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'RL3.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RL_G,U1082,4,RL_G.4,4,G_SYS,passive,{}
+RL_G,U1082,1,RL_G.1,1,G_SYS,passive,{}
+RL_G,U1082,2,RL_G.2,2,G_SYS,passive,{}
+RL_G,U1082,3,RL_G.3,3,G_SYS,passive,{}
+RL_G,U1082,5,RL_G.5,5,G_SYS,passive,{}
+RL_P,U1083,2,RL_P.2,2,N_F_RL_out,passive,{}
+RL_P,U1083,3,RL_P.3,3,N_F_RL_out,passive,{}
+RL_P,U1083,4,RL_P.4,4,N_F_RL_out,passive,{}
+RL_P,U1083,1,RL_P.1,1,N_F_RL_out,passive,{}
+RL_P,U1083,5,RL_P.5,5,N_F_RL_out,passive,{}
+RR1,RR1,D,RR1.D,DATA,BUS_DATA,passive,"{'device': 'RR1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'RR1.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RR1,RR1,V,RR1.V,V+ individual4Afuse,N_F_RR1_out,passive,"{'device': 'RR1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'RR1.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RR1,RR1,G,RR1.G,GND powerreturn,G_SYS,passive,"{'device': 'RR1', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'RR1.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RR2,RR2,D,RR2.D,DATA,BUS_DATA,passive,"{'device': 'RR2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'RR2.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RR2,RR2,V,RR2.V,V+ individual4Afuse,N_F_RR2_out,passive,"{'device': 'RR2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'RR2.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RR2,RR2,G,RR2.G,GND powerreturn,G_SYS,passive,"{'device': 'RR2', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'RR2.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RR3,RR3,D,RR3.D,DATA,BUS_DATA,passive,"{'device': 'RR3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'white', 'role': 'DATA', 'endpoint': 'RR3.D', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RR3,RR3,V,RR3.V,V+ individual4Afuse,N_F_RR3_out,passive,"{'device': 'RR3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'red', 'role': 'V+ individual4Afuse', 'endpoint': 'RR3.V', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RR3,RR3,G,RR3.G,GND powerreturn,G_SYS,passive,"{'device': 'RR3', 'sku': 'Waveshare22414 ST3215 12V', 'physical_pin': 'black', 'role': 'GND powerreturn', 'endpoint': 'RR3.G', 'view': 'Retain supplied keyed SERVO-end plug; wire-side colour identity, NOT H3 cavitynumber', 'evidence': 'sources/st3215-details-23.jpg + sources/st3215-factory-pack.jpg', 'conditional_delivery': 'True'}"
+RR_G,U1087,4,RR_G.4,4,G_SYS,passive,{}
+RR_G,U1087,1,RR_G.1,1,G_SYS,passive,{}
+RR_G,U1087,2,RR_G.2,2,G_SYS,passive,{}
+RR_G,U1087,3,RR_G.3,3,G_SYS,passive,{}
+RR_G,U1087,5,RR_G.5,5,G_SYS,passive,{}
+RR_P,U1088,2,RR_P.2,2,N_F_RR_out,passive,{}
+RR_P,U1088,3,RR_P.3,3,N_F_RR_out,passive,{}
+RR_P,U1088,4,RR_P.4,4,N_F_RR_out,passive,{}
+RR_P,U1088,1,RR_P.1,1,N_F_RR_out,passive,{}
+RR_P,U1088,5,RR_P.5,5,N_F_RR_out,passive,{}
+R_LOAD,U1089,1,R_LOAD.1,1,PWM_5V,passive,{}
+R_LOAD,U1089,2,R_LOAD.2,2,G_SYS,passive,{}
+S0,S0,out,S0.out,P_SYS.1 switchedoutput,P_SYS,passive,"{'device': 'S0', 'sku': 'HELLA6EK002843-002', 'physical_pin': 'out', 'role': 'P_SYS.1 switchedoutput', 'endpoint': 'S0.out', 'view': 'Project labels on the two switch terminals, not invented manufacturer cavity numbers', 'evidence': 'hardware/electronics/power-platform/manual-stop-p0.json', 'conditional_delivery': 'True'}"
+S0,S0,in,S0.in,F0.out input,N_F0_out,passive,"{'device': 'S0', 'sku': 'HELLA6EK002843-002', 'physical_pin': 'in', 'role': 'F0.out input', 'endpoint': 'S0.in', 'view': 'Project labels on the two switch terminals, not invented manufacturer cavity numbers', 'evidence': 'hardware/electronics/power-platform/manual-stop-p0.json', 'conditional_delivery': 'True'}"
+S1,S1,3,S1.3,front bank switchedOUT,P_FRONT,passive,"{'device': 'S1', 'sku': 'NKK S821 DPST ON-OFF', 'physical_pin': '3', 'role': 'front bank switchedOUT', 'endpoint': 'S1.3', 'view': 'Manufacturer numbered solder terminals; ON2-3 +5-6, OFF bothopen', 'evidence': 'hardware/electronics/power-platform/manual-stop-p0.json', 'conditional_delivery': 'False'}"
+S1,S1,6,S1.6,rear bank switchedOUT,P_REAR,passive,"{'device': 'S1', 'sku': 'NKK S821 DPST ON-OFF', 'physical_pin': '6', 'role': 'rear bank switchedOUT', 'endpoint': 'S1.6', 'view': 'Manufacturer numbered solder terminals; ON2-3 +5-6, OFF bothopen', 'evidence': 'hardware/electronics/power-platform/manual-stop-p0.json', 'conditional_delivery': 'False'}"
+S1,S1,2,S1.2,front bank IN,P_SYS,passive,"{'device': 'S1', 'sku': 'NKK S821 DPST ON-OFF', 'physical_pin': '2', 'role': 'front bank IN', 'endpoint': 'S1.2', 'view': 'Manufacturer numbered solder terminals; ON2-3 +5-6, OFF bothopen', 'evidence': 'hardware/electronics/power-platform/manual-stop-p0.json', 'conditional_delivery': 'False'}"
+S1,S1,5,S1.5,rear bank IN,P_SYS,passive,"{'device': 'S1', 'sku': 'NKK S821 DPST ON-OFF', 'physical_pin': '5', 'role': 'rear bank IN', 'endpoint': 'S1.5', 'view': 'Manufacturer numbered solder terminals; ON2-3 +5-6, OFF bothopen', 'evidence': 'hardware/electronics/power-platform/manual-stop-p0.json', 'conditional_delivery': 'False'}"
+SPLICE_PI,U1092,16,SPLICE_PI.16,16,N_F_PI_out,passive,{}
+SPLICE_PI,U1092,18,SPLICE_PI.18,18,N_F_PI_out,passive,{}
+U1,U1,23,U1.23,VCCB5V,PWM_5V,passive,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '23', 'role': 'VCCB5V', 'endpoint': 'U1.23', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,24,U1.24,VCCB5V,PWM_5V,passive,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '24', 'role': 'VCCB5V', 'endpoint': 'U1.24', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,3,U1.3,A1,N_PCA_CH0_S,input,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '3', 'role': 'A1', 'endpoint': 'U1.3', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,21,U1.21,B1,N_R1_1,tri_state,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '21', 'role': 'B1', 'endpoint': 'U1.21', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,4,U1.4,A2,N_PCA_CH1_S,input,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '4', 'role': 'A2', 'endpoint': 'U1.4', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,20,U1.20,B2,N_R2_1,tri_state,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '20', 'role': 'B2', 'endpoint': 'U1.20', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,5,U1.5,A3,N_PCA_CH2_S,input,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '5', 'role': 'A3', 'endpoint': 'U1.5', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,19,U1.19,B3,N_R3_1,tri_state,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '19', 'role': 'B3', 'endpoint': 'U1.19', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,1,U1.1,VCCA3V3,LOGIC_3V3,passive,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '1', 'role': 'VCCA3V3', 'endpoint': 'U1.1', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,2,U1.2,DIR3V3,LOGIC_3V3,input,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '2', 'role': 'DIR3V3', 'endpoint': 'U1.2', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,22,U1.22,/OE,OE_N,input,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '22', 'role': '/OE', 'endpoint': 'U1.22', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,11,U1.11,GND,G_SYS,passive,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '11', 'role': 'GND', 'endpoint': 'U1.11', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,12,U1.12,GND,G_SYS,passive,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '12', 'role': 'GND', 'endpoint': 'U1.12', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,13,U1.13,GND,G_SYS,passive,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '13', 'role': 'GND', 'endpoint': 'U1.13', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,6,U1.6,A4GND,G_SYS,input,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '6', 'role': 'A4GND', 'endpoint': 'U1.6', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,7,U1.7,A5GND,G_SYS,input,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '7', 'role': 'A5GND', 'endpoint': 'U1.7', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,8,U1.8,A6GND,G_SYS,input,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '8', 'role': 'A6GND', 'endpoint': 'U1.8', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,9,U1.9,A7GND,G_SYS,input,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '9', 'role': 'A7GND', 'endpoint': 'U1.9', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,10,U1.10,A8GND,G_SYS,input,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '10', 'role': 'A8GND', 'endpoint': 'U1.10', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,18,U1.18,B4,N_R10_1,tri_state,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '18', 'role': 'B4', 'endpoint': 'U1.18', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,17,U1.17,B5,N_R11_1,tri_state,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '17', 'role': 'B5', 'endpoint': 'U1.17', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,16,U1.16,B6,N_R12_1,tri_state,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '16', 'role': 'B6', 'endpoint': 'U1.16', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,15,U1.15,B7,N_R13_1,tri_state,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '15', 'role': 'B7', 'endpoint': 'U1.15', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U1,U1,14,U1.14,B8,N_R14_1,tri_state,"{'device': 'U1', 'sku': 'SN74LVC8T245PW', 'physical_pin': '14', 'role': 'B8', 'endpoint': 'U1.14', 'view': 'TI PW TOP view; notchup left1..12down right24..13down;5750700.65mm side', 'evidence': 'https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf', 'conditional_delivery': 'True'}"
+U_PWM,U1094,1,U_PWM.1,VOUT5V,PWM_5V,passive,"{'device': 'U_PWM', 'sku': 'L78L05ACZ TO92 bag', 'physical_pin': '1', 'role': 'VOUT5V', 'endpoint': 'U_PWM.1', 'view': 'BOTTOM lead-exit flat edgeup: left1/centre2/right3; oppositeview3/2/1', 'evidence': 'hardware/electronics/full-cat/f-pwm-axial-r1/regulator-pinout.json', 'conditional_delivery': 'False'}"
+U_PWM,U1094,3,U_PWM.3,VIN fused,N_C_IN_1,passive,"{'device': 'U_PWM', 'sku': 'L78L05ACZ TO92 bag', 'physical_pin': '3', 'role': 'VIN fused', 'endpoint': 'U_PWM.3', 'view': 'BOTTOM lead-exit flat edgeup: left1/centre2/right3; oppositeview3/2/1', 'evidence': 'hardware/electronics/full-cat/f-pwm-axial-r1/regulator-pinout.json', 'conditional_delivery': 'False'}"
+U_PWM,U1094,2,U_PWM.2,GND,G_SYS,passive,"{'device': 'U_PWM', 'sku': 'L78L05ACZ TO92 bag', 'physical_pin': '2', 'role': 'GND', 'endpoint': 'U_PWM.2', 'view': 'BOTTOM lead-exit flat edgeup: left1/centre2/right3; oppositeview3/2/1', 'evidence': 'hardware/electronics/full-cat/f-pwm-axial-r1/regulator-pinout.json', 'conditional_delivery': 'False'}"
+W026_Joint,U1095,factory,W026_Joint.factory,factory,N_FL_P_1,passive,{}
+W026_Joint,U1095,custom,W026_Joint.custom,custom,N_FL_P_1,passive,{}
+W037_Joint,U1096,factory,W037_Joint.factory,factory,N_FR_P_1,passive,{}
+W037_Joint,U1096,custom,W037_Joint.custom,custom,N_FR_P_1,passive,{}
+W041_Joint,U1097,factory,W041_Joint.factory,factory,P_FRONT,passive,{}
+W041_Joint,U1097,custom,W041_Joint.custom,custom,P_FRONT,passive,{}
+W042_Joint,U1098,factory,W042_Joint.factory,factory,P_FRONT,passive,{}
+W042_Joint,U1098,custom,W042_Joint.custom,custom,P_FRONT,passive,{}
+W044_Joint,U1099,factory,W044_Joint.factory,factory,P_REAR,passive,{}
+W044_Joint,U1099,custom,W044_Joint.custom,custom,P_REAR,passive,{}
+W045_Joint,U1100,factory,W045_Joint.factory,factory,N_F_RL_out,passive,{}
+W045_Joint,U1100,custom,W045_Joint.custom,custom,N_F_RL_out,passive,{}
+W052_Joint,U1101,factory,W052_Joint.factory,factory,P_REAR,passive,{}
+W052_Joint,U1101,custom,W052_Joint.custom,custom,P_REAR,passive,{}
+W053_Joint,U1102,factory,W053_Joint.factory,factory,N_F_RR_out,passive,{}
+W053_Joint,U1102,custom,W053_Joint.custom,custom,N_F_RR_out,passive,{}

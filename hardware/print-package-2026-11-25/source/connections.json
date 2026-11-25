@@ -1,0 +1,596 @@
+{
+  "schema": 1,
+  "status": "PROPOSED_FUNCTIONAL_PIN_PLAN_NOT_EXECUTABLE_WIRING_OR_POWER_APPROVAL",
+  "scope": "Only7selectedextensions. Base134wires unchanged; USB/CSI rows represent whole interfaces, not pin-level ERC nets.",
+  "base": {
+    "path": "hardware/electronics/kicad-current/design.json",
+    "sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
+    "wire_count": 134
+  },
+  "part_identity_source": {
+    "path": "robot-cat/hardware/archive/electronics-wavego-20261017/design.json",
+    "sha256": "839a080f94dc0de310d1d2b21b0f2803b36b500e9a4752591942bef60b92097f",
+    "reuse": "identities and primary interfaces ONLY, not old power/pin/length paths"
+  },
+  "modules": {
+    "EXT_IMU": "BNO085 Adafruit4754",
+    "EXT_TOF": "VL53L5CX Pololu3417",
+    "EXT_TOUCH": "Grove TTP223",
+    "EXT_AMP": "MAX98357A Adafruit3006",
+    "EXT_SPK": "Selected4ohm5W speaker",
+    "EXT_MIC": "ReSpeaker Lite USB",
+    "EXT_CAM": "Camera Module3 NoIR Wide"
+  },
+  "connections": [
+    {
+      "id": "EXT001",
+      "a": "LOCAL.LOGIC3V3",
+      "b": "EXT_IMU.VIN",
+      "signal": "3V3",
+      "physical_unit": "EXT_IMU",
+      "voltage_domain": "3V3",
+      "source": "IMU"
+    },
+    {
+      "id": "EXT002",
+      "a": "LOCAL.GND",
+      "b": "EXT_IMU.GND",
+      "signal": "GND",
+      "physical_unit": "EXT_IMU",
+      "voltage_domain": "3V3",
+      "source": "IMU"
+    },
+    {
+      "id": "EXT003",
+      "a": "PI.H23",
+      "b": "EXT_IMU.SCL",
+      "signal": "SPI0_SCK_BCM11",
+      "physical_unit": "EXT_IMU",
+      "voltage_domain": "3V3",
+      "source": "IMU"
+    },
+    {
+      "id": "EXT004",
+      "a": "PI.H19",
+      "b": "EXT_IMU.DI",
+      "signal": "SPI0_MOSI_BCM10",
+      "physical_unit": "EXT_IMU",
+      "voltage_domain": "3V3",
+      "source": "IMU"
+    },
+    {
+      "id": "EXT005",
+      "a": "EXT_IMU.SDA",
+      "b": "PI.H21",
+      "signal": "SPI0_MISO_BCM9",
+      "physical_unit": "EXT_IMU",
+      "voltage_domain": "3V3",
+      "source": "IMU"
+    },
+    {
+      "id": "EXT006",
+      "a": "PI.H24",
+      "b": "EXT_IMU.CS",
+      "signal": "SPI0_CE0_BCM8",
+      "physical_unit": "EXT_IMU",
+      "voltage_domain": "3V3",
+      "source": "IMU"
+    },
+    {
+      "id": "EXT007",
+      "a": "EXT_IMU.INT",
+      "b": "PI.H16",
+      "signal": "IMU_INT_BCM23",
+      "physical_unit": "EXT_IMU",
+      "voltage_domain": "3V3",
+      "source": "IMU"
+    },
+    {
+      "id": "EXT008",
+      "a": "PI.H18",
+      "b": "EXT_IMU.RST",
+      "signal": "IMU_RST_BCM24",
+      "physical_unit": "EXT_IMU",
+      "voltage_domain": "3V3",
+      "source": "IMU"
+    },
+    {
+      "id": "EXT009",
+      "a": "EXT_IMU.VIN",
+      "b": "EXT_IMU.P0",
+      "signal": "SPI_MODE_HIGH",
+      "physical_unit": "EXT_IMU_MODE",
+      "voltage_domain": "3V3",
+      "source": "IMU"
+    },
+    {
+      "id": "EXT010",
+      "a": "EXT_IMU.VIN",
+      "b": "EXT_IMU.P1",
+      "signal": "SPI_MODE_HIGH",
+      "physical_unit": "EXT_IMU_MODE",
+      "voltage_domain": "3V3",
+      "source": "IMU"
+    },
+    {
+      "id": "EXT011",
+      "a": "LOCAL.LOGIC3V3",
+      "b": "EXT_TOF.VIN",
+      "signal": "3V3",
+      "physical_unit": "EXT_TOF",
+      "voltage_domain": "3V3",
+      "source": "TOF"
+    },
+    {
+      "id": "EXT012",
+      "a": "LOCAL.GND",
+      "b": "EXT_TOF.GND",
+      "signal": "GND",
+      "physical_unit": "EXT_TOF",
+      "voltage_domain": "3V3",
+      "source": "TOF"
+    },
+    {
+      "id": "EXT013",
+      "a": "PI.H3",
+      "b": "EXT_TOF.SDA",
+      "signal": "I2C1_SDA_0x29",
+      "physical_unit": "EXT_TOF",
+      "voltage_domain": "3V3",
+      "source": "TOF"
+    },
+    {
+      "id": "EXT014",
+      "a": "PI.H5",
+      "b": "EXT_TOF.SCL",
+      "signal": "I2C1_SCL",
+      "physical_unit": "EXT_TOF",
+      "voltage_domain": "3V3",
+      "source": "TOF"
+    },
+    {
+      "id": "EXT015",
+      "a": "LOCAL.LOGIC3V3",
+      "b": "EXT_TOUCH.GROVE.3_VCC",
+      "signal": "3V3",
+      "physical_unit": "EXT_TOUCH",
+      "voltage_domain": "3V3",
+      "source": "TOUCH"
+    },
+    {
+      "id": "EXT016",
+      "a": "LOCAL.GND",
+      "b": "EXT_TOUCH.GROVE.4_GND",
+      "signal": "GND",
+      "physical_unit": "EXT_TOUCH",
+      "voltage_domain": "3V3",
+      "source": "TOUCH"
+    },
+    {
+      "id": "EXT017",
+      "a": "EXT_TOUCH.GROVE.1_SIG",
+      "b": "PI.H13",
+      "signal": "TOUCH_BCM27_NEW_PROJECT_ASSIGNMENT",
+      "physical_unit": "EXT_TOUCH",
+      "voltage_domain": "3V3",
+      "source": "TOUCH"
+    },
+    {
+      "id": "EXT018",
+      "a": "MAIN.VOUT",
+      "b": "EXT_AMP.VIN",
+      "signal": "MAIN_5V1",
+      "physical_unit": "EXT_AMP_PWR",
+      "voltage_domain": "5V1",
+      "source": "AMP"
+    },
+    {
+      "id": "EXT019",
+      "a": "MAIN.GND",
+      "b": "EXT_AMP.GND",
+      "signal": "GND",
+      "physical_unit": "EXT_AMP_PWR",
+      "voltage_domain": "5V1",
+      "source": "AMP"
+    },
+    {
+      "id": "EXT020",
+      "a": "PI.H12",
+      "b": "EXT_AMP.BCLK",
+      "signal": "I2S_BCLK_BCM18",
+      "physical_unit": "EXT_AMP_SIG",
+      "voltage_domain": "3V3",
+      "source": "I2S"
+    },
+    {
+      "id": "EXT021",
+      "a": "PI.H35",
+      "b": "EXT_AMP.LRC",
+      "signal": "I2S_LRCLK_BCM19",
+      "physical_unit": "EXT_AMP_SIG",
+      "voltage_domain": "3V3",
+      "source": "I2S"
+    },
+    {
+      "id": "EXT022",
+      "a": "PI.H40",
+      "b": "EXT_AMP.DIN",
+      "signal": "I2S_DATA_BCM21",
+      "physical_unit": "EXT_AMP_SIG",
+      "voltage_domain": "3V3",
+      "source": "I2S"
+    },
+    {
+      "id": "EXT023",
+      "a": "EXT_AMP.OUT+",
+      "b": "EXT_SPK.+",
+      "signal": "BTL_A_NOT_GND",
+      "physical_unit": "EXT_SPK",
+      "voltage_domain": "FLOATING_BTL",
+      "source": "AMP"
+    },
+    {
+      "id": "EXT024",
+      "a": "EXT_AMP.OUT-",
+      "b": "EXT_SPK.-",
+      "signal": "BTL_B_NOT_GND",
+      "physical_unit": "EXT_SPK",
+      "voltage_domain": "FLOATING_BTL",
+      "source": "AMP"
+    },
+    {
+      "id": "EXT025",
+      "a": "PI.USB2_B",
+      "b": "EXT_MIC.USB-C",
+      "signal": "USB_UAC2_CAPTURE_WHOLE_CABLE",
+      "physical_unit": "USB_AUDIO",
+      "voltage_domain": "USB5V_AND_DATA",
+      "source": "MIC"
+    },
+    {
+      "id": "EXT026",
+      "a": "PI.CAMERA_CSI15",
+      "b": "EXT_CAM.CSI15",
+      "signal": "CSI_WHOLE15_CABLE",
+      "physical_unit": "CSI_CAM",
+      "voltage_domain": "CSI3V3_AND_DATA",
+      "source": "CAM"
+    }
+  ],
+  "physical_units": {
+    "EXT_IMU": {
+      "cores": 8,
+      "movement": "stationary frame",
+      "installed_length_mm": null,
+      "cut_mm": null,
+      "slack_mm": null,
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "pi_signals": "Pololu1871 female crimp in existing1992; conditional five-spare-unit split below",
+        "fixed_supply": "Donau118-0/118-1 0.14mm2; existing source-selected fixed wiring"
+      }
+    },
+    "EXT_IMU_MODE": {
+      "cores": 2,
+      "movement": "local on board, P0/P1 high for SPI",
+      "installed_length_mm": null,
+      "cut_mm": null,
+      "slack_mm": null,
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "Donau118-0 0.14mm2 local soldered P0/P1-to-VIN; no new connector"
+      }
+    },
+    "EXT_TOF": {
+      "cores": 4,
+      "movement": "frame to yaw/pitch head",
+      "installed_length_mm": null,
+      "cut_mm": null,
+      "slack_mm": null,
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "HELU23302/23301/23308 0.5mm2 OD2.1; label separate SDA/SCL",
+        "source_minimum_flexible_bend_radius_mm": 31.5,
+        "termination_fit": "actual3417 pad/header and strain relief FIT2; no generic smallerR"
+      }
+    },
+    "EXT_TOUCH": {
+      "cores": 3,
+      "unused_core": 1,
+      "movement": "removable rail, preserve Grove factory end",
+      "installed_length_mm": null,
+      "cut_mm": null,
+      "slack_mm": null,
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "wholeGrove factoryend/4conductors3used, fourthNC; onePololuPi contact",
+        "delivered_cable_binding": "UNKNOWN"
+      }
+    },
+    "EXT_AMP_PWR": {
+      "cores": 2,
+      "movement": "stationary; masterchosen named soldered MAIN5V1branch proposal, actual pad/strain/protection unverified",
+      "installed_length_mm": null,
+      "cut_mm": null,
+      "slack_mm": null,
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "separateHELU23302/23301 0.5mm2 pair fromMAIN5V1",
+        "actual_MAIN_solder_land_and_protection": "FIT2_UNKNOWN; preserveW079W080K1474"
+      }
+    },
+    "EXT_AMP_SIG": {
+      "cores": 3,
+      "movement": "stationary",
+      "installed_length_mm": null,
+      "cut_mm": null,
+      "slack_mm": null,
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "threePololu1871 contacts atPi; stationary soldered ends atAMP"
+      }
+    },
+    "EXT_SPK": {
+      "cores": 2,
+      "movement": "stationary basket flange",
+      "installed_length_mm": null,
+      "cut_mm": null,
+      "slack_mm": null,
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "HELU0.5 pair, markOUTplus/OUTminus; neitherGND",
+        "speaker_ends": "FIT2_UNKNOWN"
+      }
+    },
+    "USB_AUDIO": {
+      "cores": null,
+      "movement": "removable rail; one whole independent USB-A to USB-C DATA cable, not BUS500",
+      "installed_length_mm": null,
+      "cut_mm": null,
+      "slack_mm": null,
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "independent whole USB-A-to-C DATA cable",
+        "delivered_unit": "UNKNOWN_NOT_BUS_USB500"
+      }
+    },
+    "CSI_CAM": {
+      "cores": 15,
+      "movement": "frame to yaw/pitch head; whole CSI15-to15 for Pi4, no cut",
+      "installed_length_mm": null,
+      "cut_mm": null,
+      "slack_mm": null,
+      "delivered_ends_verified": false,
+      "selected_material_proposal": {
+        "stock": "whole15-to15CSI forPi4, no cut",
+        "delivered_length_and_contact_side": "UNKNOWN_NO200MMCREDIT"
+      }
+    }
+  },
+  "pi_existing": {
+    "1": "LOGIC_3V3",
+    "3": "I2C1_SDA",
+    "5": "I2C1_SCL",
+    "6": "GND",
+    "11": "OE_N_BCM17_RETAINED"
+  },
+  "pi_new_project_assignments": {
+    "12": "I2S_BCLK_BCM18",
+    "13": "TOUCH_BCM27",
+    "16": "IMU_INT_BCM23",
+    "18": "IMU_RST_BCM24",
+    "19": "SPI_MOSI_BCM10",
+    "21": "SPI_MISO_BCM9",
+    "23": "SPI_SCK_BCM11",
+    "24": "SPI_CE0_BCM8",
+    "35": "I2S_LRCLK_BCM19",
+    "40": "I2S_DATA_BCM21"
+  },
+  "base_contract_override": {
+    "replace": "PI.J8 other35positions NC",
+    "with": "For this ADD7 proposal only, new H12/13/16/18/19/21/23/24/35/40 assigned; all other unused GPIO stay NC. H2/H4 remain unpowered NC. H11 /OE retained. Base file unmodified."
+  },
+  "shared_nodes": {
+    "LOCAL.LOGIC3V3": "ExistingPI.H1 function retained; named fixed soldered fanout proposal, actual land/insulation/strain FIT2",
+    "LOCAL.GND": "ExistingG_SYS function PI.H6/MAIN.GND retained; named fixed soldered fanout proposal, actual land/insulation/strain FIT2"
+  },
+  "unused_pins": [
+    "EXT_IMU.3Vo",
+    "EXT_IMU.BT",
+    "EXT_TOF.VDD",
+    "EXT_TOF.LPn",
+    "EXT_TOF.INT",
+    "EXT_TOF.I2C_RST",
+    "EXT_TOUCH.GROVE.2",
+    "EXT_AMP.GAIN",
+    "EXT_AMP.SD",
+    "EXT_MIC.EXT5V",
+    "EXT_MIC.SPK",
+    "EXT_MIC.HEADPHONES"
+  ],
+  "usb_assignment": {
+    "PI.USB2_A": "Retain existing lower black USB2 BUS plus selected USB500/Delock",
+    "PI.USB2_B": "NEW upper black USB2 audio further from Pi PCB; actual CAD connector/end binding UNKNOWN"
+  },
+  "power": {
+    "AMP": "MAIN_5V1 project5.10V output, upstream F_PI preserved. NOT AUX6V. F_PI input current is not output5V allowance. MAIN branch construction/gauge/termination UNKNOWN; no new splice/part/stock credit.",
+    "logic": "Pi3V3 BNO/ToF/Touch; ToF VIN3V3 keeps I2C pullups3V3. No 3Vo-to-supply connection.",
+    "budget": "UNKNOWN MAIN: Pi+BUS+USB_AUDIO+CSI+AMP;3V3: BNO+ToF+Touch. AMP maker recommends about800mA supply allowance at full output; actual selected-system load/thermal/voltage unmeasured.",
+    "authorized": false
+  },
+  "assembly": [
+    "Stationary IMU/AMP ends before restrictive rail closure; open shared bundle regions.",
+    "Whole CSI plus4wireToF across yaw/pitch with actual slack/anchors/edge protection.",
+    "MIC USB and TOUCH stay attached when rail opens; define parking and strain relief without imaginary unplug.",
+    "Speaker BTL pair neither end GND; close covers only after hand laying/unpowered checks."
+  ],
+  "retained": [
+    "All134basewire connections/protection/U1/PCA unchanged",
+    "MG92B factory250 plus selectedJR300 independent units",
+    "Four independent E2/JPWM precrimped225mm conductor units (conservative available220mm EACH), all specified factory ends; four leg MTA0100335 holders are separate",
+    "FHAC factory ends",
+    "K1474 USB-C power pair",
+    "BUS USB500/Delock"
+  ],
+  "unknowns": [
+    "Delivered module revisions/headers and USB_AUDIO/CSI length/plug bounds/contact direction.",
+    "Masterchosen named fixed soldered fanout and MAIN-to-AMP branch still need actual available lands/insulation/strain/protection and currentlayout length budgets; no unassigned terminal credit.",
+    "Current power budget/protection coordination before powered trials.",
+    "Current layout corridors/motion/perphysical length budgets; no oldguide length credits.",
+    "Five spare600mm GPIO units proposed as ten Pi-ended portions; BOTH routes/termination/slack/cutloss must fit each parent before humanphase2division. No actual cuts or offcut credit.",
+    "WholeUSB_AUDIO/Grove/CSI cable identities and physicalstock unconfirmed, not automaticpurchase."
+  ],
+  "sources": {
+    "IMU": "https://learn.adafruit.com/adafruit-9-dof-orientation-imu-fusion-breakout-bno085/pinouts",
+    "TOF": "https://www.pololu.com/product/3417",
+    "TOUCH": "https://wiki.seeedstudio.com/Grove-Touch_Sensor/",
+    "AMP": "https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp/pinouts",
+    "I2S": "https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp/raspberry-pi-wiring",
+    "MIC": "https://wiki.seeedstudio.com/reSpeaker_usb_v3/",
+    "CAM": "https://www.raspberrypi.com/documentation/accessories/camera.html#pinout-information",
+    "PI": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#pin-layout"
+  },
+  "source_receipts": [
+    "Lorentz1b4",
+    "Lorentz1b9",
+    {
+      "agent": "Lorentz",
+      "input": "01a1e26b-d426-7103-8c74-0b35fc3d75c3",
+      "status": "RECEIVED_READONLY_MATERIAL_AND_AFFECTED_BRANCH_FACTS",
+      "master_decision": "namedfixedsolderedfanout + conditional5spare600unit2portionallocation; no electricalnet/pin change"
+    }
+  ],
+  "physical_pass": false,
+  "installed_length_cut_slack": null,
+  "retained_factory_unit_binding": {
+    "scope": "Identity only, not current position/route/cut receipt",
+    "units": [
+      {
+        "wire": "XP02.source",
+        "sku": "2147612113",
+        "nominal_mm": 225,
+        "conservative_available_mm": 220,
+        "installed_length_cut_slack": null
+      },
+      {
+        "wire": "XP02.module",
+        "sku": "2147632113",
+        "nominal_mm": 225,
+        "conservative_available_mm": 220,
+        "installed_length_cut_slack": null
+      },
+      {
+        "wire": "XP03.source",
+        "sku": "2147611113",
+        "nominal_mm": 225,
+        "conservative_available_mm": 220,
+        "installed_length_cut_slack": null
+      },
+      {
+        "wire": "XP03.module",
+        "sku": "2147631113",
+        "nominal_mm": 225,
+        "conservative_available_mm": 220,
+        "installed_length_cut_slack": null
+      }
+    ],
+    "note": "These are four separate E2/JPWM contact-wire units, not four leg harnesses and not automatically two plastic plugs per conductor. No pooling/cuts/extra length credit.",
+    "source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json identity records only; current design JPWM_MODULE/SOURCE"
+  },
+  "other_retained_inline_couplers": {
+    "part": "WAGO221-2411",
+    "qty": 8,
+    "refs": [
+      "W026_Joint",
+      "W037_Joint",
+      "W041_Joint",
+      "W042_Joint",
+      "W044_Joint",
+      "W045_Joint",
+      "W052_Joint",
+      "W053_Joint"
+    ],
+    "scope": "Already selected and present in base graph; include in shared accessible bundle space/strain plan, not eight new custom cases."
+  },
+  "gpio_stock_allocation_proposal": {
+    "status": "PREFERRED_CONDITIONAL_PERPHYSICAL_PLAN_NOT_ACTUAL_CUT_OR_LENGTH_PASS",
+    "selected_source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+    "purchased_plan_units": 10,
+    "existing_base_units_preserved": 5,
+    "spare_units_proposed": 5,
+    "unit_type": "Pololu1871 brown26AWG600mm female-female factory-crimp lead",
+    "decision": "Use both original female ends of each of five spare units as two Pi-ended portions. One middle division only after actual paired routes measured; stripped new board ends. Preserve both factory contacts; no splice/extension/offcut pooling. Existing five base units unchanged.",
+    "pairs": [
+      {
+        "physical_unit": "GPIO_SPARE_1",
+        "pi_H_ends": [
+          "23",
+          "24"
+        ],
+        "nominal_parent_length_mm": 600,
+        "portion_route_lengths_mm": null,
+        "cut_loss_mm": null,
+        "acceptance": "sum of BOTH actual route+termination+necessary slack portions plus cut/strip loss <= verified delivered parent length; do not assume300 each",
+        "actual_cut_mm": null
+      },
+      {
+        "physical_unit": "GPIO_SPARE_2",
+        "pi_H_ends": [
+          "19",
+          "21"
+        ],
+        "nominal_parent_length_mm": 600,
+        "portion_route_lengths_mm": null,
+        "cut_loss_mm": null,
+        "acceptance": "sum of BOTH actual route+termination+necessary slack portions plus cut/strip loss <= verified delivered parent length; do not assume300 each",
+        "actual_cut_mm": null
+      },
+      {
+        "physical_unit": "GPIO_SPARE_3",
+        "pi_H_ends": [
+          "16",
+          "18"
+        ],
+        "nominal_parent_length_mm": 600,
+        "portion_route_lengths_mm": null,
+        "cut_loss_mm": null,
+        "acceptance": "sum of BOTH actual route+termination+necessary slack portions plus cut/strip loss <= verified delivered parent length; do not assume300 each",
+        "actual_cut_mm": null
+      },
+      {
+        "physical_unit": "GPIO_SPARE_4",
+        "pi_H_ends": [
+          "12",
+          "35"
+        ],
+        "nominal_parent_length_mm": 600,
+        "portion_route_lengths_mm": null,
+        "cut_loss_mm": null,
+        "acceptance": "sum of BOTH actual route+termination+necessary slack portions plus cut/strip loss <= verified delivered parent length; do not assume300 each",
+        "actual_cut_mm": null
+      },
+      {
+        "physical_unit": "GPIO_SPARE_5",
+        "pi_H_ends": [
+          "40",
+          "13"
+        ],
+        "nominal_parent_length_mm": 600,
+        "portion_route_lengths_mm": null,
+        "cut_loss_mm": null,
+        "acceptance": "sum of BOTH actual route+termination+necessary slack portions plus cut/strip loss <= verified delivered parent length; do not assume300 each",
+        "actual_cut_mm": null
+      }
+    ],
+    "if_not_fit": "KeepaffectedbindingOPEN, do not infer stockshortage or auto-buy; chooseonlyafteractualrouteandstockcheck"
+  },
+  "fanout_execution_proposal": {
+    "status": "MASTER_CHOSEN_FOR_PROTOTYPE_PLAN_UNBUILT_NEEDS_ACTUAL_LANDS_AND_INSULATION",
+    "logic": "Fixed soldered named branches fromexistingLOCAL.LOGIC3V3/GND. H1/H6 contacts retained; no inventedfreeWAGOterminal or doublewireinoccupiedchamber.",
+    "i2c": "Fixed named SDA/SCL branches fromexistingXL05/XL06 endpoints onPCA.JP3.3/.4, notNCJP4.",
+    "amp": "SeparateHELU0.5 pair fromactualMAIN.VOUT/GND, retainexistingW079W080K1474; verifyusableexistingland/clearance/strain/insulation/protection beforeassembly.",
+    "branch_location": "stationary accessible commonwiringregion beforecovers; nevermovinghinge",
+    "insulation_stock": "confirmalreadyselectedinsulation/heatshrinkavailable demand; do not debit allocatedFL3sleeves again",
+    "power_approval": false
+  }
+}
