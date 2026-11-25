@@ -10,24 +10,30 @@ pixi.lock merge=binary linguist-language=YAML linguist-generated=true -diff
 *.sh text eol=lf
 Dockerfile text eol=lf
 /tests/test_current_bus_routes.py text eol=lf
+
 # Generated PDFs are binary even when their first block contains no NUL byte.
 *.pdf binary
+
 # STL byte hashes are pinned by the selected prototype manifest, including
 # historical ASCII exports. Never normalize their bytes or merge as prose.
 /hardware/**/*.stl binary -eol
+
 # Simulation provenance hashes must survive Windows/Linux checkouts.
 tools/simulation/*.py text eol=lf
 tools/simulation/plugin/* text eol=lf
+
 # v33 evidence is checksummed byte-for-byte. Preserve OCCT's serialized BRep
 # (including kernel whitespace), and keep hashed JSON stable across platforms.
 hardware/skorupa/v33/recovery/*.brep binary
 hardware/skorupa/v33/*.json text eol=lf
+
 # v35 prototype decisions bind the raw JSON evidence with SHA256 as well as
 # binary CAD. Windows checkout must not invalidate these evidence chains.
 hardware/skorupa/v35/*.json text eol=lf
 hardware/skorupa/v35/rejected/*.json text eol=lf
 hardware/simulation/v35/*.json text eol=lf
 hardware/simulation/v35/trials/*.json text eol=lf
+
 # The modular hardware manifest hashes these sources byte-for-byte.
 .gitattributes text eol=lf
 /tools/electronics/w5_whole_connection_plan.py -text -eol
@@ -75,9 +81,11 @@ hardware/cad/**/*.json text eol=lf
 hardware/cad/studies/**/README.md text eol=lf
 hardware/bom/*.json text eol=lf
 hardware/releases/*.json text eol=lf
+
 # These saved CAD diagnostics hash exact JSON bytes, including their line endings.
 hardware/cad/studies/fuse-layout-repair-r1/*.json -text -eol
 hardware/cad/studies/battery-p0/current-cassette-service-r1/checks.json -text -eol
+
 # R17/R18 raw-byte manifests: preserve saved evidence across checkouts.
 hardware/cad/studies/aux-splice-shelf-r2/** -text -eol
 hardware/electronics/full-cat/xb11-upstream-route-r1/** -text -eol
@@ -124,6 +132,7 @@ tools/cad/head_wire_support_finish_r1.py text eol=lf
 tools/electronics/select_head_wire_support_r21.py text eol=lf
 tools/electronics/head_external_yaw_loop_r1.py text eol=lf
 tools/electronics/head_external_yaw_loop_r2.py text eol=lf
+
 # R22 raw-byte CAD and evidence must retain their pinned hashes on Windows.
 hardware/cad/studies/head-jr-support-r*/** -text -eol whitespace=cr-at-eol
 hardware/cad/studies/head-jr-support-r*/*.brep binary
@@ -140,6 +149,7 @@ tools/electronics/head_factory_lead_guard_r5_check.py text eol=lf
 tools/electronics/head_jr_support_package.py text eol=lf
 tools/electronics/head_jr_support_preview.py text eol=lf
 tools/electronics/select_head_jr_factory_r22.py text eol=lf
+
 # R23 exact-byte construction, exported meshes and route evidence.
 hardware/cad/studies/head-yaw-end-restraints-r*/** -text -eol whitespace=cr-at-eol
 hardware/cad/studies/head-yaw-end-restraints-r*/*.brep binary
@@ -176,11 +186,13 @@ hardware/manufacturing/one-batch-prototype-r35/** -text -eol whitespace=cr-at-eo
 tools/electronics/connection_map_e4_r1.py text eol=lf
 tools/electronics/e4_source_probe.py text eol=lf
 tools/electronics/test_connection_map_e4_r1.py text eol=lf
+
 # R36 physical harness recipes and evidence retain their hashed bytes.
 hardware/electronics/full-cat/body-harness-w5-r1/** -text -eol whitespace=cr-at-eol
 hardware/manufacturing/one-batch-prototype-r36/** -text -eol whitespace=cr-at-eol
 tools/electronics/body_harness_w5_r1.py text eol=lf
 tools/electronics/test_body_harness_w5_r1.py text eol=lf
+
 # R37 supported DATA geometry and exact-byte construction evidence.
 hardware/electronics/full-cat/body-data-bridges-r*/** -text -eol whitespace=cr-at-eol
 hardware/cad/studies/body-data-bridges-r*/** -text -eol whitespace=cr-at-eol
@@ -190,6 +202,7 @@ hardware/cad/studies/body-data-bridges-r*/*.brep binary
 tools/electronics/body_data_bridges*.py text eol=lf
 tools/electronics/test_body_data_bridges_r3.py text eol=lf
 tools/electronics/package_body_data_bridges_r37.py text eol=lf
+
 # R38 fixed ground bridge: preserve CAD/JSON hashes byte-for-byte.
 hardware/electronics/full-cat/body-ground*/** -text -eol whitespace=cr-at-eol
 hardware/cad/studies/body-ground*/** -text -eol whitespace=cr-at-eol
@@ -201,11 +214,13 @@ tools/electronics/complete_body_ground_bridge_checks_r3.py -text -eol
 tools/electronics/test_body_ground_bridge.py -text -eol
 tools/electronics/package_body_ground_bridge_r38.py -text -eol
 hardware/electronics/power-platform/open-deck-p0/layout.json -text -eol
+
 # R39 exact-byte materials, source PDFs and inherited package evidence.
 hardware/electronics/full-cat/assembly-materials-k3-r1/** -text -eol whitespace=cr-at-eol
 hardware/manufacturing/one-batch-prototype-r39/** -text -eol whitespace=cr-at-eol
 tools/electronics/package_assembly_materials_r39.py -text -eol
 tools/electronics/test_assembly_materials_r39.py -text -eol
+
 # R40 W060 source-preserving native interfaces and provisional soft contact.
 hardware/electronics/full-cat/main-input-return*/** -text -eol whitespace=cr-at-eol
 hardware/cad/studies/main-input-return*/** -text -eol whitespace=cr-at-eol
@@ -216,6 +231,7 @@ hardware/electronics/full-cat/main-input-return*/**/*.brep binary
 tools/electronics/main_input_return*.py -text -eol
 tools/electronics/test_main_input_return.py -text -eol
 tools/electronics/package_main_input_return_r40.py -text -eol
+
 # R41 independent G1 restraints: exact source bytes, no CAD mesh text conversion.
 hardware/electronics/full-cat/g1-exit-restraints*/** -text -eol whitespace=cr-at-eol
 hardware/cad/studies/g1-exit-restraints*/** -text -eol whitespace=cr-at-eol
@@ -225,6 +241,7 @@ hardware/manufacturing/one-batch-prototype-r41/** -text -eol whitespace=cr-at-eo
 tools/electronics/g1_exit_restraints*.py -text -eol
 tools/electronics/test_g1_exit_restraints.py -text -eol
 tools/electronics/package_g1_exit_restraints_r41.py -text -eol
+
 # R42 exact-byte tooling and explicitly unselected positive-input evidence.
 hardware/electronics/full-cat/main-positive*/** -text -eol whitespace=cr-at-eol
 hardware/electronics/full-cat/main-positive*/*.brep binary
@@ -236,6 +253,7 @@ tools/electronics/verify_main_positive_input_evidence.py -text -eol
 tools/electronics/termination_tools_k3_r1.py -text -eol
 tools/electronics/test_termination_tools_k3_r1.py -text -eol
 tools/electronics/package_termination_tools_r42.py -text -eol
+
 # R43 workshop set: keep source PDFs, generated recipe and package hashes exact.
 hardware/electronics/full-cat/assembly-tools-k3-r2/** -text -eol whitespace=cr-at-eol
 hardware/reference/assembly-tools-2026-10-02/** -text -eol
@@ -243,6 +261,7 @@ hardware/manufacturing/one-batch-prototype-r43/** -text -eol whitespace=cr-at-eo
 tools/electronics/assembly_tools_k3_r2.py -text -eol
 tools/electronics/test_assembly_tools_k3_r2.py -text -eol
 tools/electronics/package_assembly_tools_r43.py -text -eol
+
 # R44 complete MAIN input: exact native/check/card/package bytes.
 hardware/electronics/full-cat/main-positive-complete-r3/** -text -eol whitespace=cr-at-eol
 hardware/electronics/full-cat/main-positive-complete-r4/** -text -eol whitespace=cr-at-eol
@@ -284,16 +303,19 @@ hardware/cad/studies/main-positive-native-r1/*.brep binary
 hardware/cad/studies/main-positive-native-r2/*.brep binary
 hardware/cad/studies/main-positive-native-r2/*.stl binary
 hardware/electronics/full-cat/main-positive-complete-r8/*.brep binary
+
 # R46 fixed-fastener supplier allocation: preserve hashed source bytes.
 hardware/manufacturing/fixed-fastener-skus-r1/** -text -eol whitespace=cr-at-eol
 hardware/manufacturing/one-batch-prototype-r46/** -text -eol whitespace=cr-at-eol
 tools/manufacturing/fixed_fastener_skus_r1.py -text -eol
 tools/manufacturing/test_fixed_fastener_skus_r1.py -text -eol
+
 # R47 consolidated product identities: preserve manifest-pinned bytes.
 hardware/manufacturing/nonfastener-catalog-r1/** -text -eol whitespace=cr-at-eol
 hardware/manufacturing/one-batch-prototype-r47/** -text -eol whitespace=cr-at-eol
 tools/manufacturing/nonfastener_catalog_r1.py -text -eol
 tools/manufacturing/test_nonfastener_catalog_r1.py -text -eol
+
 # R48 source feed: keep manifest hashes stable on Windows checkouts.
 hardware/cad/studies/battery-feed-bridge-r1/** -text -eol
 hardware/cad/studies/battery-feed-return-finish-r2/** -text -eol
@@ -340,6 +362,7 @@ tools/manufacturing/test_nonfastener_offers_r3.py -text -eol
 hardware/electronics/full-cat/servo-fuse-side-bank-r[45]/** -text -eol whitespace=cr-at-eol
 hardware/electronics/full-cat/servo-fuse-side-bank-r[45]/*.brep binary
 tools/electronics/servo_fuse_side_bank_r[45].py -text -eol
+
 # Owned local fuse-bank construction: preserve pinned raw source bytes.
 tools/electronics/servo_fuse_side_bank_r[6789].py -text -eol
 tools/electronics/servo_fuse_bank_*.py -text -eol
@@ -364,6 +387,7 @@ hardware/electronics/full-cat/servo-fuse-side-bank-r[6789]/*.json -text -eol whi
 hardware/electronics/full-cat/servo-fuse-bank-*/*.json -text -eol whitespace=cr-at-eol
 hardware/electronics/full-cat/servo-fuse-cover-*/*.json -text -eol whitespace=cr-at-eol
 hardware/electronics/full-cat/servo-fuse-construction-*/*.json -text -eol whitespace=cr-at-eol
+
 # Current owned input grips, route correction and changed local interfaces.
 tools/electronics/servo_fuse_side_bank_r1[01].py -text -eol
 tools/electronics/servo_fuse_deck_native_r1.py -text -eol
@@ -382,6 +406,7 @@ hardware/cad/studies/servo-fuse-deck-*/** -text -eol
 hardware/cad/studies/servo-fuse-deck-*/*.FCStd binary
 hardware/cad/studies/servo-fuse-deck-*/*.brep binary
 hardware/cad/studies/servo-fuse-deck-*/*.stl binary
+
 # Current local WAGO access/connected release/parent feed construction.
 tools/electronics/servo_fuse_wago_access_r2.py -text -eol
 tools/electronics/servo_fuse_bank_connected_release_r[12].py -text -eol
@@ -437,6 +462,7 @@ tools/electronics/servo_fuse_construction_checkpoint_r9.py -text -eol
 hardware/electronics/full-cat/servo-fuse-parent-complete-layout-r6/* -text -eol
 hardware/electronics/full-cat/servo-fuse-parent-complete-layout-r6/*.brep binary
 hardware/electronics/full-cat/servo-fuse-parent-extension-materials-r2/* -text -eol
+
 tools/electronics/servo_fuse_construction_checkpoint_r10.py -text -eol
 tools/electronics/servo_fuse_main_space_plan_r1.py -text -eol
 tools/electronics/servo_fuse_main_space_plan_r2.py -text -eol
@@ -467,6 +493,7 @@ hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r13/* -text -eo
 hardware/cad/studies/servo-fuse-rolled-cradles-native-r3/* -text -eol
 hardware/cad/studies/servo-fuse-rolled-cradles-native-r4/* -text -eol
 hardware/cad/studies/servo-fuse-rolled-cradles-native-r7/* -text -eol
+
 tools/electronics/servo_fuse_front_*.py -text -eol
 tools/electronics/servo_fuse_fr_*.py -text -eol
 tools/electronics/servo_fuse_construction_checkpoint_r14.py -text -eol
@@ -576,6 +603,7 @@ hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r27/* -text -eo
 /hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r29/** -text -eol
 /tools/electronics/servo_fuse_bank_select_r2.py -text -eol
 /hardware/manufacturing/one-batch-prototype-r52/** -text -eol
+
 # Current prototype tests: keep hashed source bytes on Windows checkouts.
 /tests/test_current_aux_power.py text eol=lf
 /tests/test_current_body_harness_plan.py text eol=lf
@@ -590,10 +618,12 @@ hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r27/* -text -eo
 /tools/cad/package_current_board_mounts.py -text -eol
 /tests/test_current_board_mounts_package.py -text -eol
 /hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/current-M5-README.md -text -eol
+
 # Current M3 evidence is byte-hashed; preserve JSON, CAD and README bytes.
 /hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/** -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-phase1-score.json -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /tests/test_open_prototype_tail_package.py text eol=lf
+
 # Stage2 mounting evidence pins raw bytes, including Windows-generated JSON.
 # Preserve these serialized reports; autocrlf would break their SHA256 chain.
 /hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/*.json -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
@@ -635,6 +665,7 @@ hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r27/* -text -eo
 /tools/electronics/w5_remote_end*.py -text -eol
 /tools/electronics/w5_prototype_preparation*.py -text -eol
 /tools/electronics/w5_source_link_grips.py -text -eol
+/hardware/reference/hellermann-11102189-2026-10-05/** -text -eol
 /hardware/electronics/full-cat/w5-source-link-grips-r1/** -text -eol
 /hardware/electronics/full-cat/w5-source-link-grips-r1/*.brep -diff
 /hardware/electronics/full-cat/w5-source-link-grips-r2/** -text -eol
@@ -875,6 +906,7 @@ hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r27/* -text -eo
 /tools/electronics/w5_g1_saved_*.py -text -eol
 /tools/electronics/w5_fl_return_r52_r*.py -text -eol
 /hardware/electronics/full-cat/w5-g1-saved-*/** -text -eol
+
 # Byte-pinned W5 construction and compact installed-state cache.
 /tools/electronics/w5_selected_owners_r52.py -text -eol
 /tools/electronics/w5_body_selected_r52.py -text -eol
@@ -989,9 +1021,13 @@ hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r27/* -text -eo
 /hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r37/** -text -eol
 /hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r38/** -text -eol
 /hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r39/** -text -eol
+/hardware/manufacturing/one-batch-prototype-r52/** -text -eol
+
 # Preserve exact bytes of hash-pinned JOINT24 trial receipts.
 /hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/prototype-joint-endpoints-20261024* -text -eol
 /tools/cad/prototype_joint_endpoints_20261024.py -text -eol
+
 /hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/prototype-shared-galleries-20261025* -text -eol
+
 /tools/cad/prototype_shared_galleries_20261025.py -text -eol
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text
